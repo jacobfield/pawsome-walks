@@ -12,3 +12,5 @@
 10. In .NET project, installed SQLite with: `dotnet add package Microsoft.EntityFrameworkCore.Sqlite`
 11. In .NET project, installed .NET tools with: `dotnet add package Microsoft.EntityFrameworkCore.Tools`
 12. In .NET project, installed SQL Server with: `dotnet add package Microsoft.EntityFrameworkCore.SqlServer`
+
+# Set up production GitFlow version control
