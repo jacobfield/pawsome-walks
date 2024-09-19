@@ -4,3 +4,4 @@ GET {{Pawsome_WebAPI_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+http://localhost:5266/weatherforecast/
