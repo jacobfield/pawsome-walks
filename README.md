@@ -13,4 +13,6 @@
 11. In .NET project, installed .NET tools with: `dotnet add package Microsoft.EntityFrameworkCore.Tools`
 12. In .NET project, installed SQL Server with: `dotnet add package Microsoft.EntityFrameworkCore.SqlServer`
 
+13. Gather data, convert to JSON format
+
 # Set up production GitFlow version control
