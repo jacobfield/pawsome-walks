@@ -1,0 +1,34 @@
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\appsettings.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Pawsome WebAPI.exe
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Pawsome WebAPI.deps.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Pawsome WebAPI.runtimeconfig.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Pawsome WebAPI.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Pawsome WebAPI.pdb
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.csproj.AssemblyReference.cache
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.AssemblyInfoInputs.cache
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.AssemblyInfo.cs
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.csproj.CoreCompileInputs.cache
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.sourcelink.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.Pawsome WebAPI.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.build.Pawsome WebAPI.props
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Pawsome WebAPI.props
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Pawsome WebAPI.props
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\scopedcss\bundle\Pawsome WebAPI.styles.css
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome .D249F828.Up2Date
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\refint\Pawsome WebAPI.dll
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.pdb
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\Pawsome WebAPI.genruntimeconfig.cache
+C:\Users\JacobField\Desktop\Pawsome Walks\pawsome-walks\Pawsome WebAPI\obj\Debug\net8.0\ref\Pawsome WebAPI.dll
