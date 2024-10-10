@@ -1,5 +1,6 @@
 # Pawsome Walks Learning Project
 
+1. Phase 1:
 1. Initialized new React project via Vite with: `npm create vite@latest`
 2. Installed SQLite3, then installed in project with: `npm i sqlite`
 3. Installed .NET SDK via installer.
@@ -14,5 +15,7 @@
 12. In .NET project, installed SQL Server with: `dotnet add package Microsoft.EntityFrameworkCore.SqlServer`
 
 13. Gather data, convert to JSON format
+
+
 
 # Set up production GitFlow version control
