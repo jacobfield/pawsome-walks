@@ -2,7 +2,7 @@
   "walks": [
     {
       "walkId": 1,
-      "photoId": "walk1.jpg",
+      "photoPath": "walk1.jpg",
       "walkName": "Middleton-Top",
       "location": "Wirksworth, Matlock",
       "lat": 53.08269,
@@ -18,7 +18,7 @@
     },
     {
       "walkId": 2,
-      "photoId": "walk2.jpg",
+      "photoPath": "walk2.jpg",
       "walkName": "Stoney-Wood",
       "location": "Wirksworth, Matlock",
       "lat": 53.08504,
@@ -34,7 +34,7 @@
     },
     {
       "walkId": 3,
-      "photoId": "walk3.jpg",
+      "photoPath": "walk3.jpg",
       "walkName": "Crich Tramway Village",
       "location": "Matlock",
       "lat": 53.08631,
@@ -50,7 +50,7 @@
     },
     {
       "walkId": 4,
-      "photoId": "walk4.jpg",
+      "photoPath": "walk4.jpg",
       "walkName": "Shining Cliff Woods",
       "location": "Alderwasley, Belper",
       "lat": 53.024069,
@@ -66,7 +66,7 @@
     },
     {
       "walkId": 5,
-      "photoId": "walk5.jpg",
+      "photoPath": "walk5.jpg",
       "walkName": "Nine Ladies Stanton Moor",
       "location": "Birchover, Matlock",
       "lat": 53.14771,
@@ -82,7 +82,7 @@
     },
     {
       "walkId": 6,
-      "photoId": "walk6.jpg",
+      "photoPath": "walk6.jpg",
       "walkName": "Stanton Stroll",
       "location": "Matlock, Stanton in Peak",
       "lat": 53.17484,
@@ -98,7 +98,7 @@
     },
     {
       "walkId": 7,
-      "photoId": "walk7.jpg",
+      "photoPath": "walk7.jpg",
       "walkName": "Codnor Castle",
       "location": "Nottingham",
       "lat": 53.04148,
@@ -114,7 +114,7 @@
     },
     {
       "walkId": 8,
-      "photoId": "walk8.jpg",
+      "photoPath": "walk8.jpg",
       "walkName": "Elvaston Castle",
       "location": "Elvaston, Derby",
       "lat": 52.88613,
@@ -130,7 +130,7 @@
     },
     {
       "walkId": 9,
-      "photoId": "walk9.jpg",
+      "photoPath": "walk9.jpg",
       "walkName": "Portland Park",
       "location": "Kirkby in Ashfield, Nottingham",
       "lat": 53.10212,
@@ -146,7 +146,7 @@
     },
     {
       "walkId": 10,
-      "photoId": "walk10.jpg",
+      "photoPath": "walk10.jpg",
       "walkName": "Ticknall Limeyards and Calke Abbey Loop",
       "location": "Ticknall, Derby",
       "lat": 52.81148,
@@ -162,7 +162,7 @@
     },
     {
       "walkId": 11,
-      "photoId": "walk11.jpg",
+      "photoPath": "walk11.jpg",
       "walkName": "Langshaw Estate",
       "location": "Longshaw Estate, Sheffield",
       "lat": 53.17637,
@@ -178,7 +178,7 @@
     },
     {
       "walkId": 12,
-      "photoId": "walk12.jpg",
+      "photoPath": "walk12.jpg",
       "walkName": "Dale Abbey Loop",
       "location": "Ilkeston",
       "lat": 52.94553,
@@ -194,7 +194,7 @@
     },
     {
       "walkId": 13,
-      "photoId": "walk13.jpg",
+      "photoPath": "walk13.jpg",
       "walkName": "Linacre Reservoirs",
       "location": "Chesterfield",
       "lat": 53.24724,
@@ -210,7 +210,7 @@
     },
     {
       "walkId": 14,
-      "photoId": "walk14.jpg",
+      "photoPath": "walk14.jpg",
       "walkName": "Hardwick Hall",
       "location": "Chesterfield",
       "lat": 53.16701,
@@ -226,7 +226,7 @@
     },
     {
       "walkId": 15,
-      "photoId": "walk15.jpg",
+      "photoPath": "walk15.jpg",
       "walkName": "Calke Abbey",
       "location": "Derby",
       "lat": 52.94234,
@@ -242,7 +242,7 @@
     },
     {
       "walkId": 16,
-      "photoId": "walk16.jpg",
+      "photoPath": "walk16.jpg",
       "walkName": "Shipley Country Park",
       "location": "Heanor",
       "lat": 53.00469,
@@ -255,7 +255,7 @@
     },
     {
       "walkId": 20,
-      "photoId": "walk20.jpg",
+      "photoPath": "walk20.jpg",
       "walkName": "Chatsworth Estate",
       "location": "Peak District, Derbyshire",
       "lat": 53.5074,
@@ -271,7 +271,7 @@
     },
     {
       "walkId": 21,
-      "photoId": "walk21.jpg",
+      "photoPath": "walk21.jpg",
       "walkName": "The Robin Hood Inn Pub Walk",
       "location": "Peak District, Derbyshire",
       "lat": 53.24699,
@@ -287,7 +287,7 @@
     },
     {
       "walkId": 22,
-      "photoId": "walk22.jpg",
+      "photoPath": "walk22.jpg",
       "walkName": "Stanage Edge",
       "location": "Peak District, Derbyshire",
       "lat": 53.5074,
@@ -303,7 +303,7 @@
     },
     {
       "walkId": 23,
-      "photoId": "walk23.jpg",
+      "photoPath": "walk23.jpg",
       "walkName": "Curbar Edge",
       "location": "Peak District, Derbyshire",
       "lat": 53.26798,
@@ -319,7 +319,7 @@
     },
     {
       "walkId": 24,
-      "photoId": "walk24.jpg",
+      "photoPath": "walk24.jpg",
       "walkName": "Jacob's Ladder",
       "location": "Peak District, Derbyshire",
       "lat": 53.36383,
@@ -335,7 +335,7 @@
     },
     {
       "walkId": 25,
-      "photoId": "walk25.jpg",
+      "photoPath": "walk25.jpg",
       "walkName": "Padley Gorge",
       "location": "Peak District, Derbyshire",
       "lat": 53.30329,
@@ -351,7 +351,7 @@
     },
     {
       "walkId": 26,
-      "photoId": "walk26.jpg",
+      "photoPath": "walk26.jpg",
       "walkName": "Cresswell Crags",
       "location": "Worksop, Derbyshire",
       "lat": 53.26334,
@@ -367,7 +367,7 @@
     },
     {
       "walkId": 27,
-      "photoId": "walk27.jpg",
+      "photoPath": "walk27.jpg",
       "walkName": "Longdendale Trail",
       "location": "Glossop, Derbyshire",
       "lat": 53.463,
@@ -383,7 +383,7 @@
     },
     {
       "walkId": 28,
-      "photoId": "walk28.jpg",
+      "photoPath": "walk28.jpg",
       "walkName": "Kedleston Hall",
       "location": "Derby, Derbyshire",
       "lat": 52.9298,
@@ -399,7 +399,7 @@
     },
     {
       "walkId": 29,
-      "photoId": "walk29.jpg",
+      "photoPath": "walk29.jpg",
       "walkName": "Monsal Trail",
       "location": "Buxton",
       "lat": 52.76625,
@@ -415,7 +415,7 @@
     },
     {
       "walkId": 30,
-      "photoId": "walk30.jpg",
+      "photoPath": "walk30.jpg",
       "walkName": "Grassmoor Country Park",
       "location": "Chesterfield, Derbyshire",
       "lat": 53.25006,
