@@ -1,6 +1,6 @@
 import { pool } from "../../../index.js";
 
-// function to create the initial tables
+// function to create the owners table
 export async function createOwnersTable() {
   try {
     await pool.query(`
