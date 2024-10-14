@@ -1,11 +1,11 @@
-import { createOwnersTable } from "./createOwnersTable.js";
-import { createDogsTable } from "./createDogsTable.js";
-import { createWalksTable } from "./createWalksTable.js";
-import { createOwnersDogsTable } from "./createOwnersDogsTable.js";
-import { createOwnerFavouriteWalks } from "./createOwnerFavouriteWalks.js";
-import { createDogPalRequestsTable } from "./createDogPalRequestsTable.js";
-import { createDogPalsTable } from "./createDogPalsTable.js";
-import { createWalkCommentsTable } from "./createWalkCommentsTable.js";
+import { createOwnersTable } from "./create-owners-table.js";
+import { createDogsTable } from "./create-dogs-table.js";
+import { createWalksTable } from "./create-walks-table.js";
+import { createOwnersDogsTable } from "./create-ownersDogs-table.js";
+import { createOwnerFavouriteWalks } from "./create-ownerFavouriteWalks-table.js";
+import { createDogPalRequestsTable } from "./create-dogPalRequests-table.js";
+import { createDogPalsTable } from "./create-dogPals-table.js";
+import { createWalkCommentsTable } from "./create-walkComments-table.js";
 
 export const createTableFunctions = {
   createOwnersTable,
