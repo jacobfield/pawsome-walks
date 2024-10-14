@@ -1,8 +1,9 @@
 import { pool } from "../../../index.js";
 
 // function to create the walks table
-export async function createWalksTable() {
+export default async function createWalksTable() {
   try {
+    console.log("Creating walks table...");
     await pool.query(`
         CREATE TABLE IF NOT EXISTS walks(
         walkId SERIAL PRIMARY KEY,
@@ -26,6 +27,5 @@ export async function createWalksTable() {
       "walks table not created. Error originated in create-walks-table.js",
       error
     );
-    
   }
 }

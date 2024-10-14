@@ -1,8 +1,9 @@
 import { pool } from "../../../index.js";
 
 // Function to create ownerFavouriteWalks table
-export default async function createOwnerFavouriteWalks() {
+export default async function createOwnerFavouriteWalksTable() {
   try {
+    console.log("Creating ownerFavouriteWalks table...");
     await pool.query(`
       CREATE TABLE IF NOT EXISTS ownerFavouriteWalks (
         ownerId INT NOT NULL,

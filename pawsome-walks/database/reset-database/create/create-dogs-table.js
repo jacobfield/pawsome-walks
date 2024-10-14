@@ -3,6 +3,7 @@ import { pool } from "../../../index.js";
 // function to create dogs table
 export default async function createDogsTable() {
   try {
+    console.log("Creating dogs table...");
     await pool.query(`
             CREATE TABLE IF NOT EXISTS dogs(
             dogId SERIAL PRIMARY KEY,

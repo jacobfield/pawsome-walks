@@ -3,6 +3,7 @@ import { pool } from "../../../index.js";
 // function to create the owners table
 export default async function createOwnersTable() {
   try {
+    console.log("Creating owners table...");
     await pool.query(`
             CREATE TABLE IF NOT EXISTS owners (
             ownerId SERIAL PRIMARY KEY,

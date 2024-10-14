@@ -3,6 +3,7 @@ import { pool } from "../../../index.js";
 // Function to create walkComments table
 export default async function createWalkCommentsTable() {
   try {
+    console.log("Creating walkComments table...");
     await pool.query(`
       CREATE TABLE IF NOT EXISTS walkComments(
         walkCommentId SERIAL PRIMARY KEY,

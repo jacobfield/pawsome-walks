@@ -1,4 +1,4 @@
-import { pool } from "../../database/index.js";
+import { pool } from "../../../index.js";
 
 export default async function dropTables() {
   try {

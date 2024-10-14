@@ -14,7 +14,7 @@ if (!connectionString) {
 }
 
 // export a new pg.pool instance, used to interact with the db
-export const pool = new pg.pool({
+export const pool = new pg.Pool({
   connectionString,
   // passing in the connectionString as the argument
 });
