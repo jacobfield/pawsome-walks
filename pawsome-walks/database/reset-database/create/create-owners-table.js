@@ -1,7 +1,7 @@
 import { pool } from "../../../index.js";
 
 // function to create the owners table
-export async function createOwnersTable() {
+export default async function createOwnersTable() {
   try {
     await pool.query(`
             CREATE TABLE IF NOT EXISTS owners (

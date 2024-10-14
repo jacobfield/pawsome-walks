@@ -1,7 +1,7 @@
 import { pool } from "../../../index.js";
 // function to create the dogPals table
 
-export async function createDogPalsTable() {
+export default async function createDogPalsTable() {
   try {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS dogPals(
