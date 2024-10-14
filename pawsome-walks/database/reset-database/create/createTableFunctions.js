@@ -7,7 +7,7 @@ import { createDogPalRequestsTable } from "./createDogPalRequestsTable.js";
 import { createDogPalsTable } from "./createDogPalsTable.js";
 import { createWalkCommentsTable } from "./createWalkCommentsTable.js";
 
-export const createFunctions = {
+export const createTableFunctions = {
   createOwnersTable,
   createDogsTable,
   createWalksTable,

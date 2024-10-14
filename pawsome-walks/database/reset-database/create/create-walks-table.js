@@ -17,7 +17,7 @@ export async function createWalksTable() {
         toilets BOOLEAN NOT NULL DEFAULT FALSE,
         waterOnRoute BOOLEAN NOT NULL DEFAULT FALSE,
         scenic BOOLEAN NOT NULL DEFAULT FALSE,
-        parking TEXT NOT NULL
+        parking ENUM ('free', 'paid', 'none') NOT NULL
         )
         `);
     console.log("walks table created");
@@ -26,5 +26,6 @@ export async function createWalksTable() {
       "walks table not created. Error originated in create-walks-table.js",
       error
     );
+    
   }
 }
