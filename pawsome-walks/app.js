@@ -6,7 +6,6 @@ import cors from "cors";
 // initialize express app
 const app = express();
 app.use(cors());
-const PORT = import.meta.env.VITE_PORT || 9998;
 
 // Middleware:
 // Morgan is used for logging http requests in a readable format
