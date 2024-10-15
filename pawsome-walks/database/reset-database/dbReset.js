@@ -9,7 +9,7 @@ export default async function dbReset() {
     await createTableFunctions.createDogsTable();
     await createTableFunctions.createWalksTable();
     await createTableFunctions.createOwnersDogsTable();
-    await createTableFunctions.createOwnerFavouriteWalks();
+    await createTableFunctions.createOwnerFavouriteWalksTable();
     await createTableFunctions.createDogPalRequestsTable();
     await createTableFunctions.createDogPalsTable();
     await createTableFunctions.createWalkCommentsTable();

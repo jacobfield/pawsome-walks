@@ -12,6 +12,7 @@ export default async function dropTables() {
         walks, 
         dogs, 
         owners
+        CASCADE;
     `);
     console.log("Tables dropped successfully.");
   } catch (error) {

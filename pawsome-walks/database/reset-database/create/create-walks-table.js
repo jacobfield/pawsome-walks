@@ -3,6 +3,15 @@ import { pool } from "../../../index.js";
 // function to create the walks table
 export default async function createWalksTable() {
   try {
+    console.log("Creating parking_type ENUM...");
+    await pool.query(`
+      DO $$
+      BEGIN
+        IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'parking_type') THEN 
+        CREATE TYPE parking_type AS ENUM ('free', 'paid', 'none');
+        END IF;
+        END $$`);
+
     console.log("Creating walks table...");
     await pool.query(`
         CREATE TABLE IF NOT EXISTS walks(
@@ -18,7 +27,7 @@ export default async function createWalksTable() {
         toilets BOOLEAN NOT NULL DEFAULT FALSE,
         waterOnRoute BOOLEAN NOT NULL DEFAULT FALSE,
         scenic BOOLEAN NOT NULL DEFAULT FALSE,
-        parking ENUM ('free', 'paid', 'none') NOT NULL
+        parking parking_type
         )
         `);
     console.log("walks table created");
