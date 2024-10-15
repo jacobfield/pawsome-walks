@@ -9,7 +9,6 @@ export default async function seedWalksTable() {
       await pool.query(
         `
             INSERT INTO walks (
-            photoPath,
             location,
             lat,
             lng,
@@ -22,10 +21,9 @@ export default async function seedWalksTable() {
             scenic,
             parking 
             ) VALUES (
-             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12          
+             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11          
             )`,
         [
-          walk.photoPath,
           walk.location,
           walk.lat,
           walk.lng,
