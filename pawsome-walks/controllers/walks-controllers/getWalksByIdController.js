@@ -3,7 +3,7 @@ import { walks } from "../../helper-functions/helperFunctions.js";
 export default async function getWalksByIdController(req, res) {
   try {
     // Extract the walk ID from request params
-    const id = req.params.id;
+    const id = req.params.walkId;
 
     if (!id) {
       return res

@@ -2,7 +2,7 @@ import { walkComments } from "../../helper-functions/helperFunctions.js";
 
 export default async function getWalkCommentsByWalkIdController(req, res) {
   try {
-    const walkId = req.params.id;
+    const walkId = req.params.walkId;
     if (!walkId) {
       return res
         .status(400)

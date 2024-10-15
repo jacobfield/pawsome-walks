@@ -2,7 +2,7 @@ import { walkComments } from "../../helper-functions/helperFunctions.js";
 
 export default async function deleteWalkCommentByIdController(req, res) {
   try {
-    const id = req.params.id;
+    const id = req.params.walkId;
 
     if (!id) {
       return res
