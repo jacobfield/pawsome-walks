@@ -2,7 +2,7 @@ import getDogPalRequestsByReceiverDogId from "./dogPalRequests-table/getDogPalRe
 import postDogPalRequest from "./dogPalRequests-table/postDogPalRequest.js";
 import updateDogPalRequest from "./dogPalRequests-table/updateDogPalRequest.js";
 import deleteDogPalsByBothIds from "./dogPals-table/deleteDogPalsByBothIds.js";
-import getDogPals from "./dogPals-table/getDogPals.js";
+import getDogPalsByDogId from "./dogPals-table/getDogPalsByDogId.js";
 import postDogPal from "./dogPals-table/postDogPal.js";
 import getDogById from "./dogs-table/getDogById.js";
 import deleteDogById from "./dogs-table/deleteDogById.js";
@@ -71,6 +71,6 @@ export const dogPalRequests = {
 
 export const dogPals = {
   deleteDogPalsByBothIds,
-  getDogPals,
+  getDogPalsByDogId,
   postDogPal,
 };

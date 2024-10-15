@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function getDogPals(dogId) {
+export default async function getDogPalsByDogId(dogId) {
   try {
     const queryDogPals = `SELECT * FROM dogPals WHERE dogId1 = $1 OR dogId2 = $1`;
 
