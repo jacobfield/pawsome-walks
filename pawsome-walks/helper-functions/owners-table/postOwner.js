@@ -2,7 +2,7 @@ import { pool } from "../../index.js";
 
 // create function to add a new owner to the owners table
 
-export async function createOwner(owner) {
+export default async function postOwner(owner) {
   try {
     const insertOwner = `INSERT INTO owners (ownerId, userName, email, hashedPassword) VALUES ($1, $2, $3, $4) RETURNING *`;
     // destructure the owner object
