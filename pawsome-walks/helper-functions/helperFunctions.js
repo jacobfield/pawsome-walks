@@ -22,12 +22,12 @@ import deleteWalkCommentById from "./walkComments-table/deleteWalkCommentById.js
 import getWalkCommentByWalkId from "./walkComments-table/getWalkCommentByWalkId.js";
 import postWalkComments from "./walkComments-table/postWalkComments.js";
 import getWalksById from "./walks-table/getWalksById.js";
-import getWalks from "./walks-table/getWalks.js";
+import getAllWalks from "./walks-table/getAllWalks.js";
 import postWalk from "./walks-table/postWalk.js";
 
 export const walks = {
+  getAllWalks,
   getWalksById,
-  getWalks,
   postWalk,
 };
 

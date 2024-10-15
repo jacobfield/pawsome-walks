@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function getWalks() {
+export default async function getAllWalks() {
   try {
     const queryWalks = `SELECT * FROM walks`;
 
