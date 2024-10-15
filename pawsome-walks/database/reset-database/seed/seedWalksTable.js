@@ -4,6 +4,8 @@ import { walks } from "./walksData.js";
 export default async function seedWalksTable() {
   try {
     for (const walk of walks) {
+      // formatting walkType to match postgres' array format
+      const formattedWalkType = `{${walk.walkType.join(",")}}`;
       await pool.query(
         `
             INSERT INTO walks (
@@ -27,7 +29,7 @@ export default async function seedWalksTable() {
           walk.location,
           walk.lat,
           walk.lng,
-          JSON.stringify(walk.walkType),
+          formattedWalkType,
           walk.offLeadAreas,
           walk.paths,
           walk.animalsOnRoute,
