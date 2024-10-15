@@ -37,7 +37,7 @@ export default async function createWalksTable() {
     await pool.query(`CREATE OR REPLACE FUNCTION set_photo_path()
 RETURNS TRIGGER AS $$
 BEGIN
-  NEW.photoPath := 'walk' || NEW.walkId;  -- Concatenate 'walk' with the walkId
+  NEW.photoPath := 'walk' || NEW.walkId;
   RETURN NEW;
 END;
 $$ LANGUAGE plpgsql;
