@@ -7,7 +7,7 @@ export default async function getOwnersDogsByOwnersId(ownerId) {
     return result.rows;
   } catch (error) {
     console.error(
-      "Error fetching ownersDogs by ownerId. Error originated in deleteOwngetOwnersDogsByOwnersIderById.js",
+      "Error fetching ownersDogs by ownerId. Error originated in getOwnersDogsByOwnersId.js",
       error
     );
     throw error;
