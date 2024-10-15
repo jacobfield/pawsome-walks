@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function getWalkCommentByWalkId(walkId) {
+export default async function getWalkCommentsByWalkId(walkId) {
   try {
     if (!walkId) {
       throw new Error("walkId is required.");

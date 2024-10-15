@@ -19,7 +19,7 @@ import deleteOwnersDogsByDogId from "./ownersDogs-table/deleteOwnersDogsByDogId.
 import getOwnersDogsByOwnersId from "./ownersDogs-table/getOwnersDogsByOwnersId.js";
 import postOwnersDogs from "./ownersDogs-table/postOwnersDogs.js";
 import deleteWalkCommentById from "./walkComments-table/deleteWalkCommentById.js";
-import getWalkCommentByWalkId from "./walkComments-table/getWalkCommentByWalkId.js";
+import getWalkCommentsByWalkId from "./walkComments-table/getWalkCommentsByWalkId.js";
 import postWalkComments from "./walkComments-table/postWalkComments.js";
 import getWalksById from "./walks-table/getWalksById.js";
 import getAllWalks from "./walks-table/getAllWalks.js";
@@ -33,7 +33,7 @@ export const walks = {
 
 export const walkComments = {
   deleteWalkCommentById,
-  getWalkCommentByWalkId,
+  getWalkCommentsByWalkId,
   postWalkComments,
 };
 
