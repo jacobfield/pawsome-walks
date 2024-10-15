@@ -8,14 +8,14 @@ export default async function patchDogById(
 ) {
   try {
     // Correct SQL syntax for UPDATE
-    const updateDogQuery = `
+    const patchDog = `
       UPDATE dogs 
       SET dogName = $2, breed = $3, age = $4, colour = $5, favouriteThing = $6 
       WHERE id = $1 
       RETURNING *;`;
 
     // Use pool object to send query to the database, preventing SQL injection
-    const result = await pool.query(updateDogQuery, [
+    const result = await pool.query(patchDog, [
       dogId, // dogId should be the first parameter
       dogName,
       breed,
