@@ -7,12 +7,12 @@ export default async function patchDogById(
   { dogName, breed, age, colour, favouriteThing }
 ) {
   try {
-    // Correct SQL syntax for UPDATE
     const patchDog = `
       UPDATE dogs 
       SET dogName = $2, breed = $3, age = $4, colour = $5, favouriteThing = $6 
-      WHERE id = $1 
-      RETURNING *;`;
+      WHERE dogId = $1 
+      RETURNING *;
+    `;
 
     // Use pool object to send query to the database, preventing SQL injection
     const result = await pool.query(patchDog, [
@@ -24,12 +24,43 @@ export default async function patchDogById(
       favouriteThing,
     ]);
 
-    // The rows property should contain the updated dog information
-    return result.rows[0]; // Return the updated dog object
+    if (result.rowCount === 0) {
+      return null; // No dog was found with the provided ID
+    }
+
+    return result.rows[0];
   } catch (error) {
-    console.error(
-      `Error updating dog object. Error originated in patchDogById.js. Error: ${error}`
-    );
+    console.error(`Error updating dog object. Error: ${error.message}`);
     throw error;
   }
 }
+
+// export default async function patchDogById(dogId, dogData){
+//   try {
+//     const updates = [];
+//     const values = [];
+//     let index = 1;
+
+//     for (const [key, value] of Object.entries(dogData)){
+//       updates.push(`${key} = $${index}`);
+//       values.push(value);
+//       index++;
+//     }
+//     const updateString = updates.join(', ')
+//     const patchDog = `UPDATE dogs
+//     SET ${updateString}
+//     WHERE id = $${index}
+//     RETURNING *;`;
+
+//     values.push(dogId);
+
+//     const result = await pool.query(patchDog, values);
+
+//     return result.rows[0];
+//   }catch (error) {
+//     console.error(
+//       `Error updating dog object. Error originated in patchDogById.js. Error: ${error}`
+//     );
+//     throw error;
+//   }
+// }
