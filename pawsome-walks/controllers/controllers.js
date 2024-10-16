@@ -51,9 +51,9 @@ export const ownerFavouriteWalksControllers = {
 };
 
 export const dogPalsControllers = {
-  deleteDogPalsByBothIdsController,
-  getDogPalsByDogIdController,
   postDogPalController,
+  getDogPalsByDogIdController,
+  deleteDogPalsByBothIdsController,
 };
 
 export const walksControllers = {

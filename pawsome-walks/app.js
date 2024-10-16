@@ -54,4 +54,26 @@ app.delete(
   "/ownersDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
+
+// ownerFavouriteWalks Routes
+app.post(
+  "/ownerFavouriteWalks",
+  ownerFavouriteWalksControllers.postOwnerFavouriteWalksController
+);
+app.get(
+  "/ownerFavouriteWalks/:ownersId",
+  ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
+);
+app.delete(
+  "/ownerFavouriteWalks/:ownersId",
+  ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByOwnerIdController
+);
+
+// dogPals Routes
+app.post("/dogPals", dogPalsControllers.postDogPalController);
+app.get("/dogPals/:dogId", dogPalsControllers.getDogPalsByDogIdController);
+app.delete(
+  "/dogPals/:dogId1/:dogId2",
+  dogPalsControllers.deleteDogPalsByBothIdsController
+);
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
