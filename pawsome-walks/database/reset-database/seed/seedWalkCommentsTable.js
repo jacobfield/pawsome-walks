@@ -5,7 +5,7 @@ export default async function seedWalkCommentsTable() {
     await pool.query(`
         INSERT INTO walkComments (walkId, ownerId, comment)
         VALUES
-        (13, 1, 'Great walk, Eevee loved it!'),
+        (1, 1, 'Great walk, Eevee loved it!'),
         (13, 2, 'Lupin had a great time, fantastic place!'),
         (30, 3, 'Jess had a great time!');`);
 
