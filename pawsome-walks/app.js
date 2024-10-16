@@ -44,4 +44,14 @@ app.get("/dogs/:dogId", dogsControllers.getDogByIdController);
 app.patch("/dogs/:dogId", dogsControllers.patchDogByIdController);
 app.delete("/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
+//ownerDogs table controllers
+app.post("/ownersDogs", ownersDogsControllers.postOwnersDogsController);
+app.get(
+  "/ownersDogs/:ownersId",
+  ownersDogsControllers.getOwnersDogsByOwnersIdController
+);
+app.delete(
+  "/ownersDogs/:dogId",
+  ownersDogsControllers.deleteOwnersDogsByDogIdController
+);
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;

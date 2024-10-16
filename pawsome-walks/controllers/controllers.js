@@ -32,26 +32,30 @@ export const ownersControllers = {
   deleteOwnerByIdController,
 };
 export const dogsControllers = {
-    postDogController,
-    getDogByIdController,
-    patchDogByIdController,
-    deleteDogByIdController,
+  postDogController,
+  getDogByIdController,
+  patchDogByIdController,
+  deleteDogByIdController,
 };
+
 export const ownersDogsControllers = {
-    postOwnersDogsController,
-    getOwnersDogsByOwnersIdController,
-    deleteOwnersDogsByDogIdController,
+  postOwnersDogsController,
+  getOwnersDogsByOwnersIdController,
+  deleteOwnersDogsByDogIdController,
 };
+
 export const ownerFavouriteWalksControllers = {
   postOwnerFavouriteWalksController,
   getOwnerFavouriteWalksByOwnerIdController,
   deleteOwnerFavouriteWalksByOwnerIdController,
 };
+
 export const dogPalsControllers = {
   deleteDogPalsByBothIdsController,
   getDogPalsByDogIdController,
   postDogPalController,
 };
+
 export const walksControllers = {
   getAllWalksController,
   getWalksByIdController,
