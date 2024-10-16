@@ -63,12 +63,12 @@ export const walksControllers = {
 };
 
 export const dogPalRequestsControllers = {
-  getDogPalRequestsByReceiverDogIdController,
   postDogPalRequestController,
+  getDogPalRequestsByReceiverDogIdController,
   updateDogPalRequestController,
 };
 export const walkCommentsControllers = {
-  deleteWalkCommentByIdController,
-  getWalkCommentsByWalkIdController,
   postWalkCommentsController,
+  getWalkCommentsByWalkIdController,
+  deleteWalkCommentByIdController,
 };

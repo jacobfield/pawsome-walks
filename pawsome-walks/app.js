@@ -55,7 +55,7 @@ app.delete(
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
 
-// ownerFavouriteWalks Routes
+// ownerFavouriteWalks table Routes
 app.post(
   "/ownerFavouriteWalks",
   ownerFavouriteWalksControllers.postOwnerFavouriteWalksController
@@ -69,11 +69,41 @@ app.delete(
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByOwnerIdController
 );
 
-// dogPals Routes
+// dogPals table Routes
 app.post("/dogPals", dogPalsControllers.postDogPalController);
 app.get("/dogPals/:dogId", dogPalsControllers.getDogPalsByDogIdController);
 app.delete(
   "/dogPals/:dogId1/:dogId2",
   dogPalsControllers.deleteDogPalsByBothIdsController
+);
+
+// walks table routes
+app.get("/walks", walksControllers.getAllWalksController);
+app.post("/walks", walksControllers.postWalkController);
+app.get("/walks/:walkId", walksControllers.getWalksByIdController);
+
+// dogPalRequests table routes
+app.post(
+  "/dogPalRequests",
+  dogPalRequestsControllers.postDogPalRequestController
+);
+app.get(
+  "/dogPalRequests",
+  dogPalRequestsControllers.getDogPalRequestsByReceiverDogIdController
+);
+app.put(
+  "/dogPalRequests/:requestId/status",
+  dogPalRequestsControllers.updateDogPalRequestController
+);
+
+// walkComments table routes
+app.post("/walkComments", walkCommentsControllers.postWalkCommentsController);
+app.get(
+  "/walkComments/:walkId",
+  walkCommentsControllers.getWalkCommentByWalkIdController
+);
+app.delete(
+  "/walkComments/:commentId",
+  walkCommentsControllers.deleteWalkCommentByIdController
 );
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
