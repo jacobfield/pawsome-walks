@@ -2,6 +2,16 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
+import {
+  dogPalRequestsControllers,
+  dogPalsControllers,
+  dogsControllers,
+  ownerFavouriteWalksControllers,
+  ownersControllers,
+  ownersDogsControllers,
+  walkCommentsControllers,
+  walksControllers,
+} from "./controllers/controllers.js";
 
 // initialize express app
 const app = express();
@@ -17,6 +27,14 @@ app.use(express.static("public"));
 
 //Declare routes here --------
 // app.use("/route", importedRoute)
+
+//owners table routes
+app.use("/owners", ownersControllers.);
+
+
+
+
+
 
 export default app;
 

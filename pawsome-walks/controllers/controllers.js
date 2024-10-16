@@ -25,52 +25,46 @@ import getAllWalksController from "./walks-controllers/getAllWalksController.js"
 import getWalksByIdController from "./walks-controllers/getWalksByIdController.js";
 import postWalkController from "./walks-controllers/postWalkController.js";
 
-export const dogPalRequestsControllers = {
-  getDogPalRequestsByReceiverDogIdController,
-  postDogPalRequestController,
-  updateDogPalRequestController,
-};
-
-export const dogPalsControllers = {
-  deleteDogPalsByBothIdsController,
-  getDogPalsByDogIdController,
-  postDogPalController,
-};
-
-export const dogsControllers = {
-  deleteDogByIdController,
-  getDogByIdController,
-  patchDogByIdController,
-  postDogController,
-};
-
-export const ownerFavouriteWalksControllers = {
-  postOwnerFavouriteWalksController,
-  getOwnerFavouriteWalksByOwnerIdController,
-  deleteOwnerFavouriteWalksByOwnerIdController,
-};
-
 export const ownersControllers = {
   deleteOwnerByIdController,
   getOwnerByIdController,
   postOwnerController,
   updateOwnerPasswordController,
 };
-
+export const dogsControllers = {
+  deleteDogByIdController,
+  getDogByIdController,
+  patchDogByIdController,
+  postDogController,
+};
 export const ownersDogsControllers = {
   deleteOwnersDogsByDogIdController,
   postOwnersDogsController,
   getOwnersDogsByOwnersIdController,
 };
-
-export const walkCommentsControllers = {
-  deleteWalkCommentByIdController,
-  getWalkCommentsByWalkIdController,
-  postWalkCommentsController,
+export const ownerFavouriteWalksControllers = {
+  postOwnerFavouriteWalksController,
+  getOwnerFavouriteWalksByOwnerIdController,
+  deleteOwnerFavouriteWalksByOwnerIdController,
 };
-
+export const dogPalsControllers = {
+  deleteDogPalsByBothIdsController,
+  getDogPalsByDogIdController,
+  postDogPalController,
+};
 export const walksControllers = {
   getAllWalksController,
   getWalksByIdController,
   postWalkController,
+};
+
+export const dogPalRequestsControllers = {
+  getDogPalRequestsByReceiverDogIdController,
+  postDogPalRequestController,
+  updateDogPalRequestController,
+};
+export const walkCommentsControllers = {
+  deleteWalkCommentByIdController,
+  getWalkCommentsByWalkIdController,
+  postWalkCommentsController,
 };
