@@ -35,6 +35,7 @@ app.put(
   "/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
+// FIX SO THAT IT CAN CASCADE
 app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 export default app;
 
@@ -42,6 +43,8 @@ export default app;
 app.post("/dogs", dogsControllers.postDogController);
 app.get("/dogs/:dogId", dogsControllers.getDogByIdController);
 app.patch("/dogs/:dogId", dogsControllers.patchDogByIdController);
+// FIX SO THAT IT CAN CASCADE
+
 app.delete("/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
 //ownerDogs table controllers
@@ -50,6 +53,8 @@ app.get(
   "/ownersDogs/:ownersId",
   ownersDogsControllers.getOwnersDogsByOwnersIdController
 );
+
+// DATABASE IS 'OWNERSDOGS' NOT 'OWNERSDOGS'
 app.delete(
   "/ownerDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController
@@ -64,8 +69,9 @@ app.get(
   "/ownerFavouriteWalks/:ownersId",
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
+//FIX THIS TO INTAKE TWO PARAMS, SAME AS DELETE DOGPALS
 app.delete(
-  "/ownerFavouriteWalks/:ownersId",
+  "/ownerFavouriteWalks/:ownersId/:walkId",
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByOwnerIdController
 );
 
