@@ -100,7 +100,7 @@ app.put(
 app.post("/walkComments", walkCommentsControllers.postWalkCommentsController);
 app.get(
   "/walkComments/:walkId",
-  walkCommentsControllers.getWalkCommentByWalkIdController
+  walkCommentsControllers.getWalkCommentsByWalkIdController
 );
 app.delete(
   "/walkComments/:commentId",
