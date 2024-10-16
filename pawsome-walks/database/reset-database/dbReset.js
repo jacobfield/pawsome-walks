@@ -2,7 +2,7 @@ import { createTableFunctions } from "./create/createTableFunctions.js";
 import dropTables from "./drop/dropTables.js";
 import seedWalksTable from "./seed/seedWalksTable.js";
 import alterTablesAddingFK from "./create/alterTablesAddingFK.js";
-
+import seedOtherTables from "./seed/seedOtherTables.js";
 export default async function dbReset() {
   try {
     console.log("Running DB reset script...");
@@ -22,6 +22,7 @@ export default async function dbReset() {
     await createTableFunctions.createOwnersDogsTable();
     await createTableFunctions.createWalkCommentsTable();
     await alterTablesAddingFK();
+    await seedOtherTables();
 
     console.log("Database has been reset.");
   } catch (error) {

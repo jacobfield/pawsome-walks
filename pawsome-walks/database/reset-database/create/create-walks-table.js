@@ -17,6 +17,7 @@ export default async function createWalksTable() {
     await pool.query(`
         CREATE TABLE IF NOT EXISTS walks(
         walkId SERIAL PRIMARY KEY,
+        walkName TEXT NOT NULL,
         photoPath TEXT NOT NULL,
         location TEXT NOT NULL,
         lat DECIMAL(9, 6) NOT NULL,
