@@ -6,7 +6,8 @@ export default async function seedDogPalRequestsTable() {
         INSERT INTO dogPalRequests (senderDogId, receiverDogId)
         VALUES
         (1, 3),
-        (3, 2);`);
+        (3, 2),
+        (2, 1);`);
 
     console.log(`dogPalRequests table has been successfully seeded`);
   } catch (error) {

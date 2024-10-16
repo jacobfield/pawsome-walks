@@ -2,7 +2,7 @@ import { ownersDogs } from "../../helper-functions/helperFunctions.js";
 
 export default async function getOwnersDogsByOwnersIdController(req, res) {
   try {
-    const id = req.params.ownerId;
+    const id = req.params.ownersId;
 
     if (!id) {
       return res

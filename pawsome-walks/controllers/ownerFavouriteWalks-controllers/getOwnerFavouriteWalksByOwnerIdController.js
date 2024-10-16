@@ -5,7 +5,7 @@ export default async function getOwnerFavouriteWalksByOwnerIdController(
   res
 ) {
   try {
-    const id = req.params.ownerId;
+    const id = req.params.ownersId;
     if (!id) {
       return res
         .status(400)

@@ -30,7 +30,7 @@ app.use(express.static("public"));
 
 //owners table routes
 app.post("/owners", ownersControllers.postOwnerController);
-app.get("/owners/:ownersId", ownersControllers.getOwnerByIdController);
+app.get("/owners/:ownerId", ownersControllers.getOwnerByIdController);
 app.put(
   "/owners/:ownersId/password",
   ownersControllers.updateOwnerPasswordController
@@ -51,7 +51,7 @@ app.get(
   ownersDogsControllers.getOwnersDogsByOwnersIdController
 );
 app.delete(
-  "/ownersDogs/:dogId",
+  "/ownerDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
 
@@ -88,7 +88,7 @@ app.post(
   dogPalRequestsControllers.postDogPalRequestController
 );
 app.get(
-  "/dogPalRequests",
+  "/dogPalRequests/:receiverDogId",
   dogPalRequestsControllers.getDogPalRequestsByReceiverDogIdController
 );
 app.put(
