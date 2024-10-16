@@ -6,6 +6,7 @@ export default async function seedWalkCommentsTable() {
         INSERT INTO walkComments (walkId, ownerId, comment)
         VALUES
         (1, 1, 'Great walk, Eevee loved it!'),
+        (1, 3, 'What a nice, tranquil place.'),
         (13, 2, 'Lupin had a great time, fantastic place!'),
         (30, 3, 'Jess had a great time!');`);
 
