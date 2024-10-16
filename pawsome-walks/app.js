@@ -92,7 +92,7 @@ app.get(
   dogPalRequestsControllers.getDogPalRequestsByReceiverDogIdController
 );
 app.put(
-  "/dogPalRequests/:requestId/status",
+  "/dogPalRequests/:dogPalRequestId/status",
   dogPalRequestsControllers.updateDogPalRequestController
 );
 
