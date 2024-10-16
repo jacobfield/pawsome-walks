@@ -103,7 +103,7 @@ app.get(
   walkCommentsControllers.getWalkCommentsByWalkIdController
 );
 app.delete(
-  "/walkComments/:commentId",
+  "/walkComments/:walkCommentId",
   walkCommentsControllers.deleteWalkCommentByIdController
 );
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
