@@ -7,7 +7,8 @@ export default async function seedOwnersDogsTable() {
           VALUES 
           (1, 1),
           (2, 2),
-          (3, 3);`);
+          (3, 3)
+          ON CONFLICT (ownerId, dogId) DO NOTHING;`);
 
     console.log(`ownersDogs table has been successfully seeded`);
   } catch (error) {
