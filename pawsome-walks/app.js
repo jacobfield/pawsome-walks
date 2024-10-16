@@ -29,13 +29,19 @@ app.use(express.static("public"));
 // app.use("/route", importedRoute)
 
 //owners table routes
-app.use("/owners", ownersControllers.);
-
-
-
-
-
-
+app.post("/owners", ownersControllers.postOwnerController);
+app.get("/owners/:ownersId", ownersControllers.getOwnerByIdController);
+app.put(
+  "/owners/:ownersId/password",
+  ownersControllers.updateOwnerPasswordController
+);
+app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 export default app;
+
+//dogs table route
+app.post("/dogs", dogsControllers.postDogController);
+app.get("/dogs/:dogId", dogsControllers.getDogByIdController);
+app.patch("/dogs/:dogId", dogsControllers.patchDogByIdController);
+app.delete("/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;

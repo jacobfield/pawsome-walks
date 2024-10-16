@@ -26,21 +26,21 @@ import getWalksByIdController from "./walks-controllers/getWalksByIdController.j
 import postWalkController from "./walks-controllers/postWalkController.js";
 
 export const ownersControllers = {
-  deleteOwnerByIdController,
-  getOwnerByIdController,
   postOwnerController,
+  getOwnerByIdController,
   updateOwnerPasswordController,
+  deleteOwnerByIdController,
 };
 export const dogsControllers = {
-  deleteDogByIdController,
-  getDogByIdController,
-  patchDogByIdController,
-  postDogController,
+    postDogController,
+    getDogByIdController,
+    patchDogByIdController,
+    deleteDogByIdController,
 };
 export const ownersDogsControllers = {
-  deleteOwnersDogsByDogIdController,
-  postOwnersDogsController,
-  getOwnersDogsByOwnersIdController,
+    postOwnersDogsController,
+    getOwnersDogsByOwnersIdController,
+    deleteOwnersDogsByDogIdController,
 };
 export const ownerFavouriteWalksControllers = {
   postOwnerFavouriteWalksController,
