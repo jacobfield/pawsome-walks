@@ -32,7 +32,7 @@ app.use(express.static("public"));
 app.post("/owners", ownersControllers.postOwnerController);
 app.get("/owners/:ownerId", ownersControllers.getOwnerByIdController);
 app.put(
-  "/owners/:ownersId/password",
+  "/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
 app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);

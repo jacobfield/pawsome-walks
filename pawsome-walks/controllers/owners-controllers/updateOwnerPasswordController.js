@@ -3,7 +3,7 @@ import { owners } from "../../helper-functions/helperFunctions.js";
 export default async function updateOwnerPasswordController(req, res) {
   try {
     const id = req.params.ownerId;
-    const { password } = req.body;
+    const { hashedPassword } = req.body;
 
     if (!id) {
       return res
@@ -11,18 +11,21 @@ export default async function updateOwnerPasswordController(req, res) {
         .json({ status: "error", message: "Owner ID is required" });
     }
 
-    if (!password || password.trim() === "") {
+    if (!hashedPassword || hashedPassword.trim() === "") {
       return res
         .status(400)
         .json({ status: "error", message: "New Password required" });
     }
-    if (password.length < 6) {
+    if (hashedPassword.length < 6) {
       return res.status(400).json({
         status: "error",
         message: "Password must be at least 6 characters long.",
       });
     }
-    const updatedOwner = await owners.updateOwnerPassword(id, { password });
+    const updatedOwner = await owners.updateOwnerPassword({
+      ownerId: id,
+      hashedPassword: hashedPassword,
+    });
 
     if (!updatedOwner) {
       return res.status(404).json({
