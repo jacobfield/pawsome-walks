@@ -30,7 +30,7 @@
     width: auto;
     margin-left: 20px;
   }
-  .navBar {
+  .navBarContainer {
     display: flex;
     justify-self: stretch;
     width: 20%;
@@ -39,7 +39,7 @@
     background-color: red;
     margin: 5px;
   }
-  .searchBarDiv {
+  .searchBarContainer {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -49,6 +49,15 @@
     padding: 5px;
     /* background-color: aqua; */
   }
+
+  .navBar {
+    display: flex;
+    justify-content: space-around;
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
   .searchBar {
     height: 100%;
     width: 100%;
@@ -69,5 +78,13 @@
     color: rgb(190, 188, 188);
     font-size: 1em;
     text-align: left;
+  }
+  .icon,
+  .darkMode {
+    height: 50px;
+    width: 50px;
+  }
+  .darkMode {
+    background-color: aqua;
   }
 }

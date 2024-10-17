@@ -1,3 +1,4 @@
+import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
@@ -9,11 +10,14 @@ export default function Header() {
         src="../../public/logo.jpg"
       ></img>
       {/* flex-start left*/}
-      <div className="searchBarDiv">
+      <div className="searchBarContainer">
         <SearchBar></SearchBar>
       </div>{" "}
       {/* flex-start center*/}
-      <nav className="navBar"></nav> {/* flexstart right*/}
+      <nav className="navBarContainer">
+        <NavBar></NavBar>
+      </nav>{" "}
+      {/* flexstart right*/}
     </header>
   );
 }
