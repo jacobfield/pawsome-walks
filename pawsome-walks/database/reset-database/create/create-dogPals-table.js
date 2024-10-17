@@ -9,8 +9,10 @@ export default async function createDogPalsTable() {
         palId SERIAL PRIMARY KEY,
         dogId1 INT NOT NULL,
         dogId2 INT NOT NULL,
-        CONSTRAINT fk_dogId1 FOREIGN KEY(dogId1) REFERENCES dogs(dogId),
-        CONSTRAINT fk_dogId2 FOREIGN KEY(dogId2) REFERENCES dogs(dogId),
+        CONSTRAINT fk_dogId1 FOREIGN KEY(dogId1) REFERENCES dogs(dogId)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+        CONSTRAINT fk_dogId2 FOREIGN KEY(dogId2) REFERENCES dogs(dogId)
+        ON DELETE CASCADE ON UPDATE CASCADE,
         CONSTRAINT check_unique_friendship CHECK (dogId1 < dogId2),
         CONSTRAINT unique_friendship UNIQUE (dogId1, dogId2)
         )

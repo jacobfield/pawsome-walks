@@ -43,8 +43,6 @@ export default app;
 app.post("/dogs", dogsControllers.postDogController);
 app.get("/dogs/:dogId", dogsControllers.getDogByIdController);
 app.patch("/dogs/:dogId", dogsControllers.patchDogByIdController);
-// FIX SO THAT IT CAN CASCADE
-
 app.delete("/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
 //ownerDogs table controllers
@@ -53,8 +51,6 @@ app.get(
   "/ownersDogs/:ownersId",
   ownersDogsControllers.getOwnersDogsByOwnersIdController
 );
-
-// DATABASE IS 'OWNERSDOGS' NOT 'OWNERSDOGS'
 app.delete(
   "/ownersDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController

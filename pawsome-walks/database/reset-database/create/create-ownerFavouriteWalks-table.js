@@ -8,8 +8,8 @@ export default async function createOwnerFavouriteWalksTable() {
       CREATE TABLE IF NOT EXISTS ownerFavouriteWalks (
         ownerId INT NOT NULL,
         walkId INT NOT NULL,
-        CONSTRAINT fk_ownerId FOREIGN KEY (ownerId) REFERENCES owners(ownerId),
-        CONSTRAINT fk_walkId FOREIGN KEY (walkId) REFERENCES walks(walkId),
+        CONSTRAINT fk_ownerId FOREIGN KEY (ownerId) REFERENCES owners(ownerId) ON DELETE CASCADE ON UPDATE CASCADE,
+        CONSTRAINT fk_walkId FOREIGN KEY (walkId) REFERENCES walks(walkId) ON UPDATE CASCADE ON DELETE CASCADE,
         PRIMARY KEY (ownerId, walkId)  -- Composite Primary Key
       );
     `);
