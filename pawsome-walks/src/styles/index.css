@@ -11,9 +11,6 @@
   display: flex;
   align-items: centre;
 }
-.formInput {
-  display: none;
-}
 
 .switch {
   display: inline-block;
@@ -25,18 +22,10 @@
   cursor: pointer;
 }
 
-.switch .icon {
+.switch .ThemeIcon {
   position: absolute;
   top: 3px;
   left: 5px;
   font-size: 18px;
   transition: transform 0.2s ease;
-}
-
-.icon-right {
-  transform: translateX(24px);
-}
-
-.navBar {
-  background-color: inherit;
 }

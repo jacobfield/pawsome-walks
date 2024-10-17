@@ -40,7 +40,8 @@
     width: 20%;
     max-width: 120px;
     height: 100px;
-    background-color: red;
+    border: 1px solid red;
+
     margin: 5px;
   }
   .searchBarContainer {
