@@ -10,7 +10,7 @@ export default async function deleteOwnersDogsByIdController(req, res) {
         .json({ status: "error", message: "Dog ID is required" });
     }
 
-    const deletedOwnersDog = await ownersDogs.deleteOwnersDogsById(id);
+    const deletedOwnersDog = await ownersDogs.deleteOwnersDogsByDogId(id);
     if (!deletedOwnersDog) {
       return res.status(404).json({
         status: "error",

@@ -56,7 +56,7 @@ app.get(
 
 // DATABASE IS 'OWNERSDOGS' NOT 'OWNERSDOGS'
 app.delete(
-  "/ownerDogs/:dogId",
+  "/ownersDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
 
@@ -69,7 +69,7 @@ app.get(
   "/ownerFavouriteWalks/:ownersId",
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
-//FIX THIS TO INTAKE TWO PARAMS, SAME AS DELETE DOGPALS
+
 app.delete(
   "/ownerFavouriteWalks/:ownerId/:walkId",
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
