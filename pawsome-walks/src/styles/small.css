@@ -12,20 +12,18 @@
   .app {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background: transparent;
   }
   .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
     width: 100%;
     height: 100px;
     background-color: #fafaf0;
-    /* flex-direction: ro; */
+    flex-direction: row;
   }
 
   .logo {

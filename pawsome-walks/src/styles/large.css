@@ -13,7 +13,7 @@
   .app {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background: transparent;
   }
   .header {
@@ -29,6 +29,6 @@
     height: auto;
     width: auto;
     max-width: 175px;
-    margin-left: 15px;
+    margin-left: 35px;
   }
 }
