@@ -4,7 +4,8 @@
 }
 .AppContainer.dark {
   background-color: #343a40;
-  color: #f8f9fa;
+  /* color: #f8f9fa; */
+  color: black;
 }
 
 .darkMode {
@@ -28,4 +29,13 @@
   left: 5px;
   font-size: 18px;
   transition: transform 0.2s ease;
+}
+
+.themeButton {
+  background: none; /* Removes the background */
+  border: none; /* Removes the border */
+  padding: 0; /* Removes any default padding */
+  margin: 0; /* Removes any default margin */
+  outline: none; /* Removes the outline when focused */
+  cursor: pointer;
 }

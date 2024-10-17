@@ -12,7 +12,10 @@ export default function NavBar() {
   return (
     <div className="navBar">
       <div className="darkMode">
-        <button onClick={() => setDarkTheme(!darkTheme)}>
+        <button
+          className="themeButton"
+          onClick={() => setDarkTheme(!darkTheme)}
+        >
           {!darkTheme ? (
             <GiNightSky className="ThemeIcon icon" />
           ) : (
