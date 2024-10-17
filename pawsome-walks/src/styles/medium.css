@@ -55,6 +55,7 @@
     justify-content: space-around;
     height: 100%;
     width: 100%;
+    align-items: center;
     flex-wrap: wrap;
   }
 
