@@ -4,8 +4,8 @@
   .app {
     margin: 0;
     padding: 0;
-    width: 100vw; /* Full width of the viewport */
-    height: 100vh; /* Full height of the viewport */
+    width: 100vw;
+    height: 100vh;
     padding: 0;
     overflow-x: hidden;
   }
@@ -14,7 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: transparent; /* Optional: Transparent background */
+    background: transparent;
   }
   .header {
     display: flex;
@@ -22,7 +22,13 @@
     align-items: center;
     display: flex;
     width: 100vw;
-    height: 100px;
-    background-color: rgb(255, 0, 0);
+    height: 175px;
+    background-color: #fafaf0;
+  }
+  .logo {
+    height: auto;
+    width: auto;
+    max-width: 175px;
+    margin-left: 15px;
   }
 }
