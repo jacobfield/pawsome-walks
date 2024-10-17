@@ -7,7 +7,7 @@ export default function Header() {
         src="../../public/logo.jpg"
       ></img>
       {/* flex-start left*/}
-      <div className="searchBar"></div> {/* flex-start center*/}
+      <div className="searchBarDiv"></div> {/* flex-start center*/}
       <nav className="navBar"></nav> {/* flexstart right*/}
     </header>
   );

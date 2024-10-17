@@ -22,13 +22,20 @@
     align-items: center;
     display: flex;
     width: 100vw;
-    height: 175px;
+    height: auto;
     background-color: #fafaf0;
+    flex-wrap: wrap;
   }
   .logo {
     height: auto;
     width: auto;
     max-width: 175px;
     margin-left: 35px;
+  }
+  .searchBarDiv {
+    height: 50px;
+    width: 40%;
+    border-radius: 10px;
+    background-color: aqua;
   }
 }
