@@ -1,7 +1,29 @@
 @media (min-width: 1024px) {
-  .blueDiv {
+  html,
+  body,
+  .app {
+    margin: 0;
+    padding: 0;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    overflow: hidden; /* Prevent scrolling */
+  }
+
+  body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent; /* Optional: Transparent background */
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     height: 100px;
-    width: 100px;
-    background-color: red;
+    background-color: aqua;
   }
 }
