@@ -35,7 +35,7 @@
   .navBar {
     display: flex;
     justify-self: stretch;
-    width: 100%;
+    width: 30%;
     max-width: 392px;
     height: 100px;
     background-color: red;
@@ -55,6 +55,7 @@
   .searchBar {
     height: 100%;
     width: 100%;
+    margin-right: 5px;
   }
   .searchInput {
     border: 0.5px solid rgb(223, 221, 221);
