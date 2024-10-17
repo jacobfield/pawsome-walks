@@ -1,11 +1,10 @@
-import { useState } from "react";
-
 import "./App.css";
+import "./styles/small.css";
+import "./styles/medium.css";
+import "./styles/large.css";
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  return <></>;
+  return <div className="blueDiv"></div>;
 }
 
 export default App;

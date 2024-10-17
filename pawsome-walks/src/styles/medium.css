@@ -1,0 +1,7 @@
+@media (max-width: 1024px) and (min-width: 435px) {
+  .blueDiv {
+    height: 100px;
+    width: 100px;
+    background-color: green;
+  }
+}
