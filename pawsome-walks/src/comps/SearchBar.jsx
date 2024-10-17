@@ -4,9 +4,9 @@ export default function SearchBar() {
       <input
         className="searchInput"
         type="text"
-        placeholder="Search for a walk"
+        placeholder="Search for a walk..."
       ></input>
-      <button className="searchButton">Search</button>
+      {/* <button className="searchButton">Search</button> */}
     </div>
   );
 }
