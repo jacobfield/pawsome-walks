@@ -19,8 +19,10 @@ export default async function createDogPalRequestsTable() {
         receiverDogId INT NOT NULL,
         status pal_status NOT NULL DEFAULT 'pending',
         requestDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        CONSTRAINT fk_senderDogId FOREIGN KEY (senderDogId) REFERENCES dogs(dogId),
-        CONSTRAINT fk_receiverDogId FOREIGN KEY (receiverDogId) REFERENCES dogs(dogId),
+        CONSTRAINT fk_senderDogId FOREIGN KEY (senderDogId) REFERENCES dogs(dogId)
+        ON DELETE CASCADE ON UPDATE CASCADE,
+        CONSTRAINT fk_receiverDogId FOREIGN KEY (receiverDogId) REFERENCES dogs(dogId)
+        ON UPDATE CASCADE ON DELETE CASCADE,
         CONSTRAINT unique_request UNIQUE (senderDogId, receiverDogId), 
         CONSTRAINT check_different_dogs CHECK (senderDogId != receiverDogId)  -- Ensures sender and receiver are different
       );

@@ -15,6 +15,8 @@ export default async function postWalkController(req, res) {
     res.status(201).json({ status: "success", data: newWalk });
   } catch (error) {
     console.error("Error in postWalkController: ", error);
-    res.status(500).json({ status: "error", message: "Error posting walk" });
+    res
+      .status(500)
+      .json({ status: "error", message: "Error posting walk", error });
   }
 }

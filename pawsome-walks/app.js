@@ -30,11 +30,12 @@ app.use(express.static("public"));
 
 //owners table routes
 app.post("/owners", ownersControllers.postOwnerController);
-app.get("/owners/:ownersId", ownersControllers.getOwnerByIdController);
+app.get("/owners/:ownerId", ownersControllers.getOwnerByIdController);
 app.put(
-  "/owners/:ownersId/password",
+  "/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
+// FIX SO THAT IT CAN CASCADE
 app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 export default app;
 
@@ -64,9 +65,10 @@ app.get(
   "/ownerFavouriteWalks/:ownersId",
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
+
 app.delete(
-  "/ownerFavouriteWalks/:ownersId",
-  ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByOwnerIdController
+  "/ownerFavouriteWalks/:ownerId/:walkId",
+  ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
 );
 
 // dogPals table Routes
@@ -88,11 +90,11 @@ app.post(
   dogPalRequestsControllers.postDogPalRequestController
 );
 app.get(
-  "/dogPalRequests",
+  "/dogPalRequests/:receiverDogId",
   dogPalRequestsControllers.getDogPalRequestsByReceiverDogIdController
 );
 app.put(
-  "/dogPalRequests/:requestId/status",
+  "/dogPalRequests/:dogPalRequestId/status",
   dogPalRequestsControllers.updateDogPalRequestController
 );
 
@@ -103,7 +105,7 @@ app.get(
   walkCommentsControllers.getWalkCommentsByWalkIdController
 );
 app.delete(
-  "/walkComments/:commentId",
+  "/walkComments/:walkCommentId",
   walkCommentsControllers.deleteWalkCommentByIdController
 );
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;

@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function postWalkComments(walkId, ownerId, comment) {
+export default async function postWalkComments({ walkId, ownerId, comment }) {
   try {
     if (!walkId || !ownerId || !comment) {
       throw new Error(

@@ -15,6 +15,6 @@ export default async function postOwnersDogsController(req, res) {
     console.error("Error in postOwnersDogsController: ", error);
     res
       .status(500)
-      .json({ status: "error", message: "Error posting ownerDog" });
+      .json({ status: "error", message: "Error posting ownerDog", error });
   }
 }

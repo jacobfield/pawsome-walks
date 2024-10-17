@@ -1,6 +1,6 @@
 import { ownerFavouriteWalks } from "../../helper-functions/helperFunctions.js";
 
-export default async function deleteOwnerFavouriteWalksByOwnerIdController(
+export default async function deleteOwnerFavouriteWalksByBothIdsController(
   req,
   res
 ) {
@@ -11,12 +11,12 @@ export default async function deleteOwnerFavouriteWalksByOwnerIdController(
     if (!ownerId || !walkId) {
       return res.status(400).json({
         status: "error",
-        message: "Owner ID and Walk ID are required",
+        message: "Owner ID and Walk ID are required ",
       });
     }
 
     const deleteOwnerFavouriteWalks =
-      await ownerFavouriteWalks.deleteOwnerFavouriteWalksByOwnerId(
+      await ownerFavouriteWalks.deleteOwnerFavouriteWalksByBothIds(
         ownerId,
         walkId
       );

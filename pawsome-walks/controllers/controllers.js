@@ -10,7 +10,7 @@ import patchDogByIdController from "./dogs-controllers/patchDogByIdController.js
 import postDogController from "./dogs-controllers/postDogController.js";
 import getOwnerFavouriteWalksByOwnerIdController from "./ownerFavouriteWalks-controllers/getOwnerFavouriteWalksByOwnerIdController.js";
 import postOwnerFavouriteWalksController from "./ownerFavouriteWalks-controllers/postOwnerFavouriteWalksController.js";
-import deleteOwnerFavouriteWalksByOwnerIdController from "./ownerFavouriteWalks-controllers/deleteOwnerFavouriteWalksByOwnerIdController.js";
+import deleteOwnerFavouriteWalksByBothIdsController from "./ownerFavouriteWalks-controllers/deleteOwnerFavouriteWalksByBothIdsController.js";
 import deleteOwnerByIdController from "./owners-controllers/deleteOwnerByIdController.js";
 import getOwnerByIdController from "./owners-controllers/getOwnerByIdController.js";
 import postOwnerController from "./owners-controllers/postOwnerController.js";
@@ -47,7 +47,7 @@ export const ownersDogsControllers = {
 export const ownerFavouriteWalksControllers = {
   postOwnerFavouriteWalksController,
   getOwnerFavouriteWalksByOwnerIdController,
-  deleteOwnerFavouriteWalksByOwnerIdController,
+  deleteOwnerFavouriteWalksByBothIdsController,
 };
 
 export const dogPalsControllers = {

@@ -18,7 +18,7 @@ export default async function updateDogPalRequestController(req, res) {
 
     const updatedDogPalRequest = await dogPalRequests.updateDogPalRequest(
       id,
-      data
+      data.status
     );
 
     res.status(200).json({ status: "success", data: updatedDogPalRequest });

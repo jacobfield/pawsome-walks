@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function postDogPal(dogId1, dogId2) {
+export default async function postDogPal({ dogId1, dogId2 }) {
   try {
     if (dogId1 == dogId2) {
       throw new Error("Dog Ids must be different");

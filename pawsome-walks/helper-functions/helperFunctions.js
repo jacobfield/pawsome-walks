@@ -8,7 +8,7 @@ import getDogById from "./dogs-table/getDogById.js";
 import deleteDogById from "./dogs-table/deleteDogById.js";
 import patchDogById from "./dogs-table/patchDogById.js";
 import postDog from "./dogs-table/postDog.js";
-import deleteOwnerFavouriteWalksByOwnerId from "./ownerFavouriteWalks-table/deleteOwnerFavouriteWalksByOwnerId.js";
+import deleteOwnerFavouriteWalksByBothIds from "./ownerFavouriteWalks-table/deleteOwnerFavouriteWalksByBothIds.js";
 import getOwnerFavouriteWalksByOwnerId from "./ownerFavouriteWalks-table/getOwnerFavouriteWalksByOwnerId.js";
 import postOwnerFavouriteWalks from "./ownerFavouriteWalks-table/postOwnerFavouriteWalks.js";
 import deleteOwnerById from "./owners-table/deleteOwnerById.js";
@@ -51,7 +51,7 @@ export const owners = {
 };
 
 export const ownerFavouriteWalks = {
-  deleteOwnerFavouriteWalksByOwnerId,
+  deleteOwnerFavouriteWalksByBothIds,
   getOwnerFavouriteWalksByOwnerId,
   postOwnerFavouriteWalks,
 };

@@ -4,11 +4,11 @@ export default async function dropTables() {
   try {
     await pool.query(`
       DROP TABLE IF EXISTS 
+        ownersDogs, 
         ownerFavouriteWalks, 
-        walksCommentsTable, 
+        walkComments, 
         dogPalRequests, 
         dogPals, 
-        ownerDogs, 
         walks, 
         dogs, 
         owners

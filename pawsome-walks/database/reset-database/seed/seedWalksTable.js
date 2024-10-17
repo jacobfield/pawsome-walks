@@ -9,6 +9,7 @@ export default async function seedWalksTable() {
       await pool.query(
         `
             INSERT INTO walks (
+            walkName,
             location,
             lat,
             lng,
@@ -21,9 +22,10 @@ export default async function seedWalksTable() {
             scenic,
             parking 
             ) VALUES (
-             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11          
+             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12          
             )`,
         [
+          walk.walkName,
           walk.location,
           walk.lat,
           walk.lng,
@@ -39,6 +41,8 @@ export default async function seedWalksTable() {
       );
     }
     console.log(`Walks table has been successfully seeded`);
+
+    
   } catch (error) {
     console.error(
       "Error seeding Walks table. Error originated in seedWalksTable.js",

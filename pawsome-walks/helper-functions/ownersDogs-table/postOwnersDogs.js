@@ -1,6 +1,6 @@
 import { pool } from "../../index.js";
 
-export default async function postOwnersDogs(ownerId, dogId) {
+export default async function postOwnersDogs({ ownerId, dogId }) {
   try {
     const postOwnersDogs =
       "INSERT INTO ownersDogs (ownerId, dogId) VALUES ($1, $2) RETURNING *";
