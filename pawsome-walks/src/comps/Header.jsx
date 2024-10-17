@@ -1,3 +1,5 @@
+import SearchBar from "./SearchBar";
+
 export default function Header() {
   return (
     <header className="header">
@@ -7,7 +9,10 @@ export default function Header() {
         src="../../public/logo.jpg"
       ></img>
       {/* flex-start left*/}
-      <div className="searchBarDiv"></div> {/* flex-start center*/}
+      <div className="searchBarDiv">
+        <SearchBar></SearchBar>
+      </div>{" "}
+      {/* flex-start center*/}
       <nav className="navBar"></nav> {/* flexstart right*/}
     </header>
   );

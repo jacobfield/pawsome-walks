@@ -32,13 +32,6 @@
     max-width: 175px;
     margin-left: 35px;
   }
-  .searchBarDiv {
-    height: 50px;
-    width: 40%;
-    border-radius: 10px;
-    background-color: aqua;
-    justify-self: stretch;
-  }
   .navBar {
     display: flex;
     justify-self: stretch;
@@ -47,5 +40,16 @@
     height: 100px;
     background-color: red;
     margin: 5px;
+  }
+  .searchBarDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 50px;
+    width: 40%;
+    border-radius: 10px;
+    background-color: aqua;
+    justify-self: stretch;
   }
 }
