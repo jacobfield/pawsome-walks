@@ -71,8 +71,8 @@ app.get(
 );
 //FIX THIS TO INTAKE TWO PARAMS, SAME AS DELETE DOGPALS
 app.delete(
-  "/ownerFavouriteWalks/:ownersId/:walkId",
-  ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByOwnerIdController
+  "/ownerFavouriteWalks/:ownerId/:walkId",
+  ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
 );
 
 // dogPals table Routes
