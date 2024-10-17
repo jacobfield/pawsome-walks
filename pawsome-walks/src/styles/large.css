@@ -37,5 +37,15 @@
     width: 40%;
     border-radius: 10px;
     background-color: aqua;
+    justify-self: stretch;
+  }
+  .navBar {
+    display: flex;
+    justify-self: stretch;
+    width: 100%;
+    max-width: 392px;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
   }
 }

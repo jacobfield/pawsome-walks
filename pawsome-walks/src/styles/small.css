@@ -17,7 +17,7 @@
   }
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     display: flex;
     width: 100%;
@@ -37,9 +37,18 @@
   .searchBarDiv {
     height: 30px;
     width: 40%;
-    min-width: 130px;
+    /* min-width: 130px; */
     background-color: aqua;
     border-radius: 10px;
-    /* align-self: ; */
+    justify-self: stretch;
+  }
+  .navBar {
+    display: flex;
+    justify-self: stretch;
+    width: 100%;
+    max-width: 120px;
+    height: 100px;
+    background-color: red;
+    margin: 5px;
   }
 }
