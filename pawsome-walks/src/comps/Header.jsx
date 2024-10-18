@@ -5,6 +5,7 @@ import { ThemeContext } from "./ThemeProvider";
 export default function Header() {
   const { darkTheme } = useContext(ThemeContext);
   return (
+
     <header className={`header ${darkTheme ? "dark" : "light"}`}>
       <img
         className={`logo ${darkTheme ? "dark" : "light"}`}
