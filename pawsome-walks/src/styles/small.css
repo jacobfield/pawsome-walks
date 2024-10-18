@@ -1,19 +1,24 @@
 @media (max-width: 436px) {
   html,
-  body,
-  .app {
+  body {
     margin: 0;
     padding: 0;
     width: 100vw;
     height: 100vh;
     padding: 0;
   }
-
   .app {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     background: transparent;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    flex-direction: column;
+    overflow-x: hidden;
   }
   .header {
     display: flex;
@@ -91,5 +96,30 @@
   }
   .darkMode {
     /* background-color: aqua; */
+  }
+  .walksContainer {
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+    width: 80%;
+    height: 100%;
+    justify-self: center;
+    margin: 0 auto;
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  .walk {
+    flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
+    margin: 5px; /* Margin around each item */
+    z-index: 2;
+    background-color: aqua;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+  .walkPreviewImg {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
   }
 }
