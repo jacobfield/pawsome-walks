@@ -1,29 +1,53 @@
-/* 
-html,
-body,
-.app {
-    margin: 0;
-    padding: 0;
-    width: 100vw; 
-    height: 100vh;
-    padding: 0;
+.AppContainer.light {
+  background-color: #f8f9fa;
+  color: #343a40;
+}
+.AppContainer.dark {
+  background-color: #343a40;
+  color: #f8f9fa;
+  /* color: black; */
 }
 
-.app {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: transparent; 
+.header.dark {
+  background-color: #3e57e65e;
 }
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 100px;
-    background-color: rgb(255, 0, 0);
+
+.header.light {
+  background-color: #fafaf0;
 }
-*/
+/* .logo.dark {
+  background-color: black;
+  border-radius: 300px;
+} */
+
+.darkMode {
+  display: flex;
+  align-items: centre;
+}
+
+.switch {
+  display: inline-block;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.switch .ThemeIcon {
+  position: absolute;
+  top: 3px;
+  left: 5px;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+}
+
+.themeButton {
+  background: none; /* Removes the background */
+  border: none; /* Removes the border */
+  padding: 0; /* Removes any default padding */
+  margin: 0; /* Removes any default margin */
+  outline: none; /* Removes the outline when focused */
+  cursor: pointer;
+}
