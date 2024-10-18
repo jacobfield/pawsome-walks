@@ -15,9 +15,10 @@
 .header.light {
   background-color: #fafaf0;
 }
-.logo.dark {
-  /* filter: opacity(25%); */
-}
+/* .logo.dark {
+  background-color: black;
+  border-radius: 300px;
+} */
 
 .darkMode {
   display: flex;

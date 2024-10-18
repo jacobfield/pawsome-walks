@@ -9,7 +9,8 @@ export default function Header() {
       <img
         className={`logo ${darkTheme ? "dark" : "light"}`}
         alt="Pawsome Walks Logo"
-        src="../../public/logo.jpg"
+        src="public/logo.png"
+        // logo updated to use transparent background
       ></img>
       <div className="searchBarContainer">
         <SearchBar></SearchBar>
