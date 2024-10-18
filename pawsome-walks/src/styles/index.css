@@ -43,6 +43,14 @@
   transition: transform 0.2s ease;
 }
 
+.themeIcon.light {
+  color: #f8f9fa;
+}
+
+.themeIcon.dark {
+  color: #343a40;
+}
+
 .themeButton {
   background: none; /* Removes the background */
   border: none; /* Removes the border */
@@ -50,4 +58,28 @@
   margin: 0; /* Removes any default margin */
   outline: none; /* Removes the outline when focused */
   cursor: pointer;
+}
+/* ThemeIcon styles */
+.ThemeIcon {
+  transition: opacity 0.3s ease; /* Fade transition */
+  opacity: 1;
+}
+
+/* Fade effect for toggling icons */
+.ThemeIcon.fade {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+.AppContainer,
+.header {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
