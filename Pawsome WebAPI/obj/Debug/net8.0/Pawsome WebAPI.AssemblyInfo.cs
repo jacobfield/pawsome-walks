@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Pawsome WebAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0194375bc689c03f85393cff49428e619aea9aae")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cfe52df8c0c7fcd70515fa34c54c6e301b276ecd")]
 [assembly: System.Reflection.AssemblyProductAttribute("Pawsome WebAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Pawsome WebAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

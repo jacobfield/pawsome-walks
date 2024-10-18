@@ -23,7 +23,7 @@
     display: flex;
     width: 100vw;
     height: auto;
-    background-color: #fafaf0;
+    /* background-color: #fafaf0; */
     flex-wrap: wrap;
   }
   .logo {
@@ -38,7 +38,7 @@
     width: 30%;
     max-width: 392px;
     height: 100px;
-    background-color: red;
+    /* border: 1px solid red; */
     margin: 5px;
   }
   .searchBarContainer {
@@ -48,7 +48,7 @@
     height: 50px;
     width: 40%;
     border-radius: 10px;
-    background-color: aqua;
+    /* background-color: aqua; */
     justify-self: stretch;
   }
   .navBar {
@@ -81,12 +81,12 @@
     font-size: 1em;
     text-align: left;
   }
-  .icon,
-  .darkMode {
+  .icon {
     height: 50px;
     width: 50px;
   }
-  .darkMode {
-    background-color: aqua;
-  }
+  /* .starIcon {
+    margin-left: 3px;
+    margin-right: 3px;
+  } */
 }

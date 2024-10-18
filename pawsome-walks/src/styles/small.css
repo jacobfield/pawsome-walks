@@ -1,4 +1,4 @@
-@media (max-width: 435px) {
+@media (max-width: 436px) {
   html,
   body,
   .app {
@@ -22,7 +22,7 @@
     display: flex;
     width: 100%;
     height: auto;
-    background-color: #fafaf0;
+    /* background-color: #fafaf0; */
     flex-direction: row;
     flex-wrap: wrap;
   }
@@ -40,7 +40,8 @@
     width: 20%;
     max-width: 120px;
     height: 100px;
-    background-color: red;
+    /* border: 1px solid red; */
+
     margin: 5px;
   }
   .searchBarContainer {
@@ -49,17 +50,8 @@
     justify-content: center;
     height: 30px;
     width: 40%;
-    background-color: aqua;
+    /* background-color: aqua; */
     border-radius: 10px;
-  }
-
-  .navBar {
-    display: flex;
-    justify-content: space-around;
-    height: 100%;
-    width: 100%;
-    flex-wrap: wrap;
-    align-items: center;
   }
 
   .searchBar {
@@ -79,18 +71,25 @@
     text-overflow: ellipsis;
     box-shadow: #000000 0px 0px 0.8px;
   }
+  .navBar {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    /* flex-wrap: wrap; */
+    align-items: center;
+  }
   .searchInput::placeholder {
     color: rgb(190, 188, 188);
     font-size: 1em;
     text-align: left;
   }
 
-  .icon,
-  .darkMode {
-    height: 50px;
-    width: 50px;
+  .icon {
+    height: 30px;
+    width: 30px;
   }
   .darkMode {
-    background-color: aqua;
+    /* background-color: aqua; */
   }
 }
