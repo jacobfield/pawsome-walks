@@ -93,18 +93,28 @@
   }
   .walksContainer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+
     flex-wrap: wrap;
-    width: 100%;
+    width: 80%;
     height: 100%;
     flex-grow: 1;
-    overflow-y: auto;
+    justify-self: center;
+    margin: 0 auto;
+    /* overflow-y: auto; */
   }
   .walk {
-    height: 50px;
-    width: 50px;
-    margin: 5px;
+    flex: 0 0 calc(33.33% - 10px);
+    /* Three items per row minus the margin */
+    margin: 5px; /* Margin around each item */
     z-index: 2;
     background-color: aqua;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+  }
+
+  .walkPreviewImg {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
   }
 }
