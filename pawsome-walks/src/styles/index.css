@@ -4,8 +4,19 @@
 }
 .AppContainer.dark {
   background-color: #343a40;
-  /* color: #f8f9fa; */
-  color: black;
+  color: #f8f9fa;
+  /* color: black; */
+}
+
+.header.dark {
+  background-color: #3e57e65e;
+}
+
+.header.light {
+  background-color: #fafaf0;
+}
+.logo.dark {
+  /* filter: opacity(25%); */
 }
 
 .darkMode {

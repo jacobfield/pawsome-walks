@@ -17,9 +17,12 @@ export default function NavBar() {
           onClick={() => setDarkTheme(!darkTheme)}
         >
           {!darkTheme ? (
-            <GiNightSky className="ThemeIcon icon" />
+            <GiNightSky className="ThemeIcon icon fade" />
           ) : (
-            <GiHeraldicSun className="ThemeIcon icon" />
+            <GiHeraldicSun
+              style={{ color: "#f8f9fa" }}
+              className="ThemeIcon icon fade"
+            />
           )}
         </button>
       </div>

@@ -21,7 +21,7 @@
     display: flex;
     width: 100vw;
     height: auto;
-    background-color: #fafaf0;
+    /* background-color: #fafaf0; */
     /* flex-wrap: wrap; */
   }
   .logo {
@@ -36,7 +36,7 @@
     width: 20%;
     max-width: 250px;
     height: 100px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     margin: 5px;
   }
@@ -81,10 +81,9 @@
     font-size: 1em;
     text-align: left;
   }
-  .icon,
-  .darkMode {
-    height: 50px;
-    width: 50px;
+  .icon {
+    height: 40px;
+    width: 40px;
   }
   .darkMode {
     /* background-color: aqua; */
