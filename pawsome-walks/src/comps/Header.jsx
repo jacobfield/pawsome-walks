@@ -1,15 +1,24 @@
+import NavBar from "./NavBar";
 import SearchBar from "./SearchBar";
-
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeProvider";
 export default function Header() {
+  const { darkTheme } = useContext(ThemeContext);
   return (
-    <header className="header">
-      <img className="logo" alt="Pawsome Walks Logo" src="/logo.jpg"></img>
-      {/* flex-start left*/}
-      <div className="searchBarDiv">
+
+    <header className={`header ${darkTheme ? "dark" : "light"}`}>
+      <img
+        className={`logo ${darkTheme ? "dark" : "light"}`}
+        alt="Pawsome Walks Logo"
+        src="public/logo.png"
+        // logo updated to use transparent background
+      ></img>
+      <div className="searchBarContainer">
         <SearchBar></SearchBar>
-      </div>{" "}
-      {/* flex-start center*/}
-      <nav className="navBar"></nav> {/* flexstart right*/}
+      </div>
+      <nav className="navBarContainer">
+        <NavBar></NavBar>
+      </nav>
     </header>
   );
 }
