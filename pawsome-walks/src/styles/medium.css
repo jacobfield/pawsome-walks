@@ -104,12 +104,12 @@
     /* overflow-y: auto; */
   }
   .walk {
-    flex: 0 0 calc(33.33% - 10px);
-    /* Three items per row minus the margin */
-    margin: 5px; /* Margin around each item */
+    flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
+    margin: 5px;
     z-index: 2;
-    background-color: aqua;
-    box-sizing: border-box; /* Ensure padding and border are included in the width */
+    /* background-color: aqua; */
+    border: 1px solid aqua;
+    box-sizing: border-box;
   }
 
   .walkPreviewImg {
