@@ -25,7 +25,7 @@ export default function Main({ allWalks }) {
         allWalks.map((walk) => (
           <div
             key={walk.walkid}
-            className={`walk fade ${darkTheme ? "dark" : "light" }`}
+            className={`walk fade ${darkTheme ? "dark" : "light"}`}
           >
             <img
               className="walkPreviewImg"
@@ -33,6 +33,18 @@ export default function Main({ allWalks }) {
               alt={walk.walkname}
             />
             <h2 className="walkPreviewTitle">{walk.walkname}</h2>
+            <div
+              className={`walkPreviewDetails fade ${
+                darkTheme ? "dark" : "light"
+              }`}
+            >
+              <p>{walk.location}</p>
+              {walk.walktype.map((type) => (
+                <ul key={type}>
+                  <li>{type}</li>
+                </ul>
+              ))}
+            </div>
           </div>
         ))}
       {/* ))}

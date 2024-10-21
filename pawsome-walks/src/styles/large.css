@@ -127,5 +127,13 @@
     height: 175px; /* Maintain aspect ratio */
     border-radius: 10px 0 0 10px;
   }
+  .walkPreviewTitle {
+    align-self: flex-start;
+    text-wrap: wrap;
+  }
+  .walkPreviewDetails {
+    border-radius: 10px;
+    align-self: flex-end;
+    justify-self: center;
+  }
 }
-

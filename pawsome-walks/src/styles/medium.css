@@ -128,4 +128,7 @@
     height: 175px; /* Maintain aspect ratio */
     border-radius: 10px 0 0 10px;
   }
+  .walkPreviewDetails {
+    border-radius: 10px;
+  }
 }

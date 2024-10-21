@@ -135,4 +135,10 @@
     height: 175px; /* Maintain aspect ratio */
     border-radius: 10px 0 0 10px;
   }
+  .walkPreviewTitle {
+    align-self: flex-start;
+  }
+  .walkPreviewDetails {
+    border-radius: 10px;
+  }
 }

@@ -109,3 +109,10 @@
   box-shadow: rgb(63, 20, 20) 2px 2px 2px;
   color: #f8f9fa;
 }
+
+.walkPreviewDetails.light {
+  background-color: #fafaf0;
+}
+.walkPreviewDetails.dark {
+  background-color: #3e57e65e;
+}
