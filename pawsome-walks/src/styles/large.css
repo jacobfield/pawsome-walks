@@ -106,7 +106,6 @@
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
     margin: 5px;
     z-index: 2;
-
     box-sizing: border-box;
     border-radius: 10px;
     flex-direction: row;
@@ -116,6 +115,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   .walkPreviewImg {
@@ -140,22 +141,27 @@
     width: 100%;
     display: block;
     margin: 0;
-    margin-top: 1px;
+    margin-top: 5px;
     padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 24px;
   }
   .walkPreviewLocation {
     margin: 0;
     padding: 10px;
+    font-size: 16px;
   }
   .walkPreviewDetails {
     border-radius: 10px;
-    /* align-self: flex-end; */
-    /* justify-self: center; */
     width: 90%;
     max-width: 90%;
     height: auto;
     margin: auto;
     margin-bottom: 5px; /* Adjust to reduce spacing */
     padding: 0;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 16px;
   }
 }
