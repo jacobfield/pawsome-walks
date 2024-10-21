@@ -32,25 +32,19 @@ export default function Main({ allWalks }) {
               src={`walk-photos/${walk.photopath}.jpg`}
               alt={walk.walkname}
             />
-            <h2 className="walkPreviewTitle">{walk.walkname}</h2>
-            <div
-              className={`walkPreviewDetails fade ${
-                darkTheme ? "dark" : "light"
-              }`}
-            >
-              <p>{walk.location}</p>
-              {walk.walktype.map((type) => (
-                <ul key={type}>
-                  <li>{type}</li>
-                </ul>
-              ))}
+            <div className="walkPreviewTextContainer">
+              <h2 className="walkPreviewTitle">{walk.walkname}</h2>
+              <p className="walkPreviewLocation">{walk.location}</p>
+              <div
+                className={`walkPreviewDetails fade ${
+                  darkTheme ? "dark" : "light"
+                }`}
+              >
+                <p>{walk.walktype.map((type) => type).join(", ")}</p>
+              </div>
             </div>
           </div>
         ))}
-      {/* ))}
-      {walks.map((walk) => (
-        <div key={walk} className="walk"></div>
-      ))} */}
     </section>
   );
 }
