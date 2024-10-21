@@ -132,8 +132,8 @@
     flex: 0 0 50%;
     height: 175px;
     width: 178px;
-    max-height: 175px;
     max-width: 178px;
+    max-height: 175px;
     border-radius: 10px 0 0 10px;
   }
   .walkPreviewTextContainer {
@@ -164,7 +164,7 @@
   }
   .walkPreviewDetails {
     border-radius: 10px;
-    width: auto;
+    width: 100%;
     min-width: 90%;
     height: auto;
     margin: auto;
