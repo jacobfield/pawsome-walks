@@ -23,12 +23,12 @@ export default function Main({ allWalks }) {
       {allWalks &&
         allWalks.map((walk) => (
           <div key={walk.walkid} className="walk">
-            <h2 className="walkPreviewTitle">{walk.walkname}</h2>
             <img
               className="walkPreviewImg"
               src={`walk-photos/${walk.photopath}.jpg`}
               alt={walk.walkname}
             />
+            <h2 className="walkPreviewTitle">{walk.walkname}</h2>
           </div>
         ))}
       {/* ))}

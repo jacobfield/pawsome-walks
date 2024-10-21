@@ -107,13 +107,23 @@
     margin: 5px;
     z-index: 2;
     /* background-color: aqua; */
-    border: 1px solid aqua;
+    /* border: 1px solid aqua; */
     box-sizing: border-box;
+    border-radius: 10px;
+    flex-direction: row;
+    height: 175px;
+    width: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    box-shadow: rgb(255, 245, 245) 2px 2px 2px;
   }
 
   .walkPreviewImg {
-    height: 100px;
-    width: 100px;
+    flex: 0 0 50%;
+    max-width: 225px; /* Take up 50% of the .walk container width */
+    height: 175px; /* Maintain aspect ratio */
     border-radius: 10px;
   }
 }
