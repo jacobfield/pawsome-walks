@@ -11,7 +11,7 @@ import {
   ownersDogsControllers,
   walkCommentsControllers,
   walksControllers,
-} from "./controllers/controllers.js";
+} from "../controllers/controllers.js";
 
 // initialize express app
 const app = express();
