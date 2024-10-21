@@ -8,7 +8,6 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "nodemon server.js",
     "reset": "node -r dotenv/config database/reset-database/dbReset.js"
   },
   "dependencies": {

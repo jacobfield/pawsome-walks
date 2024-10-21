@@ -1,6 +1,6 @@
 export default async function getAllWalks() {
   try {
-    const response = await fetch("http://localhost:9998/walks", {
+    const response = await fetch("https://pawsome-walks.vercel.app/api/walks", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
