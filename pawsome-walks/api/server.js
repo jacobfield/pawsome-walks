@@ -1,11 +1,8 @@
-/* eslint-disable no-undef */
+// api/server.js
 import app from "./app.js";
 import dotenv from "dotenv";
 
 dotenv.config();
-const PORT = process.env.VITE_PORT ?? 9998;
-const HOST = process.env.VITE_HOST ?? "0.0.0.0";
 
-app.listen(PORT, HOST, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+// Export the app for Vercel to handle as a serverless function
+export default app;

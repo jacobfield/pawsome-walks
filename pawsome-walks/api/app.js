@@ -29,10 +29,10 @@ app.use(express.static("public"));
 // app.use("/route", importedRoute)
 
 //owners table routes
-app.post("/owners", ownersControllers.postOwnerController);
-app.get("/owners/:ownerId", ownersControllers.getOwnerByIdController);
+app.post("/api/owners", ownersControllers.postOwnerController);
+app.get("/api/owners/:ownerId", ownersControllers.getOwnerByIdController);
 app.put(
-  "/owners/:ownerId/password",
+  "/api/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
 // FIX SO THAT IT CAN CASCADE
@@ -40,72 +40,75 @@ app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 export default app;
 
 //dogs table route
-app.post("/dogs", dogsControllers.postDogController);
-app.get("/dogs/:dogId", dogsControllers.getDogByIdController);
-app.patch("/dogs/:dogId", dogsControllers.patchDogByIdController);
-app.delete("/dogs/:dogId", dogsControllers.deleteDogByIdController);
+app.post("/api/dogs", dogsControllers.postDogController);
+app.get("/api/dogs/:dogId", dogsControllers.getDogByIdController);
+app.patch("/api/dogs/:dogId", dogsControllers.patchDogByIdController);
+app.delete("/api/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
 //ownerDogs table controllers
-app.post("/ownersDogs", ownersDogsControllers.postOwnersDogsController);
+app.post("/api/ownersDogs", ownersDogsControllers.postOwnersDogsController);
 app.get(
-  "/ownersDogs/:ownersId",
+  "/api/ownersDogs/:ownersId",
   ownersDogsControllers.getOwnersDogsByOwnersIdController
 );
 app.delete(
-  "/ownersDogs/:dogId",
+  "/api/ownersDogs/:dogId",
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
 
 // ownerFavouriteWalks table Routes
 app.post(
-  "/ownerFavouriteWalks",
+  "/api/ownerFavouriteWalks",
   ownerFavouriteWalksControllers.postOwnerFavouriteWalksController
 );
 app.get(
-  "/ownerFavouriteWalks/:ownersId",
+  "/api/ownerFavouriteWalks/:ownersId",
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
 
 app.delete(
-  "/ownerFavouriteWalks/:ownerId/:walkId",
+  "/api/ownerFavouriteWalks/:ownerId/:walkId",
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
 );
 
 // dogPals table Routes
-app.post("/dogPals", dogPalsControllers.postDogPalController);
-app.get("/dogPals/:dogId", dogPalsControllers.getDogPalsByDogIdController);
+app.post("/api/dogPals", dogPalsControllers.postDogPalController);
+app.get("/api/dogPals/:dogId", dogPalsControllers.getDogPalsByDogIdController);
 app.delete(
-  "/dogPals/:dogId1/:dogId2",
+  "/api/dogPals/:dogId1/:dogId2",
   dogPalsControllers.deleteDogPalsByBothIdsController
 );
 
 // walks table routes
-app.get("/walks", walksControllers.getAllWalksController);
-app.post("/walks", walksControllers.postWalkController);
-app.get("/walks/:walkId", walksControllers.getWalksByIdController);
+app.get("/api/walks", walksControllers.getAllWalksController);
+app.post("/api/walks", walksControllers.postWalkController);
+app.get("/api/walks/:walkId", walksControllers.getWalksByIdController);
 
 // dogPalRequests table routes
 app.post(
-  "/dogPalRequests",
+  "/api/dogPalRequests",
   dogPalRequestsControllers.postDogPalRequestController
 );
 app.get(
-  "/dogPalRequests/:receiverDogId",
+  "/api/dogPalRequests/:receiverDogId",
   dogPalRequestsControllers.getDogPalRequestsByReceiverDogIdController
 );
 app.put(
-  "/dogPalRequests/:dogPalRequestId/status",
+  "/api/dogPalRequests/:dogPalRequestId/status",
   dogPalRequestsControllers.updateDogPalRequestController
 );
 
 // walkComments table routes
-app.post("/walkComments", walkCommentsControllers.postWalkCommentsController);
+app.post(
+  "/api/walkComments",
+  walkCommentsControllers.postWalkCommentsController
+);
 app.get(
-  "/walkComments/:walkId",
+  "/api/walkComments/:walkId",
   walkCommentsControllers.getWalkCommentsByWalkIdController
 );
 app.delete(
-  "/walkComments/:walkCommentId",
+  "/api/walkComments/:walkCommentId",
   walkCommentsControllers.deleteWalkCommentByIdController
 );
 // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
