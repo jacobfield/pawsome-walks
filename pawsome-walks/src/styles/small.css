@@ -111,11 +111,11 @@
   }
   .walk {
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
-    margin: 5px; 
+    margin: 5px;
     z-index: 2;
     /* background-color: aqua; */
     border: 1px solid aqua;
-    box-sizing: border-box; 
+    box-sizing: border-box;
   }
 
   .walkPreviewImg {

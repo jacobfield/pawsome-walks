@@ -51,6 +51,15 @@
   color: #343a40;
 }
 
+.loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  justify-self: center;
+  align-self: center;
+}
+
 .themeButton {
   background: none; /* Removes the background */
   border: none; /* Removes the border */
