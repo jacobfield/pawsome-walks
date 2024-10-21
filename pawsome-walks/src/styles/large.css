@@ -123,7 +123,8 @@
   .walkPreviewImg {
     flex: 0 0 50%;
     max-width: 225px; /* Take up 50% of the .walk container width */
+    max-height: 175px; /* Maintain aspect ratio */
     height: 175px; /* Maintain aspect ratio */
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
   }
 }

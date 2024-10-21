@@ -102,7 +102,7 @@
     justify-content: center;
 
     flex-wrap: wrap;
-    width: 80%;
+    width: 100%;
     height: 100%;
     justify-self: center;
     margin: 0 auto;
@@ -113,14 +113,26 @@
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
     margin: 5px;
     z-index: 2;
-    /* background-color: aqua; */
-    border: 1px solid aqua;
     box-sizing: border-box;
+    /* background-color: aqua; */
+    /* border: 1px solid aqua; */
+    border-radius: 10px;
+    flex-direction: row;
+    height: 175px;
+    width: 356px;
+    min-width: 356px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #fff;
+    box-shadow: rgb(255, 245, 245) 0px 0px 1px;
   }
 
   .walkPreviewImg {
-    height: 100px;
-    width: 100px;
-    border-radius: 10px;
+    flex: 0 0 50%;
+    max-width: 178px; /* Take up 50% of the .walk container width */
+    max-height: 175px; /* Maintain aspect ratio */
+    height: 175px; /* Maintain aspect ratio */
+    border-radius: 10px 0 0 10px;
   }
 }
