@@ -102,6 +102,7 @@
     margin: 0 auto;
     overflow-y: auto;
     justify-self: center;
+    padding: 10px;
   }
   .walk {
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
@@ -122,10 +123,10 @@
 
   .walkPreviewImg {
     flex: 0 0 50%;
-    height: 175px; /* Maintain aspect ratio */
-    width: 175px;
-    max-width: 175px; /* Take up 50% of the .walk container width */
-    max-height: 175px; /* Maintain aspect ratio */
+    height: 175px;
+    width: 178px;
+    max-height: 175px;
+    max-width: 178px;
     border-radius: 10px 0 0 10px;
   }
   .walkPreviewTextContainer {
@@ -147,23 +148,23 @@
     padding: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-size: 22px;
+    font-size: 20px;
   }
   .walkPreviewLocation {
     margin: 0;
     padding: 10px;
-    font-size: 16px;
+    font-size: 14px;
   }
   .walkPreviewDetails {
     border-radius: 10px;
-    width: 90%;
-    max-width: 90%;
+    width: auto;
+    min-width: 90%;
     height: auto;
     margin: auto;
-    margin-bottom: 5px; /* Adjust to reduce spacing */
-    padding: 0;
+    margin-bottom: 10px; /* Adjust to reduce spacing */
+    /* padding: 5px; */
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-size: 14px;
+    font-size: 12px;
   }
 }

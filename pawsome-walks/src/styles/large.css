@@ -102,6 +102,7 @@
     margin: 0 auto;
     overflow-y: auto;
     justify-self: center;
+    padding: 10px;
   }
   .walk {
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
