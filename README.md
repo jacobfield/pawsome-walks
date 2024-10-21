@@ -1,6 +1,8 @@
 # Pawsome Walks Learning Project
 
- Phase 1:
+https://pawsome-walks.vercel.app/
+
+Phase 1:
 
 1. Initialized new React project via Vite with: `npm create vite@latest`
 1. Installed SQLite3, then installed in project with: `npm i sqlite`
