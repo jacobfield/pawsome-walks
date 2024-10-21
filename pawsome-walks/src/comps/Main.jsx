@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { bouncy } from "ldrs";
-
-bouncy.register();
-
-// Default values shown
+import { useContext } from "react";
+import { ThemeContext } from "./ThemeProvider";
 
 export default function Main({ allWalks }) {
+  // initialising loading state holder
+  bouncy.register();
   const [walks, setWalks] = useState(
     Array.from({ length: 30 }, (_, i) => i + 1)
   );
+  const { darkTheme } = useContext(ThemeContext);
   const [loading, setLoading] = useState("Loading...");
 
   if (!allWalks) {
@@ -22,7 +23,10 @@ export default function Main({ allWalks }) {
     <section className="walksContainer">
       {allWalks &&
         allWalks.map((walk) => (
-          <div key={walk.walkid} className="walk">
+          <div
+            key={walk.walkid}
+            className={`walk fade ${darkTheme ? "dark" : "light" }`}
+          >
             <img
               className="walkPreviewImg"
               src={`walk-photos/${walk.photopath}.jpg`}

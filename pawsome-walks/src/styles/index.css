@@ -92,3 +92,20 @@
     opacity: 1;
   }
 }
+
+.walk.light {
+  background-color: #fff;
+  box-shadow: rgb(255, 245, 245) 2px 2px 2px;
+  color: #343a40;
+}
+
+/* .walk.dark {
+  background-color: #ff00375e;
+  box-shadow: rgb(99, 57, 57) 2px 2px 2px;
+  color: #f8f9fa;
+} */
+.walk.dark {
+  background-color: #a02aee27;
+  box-shadow: rgb(63, 20, 20) 2px 2px 2px;
+  color: #f8f9fa;
+}

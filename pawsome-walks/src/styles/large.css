@@ -116,8 +116,8 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    background-color: #fff;
-    box-shadow: rgb(255, 245, 245) 2px 2px 2px;
+    /* background-color: #fff;
+    box-shadow: rgb(255, 245, 245) 2px 2px 2px; */
   }
 
   .walkPreviewImg {
@@ -128,3 +128,4 @@
     border-radius: 10px 0 0 10px;
   }
 }
+
