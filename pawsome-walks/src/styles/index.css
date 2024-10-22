@@ -8,11 +8,13 @@
   /* color: black; */
 }
 
-.header.dark {
+.header.dark,
+.footer.dark {
   background-color: #3e57e65e;
 }
 
-.header.light {
+.header.light,
+footer.light {
   background-color: #fafaf0;
 }
 /* .logo.dark {
@@ -115,4 +117,5 @@
 }
 .walkPreviewDetails.dark {
   background-color: #3e57e65e;
+  
 }

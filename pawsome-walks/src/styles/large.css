@@ -4,49 +4,43 @@
     margin: 0;
     padding: 0;
     width: 100vw;
-    height: 100vh;
-    padding: 0;
+    height: 100vh; /* Full viewport height */
     overflow-x: hidden;
     font-family: "DM Sans", sans-serif;
   }
+
   .app {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
     flex-direction: column;
-    overflow-x: hidden;
+    min-height: 100vh; /* Ensure the app takes up the full height of the viewport */
+    justify-content: space-between; /* Pushes the footer to the bottom */
   }
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
     width: 100vw;
     height: auto;
-    /* background-color: #fafaf0; */
     flex-wrap: wrap;
   }
+
   .logo {
     height: auto;
     width: auto;
     max-width: 175px;
     margin-left: 35px;
   }
+
   .navBarContainer {
     display: flex;
     justify-self: stretch;
     width: 30%;
     max-width: 392px;
     height: 100px;
-    /* border: 1px solid red; */
     margin: 5px;
   }
+
   .searchBarContainer {
     display: flex;
     align-items: center;
@@ -54,9 +48,9 @@
     height: 50px;
     width: 40%;
     border-radius: 10px;
-    /* background-color: aqua; */
     justify-self: stretch;
   }
+
   .navBar {
     height: 100%;
     width: 100%;
@@ -71,6 +65,7 @@
     width: 100%;
     margin-right: 5px;
   }
+
   .searchInput {
     border: 0.5px solid rgb(223, 221, 221);
     border-radius: 10px;
@@ -82,11 +77,13 @@
     text-align: left;
     box-shadow: #000000 0px 0px 0.8px;
   }
+
   .searchInput::placeholder {
     color: rgb(190, 188, 188);
     font-size: 1em;
     text-align: left;
   }
+
   .icon {
     height: 50px;
     width: 50px;
@@ -104,6 +101,7 @@
     justify-self: center;
     padding: 10px;
   }
+
   .walk {
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
     margin: 5px;
@@ -129,6 +127,7 @@
     max-width: 225px;
     border-radius: 10px 0 0 10px;
   }
+
   .walkPreviewTextContainer {
     display: flex;
     width: 100%;
@@ -136,8 +135,9 @@
     flex-direction: column;
     justify-content: center;
     flex-shrink: 3;
-    padding: 5px;
+    /* padding: 5px; */
   }
+
   .walkPreviewTitle {
     align-self: flex-start;
     text-wrap: wrap;
@@ -150,21 +150,58 @@
     overflow-wrap: break-word;
     font-size: 24px;
   }
+
   .walkPreviewLocation {
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
   }
+
   .walkPreviewDetails {
-    border-radius: 10px;
-    width: 90%;
-    max-width: 90%;
+    border-radius: 0 0 10px 0;
+    width: 100%;
+    /* max-width: 90%; */
     height: auto;
     margin: auto;
-    margin-bottom: 5px; /* Adjust to reduce spacing */
+    margin-bottom: 0px;
     padding: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-size: 16px;
+  }
+
+  .mainContent {
+    flex-grow: 1; /* Ensures main content takes up available space */
+    padding: 20px;
+  }
+
+  .footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f1f1f1;
+  }
+
+  .footerLogo {
+    height: 100px;
+    width: auto;
+  }
+
+  .address {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .footerEmail {
+    text-decoration: underline;
+    color: inherit;
+  }
+  .quoteDiv {
+    width: 100%;
+    font-size: x-large;
   }
 }

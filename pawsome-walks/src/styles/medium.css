@@ -5,48 +5,41 @@
     padding: 0;
     width: 100vw;
     height: 100vh;
-    padding: 0;
     font-family: "DM Sans", sans-serif;
-  }
-  .app {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    background: transparent;
-    margin: 0;
-    padding: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 0;
-    flex-direction: column;
     overflow-x: hidden;
   }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures app takes up full height of the viewport */
+    justify-content: space-between; /* Pushes the footer to the bottom */
+  }
+
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
     width: 100vw;
     height: auto;
-    /* background-color: #fafaf0; */
-    /* flex-wrap: wrap; */
   }
+
   .logo {
     height: auto;
     max-height: 150px;
     width: auto;
     margin-left: 20px;
   }
+
   .navBarContainer {
     display: flex;
     justify-self: stretch;
     width: 20%;
     max-width: 250px;
     height: 100px;
-    /* border: 1px solid red; */
-
     margin: 5px;
   }
+
   .searchBarContainer {
     display: flex;
     align-items: center;
@@ -55,7 +48,6 @@
     width: 40%;
     border-radius: 10px;
     padding: 5px;
-    /* background-color: aqua; */
   }
 
   .navBar {
@@ -72,6 +64,7 @@
     width: 100%;
     margin-right: 5px;
   }
+
   .searchInput {
     border: 0.5px solid rgb(223, 221, 221);
     border-radius: 10px;
@@ -83,15 +76,18 @@
     text-align: left;
     box-shadow: #000000 0px 0px 0.8px;
   }
+
   .searchInput::placeholder {
     color: rgb(190, 188, 188);
     font-size: 1em;
     text-align: left;
   }
+
   .icon {
     height: 40px;
     width: 40px;
   }
+
   .walksContainer {
     display: flex;
     justify-content: center;
@@ -104,6 +100,7 @@
     justify-self: center;
     padding: 10px;
   }
+
   .walk {
     flex: 0 0 calc(33.33% - 10px); /* Three items per row minus the margin */
     margin: 5px;
@@ -112,8 +109,9 @@
     border-radius: 10px;
     flex-direction: row;
     height: 175px;
+    width: 356px;
+    min-width: 356px;
     max-width: 350px;
-    min-width: 315px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -125,10 +123,11 @@
     flex: 0 0 50%;
     height: 175px;
     width: 178px;
-    max-height: 175px;
     max-width: 178px;
+    max-height: 175px;
     border-radius: 10px 0 0 10px;
   }
+
   .walkPreviewTextContainer {
     display: flex;
     width: 100%;
@@ -136,11 +135,11 @@
     flex-direction: column;
     justify-content: center;
     flex-shrink: 3;
-    padding: 5px;
+    /* padding: 5px; */
   }
+
   .walkPreviewTitle {
     align-self: flex-start;
-    text-wrap: wrap;
     width: 100%;
     display: block;
     margin: 0;
@@ -150,21 +149,58 @@
     overflow-wrap: break-word;
     font-size: 20px;
   }
+
   .walkPreviewLocation {
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     font-size: 14px;
   }
+
   .walkPreviewDetails {
-    border-radius: 10px;
-    width: auto;
-    min-width: 90%;
+    border-radius: 0 0 10px 0;
+    width: 100%;
+    /* min-width: 90%; */
     height: auto;
     margin: auto;
-    margin-bottom: 10px; /* Adjust to reduce spacing */
-    /* padding: 5px; */
+    margin-bottom: 0px; /* Adjust to reduce spacing */
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-size: 12px;
+    padding: 0;
+  }
+
+  .mainContent {
+    flex-grow: 1; /* Ensures main content takes up available space */
+    padding: 20px;
+  }
+
+  .footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #f1f1f1;
+  }
+
+  .footerLogo {
+    height: 100px;
+    width: auto;
+  }
+
+  .address {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .footerEmail {
+    text-decoration: underline;
+    color: inherit;
+  }
+  .quoteDiv {
+    width: 100%;
+    font-size: x-large;
   }
 }
