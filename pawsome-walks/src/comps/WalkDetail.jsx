@@ -27,11 +27,13 @@ export default function WalkDetail() {
   console.log("walk", walk);
   return (
     <div className="walkDetailContainer">
+      <div className="walkDetailImgContainer"></div>
       <img
         className="walkDetailImg"
         src={`/walk-photos/walk${walkid}.jpg`}
         alt={walk.walkname}
       />
+
       <div className="walkDetail">
         <Link className="noTextDecoration" to="/">
           Back to Walks
