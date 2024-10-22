@@ -5,9 +5,9 @@ import useReverseGeolocation from "../hooks/useReverseGeolocation";
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-export default function Map() {
+export default function Map({ latitude, longitude, success }) {
   // Declare state variables
-  const [searchLocation, setSearchLocation] = useState("London");
+  const [searchLocation, setSearchLocation] = useState("Derbyshire");
   const [locationAccess, setLocationAccess] = useState(false);
 
   navigator.permissions
@@ -61,9 +61,8 @@ export default function Map() {
   };
 
   // Using the custom hook to get the current coordinates
-  const coordinates = useGeolocation();
   // Destructuring latitude and longitude from the coordinates object
-  const { latitude, longitude, success } = coordinates;
+  // const { latitude, longitude, success } = coordinates;
 
   // Declare reverse geo location string at top level (if failure, dummy string)
   const revGeoLocStr = useReverseGeolocation(latitude, longitude, success);
@@ -170,7 +169,7 @@ export default function Map() {
   return (
     <>
       <MapSearch {...props} />
-      <div id="map" style={{ height: "80%", width: "80%" }}></div>
+      <div id="map" style={{ height: "400px", width: "100%" }}></div>
     </>
   );
 }

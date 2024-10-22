@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getWalkById from "../hooks/getWalkById";
 import { bouncy } from "ldrs";
+import Map from "./google-maps/comps/Map";
 
 export default function WalkDetail() {
   const { walkid } = useParams(); // get walkId from params
@@ -25,20 +26,29 @@ export default function WalkDetail() {
     );
   }
   console.log("walk", walk);
-  return (
-    <div className="walkDetailContainer">
-      <div className="walkDetailImgContainer"></div>
-      <img
-        className="walkDetailImg"
-        src={`/walk-photos/walk${walkid}.jpg`}
-        alt={walk.walkname}
-      />
+  if (walk) {
+    return (
+      <div className="walkDetailContainer">
+        <div className="mapContainer">
+          <Map
+            latitude={walk.lat}
+            longitude={walk.lng}
+            success={walk.lat && walk.lng ? true : false}
+          ></Map>
+        </div>
+        <div className="walkDetailImgContainer"></div>
+        <img
+          className="walkDetailImg"
+          src={`/walk-photos/walk${walkid}.jpg`}
+          alt={walk.walkname}
+        />
 
-      <div className="walkDetail">
-        <Link className="noTextDecoration" to="/">
-          Back to Walks
-        </Link>
+        <div className="walkDetail">
+          <Link className="noTextDecoration" to="/">
+            Back to Walks
+          </Link>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
