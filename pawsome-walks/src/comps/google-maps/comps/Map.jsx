@@ -168,7 +168,7 @@ export default function Map({ latitude, longitude, success }) {
 
   return (
     <>
-      <MapSearch {...props} />
+      {/* <MapSearch {...props} /> */}
       <div id="map" style={{ height: "400px", width: "100%" }}></div>
     </>
   );
