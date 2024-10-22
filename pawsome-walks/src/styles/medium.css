@@ -199,4 +199,8 @@
     text-decoration: underline;
     color: inherit;
   }
+  .quoteDiv {
+    width: 100%;
+    font-size: x-large;
+  }
 }

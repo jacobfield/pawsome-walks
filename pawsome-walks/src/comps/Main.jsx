@@ -2,6 +2,7 @@ import { useState } from "react";
 import { bouncy } from "ldrs";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+import Quote from "./Quote";
 
 export default function Main({ allWalks }) {
   // initialising loading state holder
@@ -21,6 +22,7 @@ export default function Main({ allWalks }) {
   }
   return (
     <section className="walksContainer">
+      <Quote></Quote>
       {allWalks &&
         allWalks.map((walk) => (
           <div
