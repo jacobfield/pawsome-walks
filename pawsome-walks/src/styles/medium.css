@@ -135,7 +135,7 @@
     flex-direction: column;
     justify-content: center;
     flex-shrink: 3;
-    padding: 5px;
+    /* padding: 5px; */
   }
 
   .walkPreviewTitle {
@@ -152,20 +152,21 @@
 
   .walkPreviewLocation {
     margin: 0;
-    padding: 10px;
+    padding: 5px;
     font-size: 14px;
   }
 
   .walkPreviewDetails {
-    border-radius: 10px;
+    border-radius: 0 0 10px 0;
     width: 100%;
-    min-width: 90%;
+    /* min-width: 90%; */
     height: auto;
     margin: auto;
-    margin-bottom: 10px; /* Adjust to reduce spacing */
+    margin-bottom: 0px; /* Adjust to reduce spacing */
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-size: 12px;
+    padding: 0;
   }
 
   .mainContent {
