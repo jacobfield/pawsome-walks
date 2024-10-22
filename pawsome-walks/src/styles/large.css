@@ -111,8 +111,8 @@
     border-radius: 10px;
     flex-direction: row;
     height: 175px;
-    width: 450px;
-    min-width: 420px;
+    width: 430px;
+    min-width: 430px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
