@@ -174,4 +174,24 @@
     overflow-wrap: break-word;
     font-size: 12px;
   }
+
+  .footer {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .footerLogo {
+    height: 100px;
+    width: auto;
+  }
+  .address {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 14px;
+  }
+  .footerEmail {
+    text-decoration: underline;
+    color: inherit;
+  }
 }
