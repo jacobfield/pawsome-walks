@@ -117,5 +117,10 @@ footer.light {
 }
 .walkPreviewDetails.dark {
   background-color: #3e57e65e;
-  
+}
+
+.noTextDecoration {
+  text-decoration: none;
+  color: inherit; /* Ensure it inherits the text color */
+  display: block;
 }
