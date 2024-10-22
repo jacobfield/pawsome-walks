@@ -9,9 +9,11 @@ import Header from "./comps/Header.jsx";
 import Main from "./comps/Main.jsx";
 import { useEffect, useState } from "react";
 import getAllWalks from "./hooks/getAllWalks.js";
+import Footer from "./comps/Footer.jsx";
 
 function App() {
   const [allWalks, setAllWalks] = useState();
+
   useEffect(() => {
     async function fetchWalksData() {
       const walksData = await getAllWalks();
@@ -29,8 +31,11 @@ function App() {
     <ThemeProvider>
       <AppContainer>
         <div className="app">
-          <Header></Header>
-          <Main allWalks={allWalks}></Main>
+          <Header />
+          <div className="mainContent">
+            <Main allWalks={allWalks} />
+          </div>
+          <Footer />
         </div>
       </AppContainer>
     </ThemeProvider>
