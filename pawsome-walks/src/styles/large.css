@@ -173,7 +173,7 @@
 
   .mainContent {
     flex-grow: 1; /* Ensures main content takes up available space */
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .footer {
@@ -204,5 +204,19 @@
   .quoteDiv {
     width: 100%;
     font-size: x-large;
+  }
+
+  .walkDetailContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* padding: 10px; */
+  }
+  .walkDetailImg {
+    width: 80%;
+    /* height: 80%; */
   }
 }

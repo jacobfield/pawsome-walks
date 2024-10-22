@@ -26,9 +26,9 @@ export default function WalkDetail() {
   }
   console.log("walk", walk);
   return (
-    <>
+    <div className="walkDetailContainer">
       <img
-        className=""
+        className="walkDetailImg"
         src={`/walk-photos/walk${walkid}.jpg`}
         alt={walk.walkname}
       />
@@ -37,6 +37,6 @@ export default function WalkDetail() {
           Back to Walks
         </Link>
       </div>
-    </>
+    </div>
   );
 }
