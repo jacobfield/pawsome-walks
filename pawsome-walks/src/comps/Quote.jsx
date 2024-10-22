@@ -7,7 +7,7 @@ export default function Quote() {
     "Where every step is an adventure for you and your dog!",
     "Walks that both you and your dog will love!",
     "Find the best spots to walk, sniff, and explore !",
-    "Your dog's new favorite site for outdoor fun!",
+    "Your dog's favorite site for outdoor fun!",
     "Creating memories, one walk at a time!",
     "The ultimate guide to exploring the great outdoors with your dog!",
     "The best place to find your new favourite walk!",
