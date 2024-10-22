@@ -11,7 +11,6 @@ export default function Main({ allWalks }) {
     Array.from({ length: 30 }, (_, i) => i + 1)
   );
   const { darkTheme } = useContext(ThemeContext);
-  const [loading, setLoading] = useState("Loading...");
 
   if (!allWalks) {
     return (

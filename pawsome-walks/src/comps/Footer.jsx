@@ -8,12 +8,7 @@ export default function Footer() {
         className={`footerLogo logo ${darkTheme ? "dark" : "light"}`}
         alt="Pawsome Walks Logo"
         src="/logo.png"
-      ></img>
-      <address className="address">
-        Pawsome Walks Ltd,{<br></br>}
-        Ground Floor,{<br></br>} Hayfield House,{<br></br>} Devonshire St,
-        {<br></br>} Chesterfield S41 7ST
-      </address>
+      ></img>{" "}
       <address className="address copyright">
         <p>
           Email:{" "}
@@ -23,6 +18,11 @@ export default function Footer() {
         </p>
         &copy; {new Date().getFullYear()} Pawsome Walks Ltd. All rights
         reserved.
+      </address>
+      <address className="address">
+        Pawsome Walks Ltd,{<br></br>}
+        Ground Floor,{<br></br>} Hayfield House,{<br></br>} Devonshire St,
+        {<br></br>} Chesterfield S41 7ST
       </address>
     </div>
   );
