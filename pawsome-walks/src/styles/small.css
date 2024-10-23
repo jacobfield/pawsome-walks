@@ -213,6 +213,8 @@
     height: min-content;
   }
 
+  /* WALK DETAIL CONTENTS CONTAINER */
+
   .walkDetailContentsContainer {
     /* border: red solid 1px; */
     height: 600px;
@@ -258,5 +260,27 @@
   }
   .walkDetailLocation {
     margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .walkDetailWalkType {
+    margin-top: 0;
+  }
+  .onOfferContainer {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .onOfferHeader {
+    margin: 0;
+    padding: 0;
+  }
+  .onOfferList {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 0;
   }
 }

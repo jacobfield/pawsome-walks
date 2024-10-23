@@ -3,18 +3,9 @@ import { IoReturnDownBack } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+import OnWalkElements from "./OnWalkElements";
 export default function WalkDetailContents({ walk, walkid }) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
-
-  const onWalkArray = [
-    { offeadAreas: walk.offleadareas },
-    { paths: walk.paths },
-    { animalsOnRoute: walk.animalsonroute },
-    { toilets: walk.toilets },
-    { waterOnRoute: walk.wateronroute },
-    { scenic: walk.scenic },
-  ];
-  console.log("onWalkArray", onWalkArray);
 
   return (
     <div
@@ -34,7 +25,8 @@ export default function WalkDetailContents({ walk, walkid }) {
         </div>
         <div className="walkDetail">
           <h4 className="walkDetailLocation">{walk.location}</h4>
-          <p>{walk.walktype.map((type) => type).join(", ")}</p>
+          <p className="walkDetailWalkType">{walk.walktype.map((type) => type).join(", ")}</p>
+          <OnWalkElements walk={walk}></OnWalkElements>
         </div>
       </div>
       <img
