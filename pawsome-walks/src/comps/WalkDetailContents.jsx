@@ -4,6 +4,8 @@ import { CiStar } from "react-icons/ci";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import OnWalkElements from "./OnWalkElements";
+import TypeOfWalk from "./TypeOfWalk";
+import DistanceFromUser from "./DistanceFromUser";
 export default function WalkDetailContents({ walk, walkid }) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
 
@@ -23,10 +25,11 @@ export default function WalkDetailContents({ walk, walkid }) {
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
           <CiStar className="starIcon icon walkDetailIcon" />
         </div>
+        <h3 className="walkDetailLocation">{walk.location}</h3>
         <div className="walkDetail">
-          <h4 className="walkDetailLocation">{walk.location}</h4>
-          <p className="walkDetailWalkType">{walk.walktype.map((type) => type).join(", ")}</p>
+          <TypeOfWalk walk={walk}></TypeOfWalk>
           <OnWalkElements walk={walk}></OnWalkElements>
+          <DistanceFromUser walk={walk}></DistanceFromUser>
         </div>
       </div>
       <img

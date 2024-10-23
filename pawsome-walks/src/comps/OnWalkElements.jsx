@@ -19,6 +19,7 @@ export default function OnWalkElements({ walk }) {
         {filteredWalkElements.map((element) => (
           <li key={element}>{element}</li>
         ))}
+        <li>{walk.parking === "free" ? "Free parking" : "Paid parking"}</li>
       </ul>
     </div>
   );
