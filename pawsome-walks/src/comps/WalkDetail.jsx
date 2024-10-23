@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import getWalkById from "../hooks/getWalkById";
 import { bouncy } from "ldrs";
 import Map from "./google-maps/comps/Map";
+import WalkDetailContents from "./WalkDetailContents";
 
 export default function WalkDetail() {
   const { walkid } = useParams(); // get walkId from params
@@ -37,17 +38,7 @@ export default function WalkDetail() {
           ></Map>
         </div>
         <div className="walkDetailImgContainer"></div>
-        <img
-          className="walkDetailImg"
-          src={`/walk-photos/walk${walkid}.jpg`}
-          alt={walk.walkname}
-        />
-
-        <div className="walkDetail">
-          <Link className="noTextDecoration" to="/">
-            Back to Walks
-          </Link>
-        </div>
+        <WalkDetailContents walk={walk} walkid={walkid}></WalkDetailContents>
       </div>
     );
   }
