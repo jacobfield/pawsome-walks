@@ -228,7 +228,7 @@
 
   .walkDetailContentsContainer {
     /* border: red solid 1px; */
-    height: 1000px;
+    height: 1300px;
     width: 100%;
     border-radius: 10px;
     /* padding: 10px; */
@@ -241,7 +241,7 @@
   }
   .walkDetailImg {
     width: 100%;
-    height: 700px;
+    height: 1000px;
     border-radius: 10px;
     align-self: flex-end;
   }
