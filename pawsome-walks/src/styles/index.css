@@ -1,8 +1,10 @@
-.AppContainer.light {
+.AppContainer.light,
+.mainContent.light {
   background-color: #f8f9fa;
   color: #343a40;
 }
-.AppContainer.dark {
+.AppContainer.dark,
+.mainContent.dark {
   background-color: #343a40;
   color: #f8f9fa;
   /* color: black; */
@@ -130,22 +132,8 @@ footer.light {
 }
 
 .mapContainer {
-  height: 100vh;
+  height: auto;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mapSearchContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 30hv;
-  padding: 10px;
-}
-
-.mapLocationSearchForm {
   display: flex;
   flex-direction: column;
   align-items: center;

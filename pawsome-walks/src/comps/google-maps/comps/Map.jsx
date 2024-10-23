@@ -1,6 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import MapSearch from "./MapSearch";
-import useGeolocation from "../hooks/useGeolocation";
 import useReverseGeolocation from "../hooks/useReverseGeolocation";
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
