@@ -125,11 +125,13 @@ export default function Map({
         const contentString = `
   <div style="font-family: Arial, sans-serif; width: 220px;">
     <h3 style="margin: 0; color: #007BFF;">${walkName}</h3>
-    <p style="margin: 5px 0;"><strong>Location:</strong> ${walkLocation}</p>
-    <p style="margin: 5px 0;"><strong>Type:</strong> ${walkType.join(", ")}</p>
+    <p style="margin: 5px 0; color: #000;"><strong>Location:</strong> ${walkLocation}</p>
+    <p style="margin: 5px 0; color: #000;"><strong>Type:</strong> ${walkType.join(
+      ", "
+    )}</p>
     <br />
-    <p style="margin: 5px 0;"><strong>Coordinates:</strong></p>
-    <ul style="padding-left: 15px; list-style-type: none;">
+    <p style="margin: 5px 0; color: #000;"><strong>Coordinates:</strong></p>
+    <ul style="padding-left: 15px; list-style-type: none; color: #000;">
       <li><strong>Latitude:</strong> ${latitude}</li>
       <li><strong>Longitude:</strong> ${longitude}</li>
     </ul>
