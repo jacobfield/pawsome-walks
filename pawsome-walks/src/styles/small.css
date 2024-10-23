@@ -240,15 +240,23 @@
   .backIcon {
     justify-content: flex-end;
     align-self: flex-end;
-    margin: 5px;
+    margin: 10px;
   }
   .walkDetailIcon {
-    margin: 5px;
+    margin: 10px;
   }
   .walkDetailIconContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
+  }
+
+  .walkDetailWalkName {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .walkDetailLocation {
+    margin-top: 5px;
   }
 }

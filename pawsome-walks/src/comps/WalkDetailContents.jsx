@@ -5,6 +5,17 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 export default function WalkDetailContents({ walk, walkid }) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+
+  const onWalkArray = [
+    { offeadAreas: walk.offleadareas },
+    { paths: walk.paths },
+    { animalsOnRoute: walk.animalsonroute },
+    { toilets: walk.toilets },
+    { waterOnRoute: walk.wateronroute },
+    { scenic: walk.scenic },
+  ];
+  console.log("onWalkArray", onWalkArray);
+
   return (
     <div
       className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
@@ -18,15 +29,12 @@ export default function WalkDetailContents({ walk, walkid }) {
               }`}
             />
           </Link>
+          <h1 className="walkDetailWalkName">{walk.walkname}</h1>
           <CiStar className="starIcon icon walkDetailIcon" />
         </div>
         <div className="walkDetail">
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
-          <p>HELLO</p>
+          <h4 className="walkDetailLocation">{walk.location}</h4>
+          <p>{walk.walktype.map((type) => type).join(", ")}</p>
         </div>
       </div>
       <img
