@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
-export default function useGeolocation() {
+export default function useGeolocation(lat, lng) {
   // Initializing state
   const [coordinates, setCoordinates] = useState({
-    latitude: 53.20126,
-    longitude: -1.43371,
+    latitude: lat,
+    longitude: lng,
     success: null,
   });
 
@@ -43,7 +43,7 @@ export default function useGeolocation() {
       setCoordinates({ latitude, longitude, success: false });
       console.log("G'day Mate - Welcome to Australia!");
     }
-  }, []); 
+  }, []);
 
   // Returning the coordinates from the hook
   return coordinates;

@@ -180,6 +180,7 @@
     height: auto;
     display: flex;
     justify-content: space-evenly;
+    padding: 10px;
     background-color: #f1f1f1;
   }
 
@@ -294,6 +295,7 @@
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
+    padding-bottom: 10px;
   }
   .onOfferContainer {
     display: flex;
@@ -312,5 +314,9 @@
     margin: 0;
     margin-top: 10px;
     padding: 3px;
+  }
+  .distance {
+    font-size: 2rem;
+    /* text-decoration: ; */
   }
 }

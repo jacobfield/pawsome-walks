@@ -5,6 +5,7 @@ import { GiNightSky } from "react-icons/gi"; // <GiNightSky />
 import { GiHeraldicSun } from "react-icons/gi"; // <GiHeraldicSun />
 import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+
 //
 export default function NavBar() {
   const [profilePicture, setProfilePicture] = useState(null);

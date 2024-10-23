@@ -181,6 +181,7 @@
     height: auto;
     display: flex;
     justify-content: space-evenly;
+    padding: 10px;
     background-color: #f1f1f1;
   }
 
@@ -296,6 +297,7 @@
     /* max-width: 1700px; */
     justify-self: center;
     /* align-self: center; */
+    padding-bottom: 10px;
   }
   .walkDetailWalkName {
     margin-top: 5px;
@@ -325,5 +327,9 @@
     margin: 0;
     margin-top: 10px;
     padding: 3px;
+  }
+  .distance {
+    font-size: 3rem;
+    /* text-decoration: ; */
   }
 }
