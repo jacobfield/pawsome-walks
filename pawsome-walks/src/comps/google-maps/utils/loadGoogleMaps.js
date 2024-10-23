@@ -19,7 +19,7 @@ export default function loadGoogleMaps() {
         }
       };
       script.onerror = () => reject("Google Maps API Script Loading Error");
-      DocumentTimeline.body.appendChild(script);
+      document.body.appendChild(script);
     }
   });
 }

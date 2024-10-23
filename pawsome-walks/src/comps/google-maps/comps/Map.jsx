@@ -95,6 +95,7 @@ export default function Map({ latitude, longitude, success }) {
         center: initialLocation,
         zoom: 16,
         mapId: "DEMO_MAP_ID", // must be added for advanced markers
+        mapTypeId: google.maps.MapTypeId.HYBRID,
       });
 
       const infowindow = new google.maps.InfoWindow();
