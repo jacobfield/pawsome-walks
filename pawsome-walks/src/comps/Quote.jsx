@@ -16,7 +16,7 @@ export default function Quote() {
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   return (
     <div className="quoteDiv">
-      <h1 className="quote">&ldquo; {randomQuote} &ldquo;</h1>
+      <h1 className="quote fade">&ldquo; {randomQuote} &ldquo;</h1>
       <br></br>
     </div>
   );

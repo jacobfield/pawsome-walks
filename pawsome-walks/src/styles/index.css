@@ -1,8 +1,10 @@
-.AppContainer.light {
+.AppContainer.light,
+.mainContent.light {
   background-color: #f8f9fa;
   color: #343a40;
 }
-.AppContainer.dark {
+.AppContainer.dark,
+.mainContent.dark {
   background-color: #343a40;
   color: #f8f9fa;
   /* color: black; */
@@ -112,15 +114,32 @@ footer.light {
   color: #f8f9fa;
 }
 
-.walkPreviewDetails.light {
+.walkPreviewDetails.light,
+.walkDetailContentsContainer.light {
   background-color: #fafaf0;
 }
 .walkPreviewDetails.dark {
   background-color: #3e57e65e;
+}
+.walkDetailContentsContainer.dark {
+  background-color: #a02aee27;
 }
 
 .noTextDecoration {
   text-decoration: none;
   color: inherit; /* Ensure it inherits the text color */
   display: block;
+}
+#map {
+  height: 100%;
+  border-radius: 0 0 10px 10px;
+}
+
+.mapContainer {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: inherit;
 }

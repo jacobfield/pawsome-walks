@@ -2,6 +2,8 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getWalkById from "../hooks/getWalkById";
 import { bouncy } from "ldrs";
+import Map from "./google-maps/comps/Map";
+import WalkDetailContents from "./WalkDetailContents";
 
 export default function WalkDetail() {
   const { walkid } = useParams(); // get walkId from params
@@ -25,20 +27,28 @@ export default function WalkDetail() {
     );
   }
   console.log("walk", walk);
-  return (
-    <div className="walkDetailContainer">
-      <div className="walkDetailImgContainer"></div>
-      <img
-        className="walkDetailImg"
-        src={`/walk-photos/walk${walkid}.jpg`}
-        alt={walk.walkname}
-      />
-
-      <div className="walkDetail">
-        <Link className="noTextDecoration" to="/">
-          Back to Walks
-        </Link>
+  if (walk) {
+    return (
+      <div className="walkDetailContainer">
+        <div className="mapContainer">
+          <Map
+            latitude={walk.lat}
+            longitude={walk.lng}
+            success={walk.lat && walk.lng ? true : false}
+            walkName={walk.walkname}
+            walkLocation={walk.location}
+            walkType={walk.walktype}
+          ></Map>
+        </div>
+        <div className="walkDetailImgContainer"></div>
+        <WalkDetailContents walk={walk} walkid={walkid}></WalkDetailContents>
       </div>
-    </div>
-  );
+    );
+  }
 }
+
+// I think that the coordinates data is taking too long to be passed to Map
+//  potentially causing the delay in the map loading, but then on refresh it has quicker
+//     access to the coordinates and so the map loads quicker.
+// TODO: Find a way to speed up the passing of the coordinates to the Map component
+// OR render a loading spinner whilst the map is loading
