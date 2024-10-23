@@ -3,6 +3,10 @@
     {
       "source": "/api/(.*)",
       "destination": "/api/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "functions": {
@@ -10,11 +14,5 @@
       "memory": 1024,
       "maxDuration": 10
     }
-  },
-  "routes": [
-    {
-      "src": "/[^.]+",
-      "dest": "/"
-    }
-  ]
+  }
 }
