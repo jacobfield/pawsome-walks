@@ -114,11 +114,15 @@ footer.light {
   color: #f8f9fa;
 }
 
-.walkPreviewDetails.light {
+.walkPreviewDetails.light,
+.walkDetailContentsContainer.light {
   background-color: #fafaf0;
 }
 .walkPreviewDetails.dark {
   background-color: #3e57e65e;
+}
+.walkDetailContentsContainer.dark {
+  background-color: #a02aee27;
 }
 
 .noTextDecoration {
@@ -137,4 +141,5 @@ footer.light {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: inherit;
 }

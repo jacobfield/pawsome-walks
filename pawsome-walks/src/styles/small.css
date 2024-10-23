@@ -209,11 +209,46 @@
     /* padding: 10px; */
   }
 
-  .walkDetailImg {
-    width: 300px;
-    height: 300px;
-  }
   .mapContainer {
     height: min-content;
+  }
+
+  .walkDetailContentsContainer {
+    /* border: red solid 1px; */
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    /* padding: 10px; */
+    padding-bottom: 5px;
+    margin-top: 10px;
+    /* margin-bottom: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .walkDetailImg {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    align-self: flex-end;
+  }
+  .walkDetailContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .backIcon {
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin: 5px;
+  }
+  .walkDetailIcon {
+    margin: 5px;
+  }
+  .walkDetailIconContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
   }
 }
