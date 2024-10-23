@@ -3,7 +3,14 @@ import useReverseGeolocation from "../hooks/useReverseGeolocation";
 import MapSearch from "./MapSearch";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-export default function Map({ latitude, longitude, success }) {
+export default function Map({
+  success,
+  latitude,
+  longitude,
+  walkName,
+  walkLocation,
+  walkType,
+}) {
   // Declare state variables
   const [searchLocation, setSearchLocation] = useState("Derbyshire");
   const [locationAccess, setLocationAccess] = useState(false);
@@ -105,6 +112,33 @@ export default function Map({ latitude, longitude, success }) {
       serviceRef.current = service;
       infowindowRef.current = infowindow;
 
+      // Create a marker at the initial location
+      const marker = new google.maps.Marker({
+        position: initialLocation, // Set marker's position
+        map: map, // Attach marker to the map
+        title: walkName, // Tooltip when hovered over the marker
+      });
+
+      // Optional: Open an info window when the marker is clicked
+      marker.addListener("click", () => {
+        // Custom HTML content for the info window
+        const contentString = `
+  <div style="font-family: Arial, sans-serif; width: 220px;">
+    <h3 style="margin: 0; color: #007BFF;">${walkName}</h3>
+    <p style="margin: 5px 0;"><strong>Location:</strong> ${walkLocation}</p>
+    <p style="margin: 5px 0;"><strong>Type:</strong> ${walkType.join(", ")}</p>
+    <br />
+    <p style="margin: 5px 0;"><strong>Coordinates:</strong></p>
+    <ul style="padding-left: 15px; list-style-type: none;">
+      <li><strong>Latitude:</strong> ${latitude}</li>
+      <li><strong>Longitude:</strong> ${longitude}</li>
+    </ul>
+  </div>
+`;
+
+        infowindow.setContent(contentString);
+        infowindow.open(map, marker);
+      });
       // Call updateMapLocation function
       if (success) {
         updateMapLocation(revGeoLocStr);

@@ -35,6 +35,9 @@ export default function WalkDetail() {
             latitude={walk.lat}
             longitude={walk.lng}
             success={walk.lat && walk.lng ? true : false}
+            walkName={walk.walkname}
+            walkLocation={walk.location}
+            walkType={walk.walktype}
           ></Map>
         </div>
         <div className="walkDetailImgContainer"></div>
