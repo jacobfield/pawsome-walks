@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import useReverseGeolocation from "../hooks/useReverseGeolocation";
-
+import MapSearch from "./MapSearch";
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export default function Map({ latitude, longitude, success }) {
@@ -166,8 +166,8 @@ export default function Map({ latitude, longitude, success }) {
 
   return (
     <>
-      {/* <MapSearch {...props} /> */}
       <div id="map" style={{ height: "400px", width: "100%" }}></div>
+      <MapSearch {...props} />
     </>
   );
 }
