@@ -1,5 +1,5 @@
 export default function DistanceFromUser({ walk }) {
-  return <p>distance from user</p>;
+  return <h3>Distance from user</h3>;
 }
 
 // import use geolocaiton

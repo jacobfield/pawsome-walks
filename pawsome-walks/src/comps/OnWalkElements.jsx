@@ -14,7 +14,7 @@ export default function OnWalkElements({ walk }) {
 
   return (
     <div className="onOfferContainer">
-      <h4 className="onOfferHeader">What's on offer:</h4>
+      <h3 className="onOfferHeader">What's on offer:</h3>
       <ul className="onOfferList">
         {filteredWalkElements.map((element) => (
           <li key={element}>{element}</li>

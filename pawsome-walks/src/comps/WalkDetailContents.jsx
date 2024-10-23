@@ -25,7 +25,7 @@ export default function WalkDetailContents({ walk, walkid }) {
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
           <CiStar className="starIcon icon walkDetailIcon" />
         </div>
-        <h3 className="walkDetailLocation">{walk.location}</h3>
+        <h2 className="walkDetailLocation">{walk.location}</h2>
         <div className="walkDetail">
           <TypeOfWalk walk={walk}></TypeOfWalk>
           <OnWalkElements walk={walk}></OnWalkElements>
