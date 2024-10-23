@@ -195,8 +195,14 @@
     color: inherit;
   }
   .quoteDiv {
-    width: 100%;
-    font-size: x-large;
+    width: 90%;
+    font-size: large;
+    text-wrap: wrap;
+  }
+  .quote {
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: wrap;
   }
 
   .walkDetailContainer {

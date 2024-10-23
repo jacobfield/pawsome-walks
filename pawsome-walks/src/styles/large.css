@@ -204,6 +204,12 @@
   .quoteDiv {
     width: 100%;
     font-size: x-large;
+    text-wrap: wrap;
+  }
+  .quote {
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: wrap;
   }
 
   .walkDetailContainer {
