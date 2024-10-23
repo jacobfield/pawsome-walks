@@ -6,6 +6,7 @@ import "./App.css";
 import "./styles/small.css";
 import "./styles/medium.css";
 import "./styles/large.css";
+import "./styles/scrollBar.css";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <App />

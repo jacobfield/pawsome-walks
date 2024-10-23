@@ -94,12 +94,13 @@
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    height: 100%;
+    height: min-content;
     flex-grow: 1;
     margin: 0 auto;
     overflow-y: auto;
     justify-self: center;
     padding: 10px;
+    row-gap: 15px;
   }
 
   .walk {
@@ -110,8 +111,8 @@
     border-radius: 10px;
     flex-direction: row;
     height: 175px;
-    width: 450px;
-    min-width: 420px;
+    width: 430px;
+    min-width: 430px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -172,7 +173,7 @@
 
   .mainContent {
     flex-grow: 1; /* Ensures main content takes up available space */
-    padding: 20px;
+    /* padding: 20px; */
   }
 
   .footer {
@@ -203,5 +204,112 @@
   .quoteDiv {
     width: 100%;
     font-size: x-large;
+  }
+
+  .walkDetailContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* padding: 10px; */
+  }
+
+  /* .walkDetailImg {
+    width: 300px;
+    height: 300px;
+  } */
+  .mapContainer {
+    height: min-content;
+  }
+
+  /* WALK DETAIL CONTENTS CONTAINER */
+
+  .walkDetailContentsContainer {
+    /* border: red solid 1px; */
+    height: 1300px;
+    width: 100%;
+    border-radius: 10px;
+    /* padding: 10px; */
+    /* padding-bottom: 5px; */
+    /* margin-top: 10px; */
+    /* margin-bottom: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .walkDetailImg {
+    width: 100%;
+    max-width: 1700px;
+    height: 1000px;
+    border-radius: 10px;
+    align-self: center;
+    justify-self: center;
+    /* margin-bottom: auto; */
+    margin-top: auto;
+  }
+  .walkDetailContents {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .backIcon {
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin: 10px;
+  }
+  .walkDetailIcon {
+    margin: 10px;
+  }
+  .walkDetailIconContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10px;
+    width: 100%;
+    max-width: 1700px;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .walkDetail {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    /* align-items: ; */
+    /* max-width: 1700px; */
+    justify-self: center;
+    /* align-self: center; */
+  }
+  .walkDetailWalkName {
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .walkDetailLocation {
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+  .walkDetailWalkType {
+    margin-top: 0;
+  }
+  .onOfferContainer {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  .onOfferHeader {
+    margin: 0;
+    padding: 0;
+  }
+  .onOfferList {
+    list-style-type: none;
+    margin: 0;
+    margin-top: 10px;
+    padding: 3px;
   }
 }
