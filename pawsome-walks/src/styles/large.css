@@ -241,9 +241,13 @@
   }
   .walkDetailImg {
     width: 100%;
+    max-width: 1700px;
     height: 1000px;
     border-radius: 10px;
-    align-self: flex-end;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: auto;
+    margin-top: auto;
   }
   .walkDetailContents {
     display: flex;
@@ -264,8 +268,21 @@
     justify-content: space-around;
     padding-top: 10px;
     width: 100%;
+    max-width: 1700px;
+    align-self: center;
+    justify-self: center;
   }
 
+  .walkDetail {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-around;
+    /* align-items: ; */
+    /* max-width: 1700px; */
+    justify-self: center;
+    /* align-self: center; */
+  }
   .walkDetailWalkName {
     margin-top: 5px;
     margin-bottom: 5px;
@@ -276,12 +293,6 @@
   }
   .walkDetailWalkType {
     margin-top: 0;
-  }
-  .walkDetail {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
   }
   .onOfferContainer {
     display: flex;

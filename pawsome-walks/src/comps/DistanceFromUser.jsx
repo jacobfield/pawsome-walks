@@ -1,5 +1,9 @@
 export default function DistanceFromUser({ walk }) {
-  return <h3>Distance from user</h3>;
+  return (
+    <div className="onOfferContainer">
+      <h3 className="onOfferHeader">Distance from user:</h3>
+    </div>
+  );
 }
 
 // import use geolocaiton
