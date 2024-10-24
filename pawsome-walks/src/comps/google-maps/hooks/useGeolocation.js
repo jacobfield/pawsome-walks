@@ -16,7 +16,7 @@ export default function useGeolocation(lat, lng) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
       // If not supported, log a message and set default coordinates
-      console.log("Geolocation not supported - using default location");
+      // console.log("Geolocation not supported - using default location");
       // setCoordinates({ latitude: 51.508114, longitude: -0.075949 });
     }
 
@@ -41,7 +41,6 @@ export default function useGeolocation(lat, lng) {
       // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       // Updating the state with the default coordinates
       setCoordinates({ latitude, longitude, success: false });
-      console.log("G'day Mate - Welcome to Australia!");
     }
   }, []);
 

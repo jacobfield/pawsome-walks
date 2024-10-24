@@ -23,12 +23,12 @@ function App() {
     async function fetchWalksData() {
       const walksData = await getAllWalks();
       setAllWalks(walksData);
-      console.log("App.jsx walks data", walksData);
+      // console.log("App.jsx walks data", walksData);
     }
     fetchWalksData();
     if (allWalks) {
-      console.log("Walks Data:");
-      console.log(allWalks);
+      // console.log("Walks Data:");
+      // console.log(allWalks);
     }
   }, []);
 

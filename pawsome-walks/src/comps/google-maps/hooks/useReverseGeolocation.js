@@ -1,37 +1,36 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function useReverseGeolocation(latitude, longitude, success) {
+const useReverseGeolocation = (lat, lng, success) => {
   const [locationName, setLocationName] = useState("");
 
   useEffect(() => {
-    if (!success) return;
-    // console.log("useReverseGeolocation If/Else is running");
+    if (!success || !lat || !lng) return;
 
-    async function geocodeLatLng(latitude, longitude) {
-      //   console.log(
-      //     "geocodeLatLng function is running within useReverseGeolocation"
-      //   );
-      console.log("Success registered in useReverseGeolocation");
-      try {
-        const geocoder = new google.maps.Geocoder();
-        const latlng = {
-          lat: parseFloat(latitude),
-          lng: parseFloat(longitude),
-        };
-        geocoder.geocode({ location: latlng }, (results, status) => {
-          if (status === "OK" && results[0]) {
+    const geocodeLatLng = () => {
+      if (!window.google || !google.maps) {
+        console.error("Google Maps API is not available.");
+        return;
+      }
+
+      const geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode({ location: { lat, lng } }, (results, status) => {
+        if (status === "OK") {
+          if (results[0]) {
             setLocationName(results[0].formatted_address);
           } else {
-            console.error("Geocoder failed due to: " + status);
+            console.log("No results found");
           }
-        });
-      } catch (error) {
-        console.error("Error connecting to Google Maps API: " + error);
-      }
-    }
+        } else {
+          console.error("Geocoder failed due to: " + status);
+        }
+      });
+    };
 
-    geocodeLatLng(latitude, longitude);
-  }, [latitude, longitude, success]);
+    geocodeLatLng();
+  }, [lat, lng, success]);
 
   return locationName;
-}
+};
+
+export default useReverseGeolocation;
