@@ -144,7 +144,7 @@ export default function Map({
       // Call updateMapLocation function
       if (success) {
         updateMapLocation(revGeoLocStr);
-        console.log("Geolocation successful - Updating to user's location");
+        // console.log("Geolocation successful - Updating to user's location");
       } else {
         updateMapLocation(searchLocation);
       }
@@ -164,7 +164,7 @@ export default function Map({
     if (mapRef.current && serviceRef.current) {
       updateMapLocation(searchLocation); // Update map location with searchLocation
     }
-    console.log("Updated search location:", searchLocation);
+    // console.log("Updated search location:", searchLocation);
   }, [searchLocation]);
 
   const updateMapLocation = (location) => {
