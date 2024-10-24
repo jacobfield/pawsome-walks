@@ -1,25 +1,30 @@
-const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+let googleMapsLoaded = false;
 
-export default function loadGoogleMaps() {
+const loadGoogleMaps = () => {
   return new Promise((resolve, reject) => {
-    if (window.google && window.google.maps) {
-      resolve(window.google.maps);
-    } else {
-      const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places,marker&callback=initMap&loading=async`;
-      script.id = "googleMaps";
-      script.async = true;
-      script.defer = true;
-
-      script.onLoad = () => {
-        if (window.google && window.google.maps) {
-          resolve(window.google.maps);
-        } else {
-          reject("Google Maps not available");
-        }
-      };
-      script.onerror = () => reject("Google Maps API Script Loading Error");
-      document.body.appendChild(script);
+    if (googleMapsLoaded) {
+      resolve();
+      return;
     }
+
+    const script = document.createElement("script");
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${
+      import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+    }&libraries=places`;
+    script.async = true;
+    script.defer = true;
+
+    script.onload = () => {
+      googleMapsLoaded = true;
+      resolve();
+    };
+
+    script.onerror = (error) => {
+      reject("Error loading Google Maps API: ", error);
+    };
+
+    document.head.appendChild(script);
   });
-}
+};
+
+export default loadGoogleMaps;
