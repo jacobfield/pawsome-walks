@@ -1,6 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import postOwner from "../hooks/apiCalls/postOwner";
 import hashPassword from "../hooks/hashPassword";
+import { Link } from "react-router-dom";
+import { ThemeContext } from "./ThemeProvider";
+
 export default function SignUp() {
   const [newOwner, setNewOwner] = useState({});
   const [email, setEmail] = useState("");
@@ -13,6 +16,7 @@ export default function SignUp() {
   const handleUsernameChange = (e) => setUsername(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
+  const { darkTheme } = useContext(ThemeContext);
 
   const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -61,8 +65,15 @@ export default function SignUp() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="signupContainer">
+      <Link className="noTextDecoration" to="/">
+        <img
+          className={`signuplogo ${darkTheme ? "dark" : "light"}`}
+          alt="Pawsome Walks Logo"
+          src="/logo.png"
+        ></img>
+      </Link>
+      <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
         <input
           type="email"

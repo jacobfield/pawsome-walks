@@ -314,4 +314,21 @@
     font-size: 1.6rem;
     /* text-decoration: ; */
   }
+
+  /* SIGN UP / SIGN IN PAGES */
+
+  .signuplogo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .signupForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+  }
 }

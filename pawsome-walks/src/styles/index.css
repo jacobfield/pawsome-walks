@@ -26,7 +26,7 @@ footer.light {
 
 .darkMode {
   display: flex;
-  align-items: centre;
+  align-items: center;
 }
 
 .switch {
@@ -146,4 +146,15 @@ footer.light {
 
 .gm-title {
   color: black;
+}
+
+.signupContainer {
+  width: 100%;
+  min-width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-shrink: 3;
 }

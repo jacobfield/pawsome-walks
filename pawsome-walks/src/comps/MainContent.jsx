@@ -11,8 +11,8 @@ import {
 } from "react-router-dom";
 export default function MainContent({ allWalks, darkTheme }) {
   const location = useLocation();
-  const isSignupPage = location.pathname.endsWith("signUp");
-  const isLoginPage = location.pathname.endsWith("logIn");
+  const isSignupPage = location.pathname.endsWith("SignUp");
+  const isLoginPage = location.pathname.endsWith("LogIn");
 
   return (
     <div className="app">
