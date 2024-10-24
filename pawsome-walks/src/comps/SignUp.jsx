@@ -31,7 +31,7 @@ export default function SignUp() {
       return;
     }
 
-    const validEmail = emailIsValid(email); // Declare variable with `const`
+    const validEmail = emailIsValid(email);
 
     if (password.length < 8) {
       alert("Password must be at least 8 characters long");
@@ -44,21 +44,59 @@ export default function SignUp() {
     }
 
     try {
-      const hashedPassword = await hashPassword(password); // Wait for the hashed password
+      const hashedPassword = await hashPassword(password);
       setHashedPassword(hashedPassword);
 
-      // Update newOwner with the hashed password
       const ownerData = { email, username, password: hashedPassword };
-      setNewOwner(ownerData); // Set newOwner with the hashed password
+      setNewOwner(ownerData);
+      await postOwner(ownerData);
 
-      // Call postOwner with the newOwner data
-      await postOwner(ownerData); // Assuming postOwner is also async
-
-      // You may want to clear the form or handle post submission here
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       console.error("Error hashing password or posting owner:", error);
     }
   };
 
-  return <></>;
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={handleUsernameChange}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <label htmlFor="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        />
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  );
 }

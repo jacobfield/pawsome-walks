@@ -13,6 +13,7 @@ import "./styles/medium.css";
 import "./styles/large.css";
 import "./styles/index.css";
 import { ThemeContext } from "./comps/ThemeProvider.jsx";
+import SignUp from "./comps/SignUp.jsx";
 
 function App() {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
@@ -26,7 +27,6 @@ function App() {
       // console.log("App.jsx walks data", walksData);
     }
     fetchWalksData();
-
   }, []);
 
   return (
@@ -40,6 +40,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Main allWalks={allWalks} />} />
                 <Route path="/walk/:walkid" element={<WalkDetail />} />
+                <Route path="/signup" element={<SignUp />} />
               </Routes>
             </div>
             <Footer />
