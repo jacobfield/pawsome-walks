@@ -327,14 +327,27 @@
     width: 225px;
     height: 225px;
   }
-
+  .signupInputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* width: auto; */
+    height: 100%;
+    padding: 50px;
+    /* margin-top: 5px; */
+    /* margin: auto; */
+    /* height: 100%; */
+    border-radius: 10px;
+    /* margin-top: auto; */
+  }
   .signupForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 80%;
-    height: 100%;
+    /* width: 80%; */
+    /* height: 100%; */
     padding: 10px;
   }
 }

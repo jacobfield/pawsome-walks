@@ -14,7 +14,12 @@
 .footer.dark {
   background-color: #3e57e65e;
 }
-
+.signupInputContainer.dark {
+  background-color: #3e57e65e;
+}
+.signupInputContainer.light {
+  background-color: #ffffef;
+}
 .header.light,
 footer.light {
   background-color: #fafaf0;
