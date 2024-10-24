@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import getWalkById from "../hooks/getWalkById";
+import getWalkById from "../hooks/apiCalls/getWalkById";
 import { bouncy } from "ldrs";
 import Map from "./google-maps/comps/Map";
 import WalkDetailContents from "./WalkDetailContents";

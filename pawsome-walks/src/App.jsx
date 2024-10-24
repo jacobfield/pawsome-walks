@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect, useState, useContext } from "react";
-import getAllWalks from "./hooks/getAllWalks.js";
+import getAllWalks from "./hooks/apiCalls/getAllWalks.js";
 import Footer from "./comps/Footer.jsx";
 import WalkDetail from "./comps/WalkDetail.jsx";
 import ThemeProvider from "./comps/ThemeProvider.jsx";
