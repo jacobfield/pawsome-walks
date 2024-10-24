@@ -26,7 +26,7 @@ export default function useGeolocation(lat, lng) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       // Logging the coordinates
-      console.log("Successfully retrieved location");
+      // console.log("Successfully retrieved location");
       // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       // Updating the state with the retrieved coordinates
       setCoordinates({ latitude, longitude, success: true });
@@ -35,7 +35,7 @@ export default function useGeolocation(lat, lng) {
     // Error callback function for geolocation
     function error() {
       // Logging an error message and setting default coordinates
-      console.log("Unable to retrieve your location - using default location");
+      // console.log("Unable to retrieve your location - using default location");
       const latitude = coordinates.latitude;
       const longitude = coordinates.longitude;
       // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);

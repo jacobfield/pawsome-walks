@@ -26,10 +26,7 @@ function App() {
       // console.log("App.jsx walks data", walksData);
     }
     fetchWalksData();
-    if (allWalks) {
-      // console.log("Walks Data:");
-      // console.log(allWalks);
-    }
+
   }, []);
 
   return (

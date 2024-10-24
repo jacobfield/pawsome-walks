@@ -60,6 +60,7 @@ export default function Map({
       });
   }, []);
 
+
   // Initialize the map
   useEffect(() => {
     const loadGoogleMapsScript = async () => {
@@ -121,6 +122,7 @@ export default function Map({
         }
       } catch (error) {
         console.error("Error loading Google Maps: ", error);
+
       }
     };
 

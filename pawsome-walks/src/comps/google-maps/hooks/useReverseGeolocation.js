@@ -4,6 +4,7 @@ const useReverseGeolocation = (lat, lng, success) => {
   const [locationName, setLocationName] = useState("");
 
   useEffect(() => {
+
     if (!success || !lat || !lng) return;
 
     const geocodeLatLng = () => {
@@ -17,6 +18,7 @@ const useReverseGeolocation = (lat, lng, success) => {
       geocoder.geocode({ location: { lat, lng } }, (results, status) => {
         if (status === "OK") {
           if (results[0]) {
+
             setLocationName(results[0].formatted_address);
           } else {
             console.log("No results found");
