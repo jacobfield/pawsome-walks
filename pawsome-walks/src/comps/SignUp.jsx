@@ -55,6 +55,7 @@ export default function SignUp() {
     } catch (error) {
       // Check for specific error code for unique constraint violations
       if (error.code === 409) {
+        // Checking the code you set in postOwner
         alert(
           "Email address or username already exists. Please choose another."
         );
