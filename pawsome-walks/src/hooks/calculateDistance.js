@@ -15,6 +15,6 @@ export default function calculateDistance(walkLat, walkLng, userLat, userLng) {
 
   const distance = R * c;
   const roundedDistance = Math.round(distance * 10) / 10;
-  console.log("distance in miles", roundedDistance);
+  // console.log("distance in miles", roundedDistance);
   return roundedDistance; // distance in miles
 }

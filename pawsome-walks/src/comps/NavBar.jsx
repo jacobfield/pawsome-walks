@@ -5,6 +5,7 @@ import { GiNightSky } from "react-icons/gi"; // <GiNightSky />
 import { GiHeraldicSun } from "react-icons/gi"; // <GiHeraldicSun />
 import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+import { Link } from "react-router-dom";
 
 //
 export default function NavBar() {
@@ -30,11 +31,13 @@ export default function NavBar() {
         </button>
       </div>
       <CiStar className="starIcon icon" />
-      {!profilePicture ? (
-        <CgProfile className="profileIcon icon" />
-      ) : (
-        <img src={profilePicture} className="profileIcon icon" />
-      )}
+      <Link to="/SignUp" className="noTextDecoration">
+        {!profilePicture ? (
+          <CgProfile className="profileIcon icon" />
+        ) : (
+          <img src={profilePicture} className="profileIcon icon" />
+        )}
+      </Link>
     </div>
   );
 }

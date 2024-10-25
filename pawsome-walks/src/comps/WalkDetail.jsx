@@ -1,6 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import getWalkById from "../hooks/getWalkById";
+import getWalkById from "../hooks/apiCalls/getWalkById";
 import { bouncy } from "ldrs";
 import Map from "./google-maps/comps/Map";
 import WalkDetailContents from "./WalkDetailContents";
@@ -14,7 +14,7 @@ export default function WalkDetail() {
     async function fetchWalk(walkid) {
       const walkData = await getWalkById(walkid);
       setWalk(walkData);
-      console.log("WalkDetail.jsx walk data", walk);
+      // console.log("WalkDetail.jsx walk data", walk);
     }
     fetchWalk(walkid);
   }, [walkid]);
@@ -26,7 +26,7 @@ export default function WalkDetail() {
       </div>
     );
   }
-  console.log("walk", walk);
+  // console.log("walk", walk);
   if (walk) {
     return (
       <div className="walkDetailContainer">
