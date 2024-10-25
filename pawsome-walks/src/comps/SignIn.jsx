@@ -1,14 +1,14 @@
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
+import { AuthContext, useAuth } from "./AuthContext";
 import getAllOwners from "../hooks/apiCalls/getAllOwners";
-
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [allOwners, setAllOwners] = useState();
   const { darkTheme } = useContext(ThemeContext);
-
+  const { login } = useAuth();
   useEffect(() => {
     async function fetchAllOwnersData() {
       const allOwnersData = await getAllOwners();
@@ -45,15 +45,18 @@ export default function SignIn() {
     }
 
     try {
-        if (allOwners.find((owner) => owner.email === email && owner.password === password)) {
-        // SET OWNER CONTEXT HERE
+        const owner = allOwners.find((owner) => owner.email === email && owner.password === password);
+  
+        if (owner) {
+          login({ ownerId: owner.id, username: owner.username, email: owner.email });
+          alert("Successfully logged in!");
+        } else {
+          alert("Invalid email or password");
         }
-    } catch (error) {
-      // Check for specific error code for unique constraint violations
-
-      console.error("Error posting owner:", error);
-    }
-  };
+      } catch (error) {
+        console.error("Error signing in:", error);
+      }
+    };
 
   return (
     <div className={`signupContainer ${darkTheme ? "dark" : "light"}`}>

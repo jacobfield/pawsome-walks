@@ -4,7 +4,7 @@ import getAllWalks from "./hooks/apiCalls/getAllWalks.js";
 
 import ThemeProvider from "./comps/ThemeProvider.jsx";
 import AppContainer from "./comps/AppContainer.jsx";
-
+import { AuthProvider } from "./comps/AuthContext.jsx";
 import "./App.css";
 import "./styles/small.css";
 import "./styles/medium.css";
@@ -28,12 +28,14 @@ function App() {
 
   return (
     <ThemeProvider>
-      <AppContainer>
-        <Router>
-          <ScrollToTop />
-          <MainContent allWalks={allWalks} darkTheme={darkTheme} />
-        </Router>
-      </AppContainer>
+      <AuthProvider>
+        <AppContainer>
+          <Router>
+            <ScrollToTop />
+            <MainContent allWalks={allWalks} darkTheme={darkTheme} />
+          </Router>
+        </AppContainer>
+      </AuthProvider>
     </ThemeProvider>
   );
 }
