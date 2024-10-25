@@ -78,9 +78,6 @@ export default function SignIn() {
         />
       </Link>
       <h1>Sign in:</h1>
-      <Link className="noTextDecoration" to="/SignUp">
-        <p>First Time? {<br />} Create an account:</p>
-      </Link>
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
         <input
@@ -115,7 +112,10 @@ export default function SignIn() {
           onChange={handleConfirmPasswordChange}
         />
         <button type="submit">Sign Up</button>
-      </form>
+      </form>{" "}
+      <Link className="noTextDecoration" to="/SignUp">
+        <p>First Time? {<br />} Create an account:</p>
+      </Link>
     </div>
   );
 }
