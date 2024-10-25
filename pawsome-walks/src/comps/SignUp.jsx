@@ -65,51 +65,49 @@ export default function SignUp() {
   };
 
   return (
-    <div className="signupContainer">
-      <div className={`signupInputContainer ${darkTheme ? "dark" : "light"}`}>
-        <Link className="noTextDecoration" to="/">
-          <img
-            className={`signuplogo ${darkTheme ? "dark" : "light"}`}
-            alt="Pawsome Walks Logo"
-            src="/logo.png"
-          ></img>
-        </Link>
-        <form onSubmit={handleSubmit} className="signupForm">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={handleEmailChange}
-          />
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={username}
-            onChange={handleUsernameChange}
-          />
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={password}
-            onChange={handlePasswordChange}
-          />
-          <label htmlFor="confirmPassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmPassword"
-            name="confirmPassword"
-            value={confirmPassword}
-            onChange={handleConfirmPasswordChange}
-          />
-          <button type="submit">Sign Up</button>
-        </form>
-      </div>
+    <div className={`signupContainer ${darkTheme ? "dark" : "light"}`}>
+      <Link className="noTextDecoration" to="/">
+        <img
+          className={`signuplogo ${darkTheme ? "dark" : "light"}`}
+          alt="Pawsome Walks Logo"
+          src="/logo.png"
+        ></img>
+      </Link>
+      <form onSubmit={handleSubmit} className="signupForm">
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={handleEmailChange}
+        />
+        <label htmlFor="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value={username}
+          onChange={handleUsernameChange}
+        />
+        <label htmlFor="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={handlePasswordChange}
+        />
+        <label htmlFor="confirmPassword">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          name="confirmPassword"
+          value={confirmPassword}
+          onChange={handleConfirmPasswordChange}
+        />
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
   );
 }

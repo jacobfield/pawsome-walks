@@ -152,40 +152,16 @@ footer.light {
 .gm-title {
   color: black;
 }
-.signupContainer {
-  display: flex;
-  justify-content: center; /* Centers the container horizontally */
-  align-items: center; /* Centers the container vertically */
-  min-height: 100%; /* Sets the container to take full viewport height */
-  width: 100%;
-  min-width: 100vw;
-}
 
-.signupInputContainer {
-  width: 100%; /* Takes full width */
-  max-width: 400px; /* Optional: sets a max-width to avoid stretching on larger screens */
-  height: 100%; /* Takes full height available in its parent */
-  padding: 20px; /* Adds some spacing inside the container */
-  box-sizing: border-box; /* Ensures padding doesn’t increase the size of the container */
-}
+/* SIGN UP PAGE */
+.signupContainer.dark {
+  background-color: #3e57e65e;
 
-.signupInputContainer.dark {
-  background-color: #333; /* Dark theme styling */
   color: white;
 }
 
-.signupInputContainer.light {
-  background-color: #fff; /* Light theme styling */
+.signupContainer.light {
+  background-color: #fff;
   color: black;
 }
 
-.signupForm {
-  display: flex;
-  flex-direction: column;
-}
-
-.signupForm label,
-.signupForm input,
-.signupForm button {
-  margin-bottom: 10px;
-}

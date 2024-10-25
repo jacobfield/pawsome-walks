@@ -236,7 +236,7 @@
     height: 300px;
   } */
   .mapContainer {
-    height: min-content;
+    /* height: min-content; */
   }
 
   /* WALK DETAIL CONTENTS CONTAINER */
@@ -258,6 +258,7 @@
     width: 100%;
     max-width: 1700px;
     height: 1000px;
+    max-height: 925px;
     border-radius: 10px;
     align-self: center;
     justify-self: center;
@@ -340,33 +341,22 @@
     width: 300px;
     height: 300px;
   }
+
   .signupContainer {
     display: flex;
-    justify-content: center; /* Centers the container horizontally */
-    align-items: center; /* Centers the container vertically */
-    min-height: 100%; /* Sets the container to take full viewport height */
-    width: 100%;
-    min-width: 100vw;
-    margin: auto;
-  }
-
-  .signupInputContainer {
-    width: 100%; /* Takes full width */
-    max-width: 400px; /* Optional: sets a max-width to avoid stretching on larger screens */
-    height: 100%; /* Takes full height available in its parent */
-    padding: 20px; /* Adds some spacing inside the container */
-    box-sizing: border-box; /* Ensures padding doesn’t increase the size of the container */
-    margin: auto;
-  }
-
-  .signupInputContainer.dark {
-    background-color: #333; /* Dark theme styling */
-    color: white;
-  }
-
-  .signupInputContainer.light {
-    background-color: #fff; /* Light theme styling */
-    color: black;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    justify-self: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    flex-grow: 1;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 100vh;
   }
 
   .signupForm {

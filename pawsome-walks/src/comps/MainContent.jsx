@@ -17,14 +17,14 @@ export default function MainContent({ allWalks, darkTheme }) {
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && <Header />}
-      <div className={`mainContent ${!darkTheme ? "icon-right" : ""}`}>
+      <div className="mainContent">
         <Routes>
           <Route path="/" element={<Main allWalks={allWalks} />} />
           <Route path="/walk/:walkid" element={<WalkDetail />} />
           <Route path="/signUp" element={<SignUp />} />
         </Routes>
       </div>
-      <Footer />
+      {!isSignupPage && !isLoginPage && <Footer />}
     </div>
   );
 }
