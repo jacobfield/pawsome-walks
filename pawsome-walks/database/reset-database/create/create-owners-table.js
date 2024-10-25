@@ -7,8 +7,8 @@ export default async function createOwnersTable() {
     await pool.query(`
             CREATE TABLE IF NOT EXISTS owners (
             ownerId SERIAL PRIMARY KEY,
-            userName TEXT NOT NULL,
-            email TEXT NOT NULL,
+            userName TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL UNIQUE,
             hashedPassword TEXT NOT NULL
             )`);
     console.log("owners table created");
