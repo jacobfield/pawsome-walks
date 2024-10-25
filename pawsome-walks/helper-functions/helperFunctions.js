@@ -24,6 +24,7 @@ import postWalkComments from "./walkComments-table/postWalkComments.js";
 import getWalksById from "./walks-table/getWalksById.js";
 import getAllWalks from "./walks-table/getAllWalks.js";
 import postWalk from "./walks-table/postWalk.js";
+import getAllOwners from "./owners-table/getAllOwners.js";
 
 export const walks = {
   getAllWalks,
@@ -48,6 +49,7 @@ export const owners = {
   getOwnerById,
   postOwner,
   updateOwnerPassword,
+  getAllOwners,
 };
 
 export const ownerFavouriteWalks = {
