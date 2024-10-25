@@ -12,6 +12,7 @@ import "./styles/large.css";
 import "./styles/index.css";
 import { ThemeContext } from "./comps/ThemeProvider.jsx";
 import MainContent from "./comps/MainContent.jsx";
+import ScrollToTop from "./comps/ScrollToTop.jsx";
 
 function App() {
   const { darkTheme } = useContext(ThemeContext);
@@ -29,6 +30,7 @@ function App() {
     <ThemeProvider>
       <AppContainer>
         <Router>
+          <ScrollToTop />
           <MainContent allWalks={allWalks} darkTheme={darkTheme} />
         </Router>
       </AppContainer>

@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "reset": "node -r dotenv/config database/reset-database/dbReset.js"
+    "reset": "node -r dotenv/config database/reset-database/dbReset.js",
+    "start": "node -r dotenv/config server.js"
   },
   "dependencies": {
     "@emotion/react": "^11.13.3",

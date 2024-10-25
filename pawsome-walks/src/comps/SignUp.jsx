@@ -37,28 +37,24 @@ export default function SignUp() {
 
     const validEmail = emailIsValid(email);
 
+    if (!validEmail) {
+      alert("Please enter a valid email address");
+      return;
+    }
     if (password.length < 8) {
       alert("Password must be at least 8 characters long");
       return;
     }
 
-    if (!validEmail) {
-      alert("Please enter a valid email address");
-      return;
-    }
-
     try {
-      const hashedPassword = await hashPassword(password);
-      setHashedPassword(hashedPassword);
-
-      const ownerData = { email, username, password: hashedPassword };
-      setNewOwner(ownerData);
+      const ownerData = { username, email, password };
       await postOwner(ownerData);
+      // console.log("Account created successfully!");
 
-      setEmail("");
-      setUsername("");
-      setPassword("");
-      setConfirmPassword("");
+      // setEmail("");
+      // setUsername("");
+      // setPassword("");
+      // setConfirmPassword("");
     } catch (error) {
       console.error("Error hashing password or posting owner:", error);
     }
