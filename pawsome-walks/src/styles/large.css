@@ -7,6 +7,7 @@
     height: 100vh; /* Full viewport height */
     overflow-x: hidden;
     font-family: "DM Sans", sans-serif;
+    overflow: auto;
   }
 
   .app {
@@ -236,7 +237,7 @@
     height: 300px;
   } */
   .mapContainer {
-    height: min-content;
+    /* height: min-content; */
   }
 
   /* WALK DETAIL CONTENTS CONTAINER */
@@ -258,6 +259,7 @@
     width: 100%;
     max-width: 1700px;
     height: 1000px;
+    max-height: 925px;
     border-radius: 10px;
     align-self: center;
     justify-self: center;
@@ -332,5 +334,40 @@
   .distance {
     font-size: 3rem;
     /* text-decoration: ; */
+  }
+
+  /* SIGN UP / SIGN IN PAGES */
+
+  .signuplogo {
+    width: 300px;
+    height: 300px;
+  }
+
+  .signupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    justify-self: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    flex-grow: 1;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    min-height: 100vh;
+  }
+
+  .signupForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .signupForm label,
+  .signupForm input,
+  .signupForm button {
+    margin-bottom: 10px;
   }
 }

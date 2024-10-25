@@ -14,7 +14,12 @@
 .footer.dark {
   background-color: #3e57e65e;
 }
-
+.signupInputContainer.dark {
+  background-color: #3e57e65e;
+}
+.signupInputContainer.light {
+  background-color: #ffffef;
+}
 .header.light,
 footer.light {
   background-color: #fafaf0;
@@ -26,7 +31,7 @@ footer.light {
 
 .darkMode {
   display: flex;
-  align-items: centre;
+  align-items: center;
 }
 
 .switch {
@@ -143,3 +148,20 @@ footer.light {
   align-items: center;
   background-color: inherit;
 }
+
+.gm-title {
+  color: black;
+}
+
+/* SIGN UP PAGE */
+.signupContainer.dark {
+  background-color: #3e57e65e;
+
+  color: white;
+}
+
+.signupContainer.light {
+  background-color: #fff;
+  color: black;
+}
+
