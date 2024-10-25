@@ -5,15 +5,14 @@ import { ThemeContext } from "./ThemeProvider";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
+
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+
   const { darkTheme } = useContext(ThemeContext);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
-  const handleUsernameChange = (e) => setUsername(e.target.value);
+
   const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
 
   const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -22,12 +21,7 @@ export default function SignIn() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
-    }
-
-    if (email === "" || username === "" || password === "") {
+    if (email === "" || password === "") {
       alert("Please fill in all fields");
       return;
     }
@@ -44,27 +38,12 @@ export default function SignIn() {
     }
 
     try {
-      const ownerData = { username, email, password };
-      await postOwner(ownerData);
-
-      // Reset form fields after successful signup
-      // setEmail("");
-      // setUsername("");
-      // setPassword("");
-      // setConfirmPassword("");
+      //   const ownerData = {email, password };
+      //    MAKE GET REQUEST TO CHECK AGAINST DATABASE HERE
     } catch (error) {
       // Check for specific error code for unique constraint violations
-      if (error.code === 409) {
-        // Checking the code you set in postOwner
-        alert(
-          "Email address or username already exists. Please choose another."
-        );
-      } else {
-        console.error("Error posting owner:", error);
-        alert(
-          "An error occurred while creating your account. Please try again."
-        );
-      }
+
+      console.error("Error posting owner:", error);
     }
   };
 
@@ -87,14 +66,6 @@ export default function SignIn() {
           value={email}
           onChange={handleEmailChange}
         />
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={handleUsernameChange}
-        />
         <label htmlFor="password">Password:</label>
         <input
           type="password"
@@ -103,15 +74,8 @@ export default function SignIn() {
           value={password}
           onChange={handlePasswordChange}
         />
-        <label htmlFor="confirmPassword">Confirm Password:</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          name="confirmPassword"
-          value={confirmPassword}
-          onChange={handleConfirmPasswordChange}
-        />
-        <button type="submit">Sign Up</button>
+
+        <button type="submit">Sign In</button>
       </form>{" "}
       <Link className="noTextDecoration" to="/SignUp">
         <p>First Time? {<br />} Create an account:</p>

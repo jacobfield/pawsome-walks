@@ -48,10 +48,10 @@ export default function SignUp() {
       await postOwner(ownerData);
 
       // Reset form fields after successful signup
-      // setEmail("");
-      // setUsername("");
-      // setPassword("");
-      // setConfirmPassword("");
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       // Check for specific error code for unique constraint violations
       if (error.code === 409) {
