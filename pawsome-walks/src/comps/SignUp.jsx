@@ -1,22 +1,19 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import postOwner from "../hooks/apiCalls/postOwner";
-import hashPassword from "../hooks/hashPassword";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
 
 export default function SignUp() {
-  const [newOwner, setNewOwner] = useState({});
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [hashedPassword, setHashedPassword] = useState("");
+  const { darkTheme } = useContext(ThemeContext);
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handleUsernameChange = (e) => setUsername(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
-  const { darkTheme } = useContext(ThemeContext);
 
   const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -36,11 +33,11 @@ export default function SignUp() {
     }
 
     const validEmail = emailIsValid(email);
-
     if (!validEmail) {
       alert("Please enter a valid email address");
       return;
     }
+
     if (password.length < 8) {
       alert("Password must be at least 8 characters long");
       return;
@@ -56,7 +53,8 @@ export default function SignUp() {
       // setPassword("");
       // setConfirmPassword("");
     } catch (error) {
-      if (error.message.includes("Email address or username already exists")) {
+      // Check for specific error code for unique constraint violations
+      if (error.code === 409) {
         alert(
           "Email address or username already exists. Please choose another."
         );
@@ -76,7 +74,7 @@ export default function SignUp() {
           className={`signuplogo ${darkTheme ? "dark" : "light"}`}
           alt="Pawsome Walks Logo"
           src="/logo.png"
-        ></img>
+        />
       </Link>
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
