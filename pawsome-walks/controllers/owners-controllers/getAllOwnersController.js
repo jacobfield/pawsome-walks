@@ -1,8 +1,8 @@
 import { owners } from "../../helper-functions/helperFunctions.js";
 
-export default async function getAllallOwnersController(req, res) {
+export default async function getAllOwnersController(req, res) {
   try {
-    const allOwners = await owners.getAllallOwners();
+    const allOwners = await owners.getAllOwners();
 
     if (!allOwners) {
       return res
