@@ -3,7 +3,7 @@ import postOwner from "../hooks/apiCalls/postOwner";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
 
-export default function SignUp() {
+export default function SignIn() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -77,9 +77,9 @@ export default function SignUp() {
           src="/logo.png"
         />
       </Link>
-      <h1 style={{ padding: "0px" }}>Create Account:</h1>
-      <Link className="noTextDecoration" to="/SignIn">
-        <p>Been here before? {<br />} Sign in:</p>
+      <h1>Sign in:</h1>
+      <Link className="noTextDecoration" to="/SignUp">
+        <p>First Time? {<br />} Create an account:</p>
       </Link>
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
@@ -119,3 +119,6 @@ export default function SignUp() {
     </div>
   );
 }
+
+// once data is inputted, the user can click the "Sign Up" button to submit the form.
+// the form does a get request to check if email and password exist on a row in it
