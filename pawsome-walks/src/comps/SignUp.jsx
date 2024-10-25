@@ -49,14 +49,23 @@ export default function SignUp() {
     try {
       const ownerData = { username, email, password };
       await postOwner(ownerData);
-      // console.log("Account created successfully!");
 
+      // Reset form fields after successful signup
       // setEmail("");
       // setUsername("");
       // setPassword("");
       // setConfirmPassword("");
     } catch (error) {
-      console.error("Error hashing password or posting owner:", error);
+      if (error.message.includes("Email address or username already exists")) {
+        alert(
+          "Email address or username already exists. Please choose another."
+        );
+      } else {
+        console.error("Error posting owner:", error);
+        alert(
+          "An error occurred while creating your account. Please try again."
+        );
+      }
     }
   };
 
