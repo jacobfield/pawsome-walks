@@ -3,6 +3,7 @@ import SearchBar from "./SearchBar";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { Link } from "react-router-dom";
+import Overlay from "./Overlay";
 export default function Header({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   return (
@@ -19,6 +20,7 @@ export default function Header({ navBarProps }) {
       </div>
       <nav className="navBarContainer">
         <NavBar navBarProps={navBarProps}></NavBar>
+        <Overlay navBarProps={navBarProps} />
       </nav>
     </header>
   );

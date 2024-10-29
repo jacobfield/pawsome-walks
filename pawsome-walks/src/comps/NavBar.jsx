@@ -5,11 +5,9 @@ import { GiNightSky } from "react-icons/gi"; // <GiNightSky />
 import { GiHeraldicSun } from "react-icons/gi"; // <GiHeraldicSun />
 import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
-import { Link } from "react-router-dom";
 
 //
 export default function NavBar({ navBarProps }) {
-  const [profilePicture, setProfilePicture] = useState(null);
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   return (

@@ -11,6 +11,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
+
 //
 export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const location = useLocation();
