@@ -9,10 +9,11 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+import SignIn from "./SignIn.jsx";
 export default function MainContent({ allWalks, darkTheme }) {
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
-  const isLoginPage = location.pathname.endsWith("LogIn");
+  const isLoginPage = location.pathname.endsWith("SignIn");
 
   return (
     <div className="app">
@@ -21,7 +22,8 @@ export default function MainContent({ allWalks, darkTheme }) {
         <Routes>
           <Route path="/" element={<Main allWalks={allWalks} />} />
           <Route path="/walk/:walkid" element={<WalkDetail />} />
-          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/SignIn" element={<SignIn />} />
         </Routes>
       </div>
       {!isSignupPage && !isLoginPage && <Footer />}

@@ -48,13 +48,14 @@ export default function SignUp() {
       await postOwner(ownerData);
 
       // Reset form fields after successful signup
-      // setEmail("");
-      // setUsername("");
-      // setPassword("");
-      // setConfirmPassword("");
+      setEmail("");
+      setUsername("");
+      setPassword("");
+      setConfirmPassword("");
     } catch (error) {
       // Check for specific error code for unique constraint violations
       if (error.code === 409) {
+        // Checking the code you set in postOwner
         alert(
           "Email address or username already exists. Please choose another."
         );
@@ -76,6 +77,7 @@ export default function SignUp() {
           src="/logo.png"
         />
       </Link>
+      <h1 style={{ padding: "0px" }}>Create Account:</h1>
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
         <input
@@ -110,7 +112,10 @@ export default function SignUp() {
           onChange={handleConfirmPasswordChange}
         />
         <button type="submit">Sign Up</button>
-      </form>
+      </form>{" "}
+      <Link className="noTextDecoration" to="/SignIn">
+        <p>Been here before? {<br />} Sign in:</p>
+      </Link>
     </div>
   );
 }
