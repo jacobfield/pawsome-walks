@@ -12,7 +12,7 @@ import {
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
 //
-export default function MainContent({ allWalks, darkTheme }) {
+export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
   const isLoginPage = location.pathname.endsWith("SignIn");
@@ -22,7 +22,7 @@ export default function MainContent({ allWalks, darkTheme }) {
   console.log("Maincontent  IsLoggedIn: ", isLoggedIn);
   return (
     <div className="app">
-      {!isSignupPage && !isLoginPage && <Header />}
+      {!isSignupPage && !isLoginPage && <Header navBarProps={navBarProps} />}
       <div className="mainContent">
         <Routes>
           <Route path="/" element={<Main allWalks={allWalks} />} />

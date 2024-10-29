@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { Link } from "react-router-dom";
-export default function Header() {
+export default function Header({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   return (
     <header className={`header fade ${darkTheme ? "dark" : "light"}`}>
@@ -18,7 +18,7 @@ export default function Header() {
         <SearchBar></SearchBar>
       </div>
       <nav className="navBarContainer">
-        <NavBar></NavBar>
+        <NavBar navBarProps={navBarProps}></NavBar>
       </nav>
     </header>
   );
