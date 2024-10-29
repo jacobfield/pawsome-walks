@@ -19,7 +19,7 @@ export default function SignIn() {
     }
     fetchAllOwnersData();
   }, []);
-
+  // console.log(allOwners);
   const handleEmailChange = (e) => setEmail(e.target.value);
 
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -49,8 +49,8 @@ export default function SignIn() {
 
     try {
       const owner = allOwners.find((owner) => owner.email === email);
-
-      if (owner && (await bcrypt.compare(password, owner.password))) {
+      console.log("owner", owner);
+      if (owner && (await bcrypt.compare(password, owner.hashedpassword))) {
         login({
           ownerId: owner.id,
           username: owner.username,
