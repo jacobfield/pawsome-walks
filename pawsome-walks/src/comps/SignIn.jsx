@@ -1,17 +1,18 @@
 import { useState, useContext, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
 import bcrypt from "bcryptjs";
 import { AuthContext, useAuth } from "./AuthContext";
 import getAllOwners from "../hooks/apiCalls/getAllOwners";
 
+//
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [allOwners, setAllOwners] = useState();
   const { darkTheme } = useContext(ThemeContext);
   const { login, logout, owner } = useAuth(); // Access `owner` from context
-
+  const navigate = useNavigate();
   // Log the logged-in user's username on mount or whenever `owner` changes
   useEffect(() => {
     if (owner && owner.username) {
@@ -70,7 +71,8 @@ export default function SignIn() {
           email: owner.email,
         });
         console.log(owner.username, "logged in! - SignIn.jsx");
-        alert("Successfully logged in!");
+        // alert("Successfully logged in!");
+        navigate("/");
       } else {
         alert("Invalid email or password");
       }
