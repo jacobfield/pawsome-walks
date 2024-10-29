@@ -56,6 +56,7 @@ export default function SignIn() {
           username: owner.username,
           email: owner.email,
         });
+        console.log(owner.username, "logged in!");
         alert("Successfully logged in!");
       } else {
         alert("Invalid email or password");
