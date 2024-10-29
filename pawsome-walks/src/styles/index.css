@@ -155,6 +155,19 @@ footer.light {
 
 /* SIGN UP PAGE */
 
+.signupContainer.dark {
+  background-color: #3e57e65e;
+
+  color: white;
+}
+
+.signupContainer.light {
+  background-color: #fff;
+  color: black;
+}
+
+/* OVERLAY STYLINGS */
+
 .overlay.dark {
   background-color: #343a40;
 
@@ -169,8 +182,6 @@ footer.light {
 .toggleOverlayButton.dark {
   color: #fff;
 }
-
-/* OVERLAY STYLINGS */
 .overlay {
   position: fixed;
   top: 0;

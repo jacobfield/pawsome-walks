@@ -27,7 +27,15 @@ export default function Overlay({ navBarProps }) {
       reader.readAsDataURL(file);
     }
   };
+  const handleSignIn = () => {
+    setIsOpen(false);
+    navigate("/SignIn");
+  };
 
+  const handleSignUp = () => {
+    setIsOpen(false);
+    navigate("/SignUp");
+  };
   return (
     <div
       className={`overlay ${isOpen ? "open" : ""} ${
@@ -68,8 +76,8 @@ export default function Overlay({ navBarProps }) {
             </button>
           ) : (
             <div>
-              <button onClick={navigate("/SignIn")}>Log In</button>
-              <button onClick={navigate("/SignUp")}>Sign Up</button>
+              <button onClick={handleSignIn}>Log In</button>
+              <button onClick={handleSignUp}>Sign Up</button>
             </div>
           )}
         </div>
