@@ -31,6 +31,7 @@ app.use(express.static("public"));
 //owners table routes
 app.post("/api/owners", ownersControllers.postOwnerController);
 app.get("/api/owners/:ownerId", ownersControllers.getOwnerByIdController);
+app.get("/api/owners", ownersControllers.getAllOwnersController);
 app.put(
   "/api/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController

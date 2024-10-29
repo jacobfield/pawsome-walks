@@ -31,7 +31,7 @@ export default function NavBar() {
         </button>
       </div>
       <CiStar className="starIcon icon" />
-      <Link to="/SignUp" className="noTextDecoration">
+      <Link to="/SignIn" className="noTextDecoration">
         {!profilePicture ? (
           <CgProfile className="profileIcon icon" />
         ) : (
