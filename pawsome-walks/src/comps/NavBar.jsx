@@ -5,12 +5,11 @@ import { GiNightSky } from "react-icons/gi"; // <GiNightSky />
 import { GiHeraldicSun } from "react-icons/gi"; // <GiHeraldicSun />
 import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
-import { Link } from "react-router-dom";
 
 //
-export default function NavBar() {
-  const [profilePicture, setProfilePicture] = useState(null);
+export default function NavBar({ navBarProps }) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   return (
     <div className="navBar">
       <div className="darkMode">
@@ -31,13 +30,19 @@ export default function NavBar() {
         </button>
       </div>
       <CiStar className="starIcon icon" />
-      <Link to="/SignIn" className="noTextDecoration">
-        {!profilePicture ? (
-          <CgProfile className="profileIcon icon" />
-        ) : (
-          <img src={profilePicture} className="profileIcon icon" />
-        )}
-      </Link>
+
+      {!profilePicture ? (
+        <CgProfile
+          className="profileIcon icon"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+      ) : (
+        <img
+          src={profilePicture}
+          className="profileIcon icon"
+          onClick={() => setIsOpen(!isOpen)}
+        />
+      )}
     </div>
   );
 }
