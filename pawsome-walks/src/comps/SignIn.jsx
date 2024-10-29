@@ -114,8 +114,6 @@ export default function SignIn() {
       <Link className="noTextDecoration" to="/SignUp">
         <p>First Time? {<br />} Create an account:</p>
       </Link>
-
-      <button onClick={handleLogOut}>Log out</button>
     </div>
   );
 }
