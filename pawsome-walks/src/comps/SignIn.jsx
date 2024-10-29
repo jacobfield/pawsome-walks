@@ -4,14 +4,23 @@ import { ThemeContext } from "./ThemeProvider";
 import bcrypt from "bcryptjs";
 import { AuthContext, useAuth } from "./AuthContext";
 import getAllOwners from "../hooks/apiCalls/getAllOwners";
-//
+
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [allOwners, setAllOwners] = useState();
   const { darkTheme } = useContext(ThemeContext);
-  const { login } = useAuth();
-  //
+  const { login, logout, owner } = useAuth(); // Access `owner` from context
+
+  // Log the logged-in user's username on mount or whenever `owner` changes
+  useEffect(() => {
+    if (owner && owner.username) {
+      console.log(`Logged in user: ${owner.username}`);
+    } else {
+      console.log("No user is logged in currently.");
+    }
+  }, [owner]); // Runs on mount and whenever `owner` changes
+
   useEffect(() => {
     async function fetchAllOwnersData() {
       const allOwnersData = await getAllOwners();
@@ -19,13 +28,17 @@ export default function SignIn() {
     }
     fetchAllOwnersData();
   }, []);
-  // console.log(allOwners);
-  const handleEmailChange = (e) => setEmail(e.target.value);
 
+  const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const handleLogOut = () => {
+    logout();
+    console.log("Logged out");
   };
 
   const handleSubmit = async (e) => {
@@ -49,14 +62,14 @@ export default function SignIn() {
 
     try {
       const owner = allOwners.find((owner) => owner.email === email);
-      console.log("owner", owner);
+      // console.log("owner", owner);
       if (owner && (await bcrypt.compare(password, owner.hashedpassword))) {
         login({
           ownerId: owner.id,
           username: owner.username,
           email: owner.email,
         });
-        console.log(owner.username, "logged in!");
+        console.log(owner.username, "logged in! - SignIn.jsx");
         alert("Successfully logged in!");
       } else {
         alert("Invalid email or password");
@@ -99,11 +112,8 @@ export default function SignIn() {
       <Link className="noTextDecoration" to="/SignUp">
         <p>First Time? {<br />} Create an account:</p>
       </Link>
+
+      <button onClick={handleLogOut}>Log out</button>
     </div>
   );
 }
-
-// once data is inputted, the user can click the "Sign Up" button to submit the form.
-// the form does a get request to check if email and password exist on a row in it
-// need to create some context that holds the logged in owner
-// if the email and password exist in the database, the user is logged in. logged in and owner is set to the owner context.

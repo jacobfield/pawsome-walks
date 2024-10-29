@@ -27,16 +27,16 @@ function App() {
   }, []);
 
   return (
-    <ThemeProvider>
-      <AuthProvider>
-        <AppContainer>
-          <Router>
+    <Router>
+      <ThemeProvider>
+        <AuthProvider>
+          <AppContainer>
             <ScrollToTop />
             <MainContent allWalks={allWalks} darkTheme={darkTheme} />
-          </Router>
-        </AppContainer>
-      </AuthProvider>
-    </ThemeProvider>
+          </AppContainer>
+        </AuthProvider>
+      </ThemeProvider>
+    </Router>
   );
 }
 

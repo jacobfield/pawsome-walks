@@ -3,6 +3,7 @@ import Header from "./Header.jsx";
 import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
 import WalkDetail from "./WalkDetail.jsx";
+import { useAuth } from "./AuthContext.jsx";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,11 +11,15 @@ import {
   useLocation,
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
+//
 export default function MainContent({ allWalks, darkTheme }) {
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
   const isLoginPage = location.pathname.endsWith("SignIn");
+  const { owner, isLoggedIn } = useAuth();
 
+  console.log("Maincontent Owner: ", owner);
+  console.log("Maincontent  IsLoggedIn: ", isLoggedIn);
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && <Header />}
