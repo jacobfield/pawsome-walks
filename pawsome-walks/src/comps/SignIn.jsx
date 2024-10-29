@@ -1,14 +1,17 @@
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
+import bcrypt from "bcryptjs";
 import { AuthContext, useAuth } from "./AuthContext";
 import getAllOwners from "../hooks/apiCalls/getAllOwners";
+//
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [allOwners, setAllOwners] = useState();
   const { darkTheme } = useContext(ThemeContext);
   const { login } = useAuth();
+  //
   useEffect(() => {
     async function fetchAllOwnersData() {
       const allOwnersData = await getAllOwners();
@@ -45,18 +48,22 @@ export default function SignIn() {
     }
 
     try {
-        const owner = allOwners.find((owner) => owner.email === email && owner.password === password);
-  
-        if (owner) {
-          login({ ownerId: owner.id, username: owner.username, email: owner.email });
-          alert("Successfully logged in!");
-        } else {
-          alert("Invalid email or password");
-        }
-      } catch (error) {
-        console.error("Error signing in:", error);
+      const owner = allOwners.find((owner) => owner.email === email);
+
+      if (owner && (await bcrypt.compare(password, owner.password))) {
+        login({
+          ownerId: owner.id,
+          username: owner.username,
+          email: owner.email,
+        });
+        alert("Successfully logged in!");
+      } else {
+        alert("Invalid email or password");
       }
-    };
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
 
   return (
     <div className={`signupContainer ${darkTheme ? "dark" : "light"}`}>
