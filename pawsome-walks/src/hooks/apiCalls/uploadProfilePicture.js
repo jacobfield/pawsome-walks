@@ -12,7 +12,7 @@ export default async function uploadProfilePicture(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await fetch("https://pawsome-walks.vercel.app/api/", {
+  const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
     method: "POST",
     body: formData,
   });
