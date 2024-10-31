@@ -25,16 +25,15 @@ const whitelist = [
 ];
 const corsOptions = {
   origin: function (origin, callback) {
-    if (
-      whitelist.indexOf(origin) !== -1 //|| !origin
-    ) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));
     }
   },
 };
-
+app.use(cors(corsOptions));
+app.options("*", cors());
 // Middleware
 app.use(morgan("dev")); // Log HTTP requests
 app.use(express.json()); // Parse incoming JSON requests
