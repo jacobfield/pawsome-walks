@@ -1,4 +1,14 @@
 export default async function uploadProfilePicture(file) {
+  const allowedTypes = ["image/png", "image/jpeg", "image/jpg"];
+  if (!allowedTypes.includes(file.type)) {
+    const error = new Error(
+      "Invalid file type. Please upload a valid image file."
+    );
+    error.code = 400;
+    alert(error);
+    throw error;
+  }
+
   const formData = new FormData();
   formData.append("file", file);
 
