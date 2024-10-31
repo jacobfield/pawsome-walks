@@ -42,6 +42,13 @@ app.use(express.static("public")); // Serve static files
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Set to true if you want to include cookies in requests
+  })
+);
 
 // Declare routes here --------
 
