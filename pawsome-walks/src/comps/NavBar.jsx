@@ -7,9 +7,9 @@ import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 
 //
-export default function NavBar() {
-  const [profilePicture, setProfilePicture] = useState(null);
+export default function NavBar({ navBarProps }) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   return (
     <div className="navBar">
       <div className="darkMode">
@@ -30,10 +30,18 @@ export default function NavBar() {
         </button>
       </div>
       <CiStar className="starIcon icon" />
+
       {!profilePicture ? (
-        <CgProfile className="profileIcon icon" />
+        <CgProfile
+          className="profileIcon icon"
+          onClick={() => setIsOpen(!isOpen)}
+        />
       ) : (
-        <img src={profilePicture} className="profileIcon icon" />
+        <img
+          src={profilePicture}
+          className="profileIcon icon"
+          onClick={() => setIsOpen(!isOpen)}
+        />
       )}
     </div>
   );

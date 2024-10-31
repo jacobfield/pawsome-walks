@@ -3,12 +3,11 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 
 export default function AppContainer({ children }) {
-  const { darkTheme } = useContext(ThemeContext); // Only need darkTheme to apply styles
+  const { darkTheme } = useContext(ThemeContext);
 
   return (
     <div className={`AppContainer fade ${darkTheme ? "dark" : "light"}`}>
-      {/* No need for the form and toggle here */}
-      <div className="mapContainer">{children}</div>
+      <div className="aapContainer">{children}</div>
     </div>
   );
 }

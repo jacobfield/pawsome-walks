@@ -1,3 +1,4 @@
+import { useAuth } from "./AuthContext";
 export default function Quote() {
   const quotes = [
     "Discover Pawsome trails for you and your furry friend!",
@@ -12,12 +13,18 @@ export default function Quote() {
     "The ultimate guide to exploring the great outdoors with your dog!",
     "The best place to find your new favourite walk!",
   ];
+  const { owner, isLoggedIn } = useAuth();
 
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   return (
     <div className="quoteDiv">
       <h1 className="quote fade">&ldquo; {randomQuote} &ldquo;</h1>
-      <br></br>
+      {/* <br></br> */}
+      {owner && isLoggedIn && owner.username ? (
+        <p>Welcome back, {owner.username}!</p>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

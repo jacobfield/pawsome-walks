@@ -14,7 +14,12 @@
 .footer.dark {
   background-color: #3e57e65e;
 }
-
+.signupInputContainer.dark {
+  background-color: #3e57e65e;
+}
+.signupInputContainer.light {
+  background-color: #ffffef;
+}
 .header.light,
 footer.light {
   background-color: #fafaf0;
@@ -26,7 +31,7 @@ footer.light {
 
 .darkMode {
   display: flex;
-  align-items: centre;
+  align-items: center;
 }
 
 .switch {
@@ -142,4 +147,78 @@ footer.light {
   flex-direction: column;
   align-items: center;
   background-color: inherit;
+}
+
+.gm-title {
+  color: black;
+}
+
+/* SIGN UP PAGE */
+
+.signupContainer.dark {
+  background-color: #3e57e65e;
+
+  color: white;
+}
+
+.signupContainer.light {
+  background-color: #fff;
+  color: black;
+}
+
+/* OVERLAY STYLINGS */
+
+.overlay.dark {
+  background-color: #343a40;
+
+  color: white;
+}
+
+.overlay.light {
+  background-color: #fff;
+  color: black;
+}
+
+.toggleOverlayButton.dark {
+  color: #fff;
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Hidden initially */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.overlay.open {
+  right: 0; /* Slide in when open */
+}
+
+.toggleOverlayButton {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.overlayContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.logoutButton {
+  margin-top: auto;
+  color: #fff;
+  background-color: #f44336;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
 }

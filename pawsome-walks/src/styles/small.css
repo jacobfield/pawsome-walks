@@ -3,10 +3,10 @@
   body {
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     font-family: "DM Sans", sans-serif;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
   }
 
   .app {
@@ -91,7 +91,7 @@
   .walksContainer {
     display: flex;
     justify-content: center;
-    padding: 10px;
+    padding: 10px 0 10px 0;
     flex-wrap: wrap;
     width: 100%;
     height: min-content;
@@ -175,7 +175,7 @@
     height: auto;
     display: flex;
     justify-content: space-evenly;
-    padding: 10px;
+    /* padding: 10px; */
   }
 
   .footerLogo {
@@ -247,8 +247,10 @@
   .walkDetailImg {
     width: 100%;
     height: 300px;
+    max-height: 275px;
     border-radius: 10px;
     align-self: flex-end;
+    margin-bottom: 1px;
   }
   .walkDetailContents {
     display: flex;
@@ -313,5 +315,40 @@
   .distance {
     font-size: 1.6rem;
     /* text-decoration: ; */
+  }
+
+  /* SIGN UP / SIGN IN PAGES */
+
+  .signuplogo {
+    width: 150px;
+    height: 150px;
+  }
+
+  .signupContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 80%;
+    justify-self: center;
+    border-radius: 10px;
+    margin: 0 auto;
+    flex-grow: 1;
+    min-height: 100vh;
+    padding: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .signupForm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .signupForm label,
+  .signupForm input,
+  .signupForm button {
+    margin-bottom: 10px;
   }
 }

@@ -1,4 +1,4 @@
-// import required modules
+// Import required modules
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
@@ -11,41 +11,70 @@ import {
   ownersDogsControllers,
   walkCommentsControllers,
   walksControllers,
+  uploadControllers,
 } from "../controllers/controllers.js";
+import multer from "multer";
 
-// initialize express app
+// Initialize express app
 const app = express();
-app.use(cors());
 
-// Middleware:
-// Morgan is used for logging http requests in a readable format
-app.use(morgan("dev"));
+// Configure CORS to allow requests from specific origins
+const whitelist = [
+  "http://localhost:5173", // Local development
+  "https://pawsome-walks.vercel.app", // Production
+];
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
+app.use(cors(corsOptions));
+app.options("/api/walks", cors());
+// Middleware
+app.use(morgan("dev")); // Log HTTP requests
+app.use(express.json()); // Parse incoming JSON requests
+app.use(express.static("public")); // Serve static files
 
-// express.json() nis used to parse incoming JSON requests
-app.use(express.json());
-app.use(express.static("public"));
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Set to true if you want to include cookies in requests
+  })
+);
 
-//Declare routes here --------
-// app.use("/route", importedRoute)
+// Declare routes here --------
 
-//owners table routes
+// Uploads table routes
+app.post(
+  "/api/uploads",
+  upload.single("file"),
+  uploadControllers.uploadPhotosController
+);
+
+// Owners table routes
 app.post("/api/owners", ownersControllers.postOwnerController);
 app.get("/api/owners/:ownerId", ownersControllers.getOwnerByIdController);
+app.get("/api/owners", ownersControllers.getAllOwnersController);
 app.put(
   "/api/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
-// FIX SO THAT IT CAN CASCADE
 app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
-export default app;
 
-//dogs table route
+// Dogs table routes
 app.post("/api/dogs", dogsControllers.postDogController);
 app.get("/api/dogs/:dogId", dogsControllers.getDogByIdController);
 app.patch("/api/dogs/:dogId", dogsControllers.patchDogByIdController);
 app.delete("/api/dogs/:dogId", dogsControllers.deleteDogByIdController);
 
-//ownerDogs table controllers
+// OwnerDogs table controllers
 app.post("/api/ownersDogs", ownersDogsControllers.postOwnersDogsController);
 app.get(
   "/api/ownersDogs/:ownersId",
@@ -56,7 +85,7 @@ app.delete(
   ownersDogsControllers.deleteOwnersDogsByDogIdController
 );
 
-// ownerFavouriteWalks table Routes
+// OwnerFavouriteWalks table routes
 app.post(
   "/api/ownerFavouriteWalks",
   ownerFavouriteWalksControllers.postOwnerFavouriteWalksController
@@ -65,13 +94,12 @@ app.get(
   "/api/ownerFavouriteWalks/:ownersId",
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
-
 app.delete(
   "/api/ownerFavouriteWalks/:ownerId/:walkId",
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
 );
 
-// dogPals table Routes
+// DogPals table routes
 app.post("/api/dogPals", dogPalsControllers.postDogPalController);
 app.get("/api/dogPals/:dogId", dogPalsControllers.getDogPalsByDogIdController);
 app.delete(
@@ -79,12 +107,12 @@ app.delete(
   dogPalsControllers.deleteDogPalsByBothIdsController
 );
 
-// walks table routes
+// Walks table routes
 app.get("/api/walks", walksControllers.getAllWalksController);
 app.post("/api/walks", walksControllers.postWalkController);
 app.get("/api/walks/:walkId", walksControllers.getWalksByIdController);
 
-// dogPalRequests table routes
+// DogPalRequests table routes
 app.post(
   "/api/dogPalRequests",
   dogPalRequestsControllers.postDogPalRequestController
@@ -98,7 +126,7 @@ app.put(
   dogPalRequestsControllers.updateDogPalRequestController
 );
 
-// walkComments table routes
+// WalkComments table routes
 app.post(
   "/api/walkComments",
   walkCommentsControllers.postWalkCommentsController
@@ -111,4 +139,6 @@ app.delete(
   "/api/walkComments/:walkCommentId",
   walkCommentsControllers.deleteWalkCommentByIdController
 );
-// const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+// Export the app
+export default app;

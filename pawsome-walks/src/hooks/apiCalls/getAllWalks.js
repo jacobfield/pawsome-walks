@@ -19,6 +19,7 @@ export default async function getAllWalks() {
     return walksData;
   } catch (error) {
     console.error(`Error fetching walks: ${error}`);
+    console.log(error.stack);
     return [];
   }
 }

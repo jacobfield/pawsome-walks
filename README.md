@@ -36,3 +36,11 @@ Phase 3:
 4. Realised that the deployed version api calls were failing. Remoddled the backend to utilise Vercel's serverless functions, ensuring that I would only need a single deployment for the project, for seamless communication. This meant prefixing moving the server to /api directory, and updating routes accordingly. Now both the front and backend are deployed on the same Vercel project, with the backend served as serverless functions, and the front as a static site.
 
 # Set up production GitFlow version control
+
+What I have learned:
+
+- Pluralsight trainings have helped with stylings. I have learned how to use FlexBox, which has been utilised throughout the project.
+- Context: I have learned how t use Context and the context provider. This has enabled me to use a theme, and a home made auth.
+
+- What I would do differently:
+  Early on in the project I made use of the Vercel serverless api routing. Although this has been great, and has meant that I have been able to deploy the backend and front end together in one place, it has made deployment and testing more difficult, because I have had to push to main to test any frontend api integration that I have made.
