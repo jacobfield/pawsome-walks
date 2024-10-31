@@ -41,8 +41,6 @@ export default async function seedWalksTable() {
       );
     }
     console.log(`Walks table has been successfully seeded`);
-
-    
   } catch (error) {
     console.error(
       "Error seeding Walks table. Error originated in seedWalksTable.js",

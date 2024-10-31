@@ -18,7 +18,7 @@ export default function SignIn() {
     if (owner && owner.username) {
       console.log(`Logged in user: ${owner.username}`);
     } else {
-      console.log("No user is logged in currently.");
+      // console.log("No user is logged in currently.");
     }
   }, [owner]); // Runs on mount and whenever `owner` changes
 
@@ -39,7 +39,7 @@ export default function SignIn() {
 
   const handleLogOut = () => {
     logout();
-    console.log("Logged out");
+    // console.log("Logged out");
   };
 
   const handleSubmit = async (e) => {
