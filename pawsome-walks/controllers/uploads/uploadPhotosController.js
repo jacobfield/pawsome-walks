@@ -9,8 +9,8 @@ import { createClient } from "@supabase/supabase-js";
 dotenv.config();
 
 const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SECRET_KEY
+  process.env.VITE_SUPABASE_URL,
+  process.env.VITE_SUPABASE_SECRET_KEY
 );
 
 export async function uploadPhotosController(req, res) {
