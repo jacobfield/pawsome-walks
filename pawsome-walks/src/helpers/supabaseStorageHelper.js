@@ -1,10 +1,14 @@
 // src/helpers/supabaseStorageHelper.js
 import { createClient } from "@supabase/supabase-js";
+import dotenv from "dotenv";
 
-// Initialize the Supabase client
+// Load environment variables from .env file
+dotenv.config();
+
+// Use process.env here
 const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SECRET_KEY
+  process.env.VITE_SUPABASE_URL,
+  process.env.VITE_SUPABASE_SECRET_KEY
 );
 
 /**
@@ -22,10 +26,11 @@ export async function uploadImage(file, filename) {
     if (error) throw error;
 
     // Generate public URL if bucket is public
-    const { publicUrl } = supabase.storage
+    const { publicURL } = supabase.storage
       .from("uploads")
       .getPublicUrl(filename);
-    return publicUrl;
+    filename;
+    return publicURL;
   } catch (error) {
     console.error("Error uploading image:", error);
     throw error;

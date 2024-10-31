@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
   const login = (ownerData) => {
     setOwner(ownerData);
     setIsLoggedIn(true);
-    console.log(ownerData.username, "logged in! - AuthContext.jsx");
+    // console.log(ownerData.username, "logged in! - AuthContext.jsx");
     // Name to access owner = loggedInOwner
     localStorage.setItem("loggedInOwner", JSON.stringify(ownerData));
     // Name to access isLoggedIn = isLoggedIn
@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     setOwner(null);
     setIsLoggedIn(false);
-    console.log("Logged out");
+    // console.log("Logged out");
     localStorage.removeItem("loggedInOwner");
     localStorage.setItem("isLoggedIn", "false");
   };
