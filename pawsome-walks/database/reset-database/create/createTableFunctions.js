@@ -6,7 +6,7 @@ import createOwnerFavouriteWalksTable from "./create-ownerFavouriteWalks-table.j
 import createDogPalRequestsTable from "./create-dogPalRequests-table.js";
 import createDogPalsTable from "./create-dogPals-table.js";
 import createWalkCommentsTable from "./create-walkComments-table.js";
-
+import createUploadsTable from "./create-uploads-table.js";
 export const createTableFunctions = {
   createOwnersTable,
   createDogsTable,
@@ -16,4 +16,5 @@ export const createTableFunctions = {
   createDogPalRequestsTable,
   createDogPalsTable,
   createWalkCommentsTable,
+  createUploadsTable,
 };

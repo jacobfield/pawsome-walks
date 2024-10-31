@@ -10,7 +10,7 @@ export default function Overlay({ navBarProps }) {
   const navigate = useNavigate();
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
-
+  const [selectedFile, setSelectedFile] = useState(null);
   const handleLogout = () => {
     logout();
     setIsOpen(false);
@@ -20,13 +20,21 @@ export default function Overlay({ navBarProps }) {
   const handleProfilePictureChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onLoad = () => {
-        setProfilePicture(reader.result);
-      };
-      reader.readAsDataURL(file);
+      setSelectedFile(file);
     }
   };
+  // Handle profile picture upload to backend
+  const handleUploadClick = async () => {
+    if (!selectedFile) return;
+    try {
+      const uploadedImageUrl = await uploadProfilePicture(selectedFile);
+      setProfilePicture(uploadedImageUrl); // Update local state
+      setSelectedFile(null); // Clear the selected file
+    } catch (error) {
+      console.error("Error uploading profile picture:", error);
+    }
+  };
+  // handle sign in and sign up
   const handleSignIn = () => {
     setIsOpen(false);
     navigate("/SignIn");
@@ -67,6 +75,7 @@ export default function Overlay({ navBarProps }) {
               className="profileIcon icon"
             />
           )}
+          {selectedFile && <button onClick={handleUploadClick}>Upload</button>}
         </div>
 
         <div className="buttonSection">

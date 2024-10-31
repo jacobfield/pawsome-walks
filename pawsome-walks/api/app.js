@@ -11,8 +11,9 @@ import {
   ownersDogsControllers,
   walkCommentsControllers,
   walksControllers,
+  uploadControllers,
 } from "../controllers/controllers.js";
-
+import multer from "multer";
 // initialize express app
 const app = express();
 app.use(cors());
@@ -25,8 +26,18 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.static("public"));
 
+const storage = multer.memoryStorage();
+const upload = multer({ storage });
+
 //Declare routes here --------
 // app.use("/route", importedRoute)
+
+// uploads table routes
+app.post(
+  "/api/uploads",
+  upload.single("file"),
+  uploadControllers.uploadPhotosController
+);
 
 //owners table routes
 app.post("/api/owners", ownersControllers.postOwnerController);
@@ -36,7 +47,7 @@ app.put(
   "/api/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
-// FIX SO THAT IT CAN CASCADE
+
 app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 export default app;
 
