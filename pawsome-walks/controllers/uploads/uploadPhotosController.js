@@ -2,7 +2,7 @@
 import {
   uploadImage,
   getSignedUrl,
-} from "../../helpers/supabaseStorageHelper.js";
+} from "../../src/helpers/supabaseStorageHelper.js";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 
