@@ -9,6 +9,7 @@ import seedDogPalTable from "./seed/seedDogPalTable.js";
 import seedDogPalRequestsTable from "./seed/seedDogPalRequestsTable.js";
 import seedOwnersDogsTable from "./seed/seedOwnersDogsTable.js";
 import seedWalkCommentsTable from "./seed/seedWalkCommentsTable.js";
+import createUploadsTable from "./create/create-uploads-table.js";
 export default async function dbReset() {
   try {
     console.log("Running DB reset script...");
@@ -33,7 +34,7 @@ export default async function dbReset() {
     await alterTablesAddingFK();
     await seedOwnersDogsTable();
     await seedWalkCommentsTable();
-
+    await createUploadsTable()
     console.log("Database has been reset.");
   } catch (error) {
     console.error(

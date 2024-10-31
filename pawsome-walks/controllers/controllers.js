@@ -25,7 +25,11 @@ import getAllWalksController from "./walks-controllers/getAllWalksController.js"
 import getWalksByIdController from "./walks-controllers/getWalksByIdController.js";
 import postWalkController from "./walks-controllers/postWalkController.js";
 import getAllOwnersController from "./owners-controllers/getAllOwnersController.js";
+import { uploadPhotosController } from "./uploads/uploadPhotosController.js";
 
+export const uploadControllers = {
+  uploadPhotosController,
+};
 export const ownersControllers = {
   postOwnerController,
   getOwnerByIdController,
