@@ -19,21 +19,21 @@ import multer from "multer";
 const app = express();
 
 // Configure CORS to allow requests from specific origins
-const allowedOrigins = [
+const whitelist = [
   "http://localhost:5173", // Local development
   "https://pawsome-walks.vercel.app", // Production
 ];
-
-// Use CORS middleware with allowed origins
-app.use(
-  cors({
-    origin: allowedOrigins,
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: false, // Change to true if you need to send cookies or HTTP authentication
-    optionsSuccessStatus: 200,
-  })
-);
-app.options("*", cors()); // Preflight request handler for all routes
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (
+      whitelist.indexOf(origin) !== -1 //|| !origin
+    ) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+};
 
 // Middleware
 app.use(morgan("dev")); // Log HTTP requests
