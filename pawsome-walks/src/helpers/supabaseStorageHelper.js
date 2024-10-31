@@ -1,10 +1,14 @@
 // src/helpers/supabaseStorageHelper.js
 import { createClient } from "@supabase/supabase-js";
+import dotenv from "dotenv";
 
-// Initialize the Supabase client
+// Load environment variables from .env file
+dotenv.config();
+
+// Use process.env here
 const supabase = createClient(
-  import.meta.env.VITE_SUPABASE_URL,
-  import.meta.env.VITE_SUPABASE_SECRET_KEY
+  process.env.VITE_SUPABASE_URL,
+  process.env.VITE_SUPABASE_SECRET_KEY
 );
 
 /**
