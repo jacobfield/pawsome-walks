@@ -33,7 +33,7 @@ const corsOptions = {
   },
 };
 app.use(cors(corsOptions));
-app.options("*", cors());
+app.options("/api/walks", cors());
 // Middleware
 app.use(morgan("dev")); // Log HTTP requests
 app.use(express.json()); // Parse incoming JSON requests
