@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import postOwner from "../hooks/apiCalls/postOwner";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ThemeContext } from "./ThemeProvider";
 
 export default function SignUp() {
@@ -14,6 +14,7 @@ export default function SignUp() {
   const handleUsernameChange = (e) => setUsername(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfirmPassword(e.target.value);
+  const navigate = useNavigate();
 
   const emailIsValid = (email) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -46,6 +47,8 @@ export default function SignUp() {
     try {
       const ownerData = { username, email, password };
       await postOwner(ownerData);
+      alert("Account created successfully. Please sign in.");
+      navigate("/SignIn");
 
       // Reset form fields after successful signup
       setEmail("");
