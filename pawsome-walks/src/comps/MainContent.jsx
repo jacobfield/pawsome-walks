@@ -19,8 +19,8 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const isLoginPage = location.pathname.endsWith("SignIn");
   const { owner, isLoggedIn } = useAuth();
 
-  console.log("Maincontent Owner: ", owner);
-  console.log("Maincontent  IsLoggedIn: ", isLoggedIn);
+  // console.log("Maincontent Owner: ", owner);
+  // console.log("Maincontent  IsLoggedIn: ", isLoggedIn);
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && <Header navBarProps={navBarProps} />}
