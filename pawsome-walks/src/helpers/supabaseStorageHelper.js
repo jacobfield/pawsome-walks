@@ -22,15 +22,11 @@ export async function uploadImage(file, filename) {
     const { data, error } = await supabase.storage
       .from("uploads")
       .upload(filename, file.buffer, { contentType: file.mimetype });
-
+    console.info("data", data);
+    console.info("filename", filename);
     if (error) throw error;
 
-    // Generate public URL if bucket is public
-    const { publicURL } = supabase.storage
-      .from("uploads")
-      .getPublicUrl(filename);
-    filename;
-    return publicURL;
+    return filename;
   } catch (error) {
     console.error("Error uploading image:", error);
     throw error;

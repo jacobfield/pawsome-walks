@@ -147,7 +147,7 @@ export const walks = [
   {
     walkId: 10,
     photoPath: "walk10.jpg",
-    walkName: "Ticknall Limeyards and Calke Abbey Loop",
+    walkName: "Ticknall Limeyards Loop",
     location: "Ticknall, Derby",
     lat: 52.81148,
     lng: -1.48109,

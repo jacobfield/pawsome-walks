@@ -1,5 +1,8 @@
+import { useState, useEffect } from "react";
+
 import { useAuth } from "./AuthContext";
 export default function Quote() {
+  const [quote, setQuote] = useState("");
   const quotes = [
     "Discover Pawsome trails for you and your furry friend!",
     "Your go-to site for tail-wagging adventures!",
@@ -15,10 +18,14 @@ export default function Quote() {
   ];
   const { owner, isLoggedIn } = useAuth();
 
-  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  useEffect(() => {
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+    setQuote(randomQuote);
+  }, []);
+
   return (
     <div className="quoteDiv">
-      <h1 className="quote fade">&ldquo; {randomQuote} &ldquo;</h1>
+      <h1 className="quote fade">&ldquo; {quote} &ldquo;</h1>
       {/* <br></br> */}
       {owner && isLoggedIn && owner.username ? (
         <p>Welcome back, {owner.username}!</p>

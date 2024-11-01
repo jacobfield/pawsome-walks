@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
+import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
 //
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
