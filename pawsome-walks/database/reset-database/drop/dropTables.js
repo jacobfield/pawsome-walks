@@ -11,7 +11,8 @@ export default async function dropTables() {
         dogPals, 
         walks, 
         dogs, 
-        owners
+        owners,
+        uploads,
         CASCADE;
     `);
     console.log("Tables dropped successfully.");

@@ -11,7 +11,7 @@ export default async function uploadProfilePicture(file) {
 
   const formData = new FormData();
   formData.append("file", file);
-
+  console.log("formData:", formData);
   const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
     method: "POST",
     body: formData,
@@ -25,5 +25,7 @@ export default async function uploadProfilePicture(file) {
   }
 
   const data = await response.json();
-  return data.imageUrl; // Assumes backend returns the URL of the uploaded image
+  console.log("Response from upload API:", data); //
+
+  return data.imageUrl;
 }

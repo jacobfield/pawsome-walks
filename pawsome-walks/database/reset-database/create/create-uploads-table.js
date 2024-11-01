@@ -10,17 +10,8 @@ export default async function createUploadsTable() {
       CREATE TABLE IF NOT EXISTS uploads (
         pic_id INT PRIMARY KEY DEFAULT nextval('uploads_pic_id_seq'),
         pic_name TEXT NOT NULL,
-        profile_pic BOOLEAN DEFAULT FALSE,
-        walk_pic BOOLEAN DEFAULT FALSE,
-        dog_pic BOOLEAN DEFAULT FALSE,
-        url TEXT NOT NULL,
-        uploaded_at TIMESTAMP DEFAULT NOW(),
-        ownerId INT,
-        dogId INT,
-        walkId INT,
-        CONSTRAINT fk_ownerId FOREIGN KEY(ownerId) REFERENCES owners(ownerId) ON DELETE CASCADE,
-        CONSTRAINT fk_dogId FOREIGN KEY(dogId) REFERENCES dogs(dogId) ON DELETE CASCADE,
-        CONSTRAINT fk_walkId FOREIGN KEY(walkId) REFERENCES walks(walkId) ON DELETE CASCADE
+               url TEXT,
+        uploaded_at TIMESTAMP DEFAULT NOW()
       );
     `);
     console.log("uploads table created");
