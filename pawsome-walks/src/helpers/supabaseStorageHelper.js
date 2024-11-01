@@ -10,6 +10,8 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
   process.env.VITE_SUPABASE_SECRET_KEY
 );
+console.log(process.env.VITE_SUPABASE_URL);
+console.log(process.env.VITE_SUPABASE_SECRET_KEY);
 
 /**
  * Uploads an image to the Supabase storage bucket
