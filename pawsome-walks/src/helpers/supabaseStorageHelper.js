@@ -10,8 +10,6 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_URL,
   process.env.VITE_SUPABASE_SECRET_KEY
 );
-console.log(process.env.VITE_SUPABASE_URL);
-console.log(process.env.VITE_SUPABASE_SECRET_KEY);
 
 /**
  * Uploads an image to the Supabase storage bucket
@@ -24,18 +22,11 @@ export async function uploadImage(file, filename) {
     const { data, error } = await supabase.storage
       .from("uploads")
       .upload(filename, file.buffer, { contentType: file.mimetype });
-
+    console.info("data", data);
+    console.info("filename", filename);
     if (error) throw error;
 
-    // Retrieve and log the public URL
-    const { data: urlData, error: urlError } = supabase.storage
-      .from("uploads")
-      .getPublicUrl(filename);
-
-    if (urlError) throw urlError;
-    console.log("Public URL generated:", urlData.publicURL); // Should show the URL here
-
-    return urlData.publicURL; // Ensure we return the URL for further processing
+    return filename;
   } catch (error) {
     console.error("Error uploading image:", error);
     throw error;
