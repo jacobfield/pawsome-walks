@@ -26,9 +26,7 @@ export async function uploadPhotosController(req, res) {
     const insertedData = await insertUploadRecord(uploadData);
     // Log insertedData to confirm if it's successful
     console.log("Inserted Data:", insertedData);
-    res
-      .status(201)
-      .json({ status: "success", data: { imageUrl, insertedData } });
+    res.status(201).json({ status: "success", data: { insertedData } });
   } catch (error) {
     console.error("Error in uploadPhotosController:", error);
     res.status(500).json({ status: "error", message: error.message });
