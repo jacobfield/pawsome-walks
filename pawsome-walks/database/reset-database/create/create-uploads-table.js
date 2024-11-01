@@ -13,7 +13,7 @@ export default async function createUploadsTable() {
         profile_pic BOOLEAN DEFAULT FALSE,
         walk_pic BOOLEAN DEFAULT FALSE,
         dog_pic BOOLEAN DEFAULT FALSE,
-        url TEXT NOT NULL,
+        url TEXT,
         uploaded_at TIMESTAMP DEFAULT NOW(),
         ownerId INT,
         dogId INT,

@@ -25,5 +25,7 @@ export default async function uploadProfilePicture(file) {
   }
 
   const data = await response.json();
-  return data.imageUrl; // Assumes backend returns the URL of the uploaded image
+  console.log("Response from upload API:", data); // Ensure imageUrl is present in `data`
+
+  return data.imageUrl; // Should now be populated correctly with the public URL
 }

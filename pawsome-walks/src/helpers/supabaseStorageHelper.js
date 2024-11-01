@@ -27,12 +27,15 @@ export async function uploadImage(file, filename) {
 
     if (error) throw error;
 
-    // Generate public URL if bucket is public
-    const { publicURL } = supabase.storage
+    // Retrieve and log the public URL
+    const { data: urlData, error: urlError } = supabase.storage
       .from("uploads")
       .getPublicUrl(filename);
-    filename;
-    return publicURL;
+
+    if (urlError) throw urlError;
+    console.log("Public URL generated:", urlData.publicURL); // Should show the URL here
+
+    return urlData.publicURL; // Ensure we return the URL for further processing
   } catch (error) {
     console.error("Error uploading image:", error);
     throw error;
