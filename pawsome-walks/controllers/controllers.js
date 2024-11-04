@@ -32,7 +32,15 @@ import postUploadsOwnersController from "./uploadsOwners-controllers/postUploads
 import getUploadsOwnersByOwnerIdController from "./uploadsOwners-controllers/getUploadsOwnersByOwnerIdController.js";
 import postUploadsDogsController from "./uploadsDogs-controllers/postUploadsDogsController.js";
 import getUploadsDogsByDogIdController from "./uploadsDogs-controllers/getUploadsDogsByDogIdController.js";
-
+import getUploadsByPicIdAndWalkIdController from "./uploads/getUploadsByPicIdAndWalkIdController.js";
+import getUploadsByPicIdAndOwnerIdController from "./uploads/getUploadsByPicIdAndOwnerIdController.js";
+import getUploadsByPicIdAndDogIdController from "./uploads/getUploadsByPicIdAndDogIdController.js";
+export const uploadControllers = {
+  uploadPhotosController,
+  getUploadsByPicIdAndWalkIdController,
+  getUploadsByPicIdAndOwnerIdController,
+  getUploadsByPicIdAndDogIdController,
+};
 export const uploadsWalksControllers = {
   postUploadWalksController,
   getUploadsWalksByWalkIdController,
@@ -48,9 +56,6 @@ export const uploadDogsControllers = {
   getUploadsDogsByDogIdController,
 };
 
-export const uploadControllers = {
-  uploadPhotosController,
-};
 export const ownersControllers = {
   postOwnerController,
   getOwnerByIdController,
