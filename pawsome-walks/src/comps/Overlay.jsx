@@ -62,7 +62,7 @@ export default function Overlay({ navBarProps }) {
           {owner && isLoggedIn && owner.username ? (
             !profilePicture ? (
               <label className="uploadContainer">
-                <CgProfile className="profileIcon icon" />
+                <CgProfile className="placeholderImage" />
                 <input
                   type="file"
                   accept="image/*"
@@ -75,7 +75,7 @@ export default function Overlay({ navBarProps }) {
                 <img
                   src={profilePicture}
                   alt="Profile"
-                  className="profileIcon icon"
+                  className="overlayLogo"
                 />
                 {selectedFile && (
                   <button onClick={handleUploadClick}>Upload</button>

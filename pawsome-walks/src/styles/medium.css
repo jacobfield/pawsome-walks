@@ -30,8 +30,9 @@
     width: auto;
     margin-left: 20px;
   }
-  .overlayLogo {
-    height: auto;
+  .overlayLogo,
+  .placeholderImage {
+    height: 120px;
     max-height: 150px;
     width: auto;
   }

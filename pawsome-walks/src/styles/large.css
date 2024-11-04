@@ -191,8 +191,9 @@
     background-color: #f1f1f1;
   }
 
-  .footerLogo {
-    height: 100px;
+  .footerLogo,
+  .placeholderImage {
+    height: 120px;
     width: auto;
   }
 

@@ -31,8 +31,10 @@
     max-width: 100px;
     margin-left: 15px;
   }
-  .overlayLogo {
-    height: auto;
+  .overlayLogo,
+  .placeholderImage {
+    height: 100px;
+    width: auto;
     max-width: 100px;
   }
   .navBarContainer {
