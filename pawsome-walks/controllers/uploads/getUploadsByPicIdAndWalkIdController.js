@@ -12,7 +12,7 @@ export default async function getUploadsByPicIdAndWalkIdController(req, res) {
       });
     }
 
-    const uploads = await owners.getUploadsByPicIdAndWalkId(picId, walkId);
+    const uploads = await owners.getUploadsByPicIdAndWalkId(walkId, picId);
 
     if (!uploads || uploads.length === 0) {
       return res.status(404).json({
