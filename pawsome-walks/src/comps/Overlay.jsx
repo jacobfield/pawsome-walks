@@ -63,12 +63,15 @@ export default function Overlay({ navBarProps }) {
             !profilePicture ? (
               <label className="uploadContainer">
                 <CgProfile className="placeholderImage" />
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePictureChange}
-                />
-                <p> Upload Profile Picture</p>
+                <p>Upload Profile Picture</p>
+                <div className="fileInputWrapper">
+                  <input
+                    className="uploadInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleProfilePictureChange}
+                  />
+                </div>
               </label>
             ) : (
               <div>
