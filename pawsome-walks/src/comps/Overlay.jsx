@@ -17,7 +17,7 @@ export default function Overlay({ navBarProps }) {
   async function getProfilePicture() {
     if (isLoggedIn == true) {
       const ownerId = owner.ownerId;
-      const searchId = await getUploadsOwnersByOwnerId(ownerId);
+      const searchIds = await getUploadsOwnersByOwnerId(ownerId);
     }
   }
 
