@@ -25,6 +25,27 @@ import getWalksById from "./walks-table/getWalksById.js";
 import getAllWalks from "./walks-table/getAllWalks.js";
 import postWalk from "./walks-table/postWalk.js";
 import getAllOwners from "./owners-table/getAllOwners.js";
+import postUploadsWalks from "./uploads-walks-table/postUploadsWalks.js";
+import getUploadsWalksByWalkId from "./uploads-walks-table/getUploadsWalksByWalkId.js";
+import postUploadsOwners from "./uploads-owners-table/postUploadsOwners.js";
+import getUploadsOwnersByOwnerId from "./uploads-owners-table/getUploadsOwnersByOwnerId.js";
+import postUploadsDogs from "./uploads-dogs-table/postUploadsDogs.js";
+import getUploadsDogsByDogId from "./uploads-dogs-table/getUploadsDogsByDogId.js";
+
+export const uploadsDogs = {
+  getUploadsDogsByDogId,
+  postUploadsDogs,
+};
+
+export const uploadsOwners = {
+  getUploadsOwnersByOwnerId,
+  postUploadsOwners,
+};
+
+export const uploadsWalks = {
+  getUploadsWalksByWalkId,
+  postUploadsWalks,
+};
 
 export const walks = {
   getAllWalks,
