@@ -5,6 +5,7 @@ import { CgProfile } from "react-icons/cg";
 import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
 import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
+import getUploadsOwnersByOwnerId from "../hooks/apiCalls/getUploadsOwnersByOwnerId";
 //
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
@@ -12,6 +13,14 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
+
+  async function getProfilePicture() {
+    if (isLoggedIn == true) {
+      const ownerId = owner.ownerId;
+      const searchId = await getUploadsOwnersByOwnerId(ownerId);
+    }
+  }
+
   const handleLogout = () => {
     logout();
     setIsOpen(false);
