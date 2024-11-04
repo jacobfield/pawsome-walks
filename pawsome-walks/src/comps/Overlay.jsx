@@ -6,6 +6,7 @@ import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
 import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
 import getUploadsOwnersByOwnerId from "../hooks/apiCalls/getUploadsOwnersByOwnerId";
+import getProfilePicUrl from "../hooks/apiCalls/getProfilePicUrl";
 //
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
@@ -18,6 +19,12 @@ export default function Overlay({ navBarProps }) {
     if (isLoggedIn == true) {
       const ownerId = owner.ownerId;
       const searchIds = await getUploadsOwnersByOwnerId(ownerId);
+      const uploadRowData = await getProfilePicUrl(searchIds);
+// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+
+// then need to make the request to ensure that the url is conditionally rendered
+
+      // extract the url here
     }
   }
 
@@ -132,3 +139,7 @@ export default function Overlay({ navBarProps }) {
     </div>
   );
 }
+
+// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+
+// then need to make the request to ensure that the url is conditionally rendered
