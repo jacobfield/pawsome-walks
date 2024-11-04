@@ -55,7 +55,7 @@ export default function Overlay({ navBarProps }) {
         onClick={() => setIsOpen(!isOpen)}
         className={`toggleOverlayButton ${darkTheme ? "dark" : "light"}`}
       >
-        {isOpen ? "Close" : "Open"} Menu
+        X
       </button>
       <div className="overlayContent">
         <div className="profileSection">
