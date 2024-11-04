@@ -222,3 +222,49 @@ footer.light {
   padding: 10px 20px;
   cursor: pointer;
 }
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #66adc3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.formInput {
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: black;
+}
+
+.formInput:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* Focus Effect */
+.formInput.dark:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #87aecc;
+  color: white;
+  transform: scale(1.02);
+}
+.formInput.light:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #007bffb6;
+  color: white;
+  transform: scale(1.02);
+}
