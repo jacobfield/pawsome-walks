@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { useAuth } from "./AuthContext";
+
 export default function Quote() {
   const [quote, setQuote] = useState("");
   const quotes = [

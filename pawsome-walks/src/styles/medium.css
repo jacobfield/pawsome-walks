@@ -30,7 +30,12 @@
     width: auto;
     margin-left: 20px;
   }
-
+  .overlayLogo,
+  .placeholderImage {
+    height: 120px;
+    max-height: 150px;
+    width: auto;
+  }
   .navBarContainer {
     display: flex;
     justify-self: stretch;
@@ -163,7 +168,7 @@
     /* min-width: 90%; */
     height: auto;
     margin: auto;
-    margin-bottom: 0px; /* Adjust to reduce spacing */
+    margin-bottom: 0px; 
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-size: 12px;
@@ -171,7 +176,7 @@
   }
 
   .mainContent {
-    flex-grow: 1; /* Ensures main content takes up available space */
+    flex-grow: 1;
     /* padding: 20px; */
   }
 
@@ -204,8 +209,8 @@
   .quoteDiv {
     width: 90%;
     font-size: large;
-    overflow-wrap: break-word; /* Ensures long words break and wrap properly */
-    word-break: break-word; /* Breaks long words */
+    overflow-wrap: break-word;
+    word-break: break-word; 
     margin: 0 auto; /* Center the div */
   }
 
@@ -213,11 +218,11 @@
     margin: 0;
     margin-left: auto;
     margin-right: auto;
-    overflow-wrap: break-word; /* Ensures long words break and wrap properly */
-    word-break: break-word; /* Breaks long words */
-    text-align: center; /* Centers the text */
-    padding: 10px; /* Adds a bit of spacing */
-    font-size: 2rem; /* Slightly responsive font size */
+    overflow-wrap: break-word;
+    word-break: break-word; 
+    text-align: center; 
+    padding: 10px; 
+    font-size: 2rem; 
   }
   .walkDetailContainer {
     display: flex;
