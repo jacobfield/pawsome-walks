@@ -69,18 +69,6 @@ app.get(
   "/api/uploadOwners/:ownerId",
   uploadsOwnersControllers.getUploadsOwnersByOwnerIdController
 );
-app.get(
-  "/api/uploadOwners/:ownerId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndOwnerIdController
-);
-app.get(
-  "/api/uploadOwners/:dogId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndDogIdController
-);
-app.get(
-  "/api/uploadOwners/:walkId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndWalkIdController
-);
 
 //uploadsWalks table routes
 app.post("api/uploadsWalks", uploadsWalksControllers.postUploadWalksController);
@@ -94,6 +82,18 @@ app.post(
   "/api/uploads",
   upload.single("file"),
   uploadControllers.uploadPhotosController
+);
+app.get(
+  "/api/uploads/:ownerId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndOwnerIdController
+);
+app.get(
+  "/api/uploads/:dogId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndDogIdController
+);
+app.get(
+  "/api/uploads/:walkId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndWalkIdController
 );
 
 // Owners table routes
