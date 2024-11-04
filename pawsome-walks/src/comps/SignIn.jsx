@@ -66,7 +66,7 @@ export default function SignIn() {
       // console.log("owner", owner);
       if (owner && (await bcrypt.compare(password, owner.hashedpassword))) {
         login({
-          ownerId: owner.id,
+          ownerId: owner.ownerid,
           username: owner.username,
           email: owner.email,
         });
