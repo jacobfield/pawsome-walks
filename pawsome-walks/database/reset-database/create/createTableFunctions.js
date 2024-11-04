@@ -7,6 +7,9 @@ import createDogPalRequestsTable from "./create-dogPalRequests-table.js";
 import createDogPalsTable from "./create-dogPals-table.js";
 import createWalkCommentsTable from "./create-walkComments-table.js";
 import createUploadsTable from "./create-uploads-table.js";
+import createUploadsDogsTable from "./create-uploadsDogs-table.js";
+import createUploadsWalksTable from "./create-uploadsWalks-table.js";
+import createUploadsOwnersTable from "./create-uploadsOwners-table.js";
 export const createTableFunctions = {
   createOwnersTable,
   createDogsTable,
@@ -17,4 +20,7 @@ export const createTableFunctions = {
   createDogPalsTable,
   createWalkCommentsTable,
   createUploadsTable,
+  createUploadsDogsTable,
+  createUploadsWalksTable,
+  createUploadsOwnersTable,
 };
