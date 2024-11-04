@@ -59,24 +59,39 @@ export default function Overlay({ navBarProps }) {
       </button>
       <div className="overlayContent">
         <div className="profileSection">
-          {!profilePicture ? (
-            <label className="uploadContainer">
-              <CgProfile className="profileIcon icon" />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleProfilePictureChange}
-              />
-              <p> Upload Profile Picture</p>
-            </label>
+          {owner && isLoggedIn && owner.username ? (
+            !profilePicture ? (
+              <label className="uploadContainer">
+                <CgProfile className="profileIcon icon" />
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleProfilePictureChange}
+                />
+                <p> Upload Profile Picture</p>
+              </label>
+            ) : (
+              <div>
+                <img
+                  src={profilePicture}
+                  alt="Profile"
+                  className="profileIcon icon"
+                />
+                {selectedFile && (
+                  <button onClick={handleUploadClick}>Upload</button>
+                )}
+              </div>
+            )
           ) : (
-            <img
-              src={profilePicture}
-              alt="Profile"
-              className="profileIcon icon"
-            />
+            <div>
+              <img
+                className="overlayLogo"
+                alt="Pawsome Walks Logo"
+                src="/logo.png"
+              />
+              <p>Log in for more features!</p>
+            </div>
           )}
-          {selectedFile && <button onClick={handleUploadClick}>Upload</button>}
         </div>
 
         <div className="buttonSection">

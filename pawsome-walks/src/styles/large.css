@@ -32,7 +32,11 @@
     max-width: 175px;
     margin-left: 35px;
   }
-
+  .overlayLogo {
+    height: auto;
+    width: auto;
+    max-width: 175px;
+  }
   .navBarContainer {
     display: flex;
     justify-self: stretch;
