@@ -268,3 +268,43 @@ footer.light {
   color: white;
   transform: scale(1.02);
 }
+/* Common Button Styling */
+.overlayButton {
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 150px;
+  margin: 10px;
+}
+
+/* Light Theme Button */
+.overlayButton.light {
+  background-color: #f1f5f8; /* Light gray */
+  color: #007bff; /* Blue text */
+  border: 2px solid #007bff;
+}
+
+.overlayButton.light:hover {
+  background-color: #e3f2fd; /* Pale blue on hover */
+  color: #0056b3; /* Darker blue text on hover */
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); /* Soft shadow */
+  transform: scale(1.03); /* Slight scale on hover */
+}
+
+/* Dark Theme Button */
+.overlayButton.dark {
+  background-color: #007bff; /* Blue background */
+  color: white;
+  border: 2px solid #0056b3; /* Slightly darker blue border */
+}
+
+.overlayButton.dark:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3); /* Deeper shadow */
+  transform: scale(1.03); /* Slight scale on hover */
+}

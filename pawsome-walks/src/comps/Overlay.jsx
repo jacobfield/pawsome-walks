@@ -86,8 +86,18 @@ export default function Overlay({ navBarProps }) {
             </button>
           ) : (
             <div>
-              <button onClick={handleSignIn}>Log In</button>
-              <button onClick={handleSignUp}>Sign Up</button>
+              <button
+                className={`overlayButton ${darkTheme ? "dark" : "light"}`}
+                onClick={handleSignIn}
+              >
+                Log In
+              </button>
+              <button
+                className={`overlayButton ${darkTheme ? "dark" : "light"}`}
+                onClick={handleSignUp}
+              >
+                Sign Up
+              </button>
             </div>
           )}
         </div>
