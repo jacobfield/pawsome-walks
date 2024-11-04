@@ -70,20 +70,19 @@ footer.light {
 }
 
 .themeButton {
-  background: none; /* Removes the background */
-  border: none; /* Removes the border */
-  padding: 0; /* Removes any default padding */
-  margin: 0; /* Removes any default margin */
-  outline: none; /* Removes the outline when focused */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  outline: none;
   cursor: pointer;
 }
-/* ThemeIcon styles */
+
 .ThemeIcon {
-  transition: opacity 0.3s ease; /* Fade transition */
+  transition: opacity 0.3s ease;
   opacity: 1;
 }
 
-/* Fade effect for toggling icons */
 .ThemeIcon.fade {
   opacity: 0;
   animation: fadeIn 0.5s forwards;
@@ -108,11 +107,6 @@ footer.light {
   color: #343a40;
 }
 
-/* .walk.dark {
-  background-color: #ff00375e;
-  box-shadow: rgb(99, 57, 57) 2px 2px 2px;
-  color: #f8f9fa;
-} */
 .walk.dark {
   background-color: #a02aee27;
   box-shadow: rgb(63, 20, 20) 2px 2px 2px;
@@ -132,7 +126,7 @@ footer.light {
 
 .noTextDecoration {
   text-decoration: none;
-  color: inherit; /* Ensure it inherits the text color */
+  color: inherit;
   display: block;
 }
 #map {
@@ -195,7 +189,7 @@ footer.light {
 }
 
 .overlay.open {
-  right: 0; /* Slide in when open */
+  right: 0; /* Slides in from right */
 }
 
 .toggleOverlayButton {
@@ -221,4 +215,94 @@ footer.light {
   border: none;
   padding: 10px 20px;
   cursor: pointer;
+}
+
+
+.overlayButton {
+  padding: 12px 24px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  width: 100%;
+  max-width: 150px;
+  margin: 10px;
+}
+
+
+.overlayButton.light {
+  background-color: #f1f5f8; 
+  color: #007bff; 
+  border: 2px solid #007bff;
+}
+
+.overlayButton.light:hover {
+  background-color: #e3f2fd; 
+  color: #0056b3; 
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); 
+  transform: scale(1.03); 
+}
+
+/* Dark Theme Button */
+.overlayButton.dark {
+  background-color: #007bff; 
+  color: white;
+  border: 2px solid #0056b3;
+}
+
+.overlayButton.dark:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
+  transform: scale(1.03); 
+}
+
+/* SIGN IN / OUT FORM STYLES */
+
+.submitButton {
+  width: 100%;
+  padding: 12px;
+  font-size: 1em;
+  color: #fff;
+  background-color: #66adc3;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.submitButton:hover {
+  background-color: #0056b3;
+}
+
+.formInput {
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  color: black;
+}
+
+.formInput:hover {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.1);
+  transform: scale(1.02);
+}
+
+/* Focus Effect */
+.formInput.dark:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #87aecc;
+  color: white;
+  transform: scale(1.02);
+}
+.formInput.light:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #007bffb6;
+  color: white;
+  transform: scale(1.02);
 }
