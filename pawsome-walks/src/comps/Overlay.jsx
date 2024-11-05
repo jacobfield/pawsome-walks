@@ -4,6 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
+import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
+import getUploadsOwnersByOwnerId from "../hooks/apiCalls/getUploadsOwnersByOwnerId";
+import getProfilePicUrl from "../hooks/apiCalls/getProfilePicUrl";
 //
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
@@ -11,6 +14,21 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
+  async function getProfilePicture() {
+    if (isLoggedIn == true) {
+      const ownerId = owner.ownerId;
+      const searchIds = await getUploadsOwnersByOwnerId(ownerId);
+      const uploadRowData = await getProfilePicUrl(searchIds);
+
+      // first ensure that the owner id is uploaded along with the profile picture
+      // Then ensure that the new profile picture picid is returned
+      // Then pass this along to the post uploadsOwners function
+      // then return the uploads data where ownerId and picId match
+      // Then extract the URL from that returned data
+      // Then conditionally set the profile picture to that URL
+    }
+  }
+
   const handleLogout = () => {
     logout();
     setIsOpen(false);
@@ -27,7 +45,12 @@ export default function Overlay({ navBarProps }) {
   const handleUploadClick = async () => {
     if (!selectedFile) return;
     try {
-      const uploadedImageUrl = await uploadProfilePicture(selectedFile);
+      const ownerIdToUpload = owner.ownerId;
+      console.log("ownerIdToUpload:", ownerIdToUpload);
+      const uploadedImageUrl = await uploadProfilePicture(
+        selectedFile,
+        ownerIdToUpload
+      );
       setProfilePicture(uploadedImageUrl); // Update local state
       setSelectedFile(null); // Clear the selected file
     } catch (error) {
@@ -54,28 +77,50 @@ export default function Overlay({ navBarProps }) {
         onClick={() => setIsOpen(!isOpen)}
         className={`toggleOverlayButton ${darkTheme ? "dark" : "light"}`}
       >
-        {isOpen ? "Close" : "Open"} Menu
+        X
       </button>
       <div className="overlayContent">
         <div className="profileSection">
-          {!profilePicture ? (
-            <label className="uploadContainer">
-              <CgProfile className="profileIcon icon" />
-              <input
-                type="file"
-                accept="image/*"
-                onChange={handleProfilePictureChange}
-              />
-              <p> Upload Profile Picture</p>
-            </label>
+          {/* 1 If owner and logged in */}
+          {owner && isLoggedIn && owner.username ? (
+            //  2 if no profile picture, show placeholder and upload button
+            !profilePicture ? (
+              <label className="uploadContainer">
+                <CgProfile className="placeholderImage" />
+                <p>Upload Profile Picture</p>
+                <div className="fileInputWrapper">
+                  <input
+                    className="uploadInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleProfilePictureChange}
+                  />
+                </div>
+                {selectedFile && (
+                  <button onClick={handleUploadClick}>Upload</button>
+                )}
+              </label>
+            ) : (
+              // 2 else show profile picture
+              <div>
+                <img
+                  src={profilePicture}
+                  alt="Profile"
+                  className="overlayLogo"
+                />
+              </div>
+            )
           ) : (
-            <img
-              src={profilePicture}
-              alt="Profile"
-              className="profileIcon icon"
-            />
+            // 1 else show logo and message if not logged in
+            <div>
+              <img
+                className="overlayLogo"
+                alt="Pawsome Walks Logo"
+                src="/logo.png"
+              />
+              <p>Log in for more features!</p>
+            </div>
           )}
-          {selectedFile && <button onClick={handleUploadClick}>Upload</button>}
         </div>
 
         <div className="buttonSection">
@@ -85,8 +130,18 @@ export default function Overlay({ navBarProps }) {
             </button>
           ) : (
             <div>
-              <button onClick={handleSignIn}>Log In</button>
-              <button onClick={handleSignUp}>Sign Up</button>
+              <button
+                className={`overlayButton ${darkTheme ? "dark" : "light"}`}
+                onClick={handleSignIn}
+              >
+                Log In
+              </button>
+              <button
+                className={`overlayButton ${darkTheme ? "dark" : "light"}`}
+                onClick={handleSignUp}
+              >
+                Sign Up
+              </button>
             </div>
           )}
         </div>
@@ -94,3 +149,7 @@ export default function Overlay({ navBarProps }) {
     </div>
   );
 }
+
+// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+
+// then need to make the request to ensure that the url is conditionally rendered

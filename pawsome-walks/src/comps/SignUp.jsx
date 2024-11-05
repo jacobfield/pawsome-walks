@@ -84,6 +84,7 @@ export default function SignUp() {
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="email"
           id="email"
           name="email"
@@ -92,6 +93,7 @@ export default function SignUp() {
         />
         <label htmlFor="username">Username:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="text"
           id="username"
           name="username"
@@ -100,6 +102,7 @@ export default function SignUp() {
         />
         <label htmlFor="password">Password:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="password"
           id="password"
           name="password"
@@ -108,14 +111,17 @@ export default function SignUp() {
         />
         <label htmlFor="confirmPassword">Confirm Password:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="password"
           id="confirmPassword"
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleConfirmPasswordChange}
         />
-        <button type="submit">Sign Up</button>
-      </form>{" "}
+        <button className="submitButton" type="submit">
+          Sign Up
+        </button>
+      </form>
       <Link className="noTextDecoration" to="/SignIn">
         <p>Been here before? {<br />} Sign in:</p>
       </Link>

@@ -26,10 +26,37 @@ import getWalksByIdController from "./walks-controllers/getWalksByIdController.j
 import postWalkController from "./walks-controllers/postWalkController.js";
 import getAllOwnersController from "./owners-controllers/getAllOwnersController.js";
 import { uploadPhotosController } from "./uploads/uploadPhotosController.js";
-
+import postUploadsWalksController from "./uploadsWalks-controllers/postUploadsWalksController.js";
+import getUploadsWalksByWalkIdController from "./uploadsWalks-controllers/getUploadsWalksByWalkIdController.js";
+import postUploadsOwnersController from "./uploadsOwners-controllers/postUploadsOwnersController.js";
+import getUploadsOwnersByOwnerIdController from "./uploadsOwners-controllers/getUploadsOwnersByOwnerIdController.js";
+import postUploadsDogsController from "./uploadsDogs-controllers/postUploadsDogsController.js";
+import getUploadsDogsByDogIdController from "./uploadsDogs-controllers/getUploadsDogsByDogIdController.js";
+import getUploadsByPicIdAndWalkIdController from "./uploads/getUploadsByPicIdAndWalkIdController.js";
+import getUploadsByPicIdAndOwnerIdController from "./uploads/getUploadsByPicIdAndOwnerIdController.js";
+import getUploadsByPicIdAndDogIdController from "./uploads/getUploadsByPicIdAndDogIdController.js";
+//
 export const uploadControllers = {
   uploadPhotosController,
+  getUploadsByPicIdAndWalkIdController,
+  getUploadsByPicIdAndOwnerIdController,
+  getUploadsByPicIdAndDogIdController,
 };
+export const uploadsWalksControllers = {
+  postUploadsWalksController,
+  getUploadsWalksByWalkIdController,
+};
+
+export const uploadsOwnersControllers = {
+  postUploadsOwnersController,
+  getUploadsOwnersByOwnerIdController,
+};
+
+export const uploadsDogsControllers = {
+  postUploadsDogsController,
+  getUploadsDogsByDogIdController,
+};
+
 export const ownersControllers = {
   postOwnerController,
   getOwnerByIdController,

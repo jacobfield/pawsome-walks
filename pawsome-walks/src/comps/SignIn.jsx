@@ -66,7 +66,7 @@ export default function SignIn() {
       // console.log("owner", owner);
       if (owner && (await bcrypt.compare(password, owner.hashedpassword))) {
         login({
-          ownerId: owner.id,
+          ownerId: owner.ownerid,
           username: owner.username,
           email: owner.email,
         });
@@ -94,6 +94,7 @@ export default function SignIn() {
       <form onSubmit={handleSubmit} className="signupForm">
         <label htmlFor="email">Email:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="email"
           id="email"
           name="email"
@@ -102,6 +103,7 @@ export default function SignIn() {
         />
         <label htmlFor="password">Password:</label>
         <input
+          className={`formInput ${darkTheme ? "dark" : "light"}`}
           type="password"
           id="password"
           name="password"
@@ -109,7 +111,9 @@ export default function SignIn() {
           onChange={handlePasswordChange}
         />
 
-        <button type="submit">Sign In</button>
+        <button className="submitButton" type="submit">
+          Sign In
+        </button>
       </form>
       <Link className="noTextDecoration" to="/SignUp">
         <p>First Time? {<br />} Create an account:</p>
