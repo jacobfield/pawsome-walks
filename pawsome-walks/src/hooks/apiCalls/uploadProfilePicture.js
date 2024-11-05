@@ -5,7 +5,6 @@ export default async function uploadProfilePicture(file, ownerIdToUpload) {
       "Invalid file type. Please upload a valid image file."
     );
     error.code = 400;
-    alert(error);
     throw error;
   }
 
@@ -13,22 +12,28 @@ export default async function uploadProfilePicture(file, ownerIdToUpload) {
   formData.append("file", file);
   formData.append("ownerid", ownerIdToUpload);
 
-  console.log("formData:", formData);
-  console.log("formData ownerid:", formData.get("ownerid"));
-  const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
-    method: "POST",
-    body: formData,
-  });
+  try {
+    const response = await fetch(
+      "https://pawsome-walks.vercel.app/api/uploads",
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
 
-  if (!response.ok) {
-    const errorData = await response.json();
-    const error = new Error(errorData.message);
-    error.code = response.status;
+    if (!response.ok) {
+      const errorData = await response.json();
+      const error = new Error(errorData.message);
+      error.code = response.status;
+      throw error;
+    }
+
+    const data = await response.json();
+    console.log("Response from upload API:", data); // Check what data structure is returned
+
+    return data.data.fullRow; // Ensure this contains the `url` and other fields
+  } catch (error) {
+    console.error("Error uploading profile picture:", error);
     throw error;
   }
-
-  const data = await response.json();
-  console.log("Response from upload API:", data); //
-
-  return data.imageUrl;
 }

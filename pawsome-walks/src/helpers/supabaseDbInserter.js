@@ -33,3 +33,14 @@ export async function insertUploadRecord(uploadData) {
     throw error;
   }
 }
+// Fetch the full row based on the ID
+export async function fetchUploadRecord(id) {
+  const { data: fullRow, error } = await supabase
+    .from("uploads")
+    .select("*")
+    .eq("picid", id)
+    .single();
+
+  if (error) throw error;
+  return fullRow; // Return the entire row
+}
