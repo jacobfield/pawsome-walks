@@ -26,7 +26,6 @@ const whitelist = [
   "http://localhost:5173", // Local development
   "https://pawsome-walks.vercel.app", // Production
 ];
-
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -35,34 +34,8 @@ const corsOptions = {
       callback(new Error("Not allowed by CORS"));
     }
   },
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept",
-  credentials: true,
 };
-
 app.use(cors(corsOptions));
-
-// const whitelist = [
-//   "http://localhost:5173", // Local development
-//   "https://pawsome-walks.vercel.app", // Production
-// ];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-// };
-// app.use(cors(corsOptions));
-// app.use(
-//   cors({
-//     origin: "*", // Allow all origins
-//     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-//     credentials: true, // Set to true if you want to include cookies in requests
-//   })
-// );
 app.options("/api/walks", cors());
 // Middleware
 app.use(morgan("dev")); // Log HTTP requests
@@ -71,6 +44,13 @@ app.use(express.static("public")); // Serve static files
 
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true, // Set to true if you want to include cookies in requests
+  })
+);
 
 // Declare routes here --------
 // uploadsDogs table routes
