@@ -199,6 +199,7 @@ footer.light {
   background: none;
   border: none;
   cursor: pointer;
+  font-size: 1.5em;
 }
 
 .overlayContent {
@@ -217,7 +218,6 @@ footer.light {
   cursor: pointer;
 }
 
-
 .overlayButton {
   padding: 12px 24px;
   font-size: 1em;
@@ -231,23 +231,22 @@ footer.light {
   margin: 10px;
 }
 
-
 .overlayButton.light {
-  background-color: #f1f5f8; 
-  color: #007bff; 
+  background-color: #f1f5f8;
+  color: #007bff;
   border: 2px solid #007bff;
 }
 
 .overlayButton.light:hover {
-  background-color: #e3f2fd; 
-  color: #0056b3; 
-  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2); 
-  transform: scale(1.03); 
+  background-color: #e3f2fd;
+  color: #0056b3;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transform: scale(1.03);
 }
 
 /* Dark Theme Button */
 .overlayButton.dark {
-  background-color: #007bff; 
+  background-color: #007bff;
   color: white;
   border: 2px solid #0056b3;
 }
@@ -255,7 +254,7 @@ footer.light {
 .overlayButton.dark:hover {
   background-color: #0056b3;
   box-shadow: 0 4px 12px rgba(0, 86, 179, 0.3);
-  transform: scale(1.03); 
+  transform: scale(1.03);
 }
 
 /* SIGN IN / OUT FORM STYLES */
@@ -305,4 +304,19 @@ footer.light {
   background-color: #007bffb6;
   color: white;
   transform: scale(1.02);
+}
+
+.profileSection {
+  display: flex;
+}
+.uploadInput {
+  display: flex;
+  /* display: none; */
+  padding: 15px 0 15px 0;
+  max-width: 80%;
+  display: inline-block;
+  margin: auto;
+}
+.uploadContainer:hover {
+  cursor: pointer;
 }

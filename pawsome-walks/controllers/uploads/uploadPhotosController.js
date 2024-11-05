@@ -20,7 +20,7 @@ export async function uploadPhotosController(req, res) {
     const uploadedFilename = await uploadImageToBucket(req.file, filename);
 
     const uploadData = {
-      pic_name: uploadedFilename,
+      picname: uploadedFilename,
     };
     console.log("Upload Data:", uploadData);
     const insertedData = await insertUploadRecord(uploadData);

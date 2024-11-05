@@ -34,7 +34,10 @@ export default async function dbReset() {
     await alterTablesAddingFK();
     await seedOwnersDogsTable();
     await seedWalkCommentsTable();
-    await createUploadsTable()
+    await createUploadsTable();
+    await createTableFunctions.createUploadsDogsTable();
+    await createTableFunctions.createUploadsWalksTable();
+    await createTableFunctions.createUploadsOwnersTable();
     console.log("Database has been reset.");
   } catch (error) {
     console.error(

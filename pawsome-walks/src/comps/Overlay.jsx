@@ -5,6 +5,8 @@ import { CgProfile } from "react-icons/cg";
 import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
 import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
+import getUploadsOwnersByOwnerId from "../hooks/apiCalls/getUploadsOwnersByOwnerId";
+import getProfilePicUrl from "../hooks/apiCalls/getProfilePicUrl";
 //
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
@@ -12,6 +14,20 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
+
+  async function getProfilePicture() {
+    if (isLoggedIn == true) {
+      const ownerId = owner.ownerId;
+      const searchIds = await getUploadsOwnersByOwnerId(ownerId);
+      const uploadRowData = await getProfilePicUrl(searchIds);
+      // need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+
+      // then need to make the request to ensure that the url is conditionally rendered
+
+      // extract the url here
+    }
+  }
+
   const handleLogout = () => {
     logout();
     setIsOpen(false);
@@ -55,34 +71,41 @@ export default function Overlay({ navBarProps }) {
         onClick={() => setIsOpen(!isOpen)}
         className={`toggleOverlayButton ${darkTheme ? "dark" : "light"}`}
       >
-        {isOpen ? "Close" : "Open"} Menu
+        X
       </button>
       <div className="overlayContent">
         <div className="profileSection">
+          {/* 1 If owner and logged in */}
           {owner && isLoggedIn && owner.username ? (
+            //  2 if no profile picture, show placeholder and upload button
             !profilePicture ? (
               <label className="uploadContainer">
                 <CgProfile className="placeholderImage" />
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={handleProfilePictureChange}
-                />
-                <p> Upload Profile Picture</p>
+                <p>Upload Profile Picture</p>
+                <div className="fileInputWrapper">
+                  <input
+                    className="uploadInput"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleProfilePictureChange}
+                  />
+                </div>
+                {selectedFile && (
+                  <button onClick={handleUploadClick}>Upload</button>
+                )}
               </label>
             ) : (
+              // 2 else show profile picture
               <div>
                 <img
                   src={profilePicture}
                   alt="Profile"
                   className="overlayLogo"
                 />
-                {selectedFile && (
-                  <button onClick={handleUploadClick}>Upload</button>
-                )}
               </div>
             )
           ) : (
+            // 1 else show logo and message if not logged in
             <div>
               <img
                 className="overlayLogo"
@@ -120,3 +143,7 @@ export default function Overlay({ navBarProps }) {
     </div>
   );
 }
+
+// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+
+// then need to make the request to ensure that the url is conditionally rendered
