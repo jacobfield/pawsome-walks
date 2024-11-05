@@ -1,7 +1,10 @@
 // controllers/uploads/uploadPhotosController.js
 import dotenv from "dotenv";
 import { uploadImageToBucket } from "../../src/helpers/supabaseBucketUploader.js";
-import { insertUploadRecord } from "../../src/helpers/supabaseDbInserter.js";
+import {
+  insertUploadRecord,
+  fetchUploadRecord,
+} from "../../src/helpers/supabaseDbInserter.js";
 
 dotenv.config();
 
@@ -29,12 +32,13 @@ export async function uploadPhotosController(req, res) {
     const insertedData = await insertUploadRecord(uploadData);
     // Log insertedData to confirm if it's successful
     // console.log("Inserted Data:", insertedData);
+
+    // Fetch the full row using the ID of the inserted record
+    const fullRow = await fetchUploadRecord(insertedData[0].picid);
+    console.log("Full Row:", fullRow);
     res.status(201).json({
       status: "success",
-      data: {
-        picid: insertedData.picid,
-        url: insertedData.url,
-      },
+      data: { fullRow },
     });
   } catch (error) {
     console.error("Error in uploadPhotosController:", error);
