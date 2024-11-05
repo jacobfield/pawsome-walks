@@ -20,7 +20,7 @@ export default function Overlay({ navBarProps }) {
       const searchIds = await getUploadsOwnersByOwnerId(ownerId);
       const uploadRowData = await getProfilePicUrl(searchIds);
 
-      // first ensure that the owner id is uploaded along with the profile picture
+      // first ensure that the owner id is uploaded along with the profile picture - DONE
       // Then ensure that the new profile picture picid is returned
       // Then pass this along to the post uploadsOwners function
       // then return the uploads data where ownerId and picId match
