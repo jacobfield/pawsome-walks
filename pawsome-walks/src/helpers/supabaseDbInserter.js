@@ -15,7 +15,7 @@ const supabase = createClient(
  * @returns {Object} - Inserted row data or error
  */
 export async function insertUploadRecord(uploadData) {
-  const { picname, url } = uploadData;
+  const { picname, url, ownerid, walkid, dogid } = uploadData;
   uploadData.url =
     `https://gwinwlodpvympyoitnza.supabase.co/storage/v1/object/public/uploads/${picname}`.replace(
       /\s/g,
