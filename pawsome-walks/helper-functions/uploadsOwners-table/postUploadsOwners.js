@@ -1,13 +1,13 @@
 import { pool } from "../../index.js";
 
-export default async function postUploadsOwners({ ownerId, picId }) {
+export default async function postUploadsOwners({ ownerid, picid }) {
   try {
-    if (!ownerId || !picId) {
-      throw new Error("ownerId & picId are required");
+    if (!ownerid || !picid) {
+      throw new Error("ownerid & picid are required");
     }
 
-    const postUploadsOwners = `INSERT INTO uploadsOwners (ownerId, picId) VALUES ($1, $2) RETURNING *`;
-    const result = await pool.query(postUploadsOwners, [ownerId, picId]);
+    const postUploadsOwners = `INSERT INTO uploadsOwners (ownerid, picid) VALUES ($1, $2) RETURNING *`;
+    const result = await pool.query(postUploadsOwners, [ownerid, picid]);
     return result.rows[0];
   } catch (error) {
     console.error(
