@@ -8,10 +8,13 @@ export default async function createUploadsTable() {
       CREATE SEQUENCE IF NOT EXISTS uploads_pic_id_seq START 40; 
 
       CREATE TABLE IF NOT EXISTS uploads (
-        pic_id INT PRIMARY KEY DEFAULT nextval('uploads_pic_id_seq'),
-        pic_name TEXT NOT NULL,
-               url TEXT,
-        uploaded_at TIMESTAMP DEFAULT NOW()
+        picid INT PRIMARY KEY DEFAULT nextval('uploads_pic_id_seq'),
+        picname TEXT NOT NULL,
+        url TEXT,
+        uploaded_at TIMESTAMP DEFAULT NOW(),
+        ownerid INT REFERENCES owners(ownerid) ON DELETE CASCADE,
+        walkid INT REFERENCES walks(walkid) ON DELETE CASCADE,
+        dogid INT REFERENCES dogs(dogid) ON DELETE CASCADE
       );
     `);
     console.log("uploads table created");

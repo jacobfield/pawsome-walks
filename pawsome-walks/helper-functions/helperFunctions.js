@@ -25,6 +25,36 @@ import getWalksById from "./walks-table/getWalksById.js";
 import getAllWalks from "./walks-table/getAllWalks.js";
 import postWalk from "./walks-table/postWalk.js";
 import getAllOwners from "./owners-table/getAllOwners.js";
+import postUploadsWalks from "./uploadsWalks-table/postUploadsWalks.js";
+import getUploadsWalksByWalkId from "./uploadsWalks-table/getUploadsWalksByWalkId.js";
+import postUploadsOwners from "./uploadsOwners-table/postUploadsOwners.js";
+import getUploadsOwnersByOwnerId from "./uploadsOwners-table/getUploadsOwnersByOwnerId.js";
+import postUploadsDogs from "./uploadsDogs-table/postUploadsDogs.js";
+import getUploadsDogsByDogId from "./uploadsDogs-table/getUploadsDogsByDogId.js";
+import getUploadsByPicIdAndWalkId from "./uploads-table/getUploadsByPicIdAndWalkId.js";
+import getUploadsByPicIdAndOwnerId from "./uploads-table/getUploadsByPicIdAndOwnerId.js";
+import getUploadsByPicIdAndDogId from "./uploads-table/getUploadsByPicIdAndDogId.js";
+
+export const uploads = {
+  getUploadsByPicIdAndDogId,
+  getUploadsByPicIdAndOwnerId,
+  getUploadsByPicIdAndWalkId,
+};
+
+export const uploadsDogs = {
+  getUploadsDogsByDogId,
+  postUploadsDogs,
+};
+
+export const uploadsOwners = {
+  getUploadsOwnersByOwnerId,
+  postUploadsOwners,
+};
+
+export const uploadsWalks = {
+  getUploadsWalksByWalkId,
+  postUploadsWalks,
+};
 
 export const walks = {
   getAllWalks,

@@ -12,6 +12,9 @@ import {
   walkCommentsControllers,
   walksControllers,
   uploadControllers,
+  uploadDogsControllers,
+  uploadsOwnersControllers,
+  uploadsWalksControllers,
 } from "../controllers/controllers.js";
 import multer from "multer";
 
@@ -50,12 +53,47 @@ app.use(
 );
 
 // Declare routes here --------
+// uploadsDogs table routes
+app.post("/api/uploadsDogs", uploadDogsControllers.postUploadsDogsController);
+app.get(
+  "/api/uploadsDogs/:dogId",
+  uploadDogsControllers.getUploadsDogsByDogIdController
+);
+
+//uploadsOwners table routes
+app.post(
+  "/api/uploadOwners",
+  uploadsOwnersControllers.postUploadsOwnersController
+);
+app.get(
+  "/api/uploadOwners/:ownerId",
+  uploadsOwnersControllers.getUploadsOwnersByOwnerIdController
+);
+
+//uploadsWalks table routes
+app.post("api/uploadsWalks", uploadsWalksControllers.postUploadWalksController);
+app.get(
+  "api/uploadsWalks/:walkId",
+  uploadsWalksControllers.getUploadsWalksByWalkIdController
+);
 
 // Uploads table routes
 app.post(
   "/api/uploads",
   upload.single("file"),
   uploadControllers.uploadPhotosController
+);
+app.get(
+  "/api/uploads/:ownerId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndOwnerIdController
+);
+app.get(
+  "/api/uploads/:dogId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndDogIdController
+);
+app.get(
+  "/api/uploads/:walkId/:picId",
+  uploadsOwnersControllers.getUploadsOwnersByPicIdAndWalkIdController
 );
 
 // Owners table routes
