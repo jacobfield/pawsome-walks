@@ -14,17 +14,18 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
-
   async function getProfilePicture() {
     if (isLoggedIn == true) {
       const ownerId = owner.ownerId;
       const searchIds = await getUploadsOwnersByOwnerId(ownerId);
       const uploadRowData = await getProfilePicUrl(searchIds);
-      // need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
 
-      // then need to make the request to ensure that the url is conditionally rendered
-
-      // extract the url here
+      // first ensure that the owner id is uploaded along with the profile picture
+      // Then ensure that the new profile picture picid is returned
+      // Then pass this along to the post uploadsOwners function
+      // then return the uploads data where ownerId and picId match
+      // Then extract the URL from that returned data
+      // Then conditionally set the profile picture to that URL
     }
   }
 
@@ -44,7 +45,12 @@ export default function Overlay({ navBarProps }) {
   const handleUploadClick = async () => {
     if (!selectedFile) return;
     try {
-      const uploadedImageUrl = await uploadProfilePicture(selectedFile);
+      const ownerIdToUpload = owner.ownerId;
+      console.log("ownerIdToUpload:", ownerIdToUpload);
+      const uploadedImageUrl = await uploadProfilePicture(
+        selectedFile,
+        ownerIdToUpload
+      );
       setProfilePicture(uploadedImageUrl); // Update local state
       setSelectedFile(null); // Clear the selected file
     } catch (error) {
