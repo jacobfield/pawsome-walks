@@ -61,7 +61,9 @@ export default function Overlay({ navBarProps }) {
         owner.ownerId
       );
       setProfilePicture(uploadedImageUrl);
-      setSelectedFile(null); // Clear the selected file
+      setSelectedFile(null);
+      window.location.reload();
+      // Clear the selected file
     } catch (error) {
       console.error("Error uploading profile picture:", error);
     }
