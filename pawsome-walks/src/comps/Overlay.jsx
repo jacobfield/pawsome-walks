@@ -113,7 +113,7 @@ export default function Overlay({ navBarProps }) {
                 <img
                   src={profilePicture}
                   alt="Profile"
-                  className="overlayLogo"
+                  className="profilePicture"
                 />
               </div>
             )
