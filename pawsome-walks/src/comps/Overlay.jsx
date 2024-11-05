@@ -14,7 +14,6 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
-
   async function getProfilePicture() {
     if (isLoggedIn == true) {
       const ownerId = owner.ownerId;
@@ -46,7 +45,12 @@ export default function Overlay({ navBarProps }) {
   const handleUploadClick = async () => {
     if (!selectedFile) return;
     try {
-      const uploadedImageUrl = await uploadProfilePicture(selectedFile);
+      const ownerIdToUpload = owner.ownerId;
+      console.log("ownerIdToUpload:", ownerIdToUpload);
+      const uploadedImageUrl = await uploadProfilePicture(
+        selectedFile,
+        ownerIdToUpload
+      );
       setProfilePicture(uploadedImageUrl); // Update local state
       setSelectedFile(null); // Clear the selected file
     } catch (error) {

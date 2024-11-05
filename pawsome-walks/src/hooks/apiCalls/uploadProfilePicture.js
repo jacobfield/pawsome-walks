@@ -1,4 +1,4 @@
-export default async function uploadProfilePicture(file) {
+export default async function uploadProfilePicture(file, ownerIdToUpload) {
   const allowedTypes = ["image/png", "image/jpeg", "image/jpg"];
   if (!allowedTypes.includes(file.type)) {
     const error = new Error(
@@ -11,7 +11,10 @@ export default async function uploadProfilePicture(file) {
 
   const formData = new FormData();
   formData.append("file", file);
+  formData.append("ownerid", ownerIdToUpload);
+
   console.log("formData:", formData);
+  console.log("formData ownerid:", formData.get("ownerid"));
   const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
     method: "POST",
     body: formData,
