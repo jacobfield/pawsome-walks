@@ -20,9 +20,9 @@ export default function Overlay({ navBarProps }) {
       const ownerId = owner.ownerId;
       const searchIds = await getUploadsOwnersByOwnerId(ownerId);
       const uploadRowData = await getProfilePicUrl(searchIds);
-// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
+      // need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
 
-// then need to make the request to ensure that the url is conditionally rendered
+      // then need to make the request to ensure that the url is conditionally rendered
 
       // extract the url here
     }
@@ -75,7 +75,9 @@ export default function Overlay({ navBarProps }) {
       </button>
       <div className="overlayContent">
         <div className="profileSection">
+          {/* 1 If owner and logged in */}
           {owner && isLoggedIn && owner.username ? (
+            //  2 if no profile picture, show placeholder and upload button
             !profilePicture ? (
               <label className="uploadContainer">
                 <CgProfile className="placeholderImage" />
@@ -88,20 +90,22 @@ export default function Overlay({ navBarProps }) {
                     onChange={handleProfilePictureChange}
                   />
                 </div>
+                {selectedFile && (
+                  <button onClick={handleUploadClick}>Upload</button>
+                )}
               </label>
             ) : (
+              // 2 else show profile picture
               <div>
                 <img
                   src={profilePicture}
                   alt="Profile"
                   className="overlayLogo"
                 />
-                {selectedFile && (
-                  <button onClick={handleUploadClick}>Upload</button>
-                )}
               </div>
             )
           ) : (
+            // 1 else show logo and message if not logged in
             <div>
               <img
                 className="overlayLogo"
