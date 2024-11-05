@@ -15,19 +15,21 @@ const supabase = createClient(
  * @returns {Object} - Inserted row data or error
  */
 export async function insertUploadRecord(uploadData) {
-  const { picname, url, ownerid, walkid, dogid } = uploadData;
   uploadData.url =
-    `https://gwinwlodpvympyoitnza.supabase.co/storage/v1/object/public/uploads/${picname}`.replace(
+    `https://gwinwlodpvympyoitnza.supabase.co/storage/v1/object/public/uploads/${uploadData.picname}`.replace(
       /\s/g,
       ""
     );
 
   try {
-    const { data, error } = await supabase.from("uploads").insert([uploadData]);
+    const { data, error } = await supabase
+      .from("uploads")
+      .insert([uploadData])
+      .select("picid, url"); // Select the 'picid' and 'url' fields explicitly
 
     if (error) throw error;
 
-    return data;
+    return data[0]; // Return the first object containing 'picid' and 'url'
   } catch (error) {
     console.error("Error inserting row into database:", error);
     throw error;
