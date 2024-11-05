@@ -46,7 +46,7 @@ export default function Overlay({ navBarProps }) {
     if (!selectedFile) return;
     try {
       const ownerIdToUpload = owner.ownerId;
-      console.log("ownerIdToUpload:", ownerIdToUpload);
+      // console.log("ownerIdToUpload:", ownerIdToUpload);
       const uploadedData = await uploadProfilePicture(
         selectedFile,
         ownerIdToUpload

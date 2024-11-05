@@ -26,7 +26,7 @@ export async function insertUploadRecord(uploadData) {
     const { data, error } = await supabase.from("uploads").insert([uploadData]);
 
     if (error) throw error;
-
+    console.log("Data", data);
     return data;
   } catch (error) {
     console.error("Error inserting row into database:", error);
