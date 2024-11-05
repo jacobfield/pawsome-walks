@@ -26,21 +26,10 @@ export async function insertUploadRecord(uploadData) {
     const { data, error } = await supabase.from("uploads").insert([uploadData]);
 
     if (error) throw error;
-    console.log("Data", data);
+
     return data;
   } catch (error) {
     console.error("Error inserting row into database:", error);
     throw error;
   }
-}
-// Fetch the full row based on the ID
-export async function fetchUploadRecord(id) {
-  const { data: fullRow, error } = await supabase
-    .from("uploads")
-    .select("*")
-    .eq("picid", id)
-    .single();
-
-  if (error) throw error;
-  return fullRow; // Return the entire row
 }
