@@ -37,6 +37,16 @@
     width: auto;
     max-width: 100px;
   }
+
+  .profilePicture {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    max-width: 100px;
+  }
+  .profileIcon {
+    border-radius: 50%;
+  }
   .navBarContainer {
     display: flex;
     justify-self: stretch;
@@ -204,7 +214,7 @@
     width: 90%;
     max-width: 400px;
     font-size: large;
-    overflow-wrap: break-word; 
+    overflow-wrap: break-word;
     word-break: break-word;
     margin: 0 auto;
   }

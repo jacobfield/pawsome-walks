@@ -36,6 +36,14 @@
     max-height: 150px;
     width: auto;
   }
+  .profilePicture {
+    height: 120px;
+    max-height: 150px;
+    border-radius: 50%;
+    width: auto;
+  }  .profileIcon {
+    border-radius: 50%;
+  }
   .navBarContainer {
     display: flex;
     justify-self: stretch;
@@ -168,7 +176,7 @@
     /* min-width: 90%; */
     height: auto;
     margin: auto;
-    margin-bottom: 0px; 
+    margin-bottom: 0px;
     word-wrap: break-word;
     overflow-wrap: break-word;
     font-size: 12px;
@@ -210,7 +218,7 @@
     width: 90%;
     font-size: large;
     overflow-wrap: break-word;
-    word-break: break-word; 
+    word-break: break-word;
     margin: 0 auto; /* Center the div */
   }
 
@@ -219,10 +227,10 @@
     margin-left: auto;
     margin-right: auto;
     overflow-wrap: break-word;
-    word-break: break-word; 
-    text-align: center; 
-    padding: 10px; 
-    font-size: 2rem; 
+    word-break: break-word;
+    text-align: center;
+    padding: 10px;
+    font-size: 2rem;
   }
   .walkDetailContainer {
     display: flex;
