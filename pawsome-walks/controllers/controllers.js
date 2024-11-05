@@ -35,6 +35,7 @@ import getUploadsDogsByDogIdController from "./uploadsDogs-controllers/getUpload
 import getUploadsByPicIdAndWalkIdController from "./uploads/getUploadsByPicIdAndWalkIdController.js";
 import getUploadsByPicIdAndOwnerIdController from "./uploads/getUploadsByPicIdAndOwnerIdController.js";
 import getUploadsByPicIdAndDogIdController from "./uploads/getUploadsByPicIdAndDogIdController.js";
+//
 export const uploadControllers = {
   uploadPhotosController,
   getUploadsByPicIdAndWalkIdController,
