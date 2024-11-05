@@ -1,6 +1,6 @@
 import { uploadsWalks } from "../../helper-functions/helperFunctions.js";
 
-export default async function postUploadWalksController(req, res) {
+export default async function postUploadsWalksController(req, res) {
   try {
     const data = req.body;
     if (!data || Object.keys(data).length === 0) {

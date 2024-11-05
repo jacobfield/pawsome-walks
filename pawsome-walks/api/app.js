@@ -12,7 +12,7 @@ import {
   walkCommentsControllers,
   walksControllers,
   uploadControllers,
-  uploadDogsControllers,
+  uploadsDogsControllers,
   uploadsOwnersControllers,
   uploadsWalksControllers,
 } from "../controllers/controllers.js";
@@ -54,26 +54,29 @@ app.use(
 
 // Declare routes here --------
 // uploadsDogs table routes
-app.post("/api/uploadsDogs", uploadDogsControllers.postUploadsDogsController);
+app.post("/api/uploadsDogs", uploadsDogsControllers.postUploadsDogsController);
 app.get(
   "/api/uploadsDogs/:dogId",
-  uploadDogsControllers.getUploadsDogsByDogIdController
+  uploadsDogsControllers.getUploadsDogsByDogIdController
 );
 
 //uploadsOwners table routes
 app.post(
-  "/api/uploadOwners",
+  "/api/uploadsOwners",
   uploadsOwnersControllers.postUploadsOwnersController
 );
 app.get(
-  "/api/uploadOwners/:ownerId",
+  "/api/uploadsOwners/:ownerId",
   uploadsOwnersControllers.getUploadsOwnersByOwnerIdController
 );
 
 //uploadsWalks table routes
-app.post("api/uploadsWalks", uploadsWalksControllers.postUploadWalksController);
+app.post(
+  "/api/uploadsWalks",
+  uploadsWalksControllers.postUploadsWalksController
+);
 app.get(
-  "api/uploadsWalks/:walkId",
+  "/api/uploadsWalks/:walkId",
   uploadsWalksControllers.getUploadsWalksByWalkIdController
 );
 
@@ -85,15 +88,15 @@ app.post(
 );
 app.get(
   "/api/uploads/:ownerId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndOwnerIdController
+  uploadControllers.getUploadsByPicIdAndOwnerIdController
 );
 app.get(
   "/api/uploads/:dogId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndDogIdController
+  uploadControllers.getUploadsByPicIdAndDogIdController
 );
 app.get(
   "/api/uploads/:walkId/:picId",
-  uploadsOwnersControllers.getUploadsOwnersByPicIdAndWalkIdController
+  uploadControllers.getUploadsByPicIdAndWalkIdController
 );
 
 // Owners table routes
@@ -104,7 +107,7 @@ app.put(
   "/api/owners/:ownerId/password",
   ownersControllers.updateOwnerPasswordController
 );
-app.delete("/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
+app.delete("/api/owners/:ownerId", ownersControllers.deleteOwnerByIdController);
 
 // Dogs table routes
 app.post("/api/dogs", dogsControllers.postDogController);
