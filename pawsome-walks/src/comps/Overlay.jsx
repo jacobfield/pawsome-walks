@@ -46,12 +46,12 @@ export default function Overlay({ navBarProps }) {
     if (!selectedFile) return;
     try {
       const ownerIdToUpload = owner.ownerId;
-      // console.log("ownerIdToUpload:", ownerIdToUpload);
-      const uploadedData = await uploadProfilePicture(
+      console.log("ownerIdToUpload:", ownerIdToUpload);
+      const uploadedImageUrl = await uploadProfilePicture(
         selectedFile,
         ownerIdToUpload
       );
-      setProfilePicture(uploadedData.url); // Update local state
+      setProfilePicture(uploadedImageUrl); // Update local state
       setSelectedFile(null); // Clear the selected file
     } catch (error) {
       console.error("Error uploading profile picture:", error);
