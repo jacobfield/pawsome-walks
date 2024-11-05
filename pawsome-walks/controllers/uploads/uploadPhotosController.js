@@ -22,8 +22,8 @@ export async function uploadPhotosController(req, res) {
     const uploadData = {
       picname: uploadedFilename,
       ownerid: req.body.ownerid,
-      // walkid: req.body.walkid,
-      // dogid: req.body.dogid,
+      walkid: req.body.walkid,
+      dogid: req.body.dogid,
     };
     console.log("Upload Data:", uploadData);
     const insertedData = await insertUploadRecord(uploadData);
