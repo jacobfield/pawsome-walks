@@ -37,6 +37,15 @@
     width: auto;
     max-width: 175px;
   }
+  .profilePicture {
+    height: auto;
+    width: auto;
+    max-width: 175px;
+    border-radius: 50%;
+  }
+  .profileIcon {
+    border-radius: 50%;
+  }
   .navBarContainer {
     display: flex;
     justify-self: stretch;

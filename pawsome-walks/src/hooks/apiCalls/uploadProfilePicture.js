@@ -30,5 +30,5 @@ export default async function uploadProfilePicture(file, ownerIdToUpload) {
   const data = await response.json();
   console.log("Response from upload API:", data); //
 
-  return data.imageUrl;
+  return data.data;
 }

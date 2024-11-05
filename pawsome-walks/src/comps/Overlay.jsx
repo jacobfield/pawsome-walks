@@ -1,38 +1,49 @@
-/* eslint-disable react/prop-types */
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
 import { useAuth } from "./AuthContext";
 import { ThemeContext } from "./ThemeProvider";
 import uploadProfilePicture from "../hooks/apiCalls/uploadProfilePicture";
-import getUploadsOwnersByOwnerId from "../hooks/apiCalls/getUploadsOwnersByOwnerId";
-import getProfilePicUrl from "../hooks/apiCalls/getProfilePicUrl";
-//
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_SECRET_KEY
+);
+
 export default function Overlay({ navBarProps }) {
   const { logout, owner, isLoggedIn } = useAuth();
   const navigate = useNavigate();
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
-  async function getProfilePicture() {
-    if (isLoggedIn == true) {
-      const ownerId = owner.ownerId;
-      const searchIds = await getUploadsOwnersByOwnerId(ownerId);
-      const uploadRowData = await getProfilePicUrl(searchIds);
 
-      // first ensure that the owner id is uploaded along with the profile picture - DONE
-      // Then ensure that the new profile picture picid is returned
-      // Then pass this along to the post uploadsOwners function
-      // then return the uploads data where ownerId and picId match
-      // Then extract the URL from that returned data
-      // Then conditionally set the profile picture to that URL
+  useEffect(() => {
+    async function getProfilePic() {
+      if (!isLoggedIn || !owner?.ownerId) return;
+      try {
+        const { data, error } = await supabase
+          .from("uploads")
+          .select("*")
+          .eq("ownerid", owner.ownerId);
+
+        if (error) throw error;
+
+        if (data && data.length > 0) {
+          const profilePicUrl = data[0].url; // Adjust based on actual data structure
+          setProfilePicture(profilePicUrl);
+        }
+      } catch (error) {
+        console.error("Error getting profile picture:", error);
+      }
     }
-  }
+    getProfilePic();
+  }, [isLoggedIn, owner, setProfilePicture]);
 
   const handleLogout = () => {
     logout();
     setIsOpen(false);
-    navigate("/");
+    window.location.reload();
   };
 
   const handleProfilePictureChange = (e) => {
@@ -41,23 +52,21 @@ export default function Overlay({ navBarProps }) {
       setSelectedFile(file);
     }
   };
-  // Handle profile picture upload to backend
+
   const handleUploadClick = async () => {
-    if (!selectedFile) return;
+    if (!selectedFile || !owner?.ownerId) return;
     try {
-      const ownerIdToUpload = owner.ownerId;
-      console.log("ownerIdToUpload:", ownerIdToUpload);
       const uploadedImageUrl = await uploadProfilePicture(
         selectedFile,
-        ownerIdToUpload
+        owner.ownerId
       );
-      setProfilePicture(uploadedImageUrl); // Update local state
+      setProfilePicture(uploadedImageUrl);
       setSelectedFile(null); // Clear the selected file
     } catch (error) {
       console.error("Error uploading profile picture:", error);
     }
   };
-  // handle sign in and sign up
+
   const handleSignIn = () => {
     setIsOpen(false);
     navigate("/SignIn");
@@ -67,6 +76,7 @@ export default function Overlay({ navBarProps }) {
     setIsOpen(false);
     navigate("/SignUp");
   };
+
   return (
     <div
       className={`overlay ${isOpen ? "open" : ""} ${
@@ -81,9 +91,7 @@ export default function Overlay({ navBarProps }) {
       </button>
       <div className="overlayContent">
         <div className="profileSection">
-          {/* 1 If owner and logged in */}
           {owner && isLoggedIn && owner.username ? (
-            //  2 if no profile picture, show placeholder and upload button
             !profilePicture ? (
               <label className="uploadContainer">
                 <CgProfile className="placeholderImage" />
@@ -101,17 +109,15 @@ export default function Overlay({ navBarProps }) {
                 )}
               </label>
             ) : (
-              // 2 else show profile picture
               <div>
                 <img
                   src={profilePicture}
                   alt="Profile"
-                  className="overlayLogo"
+                  className="profilePicture"
                 />
               </div>
             )
           ) : (
-            // 1 else show logo and message if not logged in
             <div>
               <img
                 className="overlayLogo"
@@ -125,7 +131,7 @@ export default function Overlay({ navBarProps }) {
 
         <div className="buttonSection">
           {isLoggedIn ? (
-            <button onClick={handleLogout} className="logoutButton ">
+            <button onClick={handleLogout} className="logoutButton">
               Log Out
             </button>
           ) : (
@@ -149,7 +155,3 @@ export default function Overlay({ navBarProps }) {
     </div>
   );
 }
-
-// need to fix the actual posting of the image, as I think I have removed the actual upload aspect of it
-
-// then need to make the request to ensure that the url is conditionally rendered

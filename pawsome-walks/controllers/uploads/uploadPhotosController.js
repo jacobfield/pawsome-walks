@@ -28,16 +28,16 @@ export async function uploadPhotosController(req, res) {
     // console.log("Upload Data:", uploadData);
     const insertedData = await insertUploadRecord(uploadData);
     // Log insertedData to confirm if it's successful
-    // console.log("Inserted Data:", insertedData);
+    
     res.status(201).json({
       status: "success",
-      data: {
-        picid: insertedData.picid,
-        url: insertedData.url,
-      },
+      data: insertedData,
     });
+    console.log("Inserted Data:", insertedData);
   } catch (error) {
     console.error("Error in uploadPhotosController:", error);
     res.status(500).json({ status: "error", message: error.message });
   }
 }
+
+
