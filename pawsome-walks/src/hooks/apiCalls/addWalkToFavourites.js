@@ -22,6 +22,7 @@ export default async function addWalkToFavourites(ownerid, walkid) {
       error.code = response.status;
       throw error;
     }
+    console.log(walkid, "added to favourites");
     return await response.json();
   } catch (error) {
     console.error("Error posting owner data:", error);

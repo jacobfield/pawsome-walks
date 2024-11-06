@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getWalkById from "../hooks/apiCalls/getWalkById";
