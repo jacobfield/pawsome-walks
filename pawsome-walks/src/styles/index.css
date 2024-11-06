@@ -341,3 +341,7 @@ footer.light {
 .starIcon.notShowFavourites.dark {
   color: white;
 }
+
+.starIcon {
+  cursor: pointer;
+}

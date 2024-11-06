@@ -26,6 +26,7 @@ export default function FavouriteStar({
 
   useEffect(() => {
     async function fetchFavouritesData() {
+      setIsFavouritesLoading(true);
       if (isLoggedIn && owner && owner.ownerId) {
         try {
           const favouriteWalksData = await getAllFavouriteWalksByOwnerId(
@@ -35,6 +36,8 @@ export default function FavouriteStar({
           console.log("favourite Star favouriteWalks", favouriteWalksData);
         } catch (error) {
           console.error("Error fetching favourites data", error);
+        } finally {
+          setIsFavouritesLoading(false); // Stop loading once data is retrieved
         }
       }
     }
@@ -47,7 +50,21 @@ export default function FavouriteStar({
       setJustFavouritesIds(favouriteWalksArray);
     }
   }, [favouriteWalks]);
-
+  if (isFavouritesLoading) {
+    return (
+      <l-bouncy
+        size="30"
+        speed="1.75"
+        color="#64abc1"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+        }}
+      ></l-bouncy>
+    );
+  }
   return justFavouritesIds.includes(walkid) ? (
     <CiStar
       className="starIcon icon walkDetailIcon favouriteList"
