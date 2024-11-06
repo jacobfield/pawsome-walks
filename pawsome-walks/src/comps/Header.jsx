@@ -4,7 +4,11 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { Link } from "react-router-dom";
 import Overlay from "./Overlay";
-export default function Header({ navBarProps }) {
+export default function Header({
+  navBarProps,
+  favouriteWalks,
+  setFavouriteWalks,
+}) {
   const { darkTheme } = useContext(ThemeContext);
   return (
     <header className={`header fade ${darkTheme ? "dark" : "light"}`}>
