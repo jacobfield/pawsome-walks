@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgProfile } from "react-icons/cg";
@@ -30,7 +31,7 @@ export default function Overlay({ navBarProps }) {
         if (error) throw error;
 
         if (data && data.length > 0) {
-          const profilePicUrl = data[0].url; // Adjust based on actual data structure
+          const profilePicUrl = data[0].url;
           setProfilePicture(profilePicUrl);
         }
       } catch (error) {

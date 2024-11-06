@@ -16,7 +16,7 @@ import ScrollToTop from "./comps/ScrollToTop.jsx";
 
 function App() {
   const { darkTheme } = useContext(ThemeContext);
-  const [allWalks, setAllWalks] = useState();
+const [allWalks, setAllWalks] = useState();
   const [isOpen, setIsOpen] = useState(false);
   const [profilePicture, setProfilePicture] = useState(null);
   useEffect(() => {

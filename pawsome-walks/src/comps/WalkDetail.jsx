@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import getWalkById from "../hooks/apiCalls/getWalkById";
@@ -5,7 +6,7 @@ import { bouncy } from "ldrs";
 import Map from "./google-maps/comps/Map";
 import WalkDetailContents from "./WalkDetailContents";
 
-export default function WalkDetail() {
+export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
   const { walkid } = useParams(); // get walkId from params
   const [walk, setWalk] = useState(null);
   bouncy.register();
@@ -41,8 +42,8 @@ export default function WalkDetail() {
           ></Map>
         </div>
         <div className="walkDetailImgContainer"></div>
-        <WalkDetailContents walk={walk} walkid={walkid}></WalkDetailContents>
-      </div>
+        <WalkDetailContents walk={walk} walkid={walkid} favouriteWalks={favouriteWalks} setFavouriteWalks={setFavouriteWalks}></WalkDetailContents>
+      </div> 
     );
   }
 }
