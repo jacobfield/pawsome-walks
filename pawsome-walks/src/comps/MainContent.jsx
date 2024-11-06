@@ -21,16 +21,27 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const isSignupPage = location.pathname.endsWith("SignUp");
   const isLoginPage = location.pathname.endsWith("SignIn");
   const { owner, isLoggedIn } = useAuth();
+  // console.log("owner", owner);
+  // console.log("ownerId", owner.ownerId);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      getAllFavouriteWalksByOwnerId(
-        owner.ownerid.then((favouriteWalks) => {
+    async function fetchFavouritesData() {
+      if (isLoggedIn && owner && owner.ownerId) {
+        try {
+          const favouriteWalks = await getAllFavouriteWalksByOwnerId(
+            owner.ownerId
+          );
           setFavouriteWalks(favouriteWalks);
-        })
-      );
+          console.log("favouriteWalks", favouriteWalks);
+        } catch (error) {
+          error;
+
+          console.error("Error fetching favourites data", error);
+        }
+      }
     }
-  }, [isLoggedIn, owner.ownerid]);
+    fetchFavouritesData();
+  }, [isLoggedIn, owner]);
 
   return (
     <div className="app">
@@ -56,7 +67,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
           <Route
             path="/walk/:walkid"
             element={
-              <WalkDetail 
+              <WalkDetail
                 favouriteWalks={favouriteWalks}
                 setFavouriteWalks={setFavouriteWalks}
               />

@@ -20,46 +20,61 @@ export default function WalkDetailContents({
   const { owner, isLoggedIn } = useAuth();
   const ownerid = owner.ownerid;
 
-
   async function toggleFavourites(favouriteWalks, ownerid, walkid) {
-    if (favouriteWalks.includes(walkid)) {
-      await removeWalkFromFavourites(ownerid, walkid);
+    try {
+      if (favouriteWalks.includes(walkid)) {
+        await removeWalkFromFavourites(ownerid, walkid);
+        setFavouriteWalks(favouriteWalks.filter((id) => id !== walkid));
+      }
+      if (!favouriteWalks.includes(walkid)) {
+        await addWalkToFavourites(ownerid, walkid);
+        setFavouriteWalks([...favouriteWalks, walkid]);
+      }
+    } catch (error) {
+      console.error("Error updating favourites list", error);
     }
-    if (!favouriteWalks.includes(walkid)) {
-      await addWalkToFavourites(ownerid, walkid);
-    }
-  }
 
-  return (
-    <div
-      className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
-    >
-      <div className="walkDetailContents">
-        <div className="walkDetailIconContainer">
-          <Link className="noTextDecoration" to="/">
-            <IoReturnDownBack
-              className={`backIcon ThemeIcon icon fade ${
-                darkTheme ? "dark" : "light"
+    return (
+      <div
+        className={`walkDetailContentsContainer ${
+          darkTheme ? "dark" : "light"
+        }`}
+      >
+        <div className="walkDetailContents">
+          <div className="walkDetailIconContainer">
+            <Link className="noTextDecoration" to="/">
+              <IoReturnDownBack
+                className={`backIcon ThemeIcon icon fade ${
+                  darkTheme ? "dark" : "light"
+                }`}
+              />
+            </Link>
+            <h1 className="walkDetailWalkName">{walk.walkname}</h1>
+
+            <CiStar
+              className={`starIcon icon walkDetailIcon ${
+                favouriteWalks.includes(walkid)
+                  ? "favouriteList"
+                  : "notFavouriteList"
               }`}
+              onClick={toggleFavourites}
             />
-          </Link>
-          <h1 className="walkDetailWalkName">{walk.walkname}</h1>
-          <CiStar className="starIcon icon walkDetailIcon" />
+          </div>
+          <h2 className="walkDetailLocation">{walk.location}</h2>
+          <div className="walkDetail">
+            <TypeOfWalk walk={walk}></TypeOfWalk>
+            <OnWalkElements walk={walk}></OnWalkElements>
+            <DistanceFromUser walk={walk}></DistanceFromUser>
+          </div>
         </div>
-        <h2 className="walkDetailLocation">{walk.location}</h2>
-        <div className="walkDetail">
-          <TypeOfWalk walk={walk}></TypeOfWalk>
-          <OnWalkElements walk={walk}></OnWalkElements>
-          <DistanceFromUser walk={walk}></DistanceFromUser>
-        </div>
+        <img
+          className="walkDetailImg"
+          src={`/walk-photos/walk${walkid}.jpg`}
+          alt={walk.walkname}
+        />
       </div>
-      <img
-        className="walkDetailImg"
-        src={`/walk-photos/walk${walkid}.jpg`}
-        alt={walk.walkname}
-      />
-    </div>
-  );
+    );
+  }
 }
 // Create function that does the following:
 // if walkid is not in favouriteWalksId, star icon should add it upon click by calling addWalkToFavourites(ownerid, walkid)
