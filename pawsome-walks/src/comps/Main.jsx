@@ -4,7 +4,12 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
-export default function Main({ allWalks, favouriteWalks, setFavouriteWalks }) {
+export default function Main({
+  allWalks,
+  favouriteWalks,
+  setFavouriteWalks,
+  showFavourites,
+}) {
   // initialising loading state holder
   bouncy.register();
   const [walks, setWalks] = useState(
