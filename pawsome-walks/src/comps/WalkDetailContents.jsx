@@ -17,7 +17,7 @@ export default function WalkDetailContents({
   setFavouriteWalks,
 }) {
   const walkid = parseInt(walkidString);
-  console.log("walkId in WalkDetailContents", walkid, typeof walkid);
+
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { owner, isLoggedIn } = useAuth();
   const ownerid = owner?.ownerId;
@@ -37,7 +37,6 @@ export default function WalkDetailContents({
       }
     }
   }
-
   return (
     <div
       className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
@@ -77,7 +76,3 @@ export default function WalkDetailContents({
     </div>
   );
 }
-
-// Create function that does the following:
-// if walkid is not in favouriteWalksId, star icon should add it upon click by calling addWalkToFavourites(ownerid, walkid)
-// if walkid is in favouriteWalksId, star icon should remove it upon click by calling removeWalkFromFavourites(ownerid, walkid)

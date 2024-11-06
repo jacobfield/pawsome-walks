@@ -1,10 +1,4 @@
 export default async function removeWalkFromFavourites(ownerid, walkid) {
-  console.log(
-    "Attempting to remove walk from favourites: ownerid",
-    ownerid,
-    "walkid",
-    walkid
-  );
 
   try {
     const response = await fetch(
@@ -21,7 +15,7 @@ export default async function removeWalkFromFavourites(ownerid, walkid) {
       error.code = response.status;
       throw error;
     }
-    console.log(walkid, "removed from favourites");
+
 
     return await response.json();
   } catch (error) {

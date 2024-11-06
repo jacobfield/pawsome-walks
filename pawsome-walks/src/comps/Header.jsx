@@ -6,9 +6,12 @@ import { Link } from "react-router-dom";
 import Overlay from "./Overlay";
 export default function Header({
   navBarProps,
-  favouriteWalks,
-  setFavouriteWalks,
+  showFavourites,
+  setShowFavourites,
 }) {
+  function toggleFavourites() {
+    setShowFavourites(!showFavourites);
+  }
   const { darkTheme } = useContext(ThemeContext);
   return (
     <header className={`header fade ${darkTheme ? "dark" : "light"}`}>
@@ -23,9 +26,14 @@ export default function Header({
         <SearchBar></SearchBar>
       </div>
       <nav className="navBarContainer">
-        <NavBar navBarProps={navBarProps}></NavBar>
+        <NavBar
+          navBarProps={navBarProps}
+          toggleFavourites={toggleFavourites}
+          showFavourites={showFavourites}
+        ></NavBar>
         <Overlay navBarProps={navBarProps} />
       </nav>
     </header>
   );
 }
+

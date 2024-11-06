@@ -70,8 +70,7 @@ export default function SignIn() {
           username: owner.username,
           email: owner.email,
         });
-        console.log(owner.username, "logged in! - SignIn.jsx");
-        // alert("Successfully logged in!");
+
         navigate("/");
       } else {
         alert("Invalid email or password");

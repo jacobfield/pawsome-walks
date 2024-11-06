@@ -1,10 +1,5 @@
 export default async function addWalkToFavourites(ownerid, walkid) {
-  console.log(
-    "Attempting to add walk to favourites: ownerid",
-    ownerid,
-    "walkid",
-    walkid
-  );
+
   try {
     const response = await fetch(
       "https://pawsome-walks.vercel.app/api/ownerFavouriteWalks",
@@ -20,7 +15,7 @@ export default async function addWalkToFavourites(ownerid, walkid) {
       error.code = response.status;
       throw error;
     }
-    console.log(walkid, "added to favourites");
+
     return await response.json();
   } catch (error) {
     console.error("Error posting owner data:", error);

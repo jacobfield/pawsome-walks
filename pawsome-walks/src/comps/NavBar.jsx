@@ -7,7 +7,11 @@ import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 
 //
-export default function NavBar({ navBarProps }) {
+export default function NavBar({
+  navBarProps,
+  toggleFavourites,
+  showFavourites,
+}) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   return (
@@ -29,7 +33,12 @@ export default function NavBar({ navBarProps }) {
           )}
         </button>
       </div>
-      <CiStar className="starIcon icon" />
+      <CiStar
+        onClick={toggleFavourites}
+        className={`starIcon icon ${
+          showFavourites ? "showFavourites" : "notShowFavourites"
+        } ${darkTheme ? "dark" : "light"}`}
+      />
 
       {!profilePicture ? (
         <CgProfile
