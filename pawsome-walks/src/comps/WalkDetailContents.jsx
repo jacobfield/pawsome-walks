@@ -37,7 +37,6 @@ export default function WalkDetailContents({
       }
     }
   }
-
   return (
     <div
       className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
