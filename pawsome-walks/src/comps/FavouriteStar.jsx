@@ -5,7 +5,11 @@ import { CiStar } from "react-icons/ci";
 import { useAuth } from "./AuthContext";
 import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId";
 
-export default function FavouriteStar({ walkid }) {
+export default function FavouriteStar({
+  walkid,
+  addToFavourites,
+  removeFromFavourites,
+}) {
   console.log("FavouriteStar walkid", walkid);
 
   const [favouriteWalks, setFavouriteWalks] = useState([]);
@@ -45,8 +49,14 @@ export default function FavouriteStar({ walkid }) {
   }, [favouriteWalks]);
 
   return justFavouritesIds.includes(walkid) ? (
-    <CiStar className="starIcon icon walkDetailIcon favouriteList" />
+    <CiStar
+      className="starIcon icon walkDetailIcon favouriteList"
+      onClick={removeFromFavourites}
+    />
   ) : (
-    <CiStar className="starIcon icon walkDetailIcon notFavouriteList" />
+    <CiStar
+      className="starIcon icon walkDetailIcon notFavouriteList"
+      onClick={addToFavourites}
+    />
   );
 }
