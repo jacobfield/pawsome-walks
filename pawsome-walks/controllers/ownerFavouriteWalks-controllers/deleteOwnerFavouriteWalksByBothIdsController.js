@@ -4,23 +4,21 @@ export default async function deleteOwnerFavouriteWalksByBothIdsController(
   req,
   res
 ) {
+  const data = req.body;
+  const ownerid = data.ownerId;
+  const walkid = data.walkId;
   try {
-    const ownerId = req.params.ownerId;
-    const walkId = req.params.walkId; // Extract walkId from request parameters
-
-    if (!ownerId || !walkId) {
+    if (!ownerid || !walkid) {
       return res.status(400).json({
         status: "error",
         message: "Owner ID and Walk ID are required ",
       });
     }
-
     const deleteOwnerFavouriteWalks =
       await ownerFavouriteWalks.deleteOwnerFavouriteWalksByBothIds(
-        ownerId,
-        walkId
+        ownerid,
+        walkid
       );
-
     if (deleteOwnerFavouriteWalks.length === 0) {
       // Check if any rows were deleted
       return res.status(404).json({
@@ -29,7 +27,6 @@ export default async function deleteOwnerFavouriteWalksByBothIdsController(
           "No ownerFavouriteWalks found with the given Owner ID and Walk ID",
       });
     }
-
     res
       .status(200)
       .json({ status: "success", data: deleteOwnerFavouriteWalks });
