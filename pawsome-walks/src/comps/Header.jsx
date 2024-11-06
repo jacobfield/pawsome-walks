@@ -29,3 +29,8 @@ export default function Header({
     </header>
   );
 }
+
+// MainContent state, passed down to Header and Main.jsx.
+// Header does not need favourite Walks state
+// this new state should just set true if false, set false if true, and should be attached to the star icon in header
+// if true, it filters the list of walks to only show the favourite walks

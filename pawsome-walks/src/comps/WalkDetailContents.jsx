@@ -77,7 +77,3 @@ export default function WalkDetailContents({
     </div>
   );
 }
-
-// Create function that does the following:
-// if walkid is not in favouriteWalksId, star icon should add it upon click by calling addWalkToFavourites(ownerid, walkid)
-// if walkid is in favouriteWalksId, star icon should remove it upon click by calling removeWalkFromFavourites(ownerid, walkid)
