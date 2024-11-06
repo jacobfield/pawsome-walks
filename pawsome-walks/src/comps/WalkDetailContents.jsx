@@ -28,6 +28,7 @@ export default function WalkDetailContents({
       await addWalkToFavourites(ownerid, walkid);
       setFavouriteWalks((prevFavourites) => [...prevFavourites, walkid]);
       console.log("added favourite");
+      window.location.reload();
     } catch (error) {
       console.error("Error adding walk to favourites", error);
     }
@@ -40,6 +41,7 @@ export default function WalkDetailContents({
         prevFavourites.filter((id) => id !== walkid)
       );
       console.log("removed favourite");
+      window.location.reload();
     } catch (error) {
       console.error("Error removing walk from favourites", error);
     }
