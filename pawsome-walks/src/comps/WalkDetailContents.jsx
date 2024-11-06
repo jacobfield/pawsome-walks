@@ -28,8 +28,7 @@ export default function WalkDetailContents({
         if (favouriteWalks.includes(walkid)) {
           await removeWalkFromFavourites(ownerid, walkid);
           setFavouriteWalks(favouriteWalks.filter((id) => id !== walkid));
-        }
-        if (!favouriteWalks.includes(walkid)) {
+        } else {
           await addWalkToFavourites(ownerid, walkid);
           setFavouriteWalks([...favouriteWalks, walkid]);
         }
