@@ -1,23 +1,23 @@
 import { pool } from "../../index.js";
 
 export default async function deleteOwnerFavouriteWalksByBothIds(
-  ownerId,
-  walkId
+  ownerid,
+  walkid
 ) {
   try {
-    if (!ownerId || !walkId) {
-      throw new Error("ownerId and walkId are required.");
+    if (!ownerid || !walkid) {
+      throw new Error("ownerid and walkid are required.");
     }
     const deleteOwnerFavouriteWalks =
-      "DELETE FROM ownerFavouriteWalks WHERE ownerId = $1 AND walkId = $2 RETURNING *";
+      "DELETE FROM ownerFavouriteWalks WHERE ownerid = $1 AND walkid = $2 RETURNING *";
     const result = await pool.query(deleteOwnerFavouriteWalks, [
-      ownerId,
-      walkId,
+      ownerid,
+      walkid,
     ]);
     return result.rows;
   } catch (error) {
     console.error(
-      "Error deleting ownerFavouriteWalks by ownerId and walkId. Error originated in deleteOwnerFavouriteWalksByOwnerId.js",
+      "Error deleting ownerFavouriteWalks by ownerid and walkid. Error originated in deleteOwnerFavouriteWalksByOwnerId.js",
       error
     );
     throw error;

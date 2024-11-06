@@ -136,7 +136,7 @@ app.get(
   ownerFavouriteWalksControllers.getOwnerFavouriteWalksByOwnerIdController
 );
 app.delete(
-  "/api/ownerFavouriteWalks/:ownerId/:walkId",
+  "/api/ownerFavouriteWalks",
   ownerFavouriteWalksControllers.deleteOwnerFavouriteWalksByBothIdsController
 );
 
