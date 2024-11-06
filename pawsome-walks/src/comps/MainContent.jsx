@@ -34,11 +34,34 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
 
   return (
     <div className="app">
-      {!isSignupPage && !isLoginPage && <Header navBarProps={navBarProps} />}
+      {!isSignupPage && !isLoginPage && (
+        <Header
+          navBarProps={navBarProps}
+          favouriteWalks={favouriteWalks}
+          setFavouriteWalks={setFavouriteWalks}
+        />
+      )}
       <div className="mainContent">
         <Routes>
-          <Route path="/" element={<Main allWalks={allWalks} />} />
-          <Route path="/walk/:walkid" element={<WalkDetail />} />
+          <Route
+            path="/"
+            element={
+              <Main
+                allWalks={allWalks}
+                favouriteWalks={favouriteWalks}
+                setFavouriteWalks={setFavouriteWalks}
+              />
+            }
+          />
+          <Route
+            path="/walk/:walkid"
+            element={
+              <WalkDetail 
+                favouriteWalks={favouriteWalks}
+                setFavouriteWalks={setFavouriteWalks}
+              />
+            }
+          />
           <Route path="/SignUp" element={<SignUp />} />
           <Route path="/SignIn" element={<SignIn />} />
         </Routes>

@@ -5,7 +5,7 @@ import { bouncy } from "ldrs";
 import Map from "./google-maps/comps/Map";
 import WalkDetailContents from "./WalkDetailContents";
 
-export default function WalkDetail() {
+export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
   const { walkid } = useParams(); // get walkId from params
   const [walk, setWalk] = useState(null);
   bouncy.register();
