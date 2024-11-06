@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { IoReturnDownBack } from "react-icons/io5";
 import { CiStar } from "react-icons/ci";
@@ -6,8 +7,28 @@ import { ThemeContext } from "./ThemeProvider";
 import OnWalkElements from "./OnWalkElements";
 import TypeOfWalk from "./TypeOfWalk";
 import DistanceFromUser from "./DistanceFromUser";
-export default function WalkDetailContents({ walk, walkid }) {
+import { useAuth } from "./AuthContext";
+import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites";
+import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
+export default function WalkDetailContents({
+  walk,
+  walkid,
+  favouriteWalks,
+  setFavouriteWalks,
+}) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
+  const { owner, isLoggedIn } = useAuth();
+  const ownerid = owner.ownerid;
+
+
+  async function toggleFavourites(favouriteWalks, ownerid, walkid) {
+    if (favouriteWalks.includes(walkid)) {
+      await removeWalkFromFavourites(ownerid, walkid);
+    }
+    if (!favouriteWalks.includes(walkid)) {
+      await addWalkToFavourites(ownerid, walkid);
+    }
+  }
 
   return (
     <div
@@ -40,3 +61,6 @@ export default function WalkDetailContents({ walk, walkid }) {
     </div>
   );
 }
+// Create function that does the following:
+// if walkid is not in favouriteWalksId, star icon should add it upon click by calling addWalkToFavourites(ownerid, walkid)
+// if walkid is in favouriteWalksId, star icon should remove it upon click by calling removeWalkFromFavourites(ownerid, walkid)

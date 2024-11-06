@@ -41,8 +41,8 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
           ></Map>
         </div>
         <div className="walkDetailImgContainer"></div>
-        <WalkDetailContents walk={walk} walkid={walkid}></WalkDetailContents>
-      </div>
+        <WalkDetailContents walk={walk} walkid={walkid} favouriteWalks={favouriteWalks} setFavouriteWalks={setFavouriteWalks}></WalkDetailContents>
+      </div> 
     );
   }
 }
