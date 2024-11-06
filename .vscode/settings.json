@@ -19,5 +19,6 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#8267e1",
-  "dotnet.defaultSolution": "Pawsome WebAPI.sln"
+  "dotnet.defaultSolution": "Pawsome WebAPI.sln",
+  "cSpell.words": ["Favourite"]
 }
