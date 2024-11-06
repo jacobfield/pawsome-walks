@@ -27,6 +27,8 @@ export default function Main({
   return (
     <section className="walksContainer">
       <Quote></Quote>
+
+      
       {allWalks &&
         allWalks.map((walk) => (
           <Link
@@ -60,3 +62,6 @@ export default function Main({
     </section>
   );
 }
+
+
+
