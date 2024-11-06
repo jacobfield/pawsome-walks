@@ -4,3 +4,22 @@
 // toggle these functions, depending on whether the walk is in favourites or not; if in, star button will remove it, if not, star button will add it
 // if user is not logged in, star button make a little alert thing telling user to log in for favourites feature
 // If user is logged in, filter through list of walks where walk id is in favourites list
+
+
+export default async function removeWalkFromFavourites(ownerid, walkid) {
+  try {
+    const response = fetch(`https://pawsome-walks.vercel.app/api/ownerFavouriteWalks/${ownerid}/${walkid}`, {,
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        });
+    if (!response.ok) {
+        const errorData = await response.json();
+        const error = new Error(errorData.message);
+        error.code = response.status;
+        throw error;
+        }
+    return await response.json();
+  } catch (error) {
+    console.error("Error removing walk from favourites:", error);
+    throw error;
+  }}
