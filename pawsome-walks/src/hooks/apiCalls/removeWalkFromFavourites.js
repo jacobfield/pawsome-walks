@@ -7,7 +7,7 @@ export default async function removeWalkFromFavourites(ownerid, walkid) {
   );
 
   try {
-    const response = fetch(
+    const response = await fetch(
       `https://pawsome-walks.vercel.app/api/ownerFavouriteWalks`,
       {
         method: "DELETE",

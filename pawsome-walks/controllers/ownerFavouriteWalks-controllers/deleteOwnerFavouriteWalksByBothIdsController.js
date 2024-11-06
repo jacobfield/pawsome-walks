@@ -5,8 +5,8 @@ export default async function deleteOwnerFavouriteWalksByBothIdsController(
   res
 ) {
   const data = req.body;
-  const ownerid = data.ownerId;
-  const walkid = data.walkId;
+  const { ownerid, walkid } = data;
+
   try {
     if (!ownerid || !walkid) {
       return res.status(400).json({
