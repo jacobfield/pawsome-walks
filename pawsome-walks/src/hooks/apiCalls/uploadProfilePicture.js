@@ -13,8 +13,7 @@ export default async function uploadProfilePicture(file, ownerIdToUpload) {
   formData.append("file", file);
   formData.append("ownerid", ownerIdToUpload);
 
-  console.log("formData:", formData);
-  console.log("formData ownerid:", formData.get("ownerid"));
+
   const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
     method: "POST",
     body: formData,
@@ -28,7 +27,7 @@ export default async function uploadProfilePicture(file, ownerIdToUpload) {
   }
 
   const data = await response.json();
-  console.log("Response from upload API:", data); //
+
 
   return data.data;
 }

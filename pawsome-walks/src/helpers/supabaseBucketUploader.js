@@ -20,7 +20,7 @@ export async function uploadImageToBucket(file, filename) {
     const { data, error } = await supabase.storage
       .from("uploads")
       .upload(filename, file.buffer, { contentType: file.mimetype });
-    console.log("filename", filename);
+
 
     if (error) throw error;
     return filename;
