@@ -10,6 +10,7 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
   const { walkid } = useParams(); // get walkId from params
   const [walk, setWalk] = useState(null);
   bouncy.register();
+  console.log("walkId in WalkDetail", walkid, typeof walkid);
 
   useEffect(() => {
     async function fetchWalk(walkid) {
@@ -42,8 +43,13 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
           ></Map>
         </div>
         <div className="walkDetailImgContainer"></div>
-        <WalkDetailContents walk={walk} walkid={walkid} favouriteWalks={favouriteWalks} setFavouriteWalks={setFavouriteWalks}></WalkDetailContents>
-      </div> 
+        <WalkDetailContents
+          walk={walk}
+          walkidString={walkid}
+          favouriteWalks={favouriteWalks}
+          setFavouriteWalks={setFavouriteWalks}
+        ></WalkDetailContents>
+      </div>
     );
   }
 }
