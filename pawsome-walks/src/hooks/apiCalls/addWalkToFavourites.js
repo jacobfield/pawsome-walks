@@ -6,6 +6,7 @@
 // If user is logged in, filter through list of walks where walk id is in favourites list
 
 export default async function addWalkToFavourites(ownerid, walkid) {
+    console.log("Attempting to add walk to favourites: ownerid", ownerid, "walkid", walkid);
   try {
     const response = await fetch(
       "https://pawsome-walks.vercel.app/api/ownerFavouriteWalks",

@@ -12,43 +12,24 @@ import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites
 import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
 export default function WalkDetailContents({
   walk,
-  walkid,
+  walkidString,
   favouriteWalks,
   setFavouriteWalks,
 }) {
+  const walkid = parseInt(walkidString);
+  console.log("walkId in WalkDetailContents", walkid, typeof walkid);
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { owner, isLoggedIn } = useAuth();
   const ownerid = owner?.ownerId;
-  console.log("outside toggleFavourites: owner", owner);
 
-  console.log("outside toggleFavourites: ownerid", ownerid);
   async function toggleFavourites(ownerid, isLoggedIn) {
-    console.log("inside toggleFavourites line 1: ownerid", ownerid);
-    console.log(
-      "inside toggleFavourites line 1: ownerid.ownerId",
-      ownerid.ownerId
-    );
     if (isLoggedIn && ownerid) {
-      console.log("inside toggleFavourites if statement: ownerid", ownerid);
-
       try {
-        console.log("inside toggleFavourites try: ownerid", ownerid);
-
         if (favouriteWalks.includes(walkid)) {
-          console.log(
-            "inside toggleFavourites try, before removeWalksFromFavourites: ownerid",
-            ownerid
-          );
-
           await removeWalkFromFavourites(ownerid, walkid);
           setFavouriteWalks(favouriteWalks.filter((id) => id !== walkid));
         }
         if (!favouriteWalks.includes(walkid)) {
-          console.log(
-            "inside toggleFavourites try, before addWalksToFavourites: ownerid",
-            ownerid
-          );
-
           await addWalkToFavourites(ownerid, walkid);
           setFavouriteWalks([...favouriteWalks, walkid]);
         }

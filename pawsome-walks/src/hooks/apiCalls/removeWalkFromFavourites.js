@@ -1,4 +1,11 @@
 export default async function removeWalkFromFavourites(ownerid, walkid) {
+  console.log(
+    "Attempting to remove walk from favourites: ownerid",
+    ownerid,
+    "walkid",
+    walkid
+  );
+
   try {
     const response = fetch(
       `https://pawsome-walks.vercel.app/api/ownerFavouriteWalks/${ownerid}/${walkid}`,
