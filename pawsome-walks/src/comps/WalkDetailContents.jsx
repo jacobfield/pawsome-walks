@@ -17,7 +17,7 @@ export default function WalkDetailContents({
   setFavouriteWalks,
 }) {
   const walkid = parseInt(walkidString);
-  console.log("walkId in WalkDetailContents", walkid, typeof walkid);
+
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { owner, isLoggedIn } = useAuth();
   const ownerid = owner?.ownerId;

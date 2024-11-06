@@ -31,7 +31,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
             owner.ownerId
           );
           setFavouriteWalks(favouriteWalks);
-          console.log("favouriteWalks", favouriteWalks);
+  
         } catch (error) {
           error;
 

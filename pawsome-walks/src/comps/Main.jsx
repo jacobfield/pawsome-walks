@@ -10,7 +10,6 @@ export default function Main({
   setFavouriteWalks,
   showFavourites,
 }) {
-  console.log("favouriteWalks", favouriteWalks);
   // initialising loading state holder
   bouncy.register();
   // const [walks, setWalks] = useState(
