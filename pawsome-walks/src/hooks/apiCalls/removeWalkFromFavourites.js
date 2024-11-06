@@ -8,10 +8,11 @@ export default async function removeWalkFromFavourites(ownerid, walkid) {
 
   try {
     const response = fetch(
-      `https://pawsome-walks.vercel.app/api/ownerFavouriteWalks/${ownerid}/${walkid}`,
+      `https://pawsome-walks.vercel.app/api/ownerFavouriteWalks`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ownerid, walkid }),
       }
     );
     if (!response.ok) {
