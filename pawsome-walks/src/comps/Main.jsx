@@ -10,11 +10,9 @@ export default function Main({
   setFavouriteWalks,
   showFavourites,
 }) {
-  // initialising loading state holder
+
   bouncy.register();
-  // const [walks, setWalks] = useState(
-  //   Array.from({ length: 30 }, (_, i) => i + 1)
-  // );
+
   const { darkTheme } = useContext(ThemeContext);
 
   if (!allWalks) {

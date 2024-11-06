@@ -10,6 +10,7 @@ import DistanceFromUser from "./DistanceFromUser";
 import { useAuth } from "./AuthContext";
 import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites";
 import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
+import FavouriteStar from "./FavouriteStar";
 export default function WalkDetailContents({
   walk,
   walkidString,
@@ -51,15 +52,15 @@ export default function WalkDetailContents({
             />
           </Link>
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
-
-          <CiStar
+          <FavouriteStar walkid={walkid}></FavouriteStar>
+          {/* <CiStar
             className={`starIcon icon walkDetailIcon ${
               favouriteWalks.includes(walkid)
                 ? "favouriteList"
                 : "notFavouriteList"
             } ${darkTheme ? "dark" : "light"}`}
             onClick={() => toggleFavourites(ownerid, isLoggedIn)}
-          />
+          /> */}
         </div>
         <h2 className="walkDetailLocation">{walk.location}</h2>
         <div className="walkDetail">
