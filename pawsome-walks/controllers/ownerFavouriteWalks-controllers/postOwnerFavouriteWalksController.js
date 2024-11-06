@@ -1,16 +1,14 @@
 import { ownerFavouriteWalks } from "../../helper-functions/helperFunctions.js";
 
 export default async function postOwnerFavouriteWalksController(req, res) {
+  const data = req.body;
   try {
-    const data = req.body;
-
+    console.log("postOwnerFavouriteWalksController data", data);
     if (!data || Object.keys(data).length === 0) {
-      return res
-        .status(400)
-        .json({
-          status: "error",
-          message: "OwnerFavouriteWalks data is required",
-        });
+      return res.status(400).json({
+        status: "error",
+        message: "OwnerFavouriteWalks data is required",
+      });
     }
     const newOwnerFavouriteWalk =
       await ownerFavouriteWalks.postOwnerFavouriteWalks(data);
