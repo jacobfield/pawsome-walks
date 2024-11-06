@@ -10,11 +10,12 @@ export default function Main({
   setFavouriteWalks,
   showFavourites,
 }) {
+  console.log("favouriteWalks", favouriteWalks);
   // initialising loading state holder
   bouncy.register();
-  const [walks, setWalks] = useState(
-    Array.from({ length: 30 }, (_, i) => i + 1)
-  );
+  // const [walks, setWalks] = useState(
+  //   Array.from({ length: 30 }, (_, i) => i + 1)
+  // );
   const { darkTheme } = useContext(ThemeContext);
 
   if (!allWalks) {
@@ -28,40 +29,71 @@ export default function Main({
     <section className="walksContainer">
       <Quote></Quote>
 
-      
-      {allWalks &&
-        allWalks.map((walk) => (
-          <Link
-            className="noTextDecoration"
-            to={`/walk/${walk.walkid}`}
-            key={walk.walkid}
-          >
-            <div
+      {!showFavourites
+        ? allWalks &&
+          allWalks.map((walk) => (
+            <Link
+              className="noTextDecoration"
+              to={`/walk/${walk.walkid}`}
               key={walk.walkid}
-              className={`walk fade ${darkTheme ? "dark" : "light"}`}
             >
-              <img
-                className="walkPreviewImg"
-                src={`walk-photos/${walk.photopath}.jpg`}
-                alt={walk.walkname}
-              />
-              <div className="walkPreviewTextContainer">
-                <h2 className="walkPreviewTitle">{walk.walkname}</h2>
-                <p className="walkPreviewLocation">{walk.location}</p>
-                <div
-                  className={`walkPreviewDetails fade ${
-                    darkTheme ? "dark" : "light"
-                  }`}
-                >
-                  <p>{walk.walktype.map((type) => type).join(", ")}</p>
+              <div
+                key={walk.walkid}
+                className={`walk fade ${darkTheme ? "dark" : "light"}`}
+              >
+                <img
+                  className="walkPreviewImg"
+                  src={`walk-photos/${walk.photopath}.jpg`}
+                  alt={walk.walkname}
+                />
+                <div className="walkPreviewTextContainer">
+                  <h2 className="walkPreviewTitle">{walk.walkname}</h2>
+                  <p className="walkPreviewLocation">{walk.location}</p>
+                  <div
+                    className={`walkPreviewDetails fade ${
+                      darkTheme ? "dark" : "light"
+                    }`}
+                  >
+                    <p>{walk.walktype.map((type) => type).join(", ")}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))
+        : allWalks &&
+          allWalks
+            .filter((walk) =>
+              favouriteWalks.some((fave) => fave.walkid === walk.walkid)
+            )
+            .map((walk) => (
+              <Link
+                className="noTextDecoration"
+                to={`/walk/${walk.walkid}`}
+                key={walk.walkid}
+              >
+                <div
+                  key={walk.walkid}
+                  className={`walk fade ${darkTheme ? "dark" : "light"}`}
+                >
+                  <img
+                    className="walkPreviewImg"
+                    src={`walk-photos/${walk.photopath}.jpg`}
+                    alt={walk.walkname}
+                  />
+                  <div className="walkPreviewTextContainer">
+                    <h2 className="walkPreviewTitle">{walk.walkname}</h2>
+                    <p className="walkPreviewLocation">{walk.location}</p>
+                    <div
+                      className={`walkPreviewDetails fade ${
+                        darkTheme ? "dark" : "light"
+                      }`}
+                    >
+                      <p>{walk.walktype.map((type) => type).join(", ")}</p>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
     </section>
   );
 }
-
-
-
