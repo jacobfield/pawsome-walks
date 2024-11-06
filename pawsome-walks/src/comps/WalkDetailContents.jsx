@@ -58,7 +58,7 @@ export default function WalkDetailContents({
               favouriteWalks.includes(walkid)
                 ? "favouriteList"
                 : "notFavouriteList"
-            }`}
+            } ${darkTheme ? "dark" : "light"}`}
             onClick={() => toggleFavourites(ownerid, isLoggedIn)}
           />
         </div>

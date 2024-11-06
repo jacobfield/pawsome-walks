@@ -321,3 +321,13 @@ footer.light {
 .uploadContainer:hover {
   cursor: pointer;
 }
+
+.walkDetailIcon.notFavouriteList.light {
+  color: black;
+}
+.walkDetailIcon.notFavouriteList.dark {
+  color: white;
+}
+.walkDetailIcon.favouriteList {
+  color: gold;
+}

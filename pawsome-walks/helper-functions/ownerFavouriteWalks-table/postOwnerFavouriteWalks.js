@@ -3,8 +3,15 @@ import { pool } from "../../index.js";
 export default async function postOwnerFavouriteWalks(data) {
   try {
     const { ownerid, walkid } = data;
-    const postOwnerFavouriteWalks =
-      "INSERT INTO ownerFavouriteWalks (ownerid, walkid) VALUES ($1, $2) RETURNING *";
+    const postOwnerFavouriteWalks = `
+      INSERT INTO ownerFavouriteWalks (ownerid, walkid)
+      VALUES ($1, $2)
+      ON CONFLICT (ownerid, walkid)
+      DO UPDATE SET
+        ownerid = EXCLUDED.ownerid,
+        walkid = EXCLUDED.walkid
+      RETURNING *;
+    `;
     const result = await pool.query(postOwnerFavouriteWalks, [ownerid, walkid]);
     return result.rows[0];
   } catch (error) {
