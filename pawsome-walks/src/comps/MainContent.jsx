@@ -4,6 +4,7 @@ import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
 import WalkDetail from "./WalkDetail.jsx";
 import { useAuth } from "./AuthContext.jsx";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,16 +12,26 @@ import {
   useLocation,
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
+import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
 
 //
 export default function MainContent({ allWalks, darkTheme, navBarProps }) {
+  const [favouriteWalks, setFavouriteWalks] = useState([]);
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
   const isLoginPage = location.pathname.endsWith("SignIn");
   const { owner, isLoggedIn } = useAuth();
 
-  // console.log("Maincontent Owner: ", owner);
-  // console.log("Maincontent  IsLoggedIn: ", isLoggedIn);
+  useEffect(() => {
+    if (isLoggedIn) {
+      getAllFavouriteWalksByOwnerId(
+        owner.ownerid.then((favouriteWalks) => {
+          setFavouriteWalks(favouriteWalks);
+        })
+      );
+    }
+  }, [isLoggedIn, owner.ownerid]);
+
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && <Header navBarProps={navBarProps} />}
