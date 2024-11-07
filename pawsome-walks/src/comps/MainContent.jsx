@@ -21,8 +21,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const isSignupPage = location.pathname.endsWith("SignUp");
   const isLoginPage = location.pathname.endsWith("SignIn");
   const { owner, isLoggedIn } = useAuth();
-  // console.log("owner", owner);
-  // console.log("ownerId", owner.ownerId);
+  const [showFavourites, setShowFavourites] = useState(false);
 
   useEffect(() => {
     async function fetchFavouritesData() {
@@ -32,7 +31,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
             owner.ownerId
           );
           setFavouriteWalks(favouriteWalks);
-          console.log("favouriteWalks", favouriteWalks);
+  
         } catch (error) {
           error;
 
@@ -48,8 +47,8 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
       {!isSignupPage && !isLoginPage && (
         <Header
           navBarProps={navBarProps}
-          favouriteWalks={favouriteWalks}
-          setFavouriteWalks={setFavouriteWalks}
+          showFavourites={showFavourites}
+          setShowFavourites={setShowFavourites}
         />
       )}
       <div className="mainContent">
@@ -61,6 +60,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
                 allWalks={allWalks}
                 favouriteWalks={favouriteWalks}
                 setFavouriteWalks={setFavouriteWalks}
+                showFavourites={showFavourites}
               />
             }
           />

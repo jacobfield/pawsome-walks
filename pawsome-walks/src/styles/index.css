@@ -331,3 +331,17 @@ footer.light {
 .walkDetailIcon.favouriteList {
   color: gold;
 }
+
+.starIcon.showFavourites {
+  color: gold;
+}
+.starIcon.notShowFavourites.light {
+  color: black;
+}
+.starIcon.notShowFavourites.dark {
+  color: white;
+}
+
+.starIcon {
+  cursor: pointer;
+}

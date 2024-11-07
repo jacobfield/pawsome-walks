@@ -5,11 +5,17 @@ import { GiNightSky } from "react-icons/gi"; // <GiNightSky />
 import { GiHeraldicSun } from "react-icons/gi"; // <GiHeraldicSun />
 import { useState, useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+import { useAuth } from "./AuthContext";
 
 //
-export default function NavBar({ navBarProps }) {
+export default function NavBar({
+  navBarProps,
+  toggleFavourites,
+  showFavourites,
+}) {
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
+  const { owner } = useAuth();
   return (
     <div className="navBar">
       <div className="darkMode">
@@ -29,7 +35,19 @@ export default function NavBar({ navBarProps }) {
           )}
         </button>
       </div>
-      <CiStar className="starIcon icon" />
+      {!owner ? (
+        <CiStar
+          onClick={() => alert("Please log in to add favourites")}
+          className={`starIcon icon  ${darkTheme ? "dark" : "light"}`}
+        />
+      ) : (
+        <CiStar
+          onClick={toggleFavourites}
+          className={`starIcon icon ${
+            showFavourites ? "showFavourites" : "notShowFavourites"
+          } ${darkTheme ? "dark" : "light"}`}
+        />
+      )}
 
       {!profilePicture ? (
         <CgProfile

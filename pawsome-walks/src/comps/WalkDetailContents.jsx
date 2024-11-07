@@ -10,6 +10,7 @@ import DistanceFromUser from "./DistanceFromUser";
 import { useAuth } from "./AuthContext";
 import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites";
 import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
+import FavouriteStar from "./FavouriteStar";
 export default function WalkDetailContents({
   walk,
   walkidString,
@@ -17,24 +18,32 @@ export default function WalkDetailContents({
   setFavouriteWalks,
 }) {
   const walkid = parseInt(walkidString);
-  console.log("walkId in WalkDetailContents", walkid, typeof walkid);
+
   const { darkTheme, setDarkTheme } = useContext(ThemeContext);
   const { owner, isLoggedIn } = useAuth();
   const ownerid = owner?.ownerId;
 
-  async function toggleFavourites(ownerid, isLoggedIn) {
-    if (isLoggedIn && ownerid) {
-      try {
-        if (favouriteWalks.includes(walkid)) {
-          await removeWalkFromFavourites(ownerid, walkid);
-          setFavouriteWalks(favouriteWalks.filter((id) => id !== walkid));
-        } else {
-          await addWalkToFavourites(ownerid, walkid);
-          setFavouriteWalks([...favouriteWalks, walkid]);
-        }
-      } catch (error) {
-        console.error("Error updating favourites list", error);
-      }
+  async function addToFavourites(ownerid, walkid) {
+    try {
+      await addWalkToFavourites(ownerid, walkid);
+      setFavouriteWalks((prevFavourites) => [...prevFavourites, walkid]);
+      console.log("added favourite");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error adding walk to favourites", error);
+    }
+  }
+
+  async function removeFromFavourites(ownerid, walkid) {
+    try {
+      await removeWalkFromFavourites(ownerid, walkid);
+      setFavouriteWalks((prevFavourites) =>
+        prevFavourites.filter((id) => id !== walkid)
+      );
+      console.log("removed favourite");
+      window.location.reload();
+    } catch (error) {
+      console.error("Error removing walk from favourites", error);
     }
   }
 
@@ -52,15 +61,19 @@ export default function WalkDetailContents({
             />
           </Link>
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
-
-          <CiStar
+          <FavouriteStar
+            walkid={walkid}
+            addToFavourites={() => addToFavourites(ownerid, walkid)}
+            removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
+          ></FavouriteStar>
+          {/* <CiStar
             className={`starIcon icon walkDetailIcon ${
               favouriteWalks.includes(walkid)
                 ? "favouriteList"
                 : "notFavouriteList"
             } ${darkTheme ? "dark" : "light"}`}
             onClick={() => toggleFavourites(ownerid, isLoggedIn)}
-          />
+          /> */}
         </div>
         <h2 className="walkDetailLocation">{walk.location}</h2>
         <div className="walkDetail">
@@ -77,7 +90,3 @@ export default function WalkDetailContents({
     </div>
   );
 }
-
-// Create function that does the following:
-// if walkid is not in favouriteWalksId, star icon should add it upon click by calling addWalkToFavourites(ownerid, walkid)
-// if walkid is in favouriteWalksId, star icon should remove it upon click by calling removeWalkFromFavourites(ownerid, walkid)
