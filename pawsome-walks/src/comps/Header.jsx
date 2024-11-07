@@ -7,7 +7,7 @@ import Overlay from "./Overlay";
 export default function Header({
   navBarProps,
   showFavourites,
-  setShowFavourites,
+  setShowFavourites, filterFunctions
 }) {
   function toggleFavourites() {
     setShowFavourites(!showFavourites);
@@ -23,7 +23,7 @@ export default function Header({
         ></img>
       </Link>
       <div className="searchBarContainer">
-        <SearchBar></SearchBar>
+        <SearchBar filterFunctions={filterFunctions}></SearchBar>
       </div>
       <nav className="navBarContainer">
         <NavBar
