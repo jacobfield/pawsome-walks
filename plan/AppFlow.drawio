@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="R74SDMXlJxOJD4cbq-z2" name="Page-1">
-        <mxGraphModel dx="5583" dy="1049" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="4698" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -231,6 +231,18 @@
                 </mxCell>
                 <mxCell id="26" value="Browser" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;container=0;" vertex="1" parent="108">
                     <mxGeometry x="25.5" y="205.00000000000003" width="70" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Google_Maps_Logo_2020.svg/1137px-Google_Maps_Logo_2020.svg.png;" vertex="1" parent="1">
+                    <mxGeometry x="-2070" y="441.63" width="107.5" height="96.75" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="" style="endArrow=classic;startArrow=classic;html=1;fontSize=18;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.04;entryY=0.818;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="110" target="51">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="-1930" y="400" as="sourcePoint"/>
+                        <mxPoint x="-1870" y="470" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="113" value="Google Maps&amp;nbsp;&lt;br&gt;Api&amp;nbsp;&lt;br&gt;Request /&amp;nbsp; Response" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;container=0;" vertex="1" parent="1">
+                    <mxGeometry x="-1962.5" y="420.57" width="140" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
