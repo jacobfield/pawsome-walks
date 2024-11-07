@@ -1,4 +1,4 @@
-export default function SearchBar() {
+export default function SearchBar({ filterFunctions }) {
   return (
     <div className="searchBar">
       <input
@@ -11,7 +11,7 @@ export default function SearchBar() {
   );
 }
 
-// Create shallow copy of all walks in MainContent. This needs to be passed down to siblings Main and Header -> SearchBar
+// Create shallow state copy of all walks in MainContent. This needs to be passed down to siblings Main and Header -> SearchBar
 // Also pass down an 'isFiltered' boolean setter to Search Bar, and value to Main
 // Main: if isFiltered, show filtered list of walks
 // SearchBar: if searchbar populated, set isFiltered to true, once it is empty,set it to false. Do this in the handle change function. I don't want a submit button, I want it to be filtered when typing.
