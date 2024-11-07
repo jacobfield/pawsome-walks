@@ -50,6 +50,14 @@ export default function FavouriteStar({
       setJustFavouritesIds(favouriteWalksArray);
     }
   }, [favouriteWalks]);
+  if (!owner) {
+    return (
+      <CiStar
+        className="starIcon icon walkDetailIcon notFavouriteList"
+        onClick={() => alert("Please log in to add favourites")}
+      />
+    );
+  }
   if (isFavouritesLoading) {
     return (
       <l-bouncy
@@ -65,6 +73,7 @@ export default function FavouriteStar({
       ></l-bouncy>
     );
   }
+
   return justFavouritesIds.includes(walkid) ? (
     <CiStar
       className="starIcon icon walkDetailIcon favouriteList"
