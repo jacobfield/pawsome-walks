@@ -1,18 +1,20 @@
 export default function SearchBar({ filterFunctions }) {
+  const { handleFilter } = filterFunctions;
   return (
     <div className="searchBar">
       <input
         className="searchInput"
         type="text"
         placeholder="Search walks..."
+        onChange={handleFilter}
       ></input>
       {/* <button className="searchButton">Search</button> */}
     </div>
   );
 }
 
-// Create shallow state copy of all walks in MainContent. This needs to be passed down to siblings Main and Header -> SearchBar
-// Also pass down an 'isFiltered' boolean setter to Search Bar, and value to Main
+// Create shallow state copy of all walks in MainContent. This needs to be passed down to siblings Main and Header -> SearchBar ---DONE
+// Also pass down an 'isFiltered' boolean setter to Search Bar, and value to Main--DONE
 // Main: if isFiltered, show filtered list of walks
 // SearchBar: if searchbar populated, set isFiltered to true, once it is empty,set it to false. Do this in the handle change function. I don't want a submit button, I want it to be filtered when typing.
 // Return spinner if nothing found in filter. If nothing found, return a message saying 'No walks found'
