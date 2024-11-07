@@ -1,7 +1,7 @@
 // controllers/uploads/uploadPhotosController.js
 import dotenv from "dotenv";
-import { uploadImageToBucket } from "../../src/helpers/supabaseBucketUploader.js";
-import { insertUploadRecord } from "../../src/helpers/supabaseDbInserter.js";
+import { uploadImageToBucket } from "../../helper-functions/helpers/supabaseBucketUploader.js";
+import { insertUploadRecord } from "../../helper-functions/helpers/supabaseDbInserter.js";
 
 dotenv.config();
 
