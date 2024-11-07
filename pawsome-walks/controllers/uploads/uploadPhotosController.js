@@ -1,7 +1,7 @@
 // controllers/uploads/uploadPhotosController.js
 import dotenv from "dotenv";
-import { uploadImageToBucket } from "../../src/helpers/supabaseBucketUploader.js";
-import { insertUploadRecord } from "../../src/helpers/supabaseDbInserter.js";
+import { uploadImageToBucket } from "../../helper-functions/supabase-helpers/supabaseBucketUploader.js";
+import { insertUploadRecord } from "../../helper-functions/supabase-helpers/supabaseDbInserter.js";
 
 dotenv.config();
 
@@ -28,7 +28,7 @@ export async function uploadPhotosController(req, res) {
     // console.log("Upload Data:", uploadData);
     const insertedData = await insertUploadRecord(uploadData);
     // Log insertedData to confirm if it's successful
-    
+
     res.status(201).json({
       status: "success",
       data: insertedData,
@@ -39,5 +39,3 @@ export async function uploadPhotosController(req, res) {
     res.status(500).json({ status: "error", message: error.message });
   }
 }
-
-
