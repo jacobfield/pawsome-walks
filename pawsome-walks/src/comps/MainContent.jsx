@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
 import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
+import filterWalks from "../hooks/filterWalks.js";
 
 //
 export default function MainContent({ allWalks, darkTheme, navBarProps }) {
@@ -22,6 +23,28 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const isLoginPage = location.pathname.endsWith("SignIn");
   const { owner, isLoggedIn } = useAuth();
   const [showFavourites, setShowFavourites] = useState(false);
+  const [filteredWalks, setFilteredWalks] = useState(allWalks);
+  const [isFiltered, setIsFiltered] = useState(false);
+
+  const handleFilter = (e) => {
+    const searchValue = e.target.value.toLowerCase();
+
+    if (searchValue.length > 0) {
+      setIsFiltered(true);
+      setFilteredWalks(filterWalks(allWalks, searchValue));
+    } else {
+      setIsFiltered(false);
+      setFilteredWalks(allWalks);
+    }
+  };
+
+  const filterFunctions = {
+    handleFilter,
+    isFiltered,
+    setIsFiltered,
+    filteredWalks,
+    setFilteredWalks,
+  };
 
   useEffect(() => {
     async function fetchFavouritesData() {
@@ -31,7 +54,6 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
             owner.ownerId
           );
           setFavouriteWalks(favouriteWalks);
-  
         } catch (error) {
           error;
 
@@ -49,6 +71,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
           navBarProps={navBarProps}
           showFavourites={showFavourites}
           setShowFavourites={setShowFavourites}
+          filterFunctions={filterFunctions}
         />
       )}
       <div className="mainContent">
@@ -61,6 +84,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
                 favouriteWalks={favouriteWalks}
                 setFavouriteWalks={setFavouriteWalks}
                 showFavourites={showFavourites}
+                filterFunctions={filterFunctions}
               />
             }
           />

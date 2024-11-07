@@ -345,3 +345,8 @@ footer.light {
 .starIcon {
   cursor: pointer;
 }
+.noSearchFound {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 30px;
+}
