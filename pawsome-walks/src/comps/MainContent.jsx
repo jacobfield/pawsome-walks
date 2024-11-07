@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
 import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
+import filterWalks from "../hooks/filterWalks.js";
 
 //
 export default function MainContent({ allWalks, darkTheme, navBarProps }) {
@@ -30,10 +31,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
 
     if (searchValue.length > 0) {
       setIsFiltered(true);
-      const filteredWalks = allWalks.filter((walk) =>
-        walk.walkname.toLowerCase().includes(searchValue)
-      );
-      setFilteredWalks(filteredWalks);
+      setFilteredWalks(filterWalks(allWalks, searchValue));
     } else {
       setIsFiltered(false);
       setFilteredWalks(allWalks);

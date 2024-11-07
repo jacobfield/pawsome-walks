@@ -28,7 +28,7 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
       </div>
     );
   }
-  // console.log("walk", walk);
+  console.log("walk", walk);
   if (walk) {
     return (
       <div className="walkDetailContainer">
