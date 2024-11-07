@@ -41,7 +41,8 @@
     max-height: 150px;
     border-radius: 50%;
     width: auto;
-  }  .profileIcon {
+  }
+  .profileIcon {
     border-radius: 50%;
   }
   .navBarContainer {
@@ -111,7 +112,7 @@
     margin: 0 auto;
     overflow-y: auto;
     justify-self: center;
-    padding: 10px 0 10px 0;
+    /* padding: 10px 0 10px 0; */
     row-gap: 15px;
   }
 
