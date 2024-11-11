@@ -1,4 +1,4 @@
-import { useState, useEfferct } from "react";
+import { useState, useEffect } from "react";
 
 export default function useFilterBoxes() {
 
@@ -8,12 +8,19 @@ export default function useFilterBoxes() {
         } else {
             const filtered = allCards.filter((card)) => {
                 return (
-                    card.walktype === currentCart || card.walkType.includes(currentCard)
-                    || card.offleadareas === currentCard 
+                    card.walktype == currentCart || card.walkType.includes(currentCard)
+                    || card.offleadareas == currentCard // true or false
+                    || card.paths == currentCard // true or false
+                    || card.animalsonroute == currentCard // true or false
+                    || card.toilets == currentCard // true or false
+                    || card.wateronroute == currentCard // true or false
+                    || card.scenic == currentCard // true or false
+                    || card.parking == currentCard || card.parking.includes(currentCard)
                 )
             }
+            setCards(filtered);
         }
-    })
+    }, [currentCard])
 
 
 }

@@ -1,4 +1,4 @@
-import { useState, useEfferct } from "react";
+import { useState, useEffect } from "react";
 
 export default function FilterBoxes() {
   const handleButtons = (e) => {
@@ -6,6 +6,5 @@ export default function FilterBoxes() {
     setCurrentCard(word);
   };
 
-  
   return <></>;
 }
