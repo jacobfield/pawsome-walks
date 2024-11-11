@@ -6,6 +6,7 @@ export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
   setIsFiltered,
+  filterIsOpen,
 }) {
   const { darkTheme } = useContext(ThemeContext);
   const [filters, setFilters] = useState({
@@ -35,7 +36,7 @@ export default function FilterBoxes({
   useFilterBoxes(filters, setFilteredWalks, allWalks);
 
   return (
-    <>
+    <div className={`filterSlide ${filterIsOpen ? "open" : ""}`}>
       <button onClick={handleChange}>FILTERS</button>
       <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
         <select onChange={handleFilterChange} id="walktype">
@@ -119,6 +120,6 @@ export default function FilterBoxes({
           <option value="paid">Paid Parking</option>
         </select>
       </div>
-    </>
+    </div>
   );
 }

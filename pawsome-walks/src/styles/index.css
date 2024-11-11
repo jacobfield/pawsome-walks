@@ -447,3 +447,25 @@ footer.light {
   outline: none;
   box-shadow: 0 0 0 3px rgba(102, 104, 231, 0.267);
 }
+
+
+/* FILTER TRANSITION */
+.filterSlide {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.filterSlide.open {
+  max-height: 200px; /* Adjust based on content size */
+  opacity: 1;
+}
+
+.filterBoxesContainer {
+  padding: 20px;
+  background-color: inherit;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 10px;
+}

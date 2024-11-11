@@ -8,22 +8,24 @@ export default function FilterOverlay({
   setFilteredWalks,
   filteredWalks,
 }) {
-  const handleChange = (e) => {
+  const handleChange = () => {
     setFilterIsOpen(!filterIsOpen);
   };
 
-  return filterIsOpen ? (
-    <FilterBoxes
-      handleChange={handleChange}
-      setIsFiltered={setIsFiltered}
-      allWalks={allWalks}
-      setFilteredWalks={setFilteredWalks}
-      filteredWalks={filteredWalks}
-    ></FilterBoxes>
-  ) : (
+  return (
     <>
-      <br></br>
       <button onClick={handleChange}>FILTERS</button>
+
+      <div className={`filterSlide ${filterIsOpen ? "open" : ""}`}>
+        <FilterBoxes
+          handleChange={handleChange}
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+          filterIsOpen={filterIsOpen}
+        />
+      </div>
     </>
   );
 }
