@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
-export default function FilterBoxes({ allWalks }) {
-  const [filteredWalks, setFilteredWalks] = useState(allWalks);
+export default function FilterBoxes({
+  allWalks,
+  setFilteredWalks,
+  filteredWalks,
+}) {
+  //   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [currentWalk, setCurrentWalk] = useState("All");
   const [filterType, setFilterType] = useState("");
 
@@ -17,7 +21,7 @@ export default function FilterBoxes({ allWalks }) {
     setFilterType(filterType);
   };
 
-  useFilterBoxes(currentWalk, setFilteredWalks, allWalks);
+  useFilterBoxes(currentWalk, setFilteredWalks, allWalks, filterType);
 
   return (
     <div className="filterBoxesContainer">
@@ -29,7 +33,7 @@ export default function FilterBoxes({ allWalks }) {
         ))}
       </select>
       <button
-        type="checkbox"
+        type="button"
         id="offleadareas"
         value="true"
         onClick={handleFilterChange}
@@ -37,7 +41,7 @@ export default function FilterBoxes({ allWalks }) {
         Off Lead Areas
       </button>
       <button
-        type="checkbox"
+        type="button"
         id="paths"
         value="true"
         onClick={handleFilterChange}
@@ -45,7 +49,7 @@ export default function FilterBoxes({ allWalks }) {
         Paved routes
       </button>
       <button
-        type="checkbox"
+        type="button"
         id="animalsonroute"
         value="true"
         onClick={handleFilterChange}
@@ -53,7 +57,7 @@ export default function FilterBoxes({ allWalks }) {
         Animals On Route
       </button>
       <button
-        type="checkbox"
+        type="button"
         id="toilets"
         value="true"
         onClick={handleFilterChange}
@@ -61,7 +65,7 @@ export default function FilterBoxes({ allWalks }) {
         Toilets Available
       </button>
       <button
-        type="checkbox"
+        type="button"
         id="wateronroute"
         value="true"
         onClick={handleFilterChange}
@@ -69,7 +73,7 @@ export default function FilterBoxes({ allWalks }) {
         Water On Route
       </button>
       <button
-        type="checkbox"
+        type="button"
         id="scenic"
         value="true"
         onClick={handleFilterChange}
@@ -84,6 +88,6 @@ export default function FilterBoxes({ allWalks }) {
   );
 }
 
-// build out the form, and the select options / checkboxes
+// build out the form, and the select options / buttones
 // create state that is passed down to useFilterBoxes, which declares what it is that allWalks is being filtered by: eg. walktype, parking, scenic, etc.
-// create a handleChange function that will update the state with the value of the select option / checkbox
+// create a handleChange function that will update the state with the value of the select option / button

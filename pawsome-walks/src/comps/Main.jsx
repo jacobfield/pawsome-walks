@@ -14,8 +14,13 @@ export default function Main({
   bouncy.register();
 
   const { darkTheme } = useContext(ThemeContext);
-  const { handleFilter, isFiltered, filteredWalks, setIsFiltered } =
-    filterFunctions;
+  const {
+    handleFilter,
+    isFiltered,
+    filteredWalks,
+    setFilteredWalks,
+    setIsFiltered,
+  } = filterFunctions;
 
   if (!allWalks) {
     return (

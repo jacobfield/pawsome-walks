@@ -12,22 +12,38 @@ export default function useFilterBoxes(
       setFilteredWalks(allWalks);
     } else {
       const filtered = allWalks.filter((walk) => {
-        return (
-          walk.walktype == currentWalk ||
-          walk.walkType.includes(currentWalk) ||
-          walk.offleadareas == currentWalk || // true or false
-          walk.paths == currentWalk || // true or false
-          walk.animalsonroute == currentWalk || // true or false
-          walk.toilets == currentWalk || // true or false
-          walk.wateronroute == currentWalk || // true or false
-          walk.scenic == currentWalk || // true or false
-          walk.parking == currentWalk ||
-          walk.parking.includes(currentWalk)
-        );
+        switch (filterType) {
+          case "walktype":
+            walk.walktype == currentWalk || walk.walkType.includes(currentWalk);
+            break;
+          case "offleadareas":
+            walk.offleadareas == currentWalk;
+            break;
+          case "paths":
+            walk.paths == currentWalk;
+            break;
+          case "animalsonroute":
+            walk.animalsonroute == currentWalk;
+            break;
+          case "toilets":
+            walk.toilets == currentWalk;
+            break;
+          case "wateronroute":
+            walk.wateronroute == currentWalk;
+            break;
+          case "scenic":
+            walk.scenic == currentWalk;
+            break;
+          case "parking":
+            walk.parking == currentWalk || walk.parking.includes(currentWalk);
+            break;
+          default:
+            return allWalks;
+        }
       });
       setFilteredWalks(filtered);
     }
-  }, [currentWalk]);
+  }, [currentWalk, filterType]);
 }
 
 // Might just need to make the 'value' for each of the boolean options a boolean, and then when the filter checks it will just return the ones with matching truthy values.
