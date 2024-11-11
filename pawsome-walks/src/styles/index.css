@@ -350,3 +350,21 @@ footer.light {
   margin-top: 20px;
   padding-top: 30px;
 }
+
+.filterBoxesContainer {
+  width: 100%;
+
+  /* border: 1px solid #ccc; */
+  height: auto;
+
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+select#parking,
+select#walktype {
+  max-height: 20px;
+}

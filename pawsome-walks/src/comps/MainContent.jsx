@@ -63,7 +63,6 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
     }
     fetchFavouritesData();
   }, [isLoggedIn, owner]);
-
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && (

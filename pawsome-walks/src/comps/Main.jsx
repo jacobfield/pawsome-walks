@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
+import FilterBoxes from "./FilterBoxes";
 export default function Main({
   allWalks,
   favouriteWalks,
@@ -14,8 +15,13 @@ export default function Main({
   bouncy.register();
 
   const { darkTheme } = useContext(ThemeContext);
-  const { handleFilter, isFiltered, filteredWalks, setIsFiltered } =
-    filterFunctions;
+  const {
+    handleFilter,
+    isFiltered,
+    filteredWalks,
+    setFilteredWalks,
+    setIsFiltered,
+  } = filterFunctions;
 
   if (!allWalks) {
     return (
@@ -24,17 +30,35 @@ export default function Main({
       </div>
     );
   }
+  // console.log("Main All Walks", allWalks);
 
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
-    return <h1 className="noSearchFound">No matching walks found. Try adjusting your search!</h1>;
+    return (
+      <div>
+        <FilterBoxes
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+        ></FilterBoxes>
+        <h1 className="noSearchFound">
+          No matching walks found. Try adjusting your search!
+        </h1>
+      </div>
+    );
   }
 
   if (isFiltered && filteredWalks.length != 0) {
     return (
       <section className="walksContainer">
-        <Quote></Quote>
-
+        <Quote></Quote>;
+        <FilterBoxes
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+        ></FilterBoxes>
         {!showFavourites
           ? filteredWalks &&
             filteredWalks.map((walk) => (
@@ -107,7 +131,12 @@ export default function Main({
   return (
     <section className="walksContainer">
       <Quote></Quote>
-
+      <FilterBoxes
+        setIsFiltered={setIsFiltered}
+        allWalks={allWalks}
+        setFilteredWalks={setFilteredWalks}
+        filteredWalks={filteredWalks}
+      ></FilterBoxes>
       {!showFavourites
         ? allWalks &&
           allWalks.map((walk) => (
