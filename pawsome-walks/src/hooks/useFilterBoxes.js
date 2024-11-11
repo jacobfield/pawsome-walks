@@ -3,8 +3,10 @@ import { useEffect } from "react";
 export default function useFilterBoxes(
   currentWalk,
   setFilteredWalks,
-  allWalks
+  allWalks,
+  filterType
 ) {
+  // MAKE SWITCH STATEMENT FOR FILTER TYPE
   useEffect(() => {
     if (currentWalk === "All") {
       setFilteredWalks(allWalks);
