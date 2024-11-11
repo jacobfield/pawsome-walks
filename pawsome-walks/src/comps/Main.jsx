@@ -30,14 +30,16 @@ export default function Main({
   if (isFiltered && walksToDisplay.length === 0) {
     return (
       <div>
-        <FilterOverlay
-          filterIsOpen={filterIsOpen}
-          setFilterIsOpen={setFilterIsOpen}
-          setIsFiltered={setIsFiltered}
-          allWalks={allWalks}
-          setFilteredWalks={setFilteredWalks}
-          filteredWalks={filteredWalks}
-        ></FilterOverlay>
+        <div className="filterOverlayWrapper">
+          <FilterOverlay
+            filterIsOpen={filterIsOpen}
+            setFilterIsOpen={setFilterIsOpen}
+            setIsFiltered={setIsFiltered}
+            allWalks={allWalks}
+            setFilteredWalks={setFilteredWalks}
+            filteredWalks={filteredWalks}
+          ></FilterOverlay>
+        </div>
         <h1 className="noSearchFound">
           No matching walks found. Try adjusting your search!
         </h1>
@@ -49,14 +51,16 @@ export default function Main({
     return (
       <section className="walksContainer">
         <Quote></Quote>
-        <FilterOverlay
-          filterIsOpen={filterIsOpen}
-          setFilterIsOpen={setFilterIsOpen}
-          setIsFiltered={setIsFiltered}
-          allWalks={allWalks}
-          setFilteredWalks={setFilteredWalks}
-          filteredWalks={filteredWalks}
-        ></FilterOverlay>
+        <div className="filterOverlayWrapper">
+          <FilterOverlay
+            filterIsOpen={filterIsOpen}
+            setFilterIsOpen={setFilterIsOpen}
+            setIsFiltered={setIsFiltered}
+            allWalks={allWalks}
+            setFilteredWalks={setFilteredWalks}
+            filteredWalks={filteredWalks}
+          ></FilterOverlay>
+        </div>
         {!showFavourites
           ? filteredWalks &&
             filteredWalks.map((walk) => (
@@ -129,14 +133,17 @@ export default function Main({
   return (
     <section className="walksContainer">
       <Quote></Quote>
-      <FilterOverlay
-        filterIsOpen={filterIsOpen}
-        setFilterIsOpen={setFilterIsOpen}
-        setIsFiltered={setIsFiltered}
-        allWalks={allWalks}
-        setFilteredWalks={setFilteredWalks}
-        filteredWalks={filteredWalks}
-      ></FilterOverlay>
+      <br></br>
+      <div className="filterOverlayWrapper">
+        <FilterOverlay
+          filterIsOpen={filterIsOpen}
+          setFilterIsOpen={setFilterIsOpen}
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+        ></FilterOverlay>
+      </div>
       {!showFavourites
         ? allWalks &&
           allWalks.map((walk) => (
