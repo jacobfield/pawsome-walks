@@ -4,11 +4,8 @@ import useFilterBoxes from "../hooks/useFilterBoxes";
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
-  filteredWalks,
   setIsFiltered,
 }) {
-  const [currentWalk, setCurrentWalk] = useState("All");
-  const [filterType, setFilterType] = useState("");
   const [filters, setFilters] = useState({
     walktype: "All",
     offleadareas: false,
