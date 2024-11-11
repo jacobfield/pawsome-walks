@@ -20,5 +20,5 @@
   },
   "peacock.color": "#8267e1",
   "dotnet.defaultSolution": "Pawsome WebAPI.sln",
-  "cSpell.words": ["Favourite"]
+  "cSpell.words": ["Favourite", "offleadareas", "walktype"]
 }
