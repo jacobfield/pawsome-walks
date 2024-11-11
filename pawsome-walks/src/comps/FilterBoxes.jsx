@@ -1,17 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
+
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
   filteredWalks,
 }) {
-  //   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [currentWalk, setCurrentWalk] = useState("All");
   const [filterType, setFilterType] = useState("");
 
-  // allWalks.flatMap((walk) => walk.walktype) flattens the walktype arrays into one array.
-  // new Set changes it to a set, which removes duplicates.
-  // the Spread operator (...) converts the set back into an array
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
@@ -32,54 +29,67 @@ export default function FilterBoxes({
           </option>
         ))}
       </select>
-      <button
-        type="button"
-        id="offleadareas"
-        value="true"
-        onClick={handleFilterChange}
-      >
+
+      <label>
+        <input
+          type="checkbox"
+          id="offleadareas"
+          value="true"
+          onClick={handleFilterChange}
+        />
         Off Lead Areas
-      </button>
-      <button
-        type="button"
-        id="paths"
-        value="true"
-        onClick={handleFilterChange}
-      >
-        Paved routes
-      </button>
-      <button
-        type="button"
-        id="animalsonroute"
-        value="true"
-        onClick={handleFilterChange}
-      >
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="paths"
+          value="true"
+          onClick={handleFilterChange}
+        />
+        Paved Routes
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="animalsonroute"
+          value="true"
+          onClick={handleFilterChange}
+        />
         Animals On Route
-      </button>
-      <button
-        type="button"
-        id="toilets"
-        value="true"
-        onClick={handleFilterChange}
-      >
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="toilets"
+          value="true"
+          onClick={handleFilterChange}
+        />
         Toilets Available
-      </button>
-      <button
-        type="button"
-        id="wateronroute"
-        value="true"
-        onClick={handleFilterChange}
-      >
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="wateronroute"
+          value="true"
+          onClick={handleFilterChange}
+        />
         Water On Route
-      </button>
-      <button
-        type="button"
-        id="scenic"
-        value="true"
-        onClick={handleFilterChange}
-      >
+      </label>
+
+      <label>
+        <input
+          type="checkbox"
+          id="scenic"
+          value="true"
+          onClick={handleFilterChange}
+        />
         Scenic Views
-      </button>
+      </label>
+
       <select onChange={handleFilterChange} id="parking">
         <option value="free">Free Parking</option>
         <option value="paid">Paid Parking</option>
@@ -87,7 +97,3 @@ export default function FilterBoxes({
     </div>
   );
 }
-
-// build out the form, and the select options / buttones
-// create state that is passed down to useFilterBoxes, which declares what it is that allWalks is being filtered by: eg. walktype, parking, scenic, etc.
-// create a handleChange function that will update the state with the value of the select option / button

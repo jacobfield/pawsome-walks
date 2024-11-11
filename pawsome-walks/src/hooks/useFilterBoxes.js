@@ -14,36 +14,34 @@ export default function useFilterBoxes(
       const filtered = allWalks.filter((walk) => {
         switch (filterType) {
           case "walktype":
-            walk.walktype == currentWalk || walk.walkType.includes(currentWalk);
-            break;
+            return (
+              walk.walktype == currentWalk ||
+              walk.walkType.includes(currentWalk)
+            );
           case "offleadareas":
-            walk.offleadareas == currentWalk;
-            break;
+            return walk.offleadareas == currentWalk;
           case "paths":
-            walk.paths == currentWalk;
-            break;
+            return walk.paths == currentWalk;
           case "animalsonroute":
-            walk.animalsonroute == currentWalk;
-            break;
+            return walk.animalsonroute == currentWalk;
           case "toilets":
-            walk.toilets == currentWalk;
-            break;
+            return walk.toilets == currentWalk;
           case "wateronroute":
-            walk.wateronroute == currentWalk;
-            break;
+            return walk.wateronroute == currentWalk;
           case "scenic":
-            walk.scenic == currentWalk;
-            break;
+            return walk.scenic == currentWalk;
           case "parking":
-            walk.parking == currentWalk || walk.parking.includes(currentWalk);
-            break;
+            return (
+              walk.parking == currentWalk || walk.parking.includes(currentWalk)
+            );
           default:
             return allWalks;
         }
       });
+      console.log("Filtered", filtered);
       setFilteredWalks(filtered);
     }
-  }, [currentWalk, filterType]);
+  }, [currentWalk, filterType, allWalks, setFilteredWalks]);
 }
 
 // Might just need to make the 'value' for each of the boolean options a boolean, and then when the filter checks it will just return the ones with matching truthy values.
