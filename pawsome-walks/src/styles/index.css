@@ -345,3 +345,207 @@ footer.light {
 .starIcon {
   cursor: pointer;
 }
+.noSearchFound {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 30px;
+}
+
+.filterBoxesContainer {
+  width: 100%;
+  height: auto;
+  display: block;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filterBoxesContainer select {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+
+.filterBoxesContainer select:hover {
+  border-color: inherit;
+  color: inherit;
+}
+
+.filterBoxesContainer.dark select:focus {
+  border-color: inherit;
+  background-color: black;
+}
+/* FILTER CONTAINER  */
+.filterBoxesContainer label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0;
+  cursor: pointer;
+  font-size: 1rem;
+  justify-content: center;
+}
+
+/* FILTER CHECKBOX  */
+
+.filterBoxesContainer.dark label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filterBoxesContainer.dark label input[type="checkbox"]:checked {
+  background-color: #fafaf0;
+  border: 5px solid #54b0cc;
+}
+.filterBoxesContainer.dark select:focus,
+.filterBoxesContainer.dark label input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(174, 223, 238);
+}
+
+.filterBoxesContainer.light label input[type="checkbox"] {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #44375a;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.filterBoxesContainer.light label input[type="checkbox"]:checked {
+  background-color: #44375a;
+  border-color: #44375a;
+}
+
+.filterBoxesContainer.light label input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  background-color: #6668e7;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.filterBoxesContainer.light select:focus,
+.filterBoxesContainer.light label input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 104, 231, 0.267);
+}
+
+/* FILTER TRANSITION */
+.filterOverlayContainer {
+  display: grid;
+  justify-content: center;
+  width: 100%;
+  clear: both;
+}
+.filterSlide {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.filterSlide.open {
+  max-height: 200px; /* Adjust based on content size */
+  opacity: 1;
+}
+
+.filterBoxesContainer.light {
+  padding: 20px;
+  background-color: inherit;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.filterBoxesContainer.dark {
+  box-shadow: 0 4px 8px rgb(255, 255, 255);
+}
+.filterOverlayWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.filterOverlayButton.light {
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterOverlayButton.light:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.filterOverlayButton.light:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 57, 107, 0.5);
+}
+
+.filterOverlayButton.light:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
+}
+
+.filterOverlayButton.dark {
+  background-color: inherit;
+  color: inherit;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterOverlayButton.dark:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.filterOverlayButton.dark:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #44375a8c;
+}
+
+.filterOverlayButton.dark:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
+}
