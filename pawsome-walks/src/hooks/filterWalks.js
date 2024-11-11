@@ -6,7 +6,7 @@ export default function filterWalks(allWalks, searchValue) {
   return allWalks.filter((walk) => {
     const hasKeywordMatch =
       (lowerSearch.includes("toi") && walk.toilets) ||
-      (lowerSearch.includes("par") && walk.parking === "paid") || 
+      (lowerSearch.includes("par") && walk.parking === "paid") ||
       (lowerSearch.includes("par") && walk.parking === "free") ||
       (lowerSearch.includes("ani") && walk.animalsonroute) ||
       (lowerSearch.includes("off") && walk.offleadareas) ||
@@ -21,6 +21,3 @@ export default function filterWalks(allWalks, searchValue) {
     );
   });
 }
-
-
-

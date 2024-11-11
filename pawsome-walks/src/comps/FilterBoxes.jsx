@@ -9,29 +9,36 @@ export default function FilterBoxes({
 }) {
   const [currentWalk, setCurrentWalk] = useState("All");
   const [filterType, setFilterType] = useState("");
-
+  const [filters, setFilters] = useState({
+    walktype: "All",
+    offleadareas: false,
+    paths: false,
+    animalsonroute: false,
+    toilets: false,
+    wateronroute: false,
+    scenic: false,
+    parking: "All",
+  });
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
-    setFilterType(filterType);
+    let filterValue =
+      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      [filterType]: filterValue,
+    }));
 
-    if (e.target.type === "checkbox") {
-      const filterValue = e.target.checked ? true : "All";
-      setCurrentWalk(filterValue);
-    } else {
-      let filterValue = e.target.value;
-      setCurrentWalk(filterValue);
-    }
     setIsFiltered(true);
   };
 
-  useFilterBoxes(currentWalk, setFilteredWalks, allWalks, filterType);
+  useFilterBoxes(filters, setFilteredWalks, allWalks);
 
   return (
     <div className="filterBoxesContainer">
       <select onChange={handleFilterChange} id="walktype">
-        <option value="All">Walk Type</option>
+        <option value="All">Walk Type?</option>
         {walkTypeArr.map((walktype) => (
           <option key={walktype} value={walktype}>
             {walktype}
@@ -45,6 +52,7 @@ export default function FilterBoxes({
           id="offleadareas"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.offleadareas}
         />
         Off Lead Areas
       </label>
@@ -55,6 +63,7 @@ export default function FilterBoxes({
           id="paths"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.paths}
         />
         Paved Routes
       </label>
@@ -65,6 +74,7 @@ export default function FilterBoxes({
           id="animalsonroute"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.animalsonroute}
         />
         Animals On Route
       </label>
@@ -75,6 +85,7 @@ export default function FilterBoxes({
           id="toilets"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.toilets}
         />
         Toilets Available
       </label>
@@ -85,6 +96,7 @@ export default function FilterBoxes({
           id="wateronroute"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.wateronroute}
         />
         Water On Route
       </label>
@@ -95,12 +107,13 @@ export default function FilterBoxes({
           id="scenic"
           value="true"
           onChange={handleFilterChange}
+          checked={filters.scenic}
         />
         Scenic Views
       </label>
 
       <select onChange={handleFilterChange} id="parking">
-        <option value="All">Parking available</option>
+        <option value="All">Parking available?</option>
         <option value="free">Free Parking</option>
         <option value="paid">Paid Parking</option>
       </select>

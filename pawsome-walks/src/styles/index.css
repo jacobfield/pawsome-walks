@@ -352,13 +352,19 @@ footer.light {
 }
 
 .filterBoxesContainer {
-  width: 80%;
+  width: 100%;
 
   /* border: 1px solid #ccc; */
   height: auto;
+
   display: block;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+
+select#parking,
+select#walktype {
+  max-height: 20px;
 }

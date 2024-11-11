@@ -295,7 +295,7 @@ export const walks = [
     location: "Peak District, Derbyshire",
     lat: 53.242074,
     lng: -1.72758,
-    walkType: ["Hilly", "Scenic"],
+    walkType: ["Hilly"],
     offLeadAreas: true,
     paths: true,
     animalsOnRoute: false,
