@@ -17,7 +17,12 @@ export default function FilterOverlay({
   return (
     <div className="filterOverlayContainer">
       <div className="container1">
-        <button className="filterOverlayButton" onClick={handleChange}>
+        <button
+          className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
+            filterIsOpen ? "open" : ""
+          }`}
+          onClick={handleChange}
+        >
           {filterIsOpen ? "Hide" : "Show"} Filters
         </button>
       </div>

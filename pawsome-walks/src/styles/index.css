@@ -487,31 +487,61 @@ footer.light {
   width: 100%;
 }
 
-.filterOverlayButton {
-  background-color: transparent;
+.filterOverlayButton.light {
+  background-color: inherit;
   color: inherit;
-  /* border: 1px solid #ccc; */
+  border: 1px solid #ccc;
   height: min-content;
-  padding: 5px;
-  min-width: 75px;
+  padding: 10px;
+  min-width: 115px;
   font-size: 16px;
-  border-radius: 4px;
+  border-radius: 50px;
   cursor: pointer;
+  margin-bottom: 5px;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.filterOverlayButton:hover {
-  background-color: #f0f0f0; /* Light hover effect */
+.filterOverlayButton.light:hover {
+  background-color: #f0f0f0;
   color: #000;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-.filterOverlayButton:focus {
+.filterOverlayButton.light:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5); /* Subtle focus outline */
+  box-shadow: 0 0 0 3px rgba(10, 57, 107, 0.5);
 }
 
-.filterOverlayButton:active {
+.filterOverlayButton.light:active {
   background-color: #e0e0e0;
-  box-shadow: none; /* Remove shadow on click */
+  box-shadow: none;
+}
+
+.filterOverlayButton.dark {
+  background-color: inherit;
+  color: inherit;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filterOverlayButton.dark:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.filterOverlayButton.dark:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #44375a8c;
+}
+
+.filterOverlayButton.dark:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
 }
