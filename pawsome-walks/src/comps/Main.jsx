@@ -36,12 +36,12 @@ export default function Main({
   if (isFiltered && walksToDisplay.length === 0) {
     return (
       <div>
-        {/* <FilterBoxes
+        <FilterBoxes
           setIsFiltered={setIsFiltered}
           allWalks={allWalks}
           setFilteredWalks={setFilteredWalks}
           filteredWalks={filteredWalks}
-        ></FilterBoxes> */}
+        ></FilterBoxes>
         <h1 className="noSearchFound">
           No matching walks found. Try adjusting your search!
         </h1>

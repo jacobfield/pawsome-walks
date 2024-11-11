@@ -13,11 +13,17 @@ export default function FilterBoxes({
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
-    setIsFiltered(true);
-    let filterValue = e.target.value;
     let filterType = e.target.id;
-    setCurrentWalk(filterValue);
     setFilterType(filterType);
+
+    if (e.target.type === "checkbox") {
+      const filterValue = e.target.checked ? true : "All";
+      setCurrentWalk(filterValue);
+    } else {
+      let filterValue = e.target.value;
+      setCurrentWalk(filterValue);
+    }
+    setIsFiltered(true);
   };
 
   useFilterBoxes(currentWalk, setFilteredWalks, allWalks, filterType);
@@ -38,7 +44,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="offleadareas"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Off Lead Areas
       </label>
@@ -48,7 +54,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="paths"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Paved Routes
       </label>
@@ -58,7 +64,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="animalsonroute"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Animals On Route
       </label>
@@ -68,7 +74,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="toilets"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Toilets Available
       </label>
@@ -78,7 +84,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="wateronroute"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Water On Route
       </label>
@@ -88,7 +94,7 @@ export default function FilterBoxes({
           type="checkbox"
           id="scenic"
           value="true"
-          onClick={handleFilterChange}
+          onChange={handleFilterChange}
         />
         Scenic Views
       </label>
