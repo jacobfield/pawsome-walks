@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
-import FilterBoxes from "./FilterBoxes";
+import FilterOverlay from "./FilterOverlay";
 export default function Main({
   allWalks,
   favouriteWalks,
@@ -12,7 +12,7 @@ export default function Main({
   filterFunctions,
 }) {
   bouncy.register();
-
+  const [filterIsOpen, setFilterIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
@@ -30,12 +30,16 @@ export default function Main({
   if (isFiltered && walksToDisplay.length === 0) {
     return (
       <div>
-        <FilterBoxes
-          setIsFiltered={setIsFiltered}
-          allWalks={allWalks}
-          setFilteredWalks={setFilteredWalks}
-          filteredWalks={filteredWalks}
-        ></FilterBoxes>
+        <div className="filterOverlayWrapper">
+          <FilterOverlay
+            filterIsOpen={filterIsOpen}
+            setFilterIsOpen={setFilterIsOpen}
+            setIsFiltered={setIsFiltered}
+            allWalks={allWalks}
+            setFilteredWalks={setFilteredWalks}
+            filteredWalks={filteredWalks}
+          ></FilterOverlay>
+        </div>
         <h1 className="noSearchFound">
           No matching walks found. Try adjusting your search!
         </h1>
@@ -47,12 +51,16 @@ export default function Main({
     return (
       <section className="walksContainer">
         <Quote></Quote>
-        <FilterBoxes
-          setIsFiltered={setIsFiltered}
-          allWalks={allWalks}
-          setFilteredWalks={setFilteredWalks}
-          filteredWalks={filteredWalks}
-        ></FilterBoxes>
+        <div className="filterOverlayWrapper">
+          <FilterOverlay
+            filterIsOpen={filterIsOpen}
+            setFilterIsOpen={setFilterIsOpen}
+            setIsFiltered={setIsFiltered}
+            allWalks={allWalks}
+            setFilteredWalks={setFilteredWalks}
+            filteredWalks={filteredWalks}
+          ></FilterOverlay>
+        </div>
         {!showFavourites
           ? filteredWalks &&
             filteredWalks.map((walk) => (
@@ -125,12 +133,17 @@ export default function Main({
   return (
     <section className="walksContainer">
       <Quote></Quote>
-      <FilterBoxes
-        setIsFiltered={setIsFiltered}
-        allWalks={allWalks}
-        setFilteredWalks={setFilteredWalks}
-        filteredWalks={filteredWalks}
-      ></FilterBoxes>
+      <br></br>
+      <div className="filterOverlayWrapper">
+        <FilterOverlay
+          filterIsOpen={filterIsOpen}
+          setFilterIsOpen={setFilterIsOpen}
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+        ></FilterOverlay>
+      </div>
       {!showFavourites
         ? allWalks &&
           allWalks.map((walk) => (
