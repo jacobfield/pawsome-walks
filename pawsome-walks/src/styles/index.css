@@ -491,6 +491,10 @@ footer.light {
   background-color: inherit;
   color: inherit;
   border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
   height: min-content;
   padding: 10px;
   min-width: 115px;
