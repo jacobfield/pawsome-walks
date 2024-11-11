@@ -1,14 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
-
+import { ThemeContext } from "./ThemeProvider";
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
-  filteredWalks,
   setIsFiltered,
 }) {
-  const [currentWalk, setCurrentWalk] = useState("All");
-  const [filterType, setFilterType] = useState("");
+  const { darkTheme } = useContext(ThemeContext);
   const [filters, setFilters] = useState({
     walktype: "All",
     offleadareas: false,
@@ -36,7 +34,7 @@ export default function FilterBoxes({
   useFilterBoxes(filters, setFilteredWalks, allWalks);
 
   return (
-    <div className="filterBoxesContainer">
+    <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
       <select onChange={handleFilterChange} id="walktype">
         <option value="All">Walk Type?</option>
         {walkTypeArr.map((walktype) => (

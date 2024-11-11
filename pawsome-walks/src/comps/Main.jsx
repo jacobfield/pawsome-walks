@@ -8,20 +8,14 @@ import FilterBoxes from "./FilterBoxes";
 export default function Main({
   allWalks,
   favouriteWalks,
-  setFavouriteWalks,
   showFavourites,
   filterFunctions,
 }) {
   bouncy.register();
 
   const { darkTheme } = useContext(ThemeContext);
-  const {
-    handleFilter,
-    isFiltered,
-    filteredWalks,
-    setFilteredWalks,
-    setIsFiltered,
-  } = filterFunctions;
+  const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
+    filterFunctions;
 
   if (!allWalks) {
     return (
@@ -52,7 +46,7 @@ export default function Main({
   if (isFiltered && filteredWalks.length != 0) {
     return (
       <section className="walksContainer">
-        <Quote></Quote>;
+        <Quote></Quote>
         <FilterBoxes
           setIsFiltered={setIsFiltered}
           allWalks={allWalks}
