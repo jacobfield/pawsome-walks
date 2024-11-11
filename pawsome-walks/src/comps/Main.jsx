@@ -24,10 +24,15 @@ export default function Main({
       </div>
     );
   }
+  console.log("Main All Walks", allWalks);
 
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
-    return <h1 className="noSearchFound">No matching walks found. Try adjusting your search!</h1>;
+    return (
+      <h1 className="noSearchFound">
+        No matching walks found. Try adjusting your search!
+      </h1>
+    );
   }
 
   if (isFiltered && filteredWalks.length != 0) {
