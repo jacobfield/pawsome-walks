@@ -5,6 +5,7 @@ export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
   filteredWalks,
+  setIsFiltered,
 }) {
   const [currentWalk, setCurrentWalk] = useState("All");
   const [filterType, setFilterType] = useState("");
@@ -12,6 +13,7 @@ export default function FilterBoxes({
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
+    setIsFiltered(true);
     let filterValue = e.target.value;
     let filterType = e.target.id;
     setCurrentWalk(filterValue);
@@ -23,6 +25,7 @@ export default function FilterBoxes({
   return (
     <div className="filterBoxesContainer">
       <select onChange={handleFilterChange} id="walktype">
+        <option value="All">Walk Type</option>
         {walkTypeArr.map((walktype) => (
           <option key={walktype} value={walktype}>
             {walktype}
@@ -91,6 +94,7 @@ export default function FilterBoxes({
       </label>
 
       <select onChange={handleFilterChange} id="parking">
+        <option value="All">Parking available</option>
         <option value="free">Free Parking</option>
         <option value="paid">Paid Parking</option>
       </select>

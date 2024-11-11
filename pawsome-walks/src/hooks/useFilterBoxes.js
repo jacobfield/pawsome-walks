@@ -16,7 +16,7 @@ export default function useFilterBoxes(
           case "walktype":
             return (
               walk.walktype == currentWalk ||
-              walk.walkType.includes(currentWalk)
+              walk.walktype.includes(currentWalk)
             );
           case "offleadareas":
             return walk.offleadareas == currentWalk;

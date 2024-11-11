@@ -30,14 +30,22 @@ export default function Main({
       </div>
     );
   }
-  console.log("Main All Walks", allWalks);
+  // console.log("Main All Walks", allWalks);
 
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
     return (
-      <h1 className="noSearchFound">
-        No matching walks found. Try adjusting your search!
-      </h1>
+      <div>
+        {/* <FilterBoxes
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+        ></FilterBoxes> */}
+        <h1 className="noSearchFound">
+          No matching walks found. Try adjusting your search!
+        </h1>
+      </div>
     );
   }
 
@@ -46,6 +54,7 @@ export default function Main({
       <section className="walksContainer">
         <Quote></Quote>;
         <FilterBoxes
+          setIsFiltered={setIsFiltered}
           allWalks={allWalks}
           setFilteredWalks={setFilteredWalks}
           filteredWalks={filteredWalks}
@@ -123,6 +132,7 @@ export default function Main({
     <section className="walksContainer">
       <Quote></Quote>
       <FilterBoxes
+        setIsFiltered={setIsFiltered}
         allWalks={allWalks}
         setFilteredWalks={setFilteredWalks}
         filteredWalks={filteredWalks}
