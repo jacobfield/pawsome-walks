@@ -1,5 +1,6 @@
 import { useState } from "react";
 import uploadWalkPicture from "../hooks/apiCalls/uploadWalkPicture";
+import postWalk from "../hooks/apiCalls/postWalk";
 export default function AddWalkContainer() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [walkPicture, setWalkPicture] = useState(null);
@@ -10,8 +11,9 @@ export default function AddWalkContainer() {
     }
   };
   const handleUploadWalkPictureClick = async () => {
-    if (!selectedFile || walkIdToUpload) return;
+    if (!selectedFile || walkIdToUpload || walkData) return;
     try {
+      const uploadedWalkData = await postWalk(walkData);
       const uploadedImageUrl = await uploadWalkPicture(
         selectedFile,
         walkIdToUpload
@@ -26,5 +28,6 @@ export default function AddWalkContainer() {
 
   return <div className="addWalkContainer"></div>;
 }
+// Collect Walk Data from form, which is yet to be made
 // ensure that owner is logged in to display add walk button
 //walk id to be random number?
