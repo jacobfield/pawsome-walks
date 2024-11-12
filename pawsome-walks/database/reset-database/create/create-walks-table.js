@@ -29,7 +29,8 @@ export default async function createWalksTable() {
         toilets BOOLEAN NOT NULL DEFAULT FALSE,
         waterOnRoute BOOLEAN NOT NULL DEFAULT FALSE,
         scenic BOOLEAN NOT NULL DEFAULT FALSE,
-        parking parking_type
+        parking parking_type,
+        approved BOOLEAN NOT NULL DEFAULT FALSE,
         )
         `);
     console.log("walks table created");

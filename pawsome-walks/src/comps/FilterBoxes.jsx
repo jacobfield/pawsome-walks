@@ -116,8 +116,8 @@ export default function FilterBoxes({
 
           <select onChange={handleFilterChange} id="parking">
             <option value="All">Parking available?</option>
-            <option value="free">Free Parking</option>
-            <option value="paid">Paid Parking</option>
+            <option value="free">Free parking</option>
+            <option value="paid">Paid parking</option>
           </select>
         </div>
       </div>
