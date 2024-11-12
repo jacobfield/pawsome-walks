@@ -76,7 +76,8 @@ export default function FilterOverlay({
 
 //BACKEND:
 // POST request will need to be added to the Walks table, so that all walks are rendered in the same place, and so that it has the required table columns:
-// - walkid - sequence, will be automatically populated
+// - walkid - sequence, will be automatically populated | HOWEVER, this will need to be passed through to the photo upload function, so that the photo can be associated with the walk. Therefore, when the POST request is made to the Walks table, the walkid will need to be returned, so that it can be passed through to the photo upload function.
+
 // - photopath - this can be the URL, pulling from uploads table. When walks are being mapped through, will need a condition for either in folder path or url path.
 // - walkname - provided by user in form
 // - location - provided by user
