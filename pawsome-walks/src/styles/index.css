@@ -562,3 +562,10 @@ footer.light {
 .filterSlide.open {
   pointer-events: auto;
 }
+
+/* ADD WALKS  */
+.addWalkContainer {
+  height: 100px;
+  background-color: inherit;
+  border: 1px solid #ccc;
+}

@@ -1,3 +1,3 @@
-export default async function AddWalkContainer({}) {
-  return <></>;
+export default function AddWalkContainer() {
+  return <div className="addWalkContainer"></div>;
 }

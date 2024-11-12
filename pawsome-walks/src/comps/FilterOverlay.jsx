@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import FilterBoxes from "./FilterBoxes";
+import AddWalkContainer from "./AddWalkContainer";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 export default function FilterOverlay({
@@ -56,6 +57,13 @@ export default function FilterOverlay({
             filteredWalks={filteredWalks}
             filterIsOpen={filterIsOpen}
           />
+        </div>
+        <div
+          className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
+            darkTheme ? "dark" : "light"
+          }`}
+        >
+          <AddWalkContainer></AddWalkContainer>
         </div>
       </div>
     </div>
