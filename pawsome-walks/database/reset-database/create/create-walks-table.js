@@ -18,7 +18,7 @@ export default async function createWalksTable() {
         CREATE TABLE IF NOT EXISTS walks(
         walkId SERIAL PRIMARY KEY,
         walkName TEXT NOT NULL,
-        photoPath TEXT NOT NULL,
+        photoPath TEXT,
         location TEXT NOT NULL,
         lat DECIMAL(9, 6) NOT NULL,
         lng DECIMAL(9, 6) NOT NULL,

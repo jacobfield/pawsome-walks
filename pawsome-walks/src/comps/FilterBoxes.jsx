@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
 export default function FilterBoxes({
-  handleChange,
   allWalks,
   setFilteredWalks,
   setIsFiltered,

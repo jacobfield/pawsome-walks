@@ -13,6 +13,7 @@ export default function Main({
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
+  const [addWalkIsOpen, setAddWalkIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
@@ -38,6 +39,8 @@ export default function Main({
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
+            setAddWalkIsOpen={setAddWalkIsOpen}
+            addWalkIsOpen={addWalkIsOpen}
           ></FilterOverlay>
         </div>
         <h1 className="noSearchFound">
@@ -59,6 +62,8 @@ export default function Main({
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
+            setAddWalkIsOpen={setAddWalkIsOpen}
+            addWalkIsOpen={addWalkIsOpen}
           ></FilterOverlay>
         </div>
         {!showFavourites
@@ -142,6 +147,8 @@ export default function Main({
           allWalks={allWalks}
           setFilteredWalks={setFilteredWalks}
           filteredWalks={filteredWalks}
+          setAddWalkIsOpen={setAddWalkIsOpen}
+          addWalkIsOpen={addWalkIsOpen}
         ></FilterOverlay>
       </div>
       {!showFavourites

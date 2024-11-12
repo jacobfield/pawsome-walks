@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import FilterBoxes from "./FilterBoxes";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
@@ -8,22 +9,38 @@ export default function FilterOverlay({
   allWalks,
   setFilteredWalks,
   filteredWalks,
+  setAddWalkIsOpen,
+  addWalkIsOpen,
 }) {
   const { darkTheme } = useContext(ThemeContext);
-  const handleChange = () => {
+  const handleOverlayChange = () => {
     setFilterIsOpen(!filterIsOpen);
+  };
+
+  const handleAddWalkChange = () => {
+    setAddWalkIsOpen(!addWalkIsOpen);
   };
 
   return (
     <div className="filterOverlayContainer">
       <div className="container1">
+        {/* Filters Overlay Button */}
         <button
           className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
             filterIsOpen ? "open" : ""
           }`}
-          onClick={handleChange}
+          onClick={handleOverlayChange}
         >
           {filterIsOpen ? "Hide" : "Show"} Filters
+        </button>
+        {/* Add Walk Overlay Button */}
+        <button
+          className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
+            addWalkIsOpen ? "open" : ""
+          }`}
+          onClick={handleAddWalkChange}
+        >
+          Add a walk?
         </button>
       </div>
       <div className="container2">
@@ -33,7 +50,6 @@ export default function FilterOverlay({
           }`}
         >
           <FilterBoxes
-            handleChange={handleChange}
             setIsFiltered={setIsFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
