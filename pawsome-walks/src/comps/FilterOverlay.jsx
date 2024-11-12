@@ -65,3 +65,9 @@ export default function FilterOverlay({
 // wateronroute - provided by user, will be a checkbox
 // scenic - provided by user, will be a checkbox
 // parking - provided by user, will be a dropdown menu, with options being the parking options that are already in the database.
+// approved - will be false by default, and will be set to true by an admin user - no need for it to be included in the form.
+
+// Photo will also need to be attached as well. This means we making use of uploadPhotosController.js, supabaseBucketUploader.js, supabaseStorageHelper.js and supabaseDbInserter.js.
+// The photo will be uploaded to the uploads table, and the url will be passed to the Walks table, as photopath.
+
+// Will need to build out the UI with advanced error handling

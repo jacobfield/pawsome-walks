@@ -1,4 +1,4 @@
-// src/helpers/supabaseBucketUploader.js
+
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 
@@ -29,4 +29,3 @@ export async function uploadImageToBucket(file, filename) {
     throw error;
   }
 }
-// force redeploy

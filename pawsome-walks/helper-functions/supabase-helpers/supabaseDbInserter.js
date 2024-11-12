@@ -1,4 +1,3 @@
-// src/helpers/supabaseDbInserter.js
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv";
 
