@@ -3,6 +3,7 @@ import FilterBoxes from "./FilterBoxes";
 import AddWalkContainer from "./AddWalkContainer";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
+import { useAuth } from "./AuthContext";
 export default function FilterOverlay({
   filterIsOpen,
   setFilterIsOpen,
@@ -14,6 +15,8 @@ export default function FilterOverlay({
   addWalkIsOpen,
 }) {
   const { darkTheme } = useContext(ThemeContext);
+  const { isLoggedIn } = useAuth();
+
   const handleOverlayChange = () => {
     setFilterIsOpen(!filterIsOpen);
   };
@@ -35,14 +38,18 @@ export default function FilterOverlay({
           {filterIsOpen ? "Hide" : "Show"} Filters
         </button>
         {/* Add Walk Overlay Button */}
-        <button
-          className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
-            addWalkIsOpen ? "open" : ""
-          }`}
-          onClick={handleAddWalkChange}
-        >
-          Add a walk?
-        </button>
+        {isLoggedIn ? (
+          <button
+            className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
+              addWalkIsOpen ? "open" : ""
+            }`}
+            onClick={handleAddWalkChange}
+          >
+            Add a walk?
+          </button>
+        ) : (
+          <></>
+        )}
       </div>
       <div className="filterOverlayContentContainer">
         <div
