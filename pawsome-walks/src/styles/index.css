@@ -562,6 +562,12 @@ footer.light {
 .filterSlide.open {
   pointer-events: auto;
 }
+.overlayButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
 
 /* ADD WALKS  */
 .addWalkContainer {

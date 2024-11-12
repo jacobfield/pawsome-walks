@@ -24,7 +24,7 @@ export default function FilterOverlay({
 
   return (
     <div className="filterOverlayContainer">
-      <div className="container1">
+      <div className="overlayButtonContainer">
         {/* Filters Overlay Button */}
         <button
           className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
@@ -44,7 +44,7 @@ export default function FilterOverlay({
           Add a walk?
         </button>
       </div>
-      <div className="container2">
+      <div className="filterOverlayContentContainer">
         <div
           className={`filterSlide ${filterIsOpen ? "open" : ""} ${
             darkTheme ? "dark" : "light"
