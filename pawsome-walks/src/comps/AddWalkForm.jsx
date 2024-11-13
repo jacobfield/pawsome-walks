@@ -30,17 +30,35 @@ export default function AddWalkForm({
 
   const handleChange = (e) => {
     switch (e.target.name) {
-      case "walkname":
-        setWalkName(e.target.value);
+      case "walkname": {
+        const formattedWalkName = e.target.value
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join(" ");
+        setWalkName(formattedWalkName);
         break;
-      case "location":
-        setLocation(e.target.value);
+      }
+      case "location": {
+        const formattedLocation = e.target.value
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          )
+          .join(" ");
+        setLocation(formattedLocation);
         break;
+      }
       case "walktype": {
         // from the inputted value, split the string into an array of strings, and then set this as the value of walkType
-        let walkTypeInputs = e.target.value.split(" ");
-        console.log("walkTypeInputs", walkTypeInputs);
-        setWalkType([walkTypeInputs]);
+        let walkTypeInputs = e.target.value
+          .split(" ")
+          .map(
+            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+          );
+
+        setWalkType(walkTypeInputs);
         break;
       }
       case "offleadareas":
