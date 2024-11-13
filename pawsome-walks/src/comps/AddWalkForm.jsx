@@ -24,6 +24,43 @@ export default function AddWalkForm({
   const [scenic, setScenic] = useState(false);
   const [parking, setParking] = useState(["Paid", "Free"]);
 
+  const handleChange = (e) => {
+    switch (e.target.name) {
+      case "walkname":
+        setWalkName(e.target.value);
+        break;
+      case "location":
+        setLocation(e.target.value);
+        break;
+      case "walktype":
+        setWalkType(e.target.value);
+        break;
+      case "offleadareas":
+        setOffLeadAreas(e.target.value);
+        break;
+      case "paths":
+        setPaths(e.target.value);
+        break;
+      case "animalsonroute":
+        setAnimalsOnRoute(e.target.value);
+        break;
+      case "toilets":
+        setToilets(e.target.value);
+        break;
+      case "wateronroute":
+        setWaterOnRoute(e.target.value);
+        break;
+      case "scenic":
+        setScenic(e.target.value);
+        break;
+      case "parking":
+        setParking(e.target.value);
+        break;
+      default:
+        return;
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -65,3 +102,5 @@ export default function AddWalkForm({
     return <></>;
   };
 }
+
+// FORMS which need handle functionality: walkname, location, walktype, offleadareas, paths, anumalsonroute, toilets, wateronroute, scenic, parking

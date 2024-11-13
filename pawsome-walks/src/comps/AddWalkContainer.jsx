@@ -28,23 +28,23 @@ export default function AddWalkContainer() {
     }
   };
 
- 
-
-    return (
-      <div className="addWalkContainer">
-        <AddWalkForm
-          handleWalkPictureChange={handleWalkPictureChange}
-          handleUploadWalkPictureClick={handleUploadWalkPictureClick}
-          selectedFile={selectedFile}
-          setSelectedFile={setSelectedFile}
-          walkPicture={walkPicture}
-          setWalkPicture={setWalkPicture}
-          handleSubmit={handleSubmit}
-        ></AddWalkForm>
-      </div>
-    );
-  };
+  return (
+    <div className="addWalkContainer">
+      <AddWalkForm
+        handleWalkPictureChange={handleWalkPictureChange}
+        handleUploadWalkPictureClick={handleUploadWalkPictureClick}
+        selectedFile={selectedFile}
+        setSelectedFile={setSelectedFile}
+        walkPicture={walkPicture}
+        setWalkPicture={setWalkPicture}
+      ></AddWalkForm>
+    </div>
+  );
 }
+
 // Collect Walk Data from form, which is yet to be made
 // ensure that owner is logged in to display add walk button ///////////// DONE
 //walk id to be random number?
+
+// Build out the form
+// Potentially build out a new geolocation hook to get lat and lng from location name
