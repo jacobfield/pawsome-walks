@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import postWalk from "../hooks/apiCalls/postWalk";
 import { ThemeContext } from "./ThemeProvider";
+import getLatLng from "../hooks/getLatLng";
 
 export default function AddWalkForm({
   handleWalkPictureChange,
@@ -103,11 +104,20 @@ export default function AddWalkForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const walkNameAndLocation = {
+        walkname: walkName,
+        location: location,
+      };
+      setWalkNameAndLocation(walkNameAndLocation);
+      const coordinates = await getLatLng(walkNameAndLocation);
+      setLat(coordinates.lat);
+      setLng(coordinates.lng);
+
       const walkFormData = {
         walkname: walkName,
         location: location,
-        lat: lat,
-        lng: lng,
+        lat: coordinates.lat,
+        lng: coordinates.lng,
         walktype: walkType,
         offleadareas: offLeadAreas,
         paths: paths,
@@ -117,11 +127,6 @@ export default function AddWalkForm({
         scenic: scenic,
         parking: parking,
       };
-      const walkNameAndLocationData = {
-        walkname: walkName,
-        location: location,
-      };
-      setWalkNameAndLocation(walkNameAndLocationData);
 
       await postWalk(walkFormData);
 
@@ -202,7 +207,7 @@ export default function AddWalkForm({
             type="button"
             onClick={handleNewWalkTypeSubmit}
           >
-            Add Walk Type
+            Add Walk Types
           </button> */}
         </div>
 
