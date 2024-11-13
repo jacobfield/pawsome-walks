@@ -25,6 +25,7 @@ export default function AddWalkForm({
   const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
   const [newWalkType, setNewWalkType] = useState("");
+  const [walkNameAndLocation, setWalkNameAndLocation] = useState({});
   const { darkTheme } = useContext(ThemeContext);
 
   const handleChange = (e) => {
@@ -116,6 +117,11 @@ export default function AddWalkForm({
         scenic: scenic,
         parking: parking,
       };
+      const walkNameAndLocationData = {
+        walkname: walkName,
+        location: location,
+      };
+      setWalkNameAndLocation(walkNameAndLocationData);
 
       await postWalk(walkFormData);
 
