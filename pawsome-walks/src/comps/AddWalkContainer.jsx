@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import uploadWalkPicture from "../hooks/apiCalls/uploadWalkPicture";
 import postWalk from "../hooks/apiCalls/postWalk";
 import AddWalkForm from "./AddWalkForm";
+import { ThemeContext } from "./ThemeProvider";
 export default function AddWalkContainer({ allWalks }) {
+  const { darkTheme } = useContext(ThemeContext);
   const [selectedFile, setSelectedFile] = useState(null);
   const [walkPicture, setWalkPicture] = useState(null);
   const [walkData, setWalkData] = useState({});
@@ -29,7 +31,7 @@ export default function AddWalkContainer({ allWalks }) {
   };
 
   return (
-    <div className="addWalkContainer">
+    <div className={`addWalkContainer ${darkTheme ? "dark" : "light"}`}>
       <AddWalkForm
         handleWalkPictureChange={handleWalkPictureChange}
         handleUploadWalkPictureClick={handleUploadWalkPictureClick}

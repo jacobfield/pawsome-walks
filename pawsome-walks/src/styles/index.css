@@ -577,11 +577,25 @@ footer.light {
 .addWalkContainer {
   height: 175px;
   background-color: inherit;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 5px;
+}
+.addWalkContainer.light {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
+}
+.addWalkContainer.dark {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
 }
 
 .walkFormInput.light {
