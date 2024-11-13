@@ -8,6 +8,9 @@ export default function useGetLatLng(walkNameAndLocation) {
   try {
     useEffect(() => {
       if (!walkNameAndLocation) return;
+
+      const latitude = walkNameAndLocation.coords.latitude;
+      const longitude = walkNameAndLocation.coords.longitude;
     }, [walkNameAndLocation]);
   } catch (error) {
     console.error(
