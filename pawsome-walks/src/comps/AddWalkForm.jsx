@@ -127,6 +127,7 @@ export default function AddWalkForm({
           onChange={handleChange}
           minLength="5"
           placeholder="Enter walk name..."
+          required
         />
         <label htmlFor="location">{/* Location: */}</label>
         <input
@@ -138,6 +139,7 @@ export default function AddWalkForm({
           onChange={handleChange}
           minLength="5"
           placeholder="Enter location..."
+          required
         />
         <label htmlFor="walktype">{/* Walk Types: */}</label>
         <select
@@ -178,6 +180,7 @@ export default function AddWalkForm({
         </div>
 
         <select
+          required
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
           name="offleadareas"
           onChange={handleChange}
@@ -192,6 +195,7 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
           name="paths"
           onChange={handleChange}
@@ -206,6 +210,7 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           name="animalsonroute"
           onChange={handleChange}
           id="animalsonroute"
@@ -223,6 +228,7 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           name="toilets"
           onChange={handleChange}
           id="toilets"
@@ -240,13 +246,13 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           name="wateronroute"
           onChange={handleChange}
           id="waterOnRoute"
           value={waterOnRoute}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          {" "}
           <option disabled selected>
             Water on route?
           </option>
@@ -255,6 +261,7 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           name="scenic"
           onChange={handleChange}
           id="scenic"
@@ -269,6 +276,7 @@ export default function AddWalkForm({
         </select>
 
         <select
+          required
           name="parking"
           onChange={handleChange}
           id="parking"
