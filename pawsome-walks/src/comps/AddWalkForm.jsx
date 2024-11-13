@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-export default function AddWalkForm() {
+export default function AddWalkForm({
+  handleWalkPictureChange,
+  handleUploadWalkPictureClick,
+  selectedFile,
+  setSelectedFile,
+  walkPicture,
+  setWalkPicture,
+}) {
   const [walkData, setWalkData] = useState({});
   const [walkName, setWalkName] = useState("");
   const [location, setLocation] = useState("");

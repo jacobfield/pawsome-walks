@@ -30,7 +30,14 @@ export default function AddWalkContainer() {
 
   return (
     <div className="addWalkContainer">
-      <AddWalkForm></AddWalkForm>
+      <AddWalkForm
+        handleWalkPictureChange={handleWalkPictureChange}
+        handleUploadWalkPictureClick={handleUploadWalkPictureClick}
+        selectedFile={selectedFile}
+        setSelectedFile={setSelectedFile}
+        walkPicture={walkPicture}
+        setWalkPicture={setWalkPicture}
+      ></AddWalkForm>
     </div>
   );
 }
