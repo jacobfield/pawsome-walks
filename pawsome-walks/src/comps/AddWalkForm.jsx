@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import postWalk from "../hooks/apiCalls/postWalk";
 import { ThemeContext } from "./ThemeProvider";
+
 export default function AddWalkForm({
   handleWalkPictureChange,
   handleUploadWalkPictureClick,
@@ -14,8 +15,8 @@ export default function AddWalkForm({
   const [walkData, setWalkData] = useState({});
   const [walkName, setWalkName] = useState("");
   const [location, setLocation] = useState("");
-  const [lat, setLat] = useState();
-  const [lng, setLng] = useState();
+  const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
   const [walkType, setWalkType] = useState([""]);
   const [offLeadAreas, setOffLeadAreas] = useState(false);
   const [paths, setPaths] = useState(false);
@@ -23,9 +24,10 @@ export default function AddWalkForm({
   const [toilets, setToilets] = useState(false);
   const [waterOnRoute, setWaterOnRoute] = useState(false);
   const [scenic, setScenic] = useState(false);
-  const [parking, setParking] = useState("");
-
+  const [parking, setParking] = useState("none");
+  const [newWalkType, setNewWalkType] = useState("");
   const { darkTheme } = useContext(ThemeContext);
+
   const handleChange = (e) => {
     switch (e.target.name) {
       case "walkname":
@@ -35,25 +37,25 @@ export default function AddWalkForm({
         setLocation(e.target.value);
         break;
       case "walktype":
-        setWalkType(e.target.value);
+        setWalkType([e.target.value]);
         break;
       case "offleadareas":
-        setOffLeadAreas(e.target.value);
+        setOffLeadAreas(JSON.parse(e.target.value));
         break;
       case "paths":
-        setPaths(e.target.value);
+        setPaths(JSON.parse(e.target.value));
         break;
       case "animalsonroute":
-        setAnimalsOnRoute(e.target.value);
+        setAnimalsOnRoute(JSON.parse(e.target.value));
         break;
       case "toilets":
-        setToilets(e.target.value);
+        setToilets(JSON.parse(e.target.value));
         break;
       case "wateronroute":
-        setWaterOnRoute(e.target.value);
+        setWaterOnRoute(JSON.parse(e.target.value));
         break;
       case "scenic":
-        setScenic(e.target.value);
+        setScenic(JSON.parse(e.target.value));
         break;
       case "parking":
         setParking(e.target.value);
@@ -62,7 +64,18 @@ export default function AddWalkForm({
         return;
     }
   };
-  const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
+
+  const walkTypeArr = [
+    ...new Set([...allWalks.flatMap((walk) => walk.walktype), ...walkType]),
+  ];
+
+  const handleNewWalkTypeSubmit = (e) => {
+    e.preventDefault();
+    if (newWalkType.length >= 4 && newWalkType.length <= 15) {
+      setWalkType([...walkType, newWalkType]);
+      setNewWalkType("");
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,107 +99,190 @@ export default function AddWalkForm({
 
       setWalkName("");
       setLocation("");
-      setLat();
-      setLng();
-      setWalkType([""]);
+      setLat(null);
+      setLng(null);
+      setWalkType([]);
       setOffLeadAreas(false);
       setPaths(false);
       setAnimalsOnRoute(false);
       setToilets(false);
-      setScenic(false);
       setWaterOnRoute(false);
-      setParking(["Paid", "Free"]);
+      setScenic(false);
+      setParking("none");
     } catch (error) {
-      console.error(
-        "Error uploading new walk (AddWalkForm.jsx Handle Submit):",
-        error
-      );
+      console.error("Error uploading new walk:", error);
     }
-    return (
-      <div className="addWalkFormContainer">
-        <form onSubmit={handleSubmit} className="addWalkForm">
-          <label htmlFor="walkname">Walk Name:</label>
-          <input
-            className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-            type="text"
-            id="walkName"
-            name="walkName"
-            value={walkName}
-            onChange={handleChange}
-          />
-          <label htmlFor="location">Location:</label>
-          <input
-            className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-            type="text"
-            id="location"
-            name="location"
-            value={location}
-            onChange={handleChange}
-          />
-          <label htmlFor="walktype">Walk Type:</label>
-          <input
-            className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-            type="text"
-            id="walktype"
-            name="walktype"
-            value={walkType}
-            onChange={handleChange}
-          />
-          <select onChange={handleChange} id="walktype">
-            {walkTypeArr.map((walktype) => (
-              <option key={walktype} value={walktype}>
-                {walktype}
-              </option>
-            ))}
-          </select>
-          <select
-            onChange={handleChange}
-            id="offleadareas"
-            value={offLeadAreas}
-          >
-            <option value="true">Off lead areas</option>
-            <option value="false">No off lead areas</option>
-          </select>
-          <select onChange={handleChange} id="paths" value={paths}>
-            <option value="true">Paved routes</option>
-            <option value="false">No paved routes</option>
-          </select>
-          <select
-            onChange={handleChange}
-            id="animalsonroute"
-            value={animalsOnRoute}
-          >
-            <option value="true">Animals on route</option>
-            <option value="false">No animals on route</option>
-          </select>
-          <select onChange={handleChange} id="toilets" value={toilets}>
-            <option value="true">Toilets available</option>
-            <option value="false">No toilets available</option>
-          </select>
-          <select
-            onChange={handleChange}
-            id="waterOnRoute"
-            value={waterOnRoute}
-          >
-            <option value="true">Water on route</option>
-            <option value="false">No water on route</option>
-          </select>
-          <select onChange={handleChange} id="scenic" value={scenic}>
-            <option value="true">Scenic Views</option>
-            <option value="false">No scenic views</option>
-          </select>
-          <select onChange={handleChange} id="parking" value={parking}>
-            <option value="free">Free parking</option>
-            <option value="paid">Paid parking</option>
-            <option value="none">No parking</option>
-          </select>
-          <button className="submitButton" type="submit">
-            Submit for approval
-          </button>
-        </form>
-      </div>
-    );
   };
+
+  return (
+    <div className="addWalkFormContainer">
+      <form onSubmit={handleSubmit} className="addWalkForm">
+        <label htmlFor="walkname">Walk Name:</label>
+        <input
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+          type="text"
+          id="walkName"
+          name="walkname"
+          value={walkName}
+          onChange={handleChange}
+          minLength="5"
+        />
+        <label htmlFor="location">Location:</label>
+        <input
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+          type="text"
+          id="location"
+          name="location"
+          value={location}
+          onChange={handleChange}
+          minLength="5"
+        />
+        <label htmlFor="walktype">Walk Types:</label>
+        <select
+          name="walktype"
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+          id="walktype"
+          onChange={handleChange}
+          value={walkType[0] || ""}
+        >
+          <option value="" disabled>
+            Select walk type
+          </option>
+          {walkTypeArr.map((type) => (
+            <option key={type} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
+        <div>
+          <label htmlFor="newWalkType">Add New Walk Type:</label>
+          <input
+            type="text"
+            className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+            id="newWalkType"
+            value={newWalkType}
+            maxLength="15"
+            minLength="10"
+            onChange={(e) => setNewWalkType(e.target.value)}
+          />
+          <button
+            className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
+            type="button"
+            onClick={handleNewWalkTypeSubmit}
+          >
+            Add Walk Type
+          </button>
+        </div>
+
+        <select
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+          name="offleadareas"
+          onChange={handleChange}
+          id="offleadareas"
+          value={offLeadAreas}
+          placeholder="Off Lead areas?"
+        >
+          <option value="Off Lead Areas" disabled>
+            Are there off-lead areas?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+          name="paths"
+          onChange={handleChange}
+          id="paths"
+          value={paths}
+        >
+          <option value="" disabled>
+            Are there paved routes?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          name="animalsonroute"
+          onChange={handleChange}
+          id="animalsonroute"
+          value={animalsOnRoute}
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+        >
+          <option value="" disabled>
+            Are there animals on route?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          name="toilets"
+          onChange={handleChange}
+          id="toilets"
+          value={toilets}
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+        >
+          <option value="" disabled>
+            Are there toilets?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          name="wateronroute"
+          onChange={handleChange}
+          id="waterOnRoute"
+          value={waterOnRoute}
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+        >
+          <option value="" disabled>
+            Is there water on route?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          name="scenic"
+          onChange={handleChange}
+          id="scenic"
+          value={scenic}
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+        >
+          <option value="" disabled>
+            Are there scenic views?
+          </option>
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+
+        <select
+          name="parking"
+          onChange={handleChange}
+          id="parking"
+          value={parking}
+          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
+        >
+          <option value="" disabled>
+            Is there parking?
+          </option>
+          <option value="none">No parking</option>
+          <option value="free">Free parking</option>
+          <option value="paid">Paid parking</option>
+        </select>
+
+        <button
+          className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
+          type="submit"
+        >
+          Submit for approval
+        </button>
+      </form>
+    </div>
+  );
 }
 
 // FORMS which need handle functionality: walkname, location, walktype, offleadareas, paths, animalsonroute, toilets, wateronroute, scenic, parking
