@@ -580,22 +580,54 @@ footer.light {
   padding: 5px;
 }
 
-.walkFormInput {
-  width: auto;
-  padding: 10px;
-  /* padding: 5px; */
-  margin: 10px;
-  border: 1px solid #ccc;
+.walkFormInput.light {
+  max-height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  transition: all 0.3s ease;
-  color: inherit;
   background-color: inherit;
-  font-size: 1em;
+  color: black;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+.walkFormInput.dark {
+  max-height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: inherit;
+  color: white;
+  transition: border-color 0.2s ease;
+  text-align: center;
 }
 .walkFormInput::placeholder {
   color: inherit;
 }
-.walkFormButton {
-  color: inherit;
+
+.walkFormInput.dark option {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+
+.walkFormInput.light select {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
   background-color: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+
+.walkFormInput.dark option:disabled {
+  color: #ddddddb7;
 }

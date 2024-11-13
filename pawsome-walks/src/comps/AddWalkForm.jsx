@@ -36,9 +36,13 @@ export default function AddWalkForm({
       case "location":
         setLocation(e.target.value);
         break;
-      case "walktype":
-        setWalkType([e.target.value]);
+      case "walktype": {
+        // from the inputted value, split the string into an array of strings, and then set this as the value of walkType
+        let walkTypeInputs = e.target.value.split(" ");
+        console.log("walkTypeInputs", walkTypeInputs);
+        setWalkType([walkTypeInputs]);
         break;
+      }
       case "offleadareas":
         setOffLeadAreas(JSON.parse(e.target.value));
         break;
@@ -142,7 +146,7 @@ export default function AddWalkForm({
           required
         />
         <label htmlFor="walktype">{/* Walk Types: */}</label>
-        <select
+        {/* <select
           name="walktype"
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
           id="walktype"
@@ -157,26 +161,26 @@ export default function AddWalkForm({
               {type}
             </option>
           ))}
-        </select>
+        </select> */}
         <div>
           <label htmlFor="newWalkType">{/* Add New Walk Type: */}</label>
           <input
             type="text"
             className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-            id="newWalkType"
+            id="walktype"
             value={newWalkType}
-            maxLength="15"
-            minLength="10"
+            maxLength="30"
+            minLength="4"
             onChange={(e) => setNewWalkType(e.target.value)}
-            placeholder="Enter new walk type..."
+            placeholder="Enter walk types..."
           />
-          <button
+          {/* <button
             className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
             type="button"
             onClick={handleNewWalkTypeSubmit}
           >
             Add Walk Type
-          </button>
+          </button> */}
         </div>
 
         <select
@@ -220,9 +224,7 @@ export default function AddWalkForm({
           <option disabled selected>
             Animals on route?
           </option>
-          <option value="" disabled>
-            Are there animals on route?
-          </option>
+
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
@@ -238,9 +240,7 @@ export default function AddWalkForm({
           <option disabled selected>
             Toilets available?
           </option>
-          <option value="" disabled>
-            Are there toilets?
-          </option>
+
           <option value="true">Yes</option>
           <option value="false">No</option>
         </select>
