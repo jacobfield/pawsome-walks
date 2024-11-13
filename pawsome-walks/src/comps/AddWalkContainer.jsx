@@ -5,7 +5,7 @@ import AddWalkForm from "./AddWalkForm";
 export default function AddWalkContainer() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [walkPicture, setWalkPicture] = useState(null);
-
+  const [walkData, setWalkData] = useState({});
   const handleWalkPictureChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -28,18 +28,22 @@ export default function AddWalkContainer() {
     }
   };
 
-  return (
-    <div className="addWalkContainer">
-      <AddWalkForm
-        handleWalkPictureChange={handleWalkPictureChange}
-        handleUploadWalkPictureClick={handleUploadWalkPictureClick}
-        selectedFile={selectedFile}
-        setSelectedFile={setSelectedFile}
-        walkPicture={walkPicture}
-        setWalkPicture={setWalkPicture}
-      ></AddWalkForm>
-    </div>
-  );
+ 
+
+    return (
+      <div className="addWalkContainer">
+        <AddWalkForm
+          handleWalkPictureChange={handleWalkPictureChange}
+          handleUploadWalkPictureClick={handleUploadWalkPictureClick}
+          selectedFile={selectedFile}
+          setSelectedFile={setSelectedFile}
+          walkPicture={walkPicture}
+          setWalkPicture={setWalkPicture}
+          handleSubmit={handleSubmit}
+        ></AddWalkForm>
+      </div>
+    );
+  };
 }
 // Collect Walk Data from form, which is yet to be made
 // ensure that owner is logged in to display add walk button ///////////// DONE
