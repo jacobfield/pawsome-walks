@@ -117,7 +117,7 @@ export default function AddWalkForm({
   return (
     <div className="addWalkFormContainer">
       <form onSubmit={handleSubmit} className="addWalkForm">
-        <label htmlFor="walkname">Walk Name:</label>
+        <label htmlFor="walkname">{/* Walk name: */}</label>
         <input
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
           type="text"
@@ -126,8 +126,9 @@ export default function AddWalkForm({
           value={walkName}
           onChange={handleChange}
           minLength="5"
+          placeholder="Enter walk name..."
         />
-        <label htmlFor="location">Location:</label>
+        <label htmlFor="location">{/* Location: */}</label>
         <input
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
           type="text"
@@ -136,8 +137,9 @@ export default function AddWalkForm({
           value={location}
           onChange={handleChange}
           minLength="5"
+          placeholder="Enter location..."
         />
-        <label htmlFor="walktype">Walk Types:</label>
+        <label htmlFor="walktype">{/* Walk Types: */}</label>
         <select
           name="walktype"
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
@@ -155,7 +157,7 @@ export default function AddWalkForm({
           ))}
         </select>
         <div>
-          <label htmlFor="newWalkType">Add New Walk Type:</label>
+          <label htmlFor="newWalkType">{/* Add New Walk Type: */}</label>
           <input
             type="text"
             className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
@@ -164,6 +166,7 @@ export default function AddWalkForm({
             maxLength="15"
             minLength="10"
             onChange={(e) => setNewWalkType(e.target.value)}
+            placeholder="Enter new walk type..."
           />
           <button
             className={`walkFormButton ${darkTheme ? "dark" : "light"}`}

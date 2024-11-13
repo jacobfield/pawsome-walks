@@ -590,6 +590,10 @@ footer.light {
   transition: all 0.3s ease;
   color: inherit;
   background-color: inherit;
+  font-size: 1em;
+}
+.walkFormInput::placeholder {
+  color: inherit;
 }
 .walkFormButton {
   color: inherit;
