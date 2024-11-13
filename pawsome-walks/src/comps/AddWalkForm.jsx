@@ -9,7 +9,6 @@ export default function AddWalkForm({
   setSelectedFile,
   walkPicture,
   setWalkPicture,
-  handelSubmit,
   allWalks,
 }) {
   const [walkData, setWalkData] = useState({});
@@ -53,7 +52,8 @@ export default function AddWalkForm({
       case "walktype": {
         // from the inputted value, split the string into an array of strings, and then set this as the value of walkType
         let walkTypeInputs = e.target.value
-          .split(" ")
+          .split(/[\s,]+/) // Splits by space or comma
+          .filter((word) => word.length > 0) // Removes any accidental empty strings
           .map(
             (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
           );
@@ -91,13 +91,13 @@ export default function AddWalkForm({
     ...new Set([...allWalks.flatMap((walk) => walk.walktype), ...walkType]),
   ];
 
-  const handleNewWalkTypeSubmit = (e) => {
-    e.preventDefault();
-    if (newWalkType.length >= 4 && newWalkType.length <= 15) {
-      setWalkType([...walkType, newWalkType]);
-      setNewWalkType("");
-    }
-  };
+  //   const handleNewWalkTypeSubmit = (e) => {
+  //     e.preventDefault();
+  //     if (newWalkType.length >= 4 && newWalkType.length <= 15) {
+  //       setWalkType([...walkType, newWalkType]);
+  //       setNewWalkType("");
+  //     }
+  //   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -163,7 +163,6 @@ export default function AddWalkForm({
           placeholder="Enter location..."
           required
         />
-        <label htmlFor="walktype">{/* Walk Types: */}</label>
         {/* <select
           name="walktype"
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
@@ -181,7 +180,7 @@ export default function AddWalkForm({
           ))}
         </select> */}
         <div>
-          <label htmlFor="newWalkType">{/* Add New Walk Type: */}</label>
+          <label htmlFor="walktype">{/* Add New Walk Type: */}</label>
           <input
             type="text"
             className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
@@ -189,7 +188,7 @@ export default function AddWalkForm({
             value={newWalkType}
             maxLength="30"
             minLength="4"
-            onChange={(e) => setNewWalkType(e.target.value)}
+            onChange={handleChange}
             placeholder="Enter walk types..."
           />
           {/* <button
