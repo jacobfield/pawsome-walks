@@ -70,7 +70,7 @@ export default function FilterOverlay({
             darkTheme ? "dark" : "light"
           }`}
         >
-          <AddWalkContainer></AddWalkContainer>
+          <AddWalkContainer allWalks={allWalks}></AddWalkContainer>
         </div>
       </div>
     </div>

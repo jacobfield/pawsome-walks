@@ -2,7 +2,7 @@ import { useState } from "react";
 import uploadWalkPicture from "../hooks/apiCalls/uploadWalkPicture";
 import postWalk from "../hooks/apiCalls/postWalk";
 import AddWalkForm from "./AddWalkForm";
-export default function AddWalkContainer() {
+export default function AddWalkContainer({ allWalks }) {
   const [selectedFile, setSelectedFile] = useState(null);
   const [walkPicture, setWalkPicture] = useState(null);
   const [walkData, setWalkData] = useState({});
@@ -37,6 +37,7 @@ export default function AddWalkContainer() {
         setSelectedFile={setSelectedFile}
         walkPicture={walkPicture}
         setWalkPicture={setWalkPicture}
+        allWalks={allWalks}
       ></AddWalkForm>
     </div>
   );
