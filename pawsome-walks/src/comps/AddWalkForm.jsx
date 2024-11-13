@@ -17,12 +17,12 @@ export default function AddWalkForm({
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
   const [walkType, setWalkType] = useState([""]);
-  const [offLeadAreas, setOffLeadAreas] = useState(null);
-  const [paths, setPaths] = useState(null);
-  const [animalsOnRoute, setAnimalsOnRoute] = useState(null);
-  const [toilets, setToilets] = useState(null);
-  const [waterOnRoute, setWaterOnRoute] = useState(null);
-  const [scenic, setScenic] = useState(null);
+  const [offLeadAreas, setOffLeadAreas] = useState("");
+  const [paths, setPaths] = useState("");
+  const [animalsOnRoute, setAnimalsOnRoute] = useState("");
+  const [toilets, setToilets] = useState("");
+  const [waterOnRoute, setWaterOnRoute] = useState("");
+  const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
   const [newWalkType, setNewWalkType] = useState("");
   const { darkTheme } = useContext(ThemeContext);
@@ -208,7 +208,7 @@ export default function AddWalkForm({
           id="offleadareas"
           value={offLeadAreas}
         >
-          <option disabled selected>
+          <option disabled value="">
             Off-lead areas?
           </option>
           <option value="true">Yes</option>
@@ -223,7 +223,7 @@ export default function AddWalkForm({
           id="paths"
           value={paths}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Paved routes?
           </option>
           <option value="true">Yes</option>
@@ -238,7 +238,7 @@ export default function AddWalkForm({
           value={animalsOnRoute}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Animals on route?
           </option>
 
@@ -254,7 +254,7 @@ export default function AddWalkForm({
           value={toilets}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Toilets available?
           </option>
 
@@ -270,7 +270,7 @@ export default function AddWalkForm({
           value={waterOnRoute}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Water on route?
           </option>
           <option value="true">Yes</option>
@@ -285,7 +285,7 @@ export default function AddWalkForm({
           value={scenic}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Scenic views?
           </option>
           <option value="true">Yes</option>
@@ -300,7 +300,7 @@ export default function AddWalkForm({
           value={parking}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled selected>
+          <option disabled defaultValue="">
             Is there parking?
           </option>
           <option value="none">No parking</option>
