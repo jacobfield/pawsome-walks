@@ -470,14 +470,18 @@ footer.light {
 }
 
 .filterBoxesContainer.light {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: inherit;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   margin-top: 10px;
 }
 .filterBoxesContainer.dark {
-  box-shadow: 0 4px 8px rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
 }
 .filterBoxesContainer {
   display: flex;
