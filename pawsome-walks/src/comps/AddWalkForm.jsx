@@ -89,9 +89,9 @@ export default function AddWalkForm({
     }
   };
 
-  const walkTypeArr = [
-    ...new Set([...allWalks.flatMap((walk) => walk.walktype), ...walkType]),
-  ];
+  // const walkTypeArr = [
+  //   ...new Set([...allWalks.flatMap((walk) => walk.walktype), ...walkType]),
+  // ];
 
   //   const handleNewWalkTypeSubmit = (e) => {
   //     e.preventDefault();
@@ -234,7 +234,7 @@ export default function AddWalkForm({
           id="paths"
           value={paths}
         >
-          <option disabled defaultValue="">
+          <option disabled value="">
             Paved routes?
           </option>
           <option value="true">Yes</option>
@@ -249,7 +249,7 @@ export default function AddWalkForm({
           value={animalsOnRoute}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled defaultValue="">
+          <option disabled value="">
             Animals on route?
           </option>
 
@@ -265,7 +265,7 @@ export default function AddWalkForm({
           value={toilets}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled defaultValue="">
+          <option disabled value="">
             Toilets available?
           </option>
 
@@ -281,7 +281,7 @@ export default function AddWalkForm({
           value={waterOnRoute}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled defaultValue="">
+          <option disabled value="">
             Water on route?
           </option>
           <option value="true">Yes</option>
@@ -296,7 +296,7 @@ export default function AddWalkForm({
           value={scenic}
           className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
         >
-          <option disabled defaultValue="">
+          <option disabled value="">
             Scenic views?
           </option>
           <option value="true">Yes</option>

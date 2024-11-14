@@ -26,7 +26,8 @@ footer.light {
 }
 
 /* DARK THEME LOGO */
-.logo.dark {
+.logo.dark,
+.signuplogo.dark {
   background-color: #fafaf0;
   border-top-left-radius: 50%;
   border-top-right-radius: 50%;
