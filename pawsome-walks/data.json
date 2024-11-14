@@ -14,7 +14,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 2,
@@ -30,7 +31,8 @@
       "toilets": false,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 3,
@@ -46,7 +48,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 4,
@@ -62,7 +65,8 @@
       "toilets": false,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 5,
@@ -78,7 +82,8 @@
       "toilets": false,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 6,
@@ -94,7 +99,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 7,
@@ -110,7 +116,8 @@
       "toilets": false,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 8,
@@ -126,7 +133,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": false,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 9,
@@ -142,7 +150,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 10,
@@ -158,7 +167,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 11,
@@ -174,7 +184,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 12,
@@ -190,7 +201,8 @@
       "toilets": false,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 13,
@@ -206,7 +218,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 14,
@@ -222,7 +235,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 15,
@@ -238,7 +252,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 16,
@@ -254,7 +269,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 17,
@@ -270,7 +286,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 18,
@@ -286,7 +303,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 19,
@@ -302,7 +320,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 20,
@@ -318,7 +337,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 21,
@@ -334,7 +354,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 22,
@@ -350,7 +371,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 23,
@@ -366,7 +388,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 24,
@@ -382,7 +405,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 25,
@@ -398,7 +422,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 26,
@@ -414,7 +439,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 27,
@@ -430,7 +456,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 28,
@@ -446,7 +473,8 @@
       "toilets": true,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     },
     {
       "walkId": 29,
@@ -462,7 +490,8 @@
       "toilets": true,
       "waterOnRoute": false,
       "scenic": false,
-      "parking": "paid"
+      "parking": "paid",
+      "approved": true
     },
     {
       "walkId": 30,
@@ -478,7 +507,8 @@
       "toilets": false,
       "waterOnRoute": true,
       "scenic": true,
-      "parking": "free"
+      "parking": "free",
+      "approved": true
     }
   ]
 }

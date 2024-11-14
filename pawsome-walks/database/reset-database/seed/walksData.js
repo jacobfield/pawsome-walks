@@ -15,6 +15,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 2,
@@ -31,6 +32,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 3,
@@ -47,6 +49,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 4,
@@ -63,6 +66,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 5,
@@ -79,6 +83,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 6,
@@ -95,6 +100,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 7,
@@ -111,6 +117,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 8,
@@ -127,6 +134,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: false,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 9,
@@ -143,6 +151,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 10,
@@ -159,6 +168,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 11,
@@ -175,6 +185,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 12,
@@ -191,6 +202,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 13,
@@ -207,6 +219,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 14,
@@ -223,6 +236,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 15,
@@ -239,6 +253,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 16,
@@ -255,6 +270,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 17,
@@ -271,6 +287,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 18,
@@ -287,6 +304,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 19,
@@ -303,6 +321,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 20,
@@ -319,6 +338,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 21,
@@ -335,6 +355,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 22,
@@ -351,6 +372,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 23,
@@ -367,6 +389,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 24,
@@ -383,6 +406,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 25,
@@ -399,6 +423,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 26,
@@ -415,6 +440,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 27,
@@ -431,6 +457,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 28,
@@ -447,6 +474,7 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
   {
     walkId: 29,
@@ -463,6 +491,7 @@ export const walks = [
     waterOnRoute: false,
     scenic: false,
     parking: "paid",
+    approved: true,
   },
   {
     walkId: 30,
@@ -479,5 +508,6 @@ export const walks = [
     waterOnRoute: true,
     scenic: true,
     parking: "free",
+    approved: true,
   },
 ];

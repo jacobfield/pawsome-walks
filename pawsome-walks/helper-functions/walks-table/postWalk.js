@@ -1,43 +1,46 @@
 import { pool } from "../../index.js";
 
-export default async function postWalk({
-  walkName,
-  location,
-  lat,
-  lng,
-  walkType,
-  offLeadAreas,
-  paths,
-  animalsOnRoute,
-  toilets,
-  waterOnRoute,
-  scenic,
-  parking,
-}) {
+export default async function postWalk(walkData) {
+  const {
+    walkname,
+    location,
+    lat,
+    lng,
+    walktype,
+    offleadareas,
+    paths,
+    animalsonroute,
+    toilets,
+    wateronroute,
+    scenic,
+    parking,
+  } = walkData;
+
+  console.log("Helper FunctionReceived walkData:", walkData);
+
   try {
-    const postNewWalks = `INSERT INTO walks (walkName, location, lat, lng, walkType, offLeadAreas, paths, animalsOnRoute, toilets, waterOnRoute, scenic, parking) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`;
+    const postNewWalks = `INSERT INTO walks (walkname, location, lat, lng, walktype, offleadareas, paths, animalsonroute, toilets, wateronroute, scenic, parking) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING *`;
+    console.log("Received walkData:", walkData);
 
     const result = await pool.query(postNewWalks, [
-      walkName,
+      walkname,
       location,
       lat,
       lng,
-      walkType,
-      offLeadAreas,
+      walktype,
+      offleadareas,
       paths,
-      animalsOnRoute,
+      animalsonroute,
       toilets,
-      waterOnRoute,
+      wateronroute,
       scenic,
       parking,
     ]);
 
     return result.rows[0];
   } catch (error) {
-    console.error(
-      "Error creating new walk. Error originated in postWalk.js",
-      error
-    );
+    console.error("Database query failed. walkData:", walkData);
+    console.error("Error details:", error);
     throw error;
   }
 }
