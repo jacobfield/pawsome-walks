@@ -123,7 +123,7 @@ export default function Overlay({ navBarProps }) {
           ) : (
             <div>
               <img
-                className="overlayLogo"
+                className={`overlayLogo ${darkTheme ? "dark" : "light"}`}
                 alt="Pawsome Walks Logo"
                 src="/logo.png"
               />

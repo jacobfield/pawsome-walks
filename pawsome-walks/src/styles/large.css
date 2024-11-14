@@ -37,6 +37,13 @@
     width: auto;
     max-width: 175px;
   }
+  .overlayLogo.dark {
+    background-color: #fafaf0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
   .profilePicture {
     height: auto;
     width: auto;
