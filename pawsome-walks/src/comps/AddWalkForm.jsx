@@ -17,7 +17,7 @@ export default function AddWalkForm({
   const [location, setLocation] = useState("");
   const [lat, setLat] = useState(null);
   const [lng, setLng] = useState(null);
-  const [walkType, setWalkType] = useState([""]);
+  const [walkType, setWalkType] = useState("");
   const [offLeadAreas, setOffLeadAreas] = useState("");
   const [paths, setPaths] = useState("");
   const [animalsOnRoute, setAnimalsOnRoute] = useState("");
@@ -25,7 +25,6 @@ export default function AddWalkForm({
   const [waterOnRoute, setWaterOnRoute] = useState("");
   const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
-  const [newWalkType, setNewWalkType] = useState("");
   const [walkNameAndLocation, setWalkNameAndLocation] = useState({});
   const { darkTheme } = useContext(ThemeContext);
 
@@ -52,15 +51,14 @@ export default function AddWalkForm({
         break;
       }
       case "walktype": {
-        // from the inputted value, split the string into an array of strings, and then set this as the value of walkType
-        let walkTypeInputs = e.target.value
-          .split(/[\s,]+/) // Splits by space or comma
-          .filter((word) => word.length > 0) // Removes any accidental empty strings
+        const formattedWalkType = e.target.value
+          .split(" ")
           .map(
             (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-          );
+          )
+          .join(" ");
 
-        setWalkType(walkTypeInputs);
+        setWalkType(formattedWalkType);
         break;
       }
       case "offleadareas":
@@ -100,13 +98,18 @@ export default function AddWalkForm({
       const coordinates = await getLatLng(walkNameAndLocation);
       setLat(coordinates.lat);
       setLng(coordinates.lng);
-
+      const walkTypeArray = walkType
+        .split(/[\s,]+/)
+        .filter((word) => word.length > 0)
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        );
       const walkFormData = {
         walkname: walkName,
         location: location,
         lat: coordinates.lat,
         lng: coordinates.lng,
-        walktype: walkType,
+        walktype: walkTypeArray,
         offleadareas: offLeadAreas,
         paths: paths,
         animalsonroute: animalsOnRoute,
@@ -185,19 +188,13 @@ export default function AddWalkForm({
             type="text"
             className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
             id="walktype"
-            value={newWalkType}
+            name="walktype"
+            value={walkType}
             maxLength="30"
             minLength="4"
             onChange={handleChange}
             placeholder="Enter walk types..."
           />
-          {/* <button
-            className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
-            type="button"
-            onClick={handleNewWalkTypeSubmit}
-          >
-            Add Walk Types
-          </button> */}
         </div>
 
         <select
