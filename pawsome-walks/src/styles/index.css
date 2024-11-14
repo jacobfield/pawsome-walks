@@ -479,6 +479,10 @@ footer.light {
 .filterBoxesContainer.dark {
   box-shadow: 0 4px 8px rgb(255, 255, 255);
 }
+.filterBoxesContainer {
+  display: flex;
+  align-items: center;
+}
 .filterOverlayWrapper {
   display: flex;
   justify-content: center;
@@ -548,4 +552,13 @@ footer.light {
 .filterOverlayButton.dark:active {
   background-color: #e0e0e0;
   box-shadow: none;
+}
+.filterSlide {
+  pointer-events: none;
+}
+.filterSlide.open {
+  pointer-events: auto;
+}
+.filterSlide.open {
+  pointer-events: auto;
 }
