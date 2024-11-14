@@ -120,20 +120,20 @@ export default function AddWalkForm({
       };
       setWalkData(walkFormData);
       // HERE ---------------------------------------------
-      await handleAddWalkSubmit();
+      await handleAddWalkSubmit(walkFormData);
 
-      setWalkName("");
-      setLocation("");
-      setLat(null);
-      setLng(null);
-      setWalkType([]);
-      setOffLeadAreas(false);
-      setPaths(false);
-      setAnimalsOnRoute(false);
-      setToilets(false);
-      setWaterOnRoute(false);
-      setScenic(false);
-      setParking("none");
+      // setWalkName("");
+      // setLocation("");
+      // setLat(null);
+      // setLng(null);
+      // setWalkType([]);
+      // setOffLeadAreas(false);
+      // setPaths(false);
+      // setAnimalsOnRoute(false);
+      // setToilets(false);
+      // setWaterOnRoute(false);
+      // setScenic(false);
+      // setParking("none");
     } catch (error) {
       console.error("Error uploading new walk:", error);
     }
