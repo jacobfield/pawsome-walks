@@ -37,7 +37,7 @@ export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
         });
       }
     });
-    console.log("filtered", filtered);
+    // console.log("filtered", filtered);
     setFilteredWalks(filtered);
   }, [filters, allWalks, setFilteredWalks]);
 }

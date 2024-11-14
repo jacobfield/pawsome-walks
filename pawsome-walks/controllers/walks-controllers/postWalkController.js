@@ -1,6 +1,9 @@
 import { walks } from "../../helper-functions/helperFunctions.js";
 
 export default async function postWalkController(req, res) {
+  console.log("postWalkController: req", req);
+  console.log("postWalkController: req.body", req.body);
+
   try {
     const data = req.body;
 

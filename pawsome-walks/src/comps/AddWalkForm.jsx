@@ -120,6 +120,7 @@ export default function AddWalkForm({
       };
       setWalkData(walkFormData);
       // HERE ---------------------------------------------
+      console.log("AddWalkForm.jsx: walkFormData", walkFormData);
       await handleAddWalkSubmit(walkFormData);
 
       // setWalkName("");
