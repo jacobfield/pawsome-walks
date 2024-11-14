@@ -3,7 +3,7 @@ import uploadWalkPicture from "../hooks/apiCalls/uploadWalkPicture";
 import postWalk from "../hooks/apiCalls/postWalk";
 import AddWalkForm from "./AddWalkForm";
 import { ThemeContext } from "./ThemeProvider";
-import { insertUploadRecord } from "../../helper-functions/supabase-helpers/supabaseDbInserter";
+
 //
 export default function AddWalkContainer({ allWalks }) {
   const { darkTheme } = useContext(ThemeContext);
@@ -31,7 +31,7 @@ export default function AddWalkContainer({ allWalks }) {
         setWalkPicture(uploadedImage);
         setSelectedFile(null);
         // STEP 3: post Uploads with this data
-        const uploadRowData = await insertUploadRecord(newWalk);
+        // const uploadRowData = await insertUploadRecord(newWalk);
       }
     } catch (error) {
       console.error("Error adding walk", error);
