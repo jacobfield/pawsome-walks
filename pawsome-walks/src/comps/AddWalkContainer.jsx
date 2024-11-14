@@ -41,7 +41,6 @@ export default function AddWalkContainer({ allWalks }) {
     <div className={`addWalkContainer ${darkTheme ? "dark" : "light"}`}>
       <AddWalkForm
         handleWalkPictureChange={handleWalkPictureChange}
-        handleUploadWalkPictureClick={handleUploadWalkPictureClick}
         selectedFile={selectedFile}
         setSelectedFile={setSelectedFile}
         walkPicture={walkPicture}
