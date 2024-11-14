@@ -19,10 +19,11 @@ export default function AddWalkContainer({ allWalks }) {
     }
   };
 
-  const handleAddWalkSubmit = async () => {
+  const handleAddWalkSubmit = async (walkData) => {
     try {
       if (!walkData || !selectedFile) return;
       // 1) post walk data and retrieve
+      console.log("AddWalkContainer.jsx: walkData", walkData);
       const newWalk = await postWalk(walkData);
       setWalkId(newWalk.walkId);
       // 2) if file, upload it

@@ -1,4 +1,5 @@
 export default async function postWalk(walkData) {
+  console.log("Post Walk API Call: Received walkData:", walkData);
   try {
     const response = await fetch("https://pawsome-walks.vercel.app/api/walks", {
       method: "POST",
