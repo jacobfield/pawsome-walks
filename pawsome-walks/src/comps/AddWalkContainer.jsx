@@ -3,33 +3,40 @@ import uploadWalkPicture from "../hooks/apiCalls/uploadWalkPicture";
 import postWalk from "../hooks/apiCalls/postWalk";
 import AddWalkForm from "./AddWalkForm";
 import { ThemeContext } from "./ThemeProvider";
+import { insertUploadRecord } from "../../helper-functions/supabase-helpers/supabaseDbInserter";
+//
 export default function AddWalkContainer({ allWalks }) {
   const { darkTheme } = useContext(ThemeContext);
   const [selectedFile, setSelectedFile] = useState(null);
   const [walkPicture, setWalkPicture] = useState(null);
   const [walkData, setWalkData] = useState({});
+  const [walkId, setWalkId] = useState(null);
+  //
   const handleWalkPictureChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
     }
   };
-  const handleUploadWalkPictureClick = async () => {
-    if (!selectedFile || walkIdToUpload || walkData) return;
+
+  const handleAddWalkSubmit = async () => {
     try {
-      const uploadedWalkData = await postWalk(walkData);
-      const uploadedImageUrl = await uploadWalkPicture(
-        selectedFile,
-        walkIdToUpload
-      );
-      setWalkPicture(uploadedImageUrl);
-      setSelectedFile(null);
-      window.location.reload();
+      if (!walkData || !selectedFile) return;
+      // 1) post walk data and retrieve
+      const newWalk = await postWalk(walkData);
+      setWalkId(newWalk.walkId);
+      // 2) if file, upload it
+      if (selectedFile) {
+        const uploadedImage = await uploadWalkPicture(selectedFile, walkId);
+        setWalkPicture(uploadedImage);
+        setSelectedFile(null);
+        // STEP 3: post Uploads with this data
+        const uploadRowData = await insertUploadRecord(newWalk);
+      }
     } catch (error) {
-      console.error("Error uploading profile picture:", error);
+      console.error("Error adding walk", error);
     }
   };
-
   return (
     <div className={`addWalkContainer ${darkTheme ? "dark" : "light"}`}>
       <AddWalkForm
@@ -40,6 +47,7 @@ export default function AddWalkContainer({ allWalks }) {
         walkPicture={walkPicture}
         setWalkPicture={setWalkPicture}
         allWalks={allWalks}
+        handleAddWalkSubmit={handleAddWalkSubmit}
       ></AddWalkForm>
     </div>
   );

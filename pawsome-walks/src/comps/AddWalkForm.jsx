@@ -5,12 +5,12 @@ import getLatLng from "../hooks/getLatLng";
 
 export default function AddWalkForm({
   handleWalkPictureChange,
-  handleUploadWalkPictureClick,
   selectedFile,
   setSelectedFile,
   walkPicture,
   setWalkPicture,
   allWalks,
+  handleAddWalkSubmit,
 }) {
   const [walkData, setWalkData] = useState({});
   const [walkName, setWalkName] = useState("");
@@ -89,18 +89,6 @@ export default function AddWalkForm({
     }
   };
 
-  // const walkTypeArr = [
-  //   ...new Set([...allWalks.flatMap((walk) => walk.walktype), ...walkType]),
-  // ];
-
-  //   const handleNewWalkTypeSubmit = (e) => {
-  //     e.preventDefault();
-  //     if (newWalkType.length >= 4 && newWalkType.length <= 15) {
-  //       setWalkType([...walkType, newWalkType]);
-  //       setNewWalkType("");
-  //     }
-  //   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -127,8 +115,9 @@ export default function AddWalkForm({
         scenic: scenic,
         parking: parking,
       };
-
-      await postWalk(walkFormData);
+      setWalkData(walkFormData);
+      // HERE ---------------------------------------------
+      await handleAddWalkSubmit();
 
       setWalkName("");
       setLocation("");
@@ -318,6 +307,15 @@ export default function AddWalkForm({
           <option value="free">Free parking</option>
           <option value="paid">Paid parking</option>
         </select>
+        <div className="fileInputWrapper">
+          <input
+            className="uploadInput"
+            type="file"
+            accept="image/*"
+            onChange={handleWalkPictureChange}
+          />
+        </div>
+        {/* {selectedFile && <button onClick={handleUploadClick}>Upload</button>} */}
 
         <button
           className={`walkFormButton ${darkTheme ? "dark" : "light"}`}

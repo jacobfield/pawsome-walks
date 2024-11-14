@@ -1,4 +1,4 @@
-export default async function uploadWalkPicture(file, walkIdToUpload) {
+export default async function uploadWalkPicture(file, walkid) {
   const allowedTypes = ["image/png", "image/jpeg", "image/jpg"];
 
   if (!allowedTypes.includes(file.type)) {
@@ -12,7 +12,7 @@ export default async function uploadWalkPicture(file, walkIdToUpload) {
 
   const formData = new FormData();
   formData.append("file", file);
-  formData.append("walkid", walkIdToUpload);
+  formData.append("walkid", walkid);
 
   const response = await fetch("https://pawsome-walks.vercel.app/api/uploads", {
     method: "POST",
