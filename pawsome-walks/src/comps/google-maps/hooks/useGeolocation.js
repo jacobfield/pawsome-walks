@@ -14,10 +14,6 @@ export default function useGeolocation(lat, lng) {
     if (navigator.geolocation) {
       // If supported, get the current position
       navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-      // If not supported, log a message and set default coordinates
-      // console.log("Geolocation not supported - using default location");
-      // setCoordinates({ latitude: 51.508114, longitude: -0.075949 });
     }
 
     // Success callback function for geolocation
@@ -25,21 +21,15 @@ export default function useGeolocation(lat, lng) {
       // Extracting latitude and longitude from the position object
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      // Logging the coordinates
-      // console.log("Successfully retrieved location");
-      // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
       // Updating the state with the retrieved coordinates
       setCoordinates({ latitude, longitude, success: true });
     }
 
     // Error callback function for geolocation
     function error() {
-      // Logging an error message and setting default coordinates
-      // console.log("Unable to retrieve your location - using default location");
       const latitude = coordinates.latitude;
       const longitude = coordinates.longitude;
-      // console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-      // Updating the state with the default coordinates
+
       setCoordinates({ latitude, longitude, success: false });
     }
   }, []);

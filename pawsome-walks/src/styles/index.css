@@ -24,10 +24,16 @@
 footer.light {
   background-color: #fafaf0;
 }
-/* .logo.dark {
-  background-color: black;
-  border-radius: 300px;
-} */
+
+/* DARK THEME LOGO */
+.logo.dark,
+.signuplogo.dark {
+  background-color: #fafaf0;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
 
 .darkMode {
   display: flex;
@@ -470,18 +476,28 @@ footer.light {
 }
 
 .filterBoxesContainer.light {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: inherit;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  /* border-radius: 8px; */
   margin-top: 10px;
+  font-size: 1em;
 }
 .filterBoxesContainer.dark {
-  box-shadow: 0 4px 8px rgb(255, 255, 255);
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
+  font-size: 1em;
 }
 .filterBoxesContainer {
   display: flex;
   align-items: center;
+}
+.filterBoxesContainer select {
+  font-size: 1em;
+  padding: 4px;
 }
 .filterOverlayWrapper {
   display: flex;
@@ -561,4 +577,175 @@ footer.light {
 }
 .filterSlide.open {
   pointer-events: auto;
+}
+.overlayButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+/* ADD WALKS  */
+.addWalkContainer {
+  height: 175px;
+  background-color: inherit;
+  /* border: 1px solid #ccc; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+.addWalkContainer.light {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
+}
+.addWalkContainer.dark {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  padding: 20px;
+  background-color: inherit;
+  /* border-radius: 8px; */
+  margin-top: 10px;
+}
+
+.walkFormInput {
+  font-size: 1em;
+}
+
+.walkFormInput.light {
+  max-height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: inherit;
+  color: black;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+.walkFormInput.dark {
+  max-height: 30px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: inherit;
+  color: white;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+.walkFormInput::placeholder {
+  color: inherit;
+}
+
+.walkFormInput.dark option {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+
+.walkFormInput.light select {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: inherit;
+  color: inherit;
+  transition: border-color 0.2s ease;
+  text-align: center;
+}
+
+.walkFormInput.dark option:disabled {
+  color: #ddddddb7;
+}
+
+.walkFormButton {
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.walkFormButton.light {
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.walkFormButton.light:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.walkFormButton.light:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(10, 57, 107, 0.5);
+}
+
+.walkFormButton.light:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
+}
+
+.walkFormButton.dark {
+  background-color: inherit;
+  color: inherit;
+  height: min-content;
+  padding: 10px;
+  min-width: 115px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.walkFormButton.dark:hover {
+  background-color: #f0f0f0;
+  color: #000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.walkFormButton.dark:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px #44375a8c;
+}
+
+.walkFormButton.dark:active,
+.walkFormButton.light:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #007bffb6;
 }

@@ -18,7 +18,7 @@ export default async function createWalksTable() {
         CREATE TABLE IF NOT EXISTS walks(
         walkId SERIAL PRIMARY KEY,
         walkName TEXT NOT NULL,
-        photoPath TEXT NOT NULL,
+        photoPath TEXT,
         location TEXT NOT NULL,
         lat DECIMAL(9, 6) NOT NULL,
         lng DECIMAL(9, 6) NOT NULL,
@@ -29,7 +29,8 @@ export default async function createWalksTable() {
         toilets BOOLEAN NOT NULL DEFAULT FALSE,
         waterOnRoute BOOLEAN NOT NULL DEFAULT FALSE,
         scenic BOOLEAN NOT NULL DEFAULT FALSE,
-        parking parking_type
+        parking parking_type,
+        approved BOOLEAN NOT NULL DEFAULT FALSE,
         )
         `);
     console.log("walks table created");
