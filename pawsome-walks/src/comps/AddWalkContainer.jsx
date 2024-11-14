@@ -25,12 +25,13 @@ export default function AddWalkContainer({ allWalks }) {
       // 1) post walk data and retrieve
       console.log("AddWalkContainer.jsx: walkData", walkData);
       const newWalk = await postWalk(walkData);
-      setWalkId(newWalk.walkId);
+      setWalkId(newWalk.data.walkid);
       // 2) if file, upload it
+      console.log("AddWalkContainer.jsx: walkid", newWalk.data.walkid);
       if (selectedFile) {
         const uploadedImage = await uploadWalkPicture(
           selectedFile,
-          newWalk.walkId
+          newWalk.data.walkid
         );
         setWalkPicture(uploadedImage);
         setSelectedFile(null);
