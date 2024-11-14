@@ -28,7 +28,7 @@
 
   .logo {
     height: auto;
-    max-width: 100px;
+    max-width: 85px;
     margin-left: 15px;
   }
   .overlayLogo,
@@ -36,6 +36,13 @@
     height: 100px;
     width: auto;
     max-width: 100px;
+  }
+  .overlayLogo.dark {
+    background-color: #fafaf0;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 50%;
   }
 
   .profilePicture {

@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
 export default function FilterBoxes({
-  handleChange,
   allWalks,
   setFilteredWalks,
   setIsFiltered,
@@ -116,8 +115,8 @@ export default function FilterBoxes({
 
           <select onChange={handleFilterChange} id="parking">
             <option value="All">Parking available?</option>
-            <option value="free">Free Parking</option>
-            <option value="paid">Paid Parking</option>
+            <option value="free">Free parking</option>
+            <option value="paid">Paid parking</option>
           </select>
         </div>
       </div>
