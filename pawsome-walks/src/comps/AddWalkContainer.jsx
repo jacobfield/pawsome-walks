@@ -27,14 +27,17 @@ export default function AddWalkContainer({ allWalks }) {
       setWalkId(newWalk.walkId);
       // 2) if file, upload it
       if (selectedFile) {
-        const uploadedImage = await uploadWalkPicture(selectedFile, walkId);
+        const uploadedImage = await uploadWalkPicture(
+          selectedFile,
+          newWalk.walkId
+        );
         setWalkPicture(uploadedImage);
         setSelectedFile(null);
         // STEP 3: post Uploads with this data
         // const uploadRowData = await insertUploadRecord(newWalk);
       }
     } catch (error) {
-      console.error("Error adding walk", error);
+      console.error("Error adding walk (AddWalkContainer.js", error);
     }
   };
   return (
