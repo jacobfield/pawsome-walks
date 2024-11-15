@@ -471,7 +471,7 @@ footer.light {
 }
 
 .filterSlide.open {
-  max-height: 200px; /* Adjust based on content size */
+  margin-top: 20px;
   opacity: 1;
 }
 
@@ -587,14 +587,17 @@ footer.light {
 
 /* ADD WALKS  */
 .addWalkContainer {
-  height: 200px;
+  height: 500px;
   margin-bottom: 20px;
   background-color: inherit;
   /* border: 1px solid #ccc; */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   /* padding: 20px; */
+}
+.addWalkForm {
+  height: 500px;
 }
 .addWalkContainer.light {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
