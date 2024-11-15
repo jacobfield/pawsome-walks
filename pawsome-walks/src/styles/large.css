@@ -392,4 +392,8 @@
   .signupForm button {
     margin-bottom: 10px;
   }
+
+  .filterSlide.open {
+    max-height: 290px; /* Adjust based on content size */
+  }
 }
