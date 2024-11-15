@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import { bouncy } from "ldrs";
 import { useContext } from "react";
@@ -68,8 +69,9 @@ export default function Main({
         </div>
         {!showFavourites
           ? filteredWalks &&
-            filteredWalks.map((walk) =>
-              walk.approved ? (
+            filteredWalks.map((walk) => {
+              const primarySrc = `walk-photos/${walk.photopath}.jpg`;
+              return walk.approved ? (
                 <Link
                   className="noTextDecoration"
                   to={`/walk/${walk.walkid}`}
@@ -81,8 +83,11 @@ export default function Main({
                   >
                     <img
                       className="walkPreviewImg"
-                      src={`walk-photos/${walk.photopath}.jpg`}
                       alt={walk.walkname}
+                      src={primarySrc}
+                      onError={(e) => {
+                        e.target.src = walk.photopath;
+                      }}
                     />
                     <div className="walkPreviewTextContainer">
                       <h2 className="walkPreviewTitle">{walk.walkname}</h2>
@@ -97,15 +102,16 @@ export default function Main({
                     </div>
                   </div>
                 </Link>
-              ) : null
-            )
+              ) : null;
+            })
           : filteredWalks &&
             filteredWalks
               .filter((walk) =>
                 favouriteWalks.some((fave) => fave.walkid === walk.walkid)
               )
-              .map((walk) =>
-                walk.approved ? (
+              .map((walk) => {
+                const primarySrc = `walk-photos/${walk.photopath}.jpg`;
+                return walk.approved ? (
                   <Link
                     className="noTextDecoration"
                     to={`/walk/${walk.walkid}`}
@@ -117,8 +123,11 @@ export default function Main({
                     >
                       <img
                         className="walkPreviewImg"
-                        src={`walk-photos/${walk.photopath}.jpg`}
                         alt={walk.walkname}
+                        src={primarySrc}
+                        onError={(e) => {
+                          e.target.src = walk.photopath;
+                        }}
                       />
                       <div className="walkPreviewTextContainer">
                         <h2 className="walkPreviewTitle">{walk.walkname}</h2>
@@ -133,8 +142,8 @@ export default function Main({
                       </div>
                     </div>
                   </Link>
-                ) : null
-              )}
+                ) : null;
+              })}
       </section>
     );
   }
@@ -157,8 +166,10 @@ export default function Main({
       </div>
       {!showFavourites
         ? allWalks &&
-          allWalks.map((walk) =>
-            walk.approved ? (
+          allWalks.map((walk) => {
+            const primarySrc = `walk-photos/${walk.photopath}.jpg`;
+            
+            return walk.approved ? (
               <Link
                 className="noTextDecoration"
                 to={`/walk/${walk.walkid}`}
@@ -170,8 +181,11 @@ export default function Main({
                 >
                   <img
                     className="walkPreviewImg"
-                    src={`walk-photos/${walk.photopath}.jpg`}
                     alt={walk.walkname}
+                    src={primarySrc}
+                    onError={(e) => {
+                      e.target.src = walk.photopath;
+                    }}
                   />
                   <div className="walkPreviewTextContainer">
                     <h2 className="walkPreviewTitle">{walk.walkname}</h2>
@@ -186,15 +200,16 @@ export default function Main({
                   </div>
                 </div>
               </Link>
-            ) : null
-          )
+            ) : null;
+          })
         : allWalks &&
           allWalks
             .filter((walk) =>
               favouriteWalks.some((fave) => fave.walkid === walk.walkid)
             )
-            .map((walk) =>
-              walk.approved ? (
+            .map((walk) => {
+              const primarySrc = `walk-photos/${walk.photopath}.jpg`;
+              return walk.approved ? (
                 <Link
                   className="noTextDecoration"
                   to={`/walk/${walk.walkid}`}
@@ -206,8 +221,11 @@ export default function Main({
                   >
                     <img
                       className="walkPreviewImg"
-                      src={`walk-photos/${walk.photopath}.jpg`}
                       alt={walk.walkname}
+                      src={primarySrc}
+                      onError={(e) => {
+                        e.target.src = walk.photopath;
+                      }}
                     />
                     <div className="walkPreviewTextContainer">
                       <h2 className="walkPreviewTitle">{walk.walkname}</h2>
@@ -222,8 +240,8 @@ export default function Main({
                     </div>
                   </div>
                 </Link>
-              ) : null
-            )}
+              ) : null;
+            })}
     </section>
   );
 }

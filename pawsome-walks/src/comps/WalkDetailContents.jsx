@@ -46,7 +46,7 @@ export default function WalkDetailContents({
       console.error("Error removing walk from favourites", error);
     }
   }
-
+  const primarySrc = `/walk-photos/walk${walkid}.jpg`;
   return (
     <div
       className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
@@ -84,8 +84,11 @@ export default function WalkDetailContents({
       </div>
       <img
         className="walkDetailImg"
-        src={`/walk-photos/walk${walkid}.jpg`}
         alt={walk.walkname}
+        src={primarySrc}
+        onError={(e) => {
+          e.target.src = walk.photopath;
+        }}
       />
     </div>
   );
