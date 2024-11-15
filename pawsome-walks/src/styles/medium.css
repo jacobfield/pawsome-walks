@@ -203,6 +203,8 @@
     justify-content: space-evenly;
     /* padding: 10px; */
     background-color: #f1f1f1;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .footerLogo {

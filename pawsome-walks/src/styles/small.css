@@ -198,6 +198,8 @@
     display: flex;
     justify-content: space-evenly;
     /* padding: 10px; */
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .footerLogo {
