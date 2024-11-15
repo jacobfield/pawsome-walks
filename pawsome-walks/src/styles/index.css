@@ -800,3 +800,13 @@ footer.light {
   box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
   background-color: #007bffb6;
 }
+.fileInputWrapper {
+  display: grid;
+  grid-column: 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.uploadInput {
+  justify-self: center;
+}
