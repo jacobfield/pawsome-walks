@@ -810,3 +810,35 @@ footer.light {
 .uploadInput {
   justify-self: center;
 }
+/* .uploadInput {
+  all: unset;
+
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: pink;
+  color: red;
+} */
+
+.customFileInput {
+  display: inline-block;
+  /* padding: 10px 20px; */
+  /* background-color: #007bff; */
+  color: inherit;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  background-color: inherit;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.customFileInput.dark {
+  /* background-color: #0056b3; */
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+}

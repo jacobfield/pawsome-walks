@@ -26,6 +26,7 @@ export default function AddWalkForm({
   const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
   const [walkNameAndLocation, setWalkNameAndLocation] = useState({});
+  const [fileLabelText, setFileLabelText] = useState("Upload walk picture");
   const { darkTheme } = useContext(ThemeContext);
 
   const handleChange = (e) => {
@@ -137,6 +138,15 @@ export default function AddWalkForm({
       // setParking("none");
     } catch (error) {
       console.error("Error uploading new walk:", error);
+    }
+  };
+  const handleFileChange = (e) => {
+    handleWalkPictureChange(e); // Call the provided handler for the actual logic
+    const file = e.target.files[0];
+    if (file) {
+      setFileLabelText(file.name);
+    } else {
+      setFileLabelText("Upload walk picture"); // Reset if no file is selected
     }
   };
 
@@ -307,12 +317,23 @@ export default function AddWalkForm({
         </select>
         <div className="fileInputWrapper">
           <input
+            id="fileInput"
             className="uploadInput"
             type="file"
             accept="image/*"
-            onChange={handleWalkPictureChange}
+            onChange={handleFileChange}
+            style={{ display: "none" }} // Hides the native input
           />
+          <label
+            htmlFor="fileInput"
+            className={`customFileInput walkFormButton  ${
+              darkTheme ? "dark" : "light"
+            }`}
+          >
+            {fileLabelText}
+          </label>
         </div>
+
         {/* {selectedFile && <button onClick={handleUploadClick}>Upload</button>} */}
 
         <button
