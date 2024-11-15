@@ -375,13 +375,13 @@
     margin-bottom: 10px;
   }
 }
-@media (max-width: 1024px) and (min-width: 650px) {
+@media (max-width: 1024px) and (min-width: 649px) {
   .filterSlide.open {
-    max-height: 265px; /* Adjust based on content size */
+    max-height: 340px; /* Adjust based on content size */
   }
 }
-@media (max-width: 649px) and (min-width: 436px) {
+@media (max-width: 650px) and (min-width: 436px) {
   .filterSlide.open {
-    max-height: 385px; /* Adjust based on content size */
+    max-height: 405px; /* Adjust based on content size */
   }
 }

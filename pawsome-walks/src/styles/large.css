@@ -394,6 +394,6 @@
   }
 
   .filterSlide.open {
-    max-height: 250px; /* Adjust based on content size */
+    max-height: 290px; /* Adjust based on content size */
   }
 }
