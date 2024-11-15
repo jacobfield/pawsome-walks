@@ -144,7 +144,7 @@ export default function AddWalkForm({
     handleWalkPictureChange(e); // Call the provided handler for the actual logic
     const file = e.target.files[0];
     if (file) {
-      setFileLabelText(file.name);
+      setFileLabelText(file.name || "Picture Selected");
     } else {
       setFileLabelText("Upload walk picture"); // Reset if no file is selected
     }
