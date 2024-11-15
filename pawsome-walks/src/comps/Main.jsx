@@ -168,7 +168,7 @@ export default function Main({
         ? allWalks &&
           allWalks.map((walk) => {
             const primarySrc = `walk-photos/${walk.photopath}.jpg`;
-            
+
             return walk.approved ? (
               <Link
                 className="noTextDecoration"
@@ -245,3 +245,6 @@ export default function Main({
     </section>
   );
 }
+// - IF isLoggedIn && ownerid === 4 (mine)  At the end of the mapped walks, map through the list of walks that are not approved
+// Make them a different colour
+// Create a button that will approve the walk, on the walk page
