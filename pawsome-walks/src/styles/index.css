@@ -665,9 +665,56 @@ footer.light {
   transition: border-color 0.2s ease;
   text-align: center;
 }
+.walkFormInput.light option {
+  max-height: 30px;
+  padding: 2px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
+}
 
 .walkFormInput.dark option:disabled {
   color: #ddddddb7;
+}
+.walkFormInput.light:hover {
+  border-color: #007bff;
+  background-color: #e3f2fd;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.walkFormInput.dark:hover {
+  border-color: #87aecc;
+  background-color: #2b3b51;
+  box-shadow: 0 0 8px rgba(135, 174, 204, 0.2);
+  transform: scale(1.02);
+}
+
+.walkFormInput.light:focus {
+  border-color: #0056b3;
+  background-color: #cfe2ff;
+  box-shadow: 0 0 8px rgba(0, 86, 179, 0.4);
+  transform: scale(1.03);
+}
+
+.walkFormInput.dark:focus {
+  border-color: #54b0cc;
+  background-color: #1c2736;
+  box-shadow: 0 0 8px rgba(84, 176, 204, 0.4);
+  transform: scale(1.03);
+}
+
+.walkFormInput.light::selection {
+  background-color: #b3d9ff;
+  color: #0056b3;
+}
+
+.walkFormInput.dark::selection {
+  background-color: #3e57e6;
+  color: #ffffff;
 }
 
 .walkFormButton {
@@ -707,8 +754,8 @@ footer.light {
 }
 
 .walkFormButton.light:hover {
-  background-color: #f0f0f0;
-  color: #000;
+  background-color: #000;
+  color: #f0f0f0;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
