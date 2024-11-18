@@ -5,6 +5,7 @@ import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
 import FilterOverlay from "./FilterOverlay";
+import { useAuth } from "./AuthContext";
 
 export default function Main({
   allWalks,
@@ -16,6 +17,7 @@ export default function Main({
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [addWalkIsOpen, setAddWalkIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
+  const { logout, owner, isLoggedIn } = useAuth();
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
 
@@ -26,7 +28,7 @@ export default function Main({
       </div>
     );
   }
-  const isAdmin = { isLoggedIn: true, ownerid: 4 };
+  const isAdmin = { isLoggedIn, ownerid: owner?.ownerid };
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
     return (
@@ -240,7 +242,7 @@ export default function Main({
                 </Link>
               ) : null;
             })}
-      {isAdmin.isLoggedIn && isAdmin.ownerid === 4
+      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4
         ? allWalks &&
           allWalks
             .filter((walk) => walk.approved === false)
