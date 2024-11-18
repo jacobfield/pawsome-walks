@@ -860,7 +860,7 @@ footer.light {
 }
 
 .walkDetailIconContainer {
-  align-self: flex-start;
+  align-self: center;
   text-wrap: wrap;
   width: 100%;
   display: block;
@@ -881,5 +881,8 @@ footer.light {
   justify-content: flex-end;
   align-self: flex-end;
   margin: 10px;
+  width: 100px;
+}
+.walkDetailStar {
   width: 100px;
 }
