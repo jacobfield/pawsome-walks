@@ -844,3 +844,12 @@ footer.light {
   margin-top: 15px;
   margin-bottom: 20px;
 }
+
+.unapproved {
+  background-color: red;
+  box-shadow: rgb(255, 245, 245) 2px 2px 2px;
+  box-shadow: rgb(63, 20, 20) 2px 2px 2px;
+}
+.pendingApproval {
+  color: red;
+}
