@@ -943,3 +943,10 @@ footer.light {
   background-color: red;
   color: white;
 }
+
+.approveButton:active {
+  background-color: #e0e0e0;
+  box-shadow: none;
+  box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
+  background-color: #007bffb6;
+}

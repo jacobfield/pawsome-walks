@@ -5,6 +5,7 @@ import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
 import FilterOverlay from "./FilterOverlay";
+import ApproveRejectWalk from "./ApproveRejectWalk"; // Import the new component
 
 export default function Main({
   allWalks,
@@ -281,6 +282,7 @@ export default function Main({
                       >
                         <p>{walk.walktype.map((type) => type).join(", ")}</p>
                       </div>
+                      <ApproveRejectWalk walk={walk} /> {/* Add the component here */}
                     </div>
                   </div>
                 </Link>
