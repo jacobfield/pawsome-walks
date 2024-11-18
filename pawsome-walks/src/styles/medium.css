@@ -161,14 +161,6 @@
   }
 
   .walkPreviewTitle {
-    align-self: flex-start;
-    width: 100%;
-    display: block;
-    margin: 0;
-    margin-top: 5px;
-    padding: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
     font-size: 20px;
   }
 
@@ -284,18 +276,14 @@
     flex-direction: column;
     justify-content: space-between;
   }
-  .backIcon {
-    justify-content: flex-end;
-    align-self: flex-end;
-    margin: 10px;
-  }
+
   .walkDetailIcon {
     margin: 10px;
   }
   .walkDetailIconContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 100%;
     padding-top: 10px;
   }
