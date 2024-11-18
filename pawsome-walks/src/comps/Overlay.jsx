@@ -18,6 +18,7 @@ export default function Overlay({ navBarProps }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isOpen, setIsOpen, profilePicture, setProfilePicture } = navBarProps;
   const [selectedFile, setSelectedFile] = useState(null);
+  const [fileLabelText, setFileLabelText] = useState("Upload profile picture");
 
   useEffect(() => {
     async function getProfilePic() {
@@ -51,9 +52,11 @@ export default function Overlay({ navBarProps }) {
     const file = e.target.files[0];
     if (file) {
       setSelectedFile(file);
+      setFileLabelText(file.name);
+    } else {
+      setFileLabelText("Upload profile picture");
     }
   };
-
   const handleUploadClick = async () => {
     if (!selectedFile || !owner?.ownerId) return;
     try {
@@ -63,6 +66,7 @@ export default function Overlay({ navBarProps }) {
       );
       setProfilePicture(uploadedImageUrl);
       setSelectedFile(null);
+      setFileLabelText("Upload profile picture");
       window.location.reload();
       // Clear the selected file
     } catch (error) {
@@ -98,14 +102,23 @@ export default function Overlay({ navBarProps }) {
             !profilePicture ? (
               <label className="uploadContainer">
                 <CgProfile className="placeholderImage" />
-                <p>Upload Profile Picture</p>
                 <div className="fileInputWrapper">
                   <input
                     className="uploadInput"
                     type="file"
                     accept="image/*"
+                    id="fileInput"
+                    style={{ display: "none" }} // Hides the native input
                     onChange={handleProfilePictureChange}
                   />
+                  <label
+                    htmlFor="fileInput"
+                    className={`customFileInput walkFormButton  ${
+                      darkTheme ? "dark" : "light"
+                    }`}
+                  >
+                    {fileLabelText}
+                  </label>
                 </div>
                 {selectedFile && (
                   <button onClick={handleUploadClick}>Upload</button>

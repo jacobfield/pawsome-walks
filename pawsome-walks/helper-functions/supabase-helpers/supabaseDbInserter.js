@@ -32,3 +32,5 @@ export async function insertUploadRecord(uploadData) {
     throw error;
   }
 }
+
+// git commit -m "Made progress on uploading both the image and the walk row. Next need to sort out why there is a not null constraint on public.uploads.ownerid. 2 options - either remove the not null constraint (ideal) or insert the ownerid along with it, as only a logged in user can make add a walk anyway. -however, this may insert a new row in the uploadsOwner junction table, which would remove the profile picture. - option 3: Set a proxy ownerId in for these, such as 0, but this might sacrifice database integrity"

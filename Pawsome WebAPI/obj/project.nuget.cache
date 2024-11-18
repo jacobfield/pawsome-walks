@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "m0Lr2mox0XE=",
+  "dgSpecHash": "Cgp7ZuqIN7I=",
   "success": true,
   "projectFilePath": "C:\\Users\\JacobField\\Desktop\\Pawsome Walks\\pawsome-walks\\Pawsome WebAPI\\Pawsome WebAPI.csproj",
   "expectedPackageFiles": [
@@ -95,12 +95,5 @@
     "C:\\Users\\JacobField\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\JacobField\\.nuget\\packages\\system.windows.extensions\\6.0.0\\system.windows.extensions.6.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\JacobField\\Desktop\\Pawsome Walks\\pawsome-walks\\Pawsome WebAPI\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

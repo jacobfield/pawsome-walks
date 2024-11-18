@@ -76,12 +76,12 @@ export default function FavouriteStar({
 
   return justFavouritesIds.includes(walkid) ? (
     <CiStar
-      className="starIcon icon walkDetailIcon favouriteList"
+      className="starIcon icon walkDetailIcon favouriteList walkDetailStar"
       onClick={removeFromFavourites}
     />
   ) : (
     <CiStar
-      className="starIcon icon walkDetailIcon notFavouriteList"
+      className="starIcon icon walkDetailIcon notFavouriteList walkDetailStar"
       onClick={addToFavourites}
     />
   );

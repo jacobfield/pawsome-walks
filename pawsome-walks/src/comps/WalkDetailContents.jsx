@@ -11,11 +11,13 @@ import { useAuth } from "./AuthContext";
 import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites";
 import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
 import FavouriteStar from "./FavouriteStar";
+import ApproveRejectWalk from "./approveRejectWalk";
 export default function WalkDetailContents({
   walk,
   walkidString,
   favouriteWalks,
   setFavouriteWalks,
+  approved,
 }) {
   const walkid = parseInt(walkidString);
 
@@ -46,7 +48,7 @@ export default function WalkDetailContents({
       console.error("Error removing walk from favourites", error);
     }
   }
-
+  const primarySrc = `/walk-photos/walk${walkid}.jpg`;
   return (
     <div
       className={`walkDetailContentsContainer ${darkTheme ? "dark" : "light"}`}
@@ -61,11 +63,15 @@ export default function WalkDetailContents({
             />
           </Link>
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
-          <FavouriteStar
-            walkid={walkid}
-            addToFavourites={() => addToFavourites(ownerid, walkid)}
-            removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
-          ></FavouriteStar>
+          {approved ? (
+            <FavouriteStar
+              walkid={walkid}
+              addToFavourites={() => addToFavourites(ownerid, walkid)}
+              removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
+            ></FavouriteStar>
+          ) : (
+            <ApproveRejectWalk walk={walk}></ApproveRejectWalk>
+          )}
           {/* <CiStar
             className={`starIcon icon walkDetailIcon ${
               favouriteWalks.includes(walkid)
@@ -84,8 +90,11 @@ export default function WalkDetailContents({
       </div>
       <img
         className="walkDetailImg"
-        src={`/walk-photos/walk${walkid}.jpg`}
         alt={walk.walkname}
+        src={primarySrc}
+        onError={(e) => {
+          e.target.src = walk.photopath;
+        }}
       />
     </div>
   );
