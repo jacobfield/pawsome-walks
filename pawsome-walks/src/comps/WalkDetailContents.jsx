@@ -65,13 +65,12 @@ export default function WalkDetailContents({
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
           {approved ? (
             <FavouriteStar
-              
               walkid={walkid}
               addToFavourites={() => addToFavourites(ownerid, walkid)}
               removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
             ></FavouriteStar>
           ) : (
-            <ApproveRejectWalk></ApproveRejectWalk>
+            <ApproveRejectWalk walk={walk}></ApproveRejectWalk>
           )}
           {/* <CiStar
             className={`starIcon icon walkDetailIcon ${

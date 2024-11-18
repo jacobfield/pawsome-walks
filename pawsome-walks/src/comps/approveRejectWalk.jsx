@@ -1,12 +1,17 @@
 import { useContext, useState } from "react";
 import { ThemeContext } from "./ThemeProvider";
-// import { supabase } from "../supabaseClient";
+import { createClient } from "@supabase/supabase-js";
 
 export default function ApproveRejectWalk({ walk }) {
+  const supabase = createClient(
+    import.meta.env.VITE_SUPABASE_URL,
+    import.meta.env.VITE_SUPABASE_SECRET_KEY
+  );
   const { darkTheme } = useContext(ThemeContext);
   const [confirmDeletion, setConfirmDeletion] = useState(false);
-
   const approveWalk = async () => {
+    console.log("walk in approveRejectWalk", walk);
+
     try {
       const { data, error } = await supabase
         .from("walks")
