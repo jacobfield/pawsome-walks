@@ -25,6 +25,15 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const [showFavourites, setShowFavourites] = useState(false);
   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
+  const [sortedWalks, setSortedWalks] = useState(allWalks);
+
+  const sortProps = {
+    isSorted,
+    setIsSorted,
+    sortedWalks,
+    setSortedWalks,
+  };
 
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
@@ -84,6 +93,7 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
                 setFavouriteWalks={setFavouriteWalks}
                 showFavourites={showFavourites}
                 filterFunctions={filterFunctions}
+                sortProps={sortProps}
               />
             }
           />

@@ -11,6 +11,7 @@ export default function Main({
   allWalks,
   favouriteWalks,
   showFavourites,
+  sortProps,
   filterFunctions,
 }) {
   bouncy.register();
@@ -43,6 +44,7 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
         <h1 className="noSearchFound">
