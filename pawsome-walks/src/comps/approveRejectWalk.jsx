@@ -16,12 +16,13 @@ export default function ApproveRejectWalk({ walk }) {
 
   return (
     <div className="approveRejectContainer">
-      <div className="approveContainer">
-        <button onClick={approveWalk}></button>
-      </div>
-      <div className="rejectContainer">
-        <button onClick={rejectWalk}></button>
-      </div>
+      <button className="approveButton" onClick={approveWalk}>
+        Approve walk
+      </button>
+
+      <button className="rejectButton" onClick={rejectWalk}>
+        Delete Walk
+      </button>
     </div>
   );
 }

@@ -854,11 +854,6 @@ footer.light {
   color: red;
 }
 
-.approveRejectContainer {
-  background-color: aqua;
-  width: 100px;
-}
-
 .walkDetailIconContainer {
   align-self: center;
   text-wrap: wrap;
@@ -871,12 +866,9 @@ footer.light {
   overflow-wrap: break-word;
   display: flex;
   justify-content: space-around;
+  height: 100px;
 }
-.approveRejectContainer {
-  justify-self: center;
-  flex-shrink: 1;
-  flex-grow: 0;
-}
+
 .backIcon {
   justify-content: flex-end;
   align-self: flex-end;
@@ -885,4 +877,69 @@ footer.light {
 }
 .walkDetailStar {
   width: 100px;
+}
+
+.approveRejectContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 5px;
+  width: 100px;
+  height: 100px;
+}
+
+.approveButton {
+  height: 100%;
+  width: 100%;
+  margin-bottom: 5px;
+  background-color: greenyellow;
+  /*  */
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+  height: min-content;
+  padding: 10px;
+  min-width: 120px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.rejectButton {
+  height: 100%;
+  width: 100%;
+  margin-top: 5px;
+  background-color: red;
+  /*  */
+  background-color: inherit;
+  color: inherit;
+  border: 1px solid #ccc;
+  border-top-color: #e0e0e0;
+  border-left-color: #e0e0e0;
+  border-bottom-color: #9e9c9c;
+  border-right-color: #9e9c9c;
+  height: min-content;
+  padding: 10px;
+  min-width: 120px;
+  font-size: 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+.approveButton:hover {
+  background-color: greenyellow;
+  color: black;
+}
+
+.rejectButton:hover {
+  background-color: red;
+  color: white;
 }
