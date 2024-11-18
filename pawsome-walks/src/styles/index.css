@@ -853,3 +853,33 @@ footer.light {
 .pendingApproval {
   color: red;
 }
+
+.approveRejectContainer {
+  background-color: aqua;
+  width: 100px;
+}
+
+.walkDetailIconContainer {
+  align-self: flex-start;
+  text-wrap: wrap;
+  width: 100%;
+  display: block;
+  margin: 0;
+  margin-top: 5px;
+  padding: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  display: flex;
+  justify-content: space-around;
+}
+.approveRejectContainer {
+  justify-self: center;
+  flex-shrink: 1;
+  flex-grow: 0;
+}
+.backIcon {
+  justify-content: flex-end;
+  align-self: flex-end;
+  margin: 10px;
+  width: 100px;
+}

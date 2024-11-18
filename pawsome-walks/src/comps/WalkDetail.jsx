@@ -48,6 +48,7 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
           walkidString={walkid}
           favouriteWalks={favouriteWalks}
           setFavouriteWalks={setFavouriteWalks}
+          approved={walk.approved}
         ></WalkDetailContents>
       </div>
     );
