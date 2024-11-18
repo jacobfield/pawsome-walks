@@ -11,8 +11,8 @@ export default function Main({
   allWalks,
   favouriteWalks,
   showFavourites,
-  sortProps,
   filterFunctions,
+  sortProps,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
@@ -165,6 +165,7 @@ export default function Main({
           filteredWalks={filteredWalks}
           setAddWalkIsOpen={setAddWalkIsOpen}
           addWalkIsOpen={addWalkIsOpen}
+          sortProps={sortProps}
         />
       </div>
       {!showFavourites
