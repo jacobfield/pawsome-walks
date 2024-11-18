@@ -11,11 +11,13 @@ import { useAuth } from "./AuthContext";
 import removeWalkFromFavourites from "../hooks/apiCalls/removeWalkFromFavourites";
 import addWalkToFavourites from "../hooks/apiCalls/addWalkToFavourites";
 import FavouriteStar from "./FavouriteStar";
+import ApproveRejectWalk from "./approveRejectWalk";
 export default function WalkDetailContents({
   walk,
   walkidString,
   favouriteWalks,
   setFavouriteWalks,
+  approved,
 }) {
   const walkid = parseInt(walkidString);
 
@@ -61,11 +63,15 @@ export default function WalkDetailContents({
             />
           </Link>
           <h1 className="walkDetailWalkName">{walk.walkname}</h1>
-          <FavouriteStar
-            walkid={walkid}
-            addToFavourites={() => addToFavourites(ownerid, walkid)}
-            removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
-          ></FavouriteStar>
+          {approved ? (
+            <FavouriteStar
+              walkid={walkid}
+              addToFavourites={() => addToFavourites(ownerid, walkid)}
+              removeFromFavourites={() => removeFromFavourites(ownerid, walkid)}
+            ></FavouriteStar>
+          ) : (
+            <ApproveRejectWalk walk={walk}></ApproveRejectWalk>
+          )}
           {/* <CiStar
             className={`starIcon icon walkDetailIcon ${
               favouriteWalks.includes(walkid)

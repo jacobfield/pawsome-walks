@@ -161,15 +161,6 @@
   }
 
   .walkPreviewTitle {
-    align-self: flex-start;
-    text-wrap: wrap;
-    width: 100%;
-    display: block;
-    margin: 0;
-    margin-top: 5px;
-    padding: 0;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
     font-size: 24px;
   }
 
@@ -189,7 +180,7 @@
     padding: 0;
     word-wrap: break-word;
     overflow-wrap: break-word;
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .mainContent {
@@ -291,20 +282,16 @@
   .walkDetailContents {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    /* justify-content: space-between; */
   }
-  .backIcon {
-    justify-content: flex-end;
-    align-self: flex-end;
-    margin: 10px;
-  }
+
   .walkDetailIcon {
     margin: 10px;
   }
   .walkDetailIconContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     padding-top: 10px;
     width: 100%;
     max-width: 1700px;

@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { bouncy } from "ldrs";
-import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
 import { Link } from "react-router-dom";
@@ -27,7 +26,7 @@ export default function Main({
       </div>
     );
   }
-
+  const isAdmin = { isLoggedIn: true, ownerid: 4 };
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
     return (
@@ -42,7 +41,7 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
-          ></FilterOverlay>
+          />
         </div>
         <h1 className="noSearchFound">
           No matching walks found. Try adjusting your search!
@@ -51,10 +50,10 @@ export default function Main({
     );
   }
 
-  if (isFiltered && filteredWalks.length != 0) {
+  if (isFiltered && filteredWalks.length !== 0) {
     return (
       <section className="walksContainer">
-        <Quote></Quote>
+        <Quote />
         <div className="filterOverlayWrapper">
           <FilterOverlay
             filterIsOpen={filterIsOpen}
@@ -65,7 +64,7 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
-          ></FilterOverlay>
+          />
         </div>
         {!showFavourites
           ? filteredWalks &&
@@ -150,8 +149,8 @@ export default function Main({
 
   return (
     <section className="walksContainer">
-      <Quote></Quote>
-      <br></br>
+      <Quote />
+      <br />
       <div className="filterOverlayWrapper">
         <FilterOverlay
           filterIsOpen={filterIsOpen}
@@ -162,13 +161,12 @@ export default function Main({
           filteredWalks={filteredWalks}
           setAddWalkIsOpen={setAddWalkIsOpen}
           addWalkIsOpen={addWalkIsOpen}
-        ></FilterOverlay>
+        />
       </div>
       {!showFavourites
         ? allWalks &&
           allWalks.map((walk) => {
             const primarySrc = `walk-photos/${walk.photopath}.jpg`;
-            
             return walk.approved ? (
               <Link
                 className="noTextDecoration"
@@ -242,6 +240,53 @@ export default function Main({
                 </Link>
               ) : null;
             })}
+      {isAdmin.isLoggedIn && isAdmin.ownerid === 4
+        ? allWalks &&
+          allWalks
+            .filter((walk) => walk.approved === false)
+            .map((walk) => {
+              const primarySrc = `walk-photos/${walk.photopath}.jpg`;
+              return (
+                <Link
+                  className="noTextDecoration"
+                  to={`/walk/${walk.walkid}`}
+                  key={walk.walkid}
+                >
+                  <div
+                    key={walk.walkid}
+                    className={`walk fade green ${
+                      darkTheme ? "dark" : "light"
+                    }`}
+                  >
+                    <img
+                      className="walkPreviewImg"
+                      alt={walk.walkname}
+                      src={primarySrc}
+                      onError={(e) => {
+                        e.target.src = walk.photopath;
+                      }}
+                    />
+                    <div
+                      className="walkPreviewTextContainer 
+                    "
+                    >
+                      <h2 className="walkPreviewTitle">{walk.walkname}</h2>
+                      <p className="walkPreviewLocation">{walk.location}</p>
+
+                      <div
+                        className={`walkPreviewDetails fade ${
+                          darkTheme ? "dark" : "light"
+                        } `}
+                      >
+                        <h3 className="pendingApproval">Pending approval</h3>
+                        {/* <p>{walk.walktype.map((type) => type).join(", ")}</p> */}
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })
+        : null}
     </section>
   );
 }
