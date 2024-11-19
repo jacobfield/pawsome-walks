@@ -35,6 +35,18 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
     setSortedWalks,
   };
 
+
+  function sortWalksByDistance(sortedWalks) {
+for (let i = 0; i < sortedWalks.length; i++) {
+sortedWalks[i]
+
+// for each walk, make call to calculateDistance(), passing in the walk's lat and long, and the user's lat and long.
+// walk Lat ana lng retrieved from walk object, user lat and long needs to be retrieved from user's location
+
+}
+
+  }
+
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
 

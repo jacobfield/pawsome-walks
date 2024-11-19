@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
+import SortByDistanceBox from "./SortByDistanceBox";
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
@@ -119,6 +120,8 @@ export default function FilterBoxes({
             <option value="free">Free parking</option>
             <option value="paid">Paid parking</option>
           </select>
+
+          <SortByDistanceBox sortProps={sortProps}></SortByDistanceBox>
         </div>
       </div>
     </>
