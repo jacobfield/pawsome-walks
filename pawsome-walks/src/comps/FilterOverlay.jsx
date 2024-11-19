@@ -13,6 +13,7 @@ export default function FilterOverlay({
   filteredWalks,
   setAddWalkIsOpen,
   addWalkIsOpen,
+  sortProps,
 }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isLoggedIn } = useAuth();
@@ -63,6 +64,7 @@ export default function FilterOverlay({
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
             filterIsOpen={filterIsOpen}
+            sortProps={sortProps}
           />
         </div>
         <div

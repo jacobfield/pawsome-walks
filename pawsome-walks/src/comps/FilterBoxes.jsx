@@ -1,12 +1,16 @@
 import { useState, useContext } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
+import SortByDistanceBox from "./SortByDistanceBox";
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
   setIsFiltered,
   filterIsOpen,
+  sortProps,
+  isFiltered,
 }) {
+  // console.log("FilterBoxes.jsx allWalks", allWalks);
   const { darkTheme } = useContext(ThemeContext);
   const [filters, setFilters] = useState({
     walktype: "All",
@@ -21,6 +25,7 @@ export default function FilterBoxes({
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
+    setIsFiltered(true);
     let filterType = e.target.id;
     let filterValue =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -28,8 +33,6 @@ export default function FilterBoxes({
       ...prevFilters,
       [filterType]: filterValue,
     }));
-
-    setIsFiltered(true);
   };
 
   useFilterBoxes(filters, setFilteredWalks, allWalks);
@@ -118,6 +121,8 @@ export default function FilterBoxes({
             <option value="free">Free parking</option>
             <option value="paid">Paid parking</option>
           </select>
+
+          <SortByDistanceBox sortProps={sortProps}></SortByDistanceBox>
         </div>
       </div>
     </>
