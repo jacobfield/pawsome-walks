@@ -21,7 +21,7 @@ export default function FilterBoxes({
     parking: "All",
   });
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
-  const { isSorted, setIsSorted, sortedWalks, setSortedWalks } = sortProps;
+
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
     let filterValue =

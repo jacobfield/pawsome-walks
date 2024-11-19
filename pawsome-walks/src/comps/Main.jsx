@@ -33,13 +33,13 @@ export default function Main({
     );
   }
   // Determining which walks to display
-  const walksToDisplay = isSorted
+  let walksToDisplay = isSorted
     ? sortedWalks
     : isFiltered
     ? filteredWalks
     : allWalks;
-    
-  if (isFiltered && walksToDisplay.length === 0) {
+  console.log("Main.jsx: Walks to display", walksToDisplay);
+  if (walksToDisplay && walksToDisplay.length === 0) {
     return (
       <div>
         <div className="filterOverlayWrapper">
@@ -56,7 +56,11 @@ export default function Main({
           />
         </div>
         <h1 className="noSearchFound">
-          No matching walks found. Try adjusting your search!
+          {isSorted
+            ? "No sorted walks found."
+            : isFiltered
+            ? "No matching walks found. Try adjusting your search!"
+            : "No walks available."}
         </h1>
       </div>
     );
@@ -76,6 +80,7 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
         {!showFavourites
@@ -115,8 +120,8 @@ export default function Main({
                 </Link>
               ) : null;
             })
-          : filteredWalks &&
-            filteredWalks
+          : walksToDisplay &&
+            walksToDisplay
               .filter((walk) =>
                 favouriteWalks.some((fave) => fave.walkid === walk.walkid)
               )
@@ -253,7 +258,7 @@ export default function Main({
                 </Link>
               ) : null;
             })}
-      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4
+      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4 && !showFavourites
         ? allWalks &&
           allWalks
             .filter((walk) => walk.approved === false)
