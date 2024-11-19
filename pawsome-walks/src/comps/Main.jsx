@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { bouncy } from "ldrs";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
@@ -12,15 +12,19 @@ export default function Main({
   favouriteWalks,
   showFavourites,
   filterFunctions,
+  sortedWalks,
+  isSorted,
+  sortProps,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [addWalkIsOpen, setAddWalkIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
   const { logout, owner, isLoggedIn } = useAuth();
+  const isAdmin = { isLoggedIn, ownerid: owner?.ownerId };
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
-
+  console.log("Main.jsx sortedWalks", sortedWalks);
   if (!allWalks) {
     return (
       <div className="loadingContainer">
@@ -28,9 +32,32 @@ export default function Main({
       </div>
     );
   }
-  const isAdmin = { isLoggedIn, ownerid: owner?.ownerid };
-  const walksToDisplay = isFiltered ? filteredWalks : allWalks;
-  if (isFiltered && walksToDisplay.length === 0) {
+  // Determining which walks to display
+  let walksToDisplay = isSorted
+    ? sortedWalks
+    : isFiltered
+    ? filteredWalks
+    : allWalks;
+
+  // useEffect(() => {
+  //   console.log("Main.jsx: Walks to display", walksToDisplay);
+  //   console.log("Main.jsx: isFiltered", isFiltered);
+  //   console.log("Main.jsx: isSorted", isSorted);
+  // }, [walksToDisplay, isFiltered, isSorted]);
+
+  useEffect(() => {
+    console.log("Main.jsx: sortedWalks", sortedWalks);
+    console.log("Main.jsx: isSorted", isSorted);
+  }, [sortedWalks, isSorted]);
+
+  // useEffect(() => {
+  //   console.log("Main.jsx: filteredWalks", filteredWalks);
+  //   console.log("Main.jsx: isFiltered", isFiltered);
+  //   console.log("Main.jsx: isSorted", isSorted);
+  // }, [filteredWalks, isFiltered, isSorted]);
+
+  // console.log("Main.jsx: Walks to display", walksToDisplay);
+  if (walksToDisplay && filteredWalks.length === 0) {
     return (
       <div>
         <div className="filterOverlayWrapper">
@@ -43,10 +70,15 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
         <h1 className="noSearchFound">
-          No matching walks found. Try adjusting your search!
+          {isSorted
+            ? "No sorted walks found."
+            : isFiltered
+            ? "No matching walks found. Try adjusting your search!"
+            : "No walks available."}
         </h1>
       </div>
     );
@@ -66,11 +98,12 @@ export default function Main({
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
         {!showFavourites
           ? filteredWalks &&
-            filteredWalks.map((walk) => {
+            walksToDisplay.map((walk) => {
               const primarySrc = `walk-photos/${walk.photopath}.jpg`;
               return walk.approved ? (
                 <Link
@@ -105,8 +138,8 @@ export default function Main({
                 </Link>
               ) : null;
             })
-          : filteredWalks &&
-            filteredWalks
+          : walksToDisplay &&
+            walksToDisplay
               .filter((walk) =>
                 favouriteWalks.some((fave) => fave.walkid === walk.walkid)
               )
@@ -163,11 +196,12 @@ export default function Main({
           filteredWalks={filteredWalks}
           setAddWalkIsOpen={setAddWalkIsOpen}
           addWalkIsOpen={addWalkIsOpen}
+          sortProps={sortProps}
         />
       </div>
       {!showFavourites
-        ? allWalks &&
-          allWalks.map((walk) => {
+        ? walksToDisplay &&
+          walksToDisplay.map((walk) => {
             const primarySrc = `walk-photos/${walk.photopath}.jpg`;
             return walk.approved ? (
               <Link
@@ -202,8 +236,8 @@ export default function Main({
               </Link>
             ) : null;
           })
-        : allWalks &&
-          allWalks
+        : walksToDisplay &&
+          walksToDisplay
             .filter((walk) =>
               favouriteWalks.some((fave) => fave.walkid === walk.walkid)
             )
@@ -242,9 +276,9 @@ export default function Main({
                 </Link>
               ) : null;
             })}
-      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4
-        ? allWalks &&
-          allWalks
+      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4 && !showFavourites
+        ? walksToDisplay &&
+          walksToDisplay
             .filter((walk) => walk.approved === false)
             .map((walk) => {
               const primarySrc = `walk-photos/${walk.photopath}.jpg`;
