@@ -21,6 +21,7 @@ export default function Main({
   const [addWalkIsOpen, setAddWalkIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
   const { logout, owner, isLoggedIn } = useAuth();
+  const isAdmin = { isLoggedIn, ownerid: owner?.ownerId };
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
 
@@ -31,7 +32,6 @@ export default function Main({
       </div>
     );
   }
-  const isAdmin = { isLoggedIn, ownerid: owner?.ownerid };
   const walksToDisplay = isFiltered ? filteredWalks : allWalks;
   if (isFiltered && walksToDisplay.length === 0) {
     return (
