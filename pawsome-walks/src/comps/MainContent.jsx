@@ -38,7 +38,7 @@ export default function MainContent({
   useEffect(() => {
     function fetchUserLocationAndCalculateDistances() {
       if (!Array.isArray(sortedWalks) || sortedWalks.length === 0) {
-        console.warn("No walks to process.");
+        // console.warn("No walks to process.");Main.jsx: Walks to display 
         return;
       }
       if (navigator.geolocation) {

@@ -27,7 +27,7 @@ function App() {
       const walksData = await getAllWalks();
       setAllWalks(walksData);
       setSortedWalks(walksData);
-      console.log("walksData", walksData);
+      // console.log("walksData", walksData);
     }
     fetchWalksData();
   }, []);

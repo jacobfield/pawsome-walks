@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { bouncy } from "ldrs";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
@@ -38,7 +38,26 @@ export default function Main({
     : isFiltered
     ? filteredWalks
     : allWalks;
-  console.log("Main.jsx: Walks to display", walksToDisplay);
+
+  useEffect(() => {
+    console.log("Main.jsx: Walks to display", walksToDisplay);
+    console.log("Main.jsx: isFiltered", isFiltered);
+    console.log("Main.jsx: isSorted", isSorted);
+  }, [walksToDisplay, isFiltered, isSorted]);
+
+  useEffect(() => {
+    console.log("Main.jsx: sortedWalks", sortedWalks);
+    console.log("Main.jsx: isFiltered", isFiltered);
+    console.log("Main.jsx: isSorted", isSorted);
+  }, [sortedWalks, isFiltered, isSorted]);
+
+  useEffect(() => {
+    console.log("Main.jsx: filteredWalks", filteredWalks);
+    console.log("Main.jsx: isFiltered", isFiltered);
+    console.log("Main.jsx: isSorted", isSorted);
+  }, [filteredWalks, isFiltered, isSorted]);
+
+  // console.log("Main.jsx: Walks to display", walksToDisplay);
   if (walksToDisplay && walksToDisplay.length === 0) {
     return (
       <div>
