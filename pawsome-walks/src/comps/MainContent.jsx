@@ -114,3 +114,5 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
     </div>
   );
 }
+// might be worth calculating the distance and altering the state in a highter level component, then passing it down that way. Then, if the box is checked, alter the management state, which renders it in Main.jsx
+// this way, the state is only altered when the box is checked, and the distance is only calculated at a higher component; it might make it a lot easier to manage the state, if the only state being mutated is the toggle feature
