@@ -14,6 +14,7 @@ export default function Main({
   filterFunctions,
   sortedWalks,
   isSorted,
+  sortProps,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);

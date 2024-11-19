@@ -139,6 +139,7 @@ export default function MainContent({
                 filterFunctions={filterFunctions}
                 sortedWalks={sortedWalks}
                 isSorted={isSorted}
+                sortProps={sortProps}
               />
             }
           />
