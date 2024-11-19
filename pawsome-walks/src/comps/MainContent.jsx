@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import SignUp from "./SignUp.jsx";
 import Header from "./Header.jsx";
 import Main from "./Main.jsx";
@@ -17,7 +18,12 @@ import filterWalks from "../hooks/filterWalks.js";
 import calculateDistance from "../hooks/calculateDistance.js";
 
 //
-export default function MainContent({ allWalks, darkTheme, navBarProps }) {
+export default function MainContent({
+  allWalks,
+  darkTheme,
+  navBarProps,
+  sortProps,
+}) {
   const [favouriteWalks, setFavouriteWalks] = useState([]);
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
@@ -26,43 +32,53 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const [showFavourites, setShowFavourites] = useState(false);
   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [isFiltered, setIsFiltered] = useState(false);
-  const [isSorted, setIsSorted] = useState(false);
-  const [sortedWalks, setSortedWalks] = useState(allWalks);
 
-  const sortProps = {
-    isSorted,
-    setIsSorted,
-    sortedWalks,
-    setSortedWalks,
-  };
+  const { isSorted, setIsSorted, sortedWalks, setSortedWalks } = sortProps;
 
-  function sortWalksByDistance(sortedWalks) {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          const userLat = position.coords.latitude;
-          const userLng = position.coords.longitude;
+  useEffect(() => {
+    function fetchUserLocationAndCalculateDistances() {
+      if (!Array.isArray(sortedWalks) || sortedWalks.length === 0) {
+        console.warn("No walks to process.");
+        return;
+      }
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const userLat = position.coords.latitude;
+            const userLng = position.coords.longitude;
+            console.log("userLat", userLat);
+            console.log("userLng", userLng);
+            const walksWithDistances = sortedWalks.map((walk) => {
+              const distance = calculateDistance(
+                walk.lat,
+                walk.lng,
+                userLat,
+                userLng
+              );
 
-          for (let i = 0; i < sortedWalks.length; i++) {
-            const distance = calculateDistance(
-              sortedWalks[i].lat,
-              sortedWalks[i].lng,
-              userLat,
-              userLng
+              return { ...walk, distanceToUser: distance };
+            });
+
+            const sortedBydistance = walksWithDistances.sort(
+              (a, b) => a.distanceToUser - b.distanceToUser
             );
-            sortedWalks[i].distanceToUser = distance;
-          }
 
-          console.log("Updated sortedWalks with distances:", sortedWalks);
-        },
-        (error) => {
-          console.error("Error getting user's location:", error.message);
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
+            console.log("Updated sortedWalks with distances:", sortedWalks);
+            setSortedWalks(sortedBydistance);
+            console.log("Updated ordered walks:", sortedBydistance);
+          },
+          (error) => {
+            console.error("Error getting user's location:", error.message);
+          }
+        );
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
     }
-  }
+    fetchUserLocationAndCalculateDistances();
+  }, [isSorted]);
+
+  //
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
 
@@ -121,7 +137,8 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
                 setFavouriteWalks={setFavouriteWalks}
                 showFavourites={showFavourites}
                 filterFunctions={filterFunctions}
-                sortProps={sortProps}
+                sortedWalks={sortedWalks}
+                isSorted={isSorted}
               />
             }
           />

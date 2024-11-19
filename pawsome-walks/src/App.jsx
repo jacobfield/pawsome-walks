@@ -16,16 +16,28 @@ import ScrollToTop from "./comps/ScrollToTop.jsx";
 
 function App() {
   const { darkTheme } = useContext(ThemeContext);
-const [allWalks, setAllWalks] = useState();
+  const [allWalks, setAllWalks] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [profilePicture, setProfilePicture] = useState(null);
+  const [isSorted, setIsSorted] = useState(false);
+  const [sortedWalks, setSortedWalks] = useState([]);
+
   useEffect(() => {
     async function fetchWalksData() {
       const walksData = await getAllWalks();
       setAllWalks(walksData);
+      setSortedWalks(walksData);
+      console.log("walksData", walksData);
     }
     fetchWalksData();
   }, []);
+
+  const sortProps = {
+    isSorted,
+    setIsSorted,
+    sortedWalks,
+    setSortedWalks,
+  };
   const navBarProps = { isOpen, setIsOpen, profilePicture, setProfilePicture };
   return (
     <Router>
@@ -37,6 +49,7 @@ const [allWalks, setAllWalks] = useState();
               allWalks={allWalks}
               darkTheme={darkTheme}
               navBarProps={navBarProps}
+              sortProps={sortProps}
             />
           </AppContainer>
         </AuthProvider>

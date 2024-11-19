@@ -12,7 +12,8 @@ export default function Main({
   favouriteWalks,
   showFavourites,
   filterFunctions,
-  sortProps,
+  sortedWalks,
+  isSorted,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
@@ -295,4 +296,3 @@ export default function Main({
     </section>
   );
 }
- 
