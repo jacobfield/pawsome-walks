@@ -330,4 +330,3 @@ export default function Main({
     </section>
   );
 }
-// Comment for commit
