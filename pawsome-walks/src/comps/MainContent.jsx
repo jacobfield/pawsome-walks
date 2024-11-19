@@ -14,6 +14,7 @@ import {
 import SignIn from "./SignIn.jsx";
 import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
 import filterWalks from "../hooks/filterWalks.js";
+import calculateDistance from "../hooks/calculateDistance.js";
 
 //
 export default function MainContent({ allWalks, darkTheme, navBarProps }) {
@@ -35,18 +36,33 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
     setSortedWalks,
   };
 
-
   function sortWalksByDistance(sortedWalks) {
-for (let i = 0; i < sortedWalks.length; i++) {
-sortedWalks[i]
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLat = position.coords.latitude;
+          const userLng = position.coords.longitude;
 
-// for each walk, make call to calculateDistance(), passing in the walk's lat and long, and the user's lat and long.
-// walk Lat ana lng retrieved from walk object, user lat and long needs to be retrieved from user's location
+          for (let i = 0; i < sortedWalks.length; i++) {
+            const distance = calculateDistance(
+              sortedWalks[i].lat,
+              sortedWalks[i].lng,
+              userLat,
+              userLng
+            );
+            sortedWalks[i].distanceToUser = distance;
+          }
 
-}
-
+          console.log("Updated sortedWalks with distances:", sortedWalks);
+        },
+        (error) => {
+          console.error("Error getting user's location:", error.message);
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
   }
-
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
 
