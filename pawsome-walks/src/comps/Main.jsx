@@ -32,7 +32,13 @@ export default function Main({
       </div>
     );
   }
-  const walksToDisplay = isFiltered ? filteredWalks : allWalks;
+  // Determining which walks to display
+  const walksToDisplay = isSorted
+    ? sortedWalks
+    : isFiltered
+    ? filteredWalks
+    : allWalks;
+    
   if (isFiltered && walksToDisplay.length === 0) {
     return (
       <div>
