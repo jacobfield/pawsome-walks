@@ -25,6 +25,7 @@ export default function AddWalkForm({
   const [waterOnRoute, setWaterOnRoute] = useState("");
   const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
+
   const [walkNameAndLocation, setWalkNameAndLocation] = useState({});
   const [fileLabelText, setFileLabelText] = useState("Upload walk picture");
   const { darkTheme } = useContext(ThemeContext);
@@ -334,8 +335,6 @@ export default function AddWalkForm({
           </label>
         </div>
 
-        {/* {selectedFile && <button onClick={handleUploadClick}>Upload</button>} */}
-
         <button
           className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
           type="submit"
@@ -346,5 +345,3 @@ export default function AddWalkForm({
     </div>
   );
 }
-
-// FORMS which need handle functionality: walkname, location, walktype, offleadareas, paths, animalsonroute, toilets, wateronroute, scenic, parking

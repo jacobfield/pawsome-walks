@@ -13,7 +13,7 @@ export default function SortByDistanceBox({ sortProps }) {
           id="sortByDistance"
           value="true"
           onChange={handleChange}
-          checked={isSorted} // Bind checked to isSorted
+          checked={isSorted} 
         />
         Sort By Distance
       </label>

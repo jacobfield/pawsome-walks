@@ -364,6 +364,10 @@
   .signupForm button {
     margin-bottom: 10px;
   }
+
+  .filterBoxesContainer {
+    width: 100%;
+  }
 }
 @media (max-width: 1024px) and (min-width: 649px) {
   .filterSlide.open {

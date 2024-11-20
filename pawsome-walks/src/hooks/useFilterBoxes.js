@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
   useEffect(() => {
-    let filtered = allWalks;
+    let filtered = allWalks; 
 
     Object.entries(filters).forEach(([filterType, filterValue]) => {
       // Only filter if the value is not the default
