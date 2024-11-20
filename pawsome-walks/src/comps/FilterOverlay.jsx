@@ -4,6 +4,7 @@ import AddWalkContainer from "./AddWalkContainer";
 import { useContext } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { useAuth } from "./AuthContext";
+
 export default function FilterOverlay({
   filterIsOpen,
   setFilterIsOpen,
@@ -14,12 +15,20 @@ export default function FilterOverlay({
   setAddWalkIsOpen,
   addWalkIsOpen,
   sortProps,
+  isFiltered,
 }) {
   const { darkTheme } = useContext(ThemeContext);
   const { isLoggedIn } = useAuth();
 
   const handleOverlayChange = () => {
     setFilterIsOpen(!filterIsOpen);
+    if (!isFiltered) {
+      setIsFiltered(true);
+    }
+    if (isFiltered) {
+      setIsFiltered(false);
+    }
+    console.log("Filter Overlay Is Filtered", isFiltered);
   };
 
   const handleAddWalkChange = () => {

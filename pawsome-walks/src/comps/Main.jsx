@@ -53,6 +53,7 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
@@ -84,6 +85,7 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}

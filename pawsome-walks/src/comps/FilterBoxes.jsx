@@ -42,7 +42,6 @@ export default function FilterBoxes({
   // Skip setting 'isFiltered' to true on initial render
   useEffect(() => {
     if (initialRender.current) {
-      console.log("initial render", initialRender.current);
       initialRender.current = false;
     }
   }, []);

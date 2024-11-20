@@ -1,6 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
+  const initialRender = useRef(true);
+
   useEffect(() => {
     let filtered = allWalks;
 
@@ -37,9 +39,11 @@ export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
         });
       }
     });
-    // console.log("filtered", filtered);
-    setFilteredWalks(filtered);
+
+    if (!initialRender.current) {
+      setFilteredWalks(filtered);
+    } else {
+      initialRender.current = false;
+    }
   }, [filters, allWalks, setFilteredWalks]);
 }
-
-// When a filter is clicked for the first time, isFiltered is set to true. This triggers a rerender of the page, and removes any to be approved walks. I need it to only set isFiltered to true if a filter is clicked, not on the first render.
