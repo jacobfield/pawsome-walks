@@ -36,7 +36,7 @@ export default function FilterBoxes({
     setIsFiltered(true);
   };
 
-  useFilterBoxes(filters, setFilteredWalks, allWalks);
+  useFilterBoxes(filters, setFilteredWalks, allWalks, sortProps.setSortedWalks);
 
   return (
     <>

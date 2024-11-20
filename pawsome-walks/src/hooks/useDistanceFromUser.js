@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import calculateDistance from "./calculateDistance";
 
 export default function useDistanceFromUser(
-  sortedWalks,
+  walks,
   setSortedWalks,
   isSorted
 ) {
   useEffect(() => {
     function fetchUserLocationAndCalculateDistances() {
-      if (!Array.isArray(sortedWalks) || sortedWalks.length === 0) {
-        // console.warn("No walks to process.");Main.jsx: Walks to display
+      if (!Array.isArray(walks) || walks.length === 0) {
+        // console.warn("No walks to process.");
         return;
       }
       if (navigator.geolocation) {
@@ -19,7 +19,7 @@ export default function useDistanceFromUser(
             const userLng = position.coords.longitude;
             console.log("userLat", userLat);
             console.log("userLng", userLng);
-            const walksWithDistances = sortedWalks.map((walk) => {
+            const walksWithDistances = walks.map((walk) => {
               const distance = calculateDistance(
                 walk.lat,
                 walk.lng,
@@ -34,7 +34,7 @@ export default function useDistanceFromUser(
               (a, b) => a.distanceToUser - b.distanceToUser
             );
 
-            console.log("Updated sortedWalks with distances:", sortedWalks);
+            console.log("Updated sortedWalks with distances:", sortedBydistance);
             setSortedWalks(sortedBydistance);
             console.log("Updated ordered walks:", sortedBydistance);
           },
@@ -47,5 +47,5 @@ export default function useDistanceFromUser(
       }
     }
     fetchUserLocationAndCalculateDistances();
-  }, [isSorted]);
+  }, [isSorted, walks, setSortedWalks]);
 }

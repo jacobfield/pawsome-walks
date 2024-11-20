@@ -1,6 +1,11 @@
 import { useEffect, useRef } from "react";
 
-export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
+export default function useFilterBoxes(
+  filters,
+  setFilteredWalks,
+  allWalks,
+  setSortedWalks
+) {
   const initialRender = useRef(true);
 
   useEffect(() => {
@@ -40,10 +45,7 @@ export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
       }
     });
 
-    if (!initialRender.current) {
-      setFilteredWalks(filtered);
-    } else {
-      initialRender.current = false;
-    }
-  }, [filters, allWalks, setFilteredWalks]);
+    setFilteredWalks(filtered);
+    setSortedWalks(filtered); // Update sorted walks as well
+  }, [filters, allWalks, setFilteredWalks, setSortedWalks]);
 }
