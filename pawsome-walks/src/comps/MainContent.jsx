@@ -5,7 +5,7 @@ import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
 import WalkDetail from "./WalkDetail.jsx";
 import { useAuth } from "./AuthContext.jsx";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -13,18 +13,12 @@ import {
   useLocation,
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
-import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
 import filterWalks from "../hooks/filterWalks.js";
 import useDistanceFromUser from "../hooks/useDistanceFromUser.js";
 import useGetFavouriteData from "../hooks/useGetFavouriteData.js";
 
-//
-export default function MainContent({
-  allWalks,
-  darkTheme,
-  navBarProps,
-  sortProps,
-}) {
+// MainContent component
+export default function MainContent({ allWalks, navBarProps, sortProps }) {
   const [favouriteWalks, setFavouriteWalks] = useState([]);
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
@@ -35,9 +29,9 @@ export default function MainContent({
   const [isFiltered, setIsFiltered] = useState(false);
 
   const { isSorted, setIsSorted, sortedWalks, setSortedWalks } = sortProps;
-
+  // Calculate distance from user
   useDistanceFromUser(sortedWalks, setSortedWalks, isSorted);
-  //
+  // handle filters
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
 
@@ -49,7 +43,7 @@ export default function MainContent({
       setFilteredWalks(allWalks);
     }
   };
-
+  // constructing filter functions for passing props down easier
   const filterFunctions = {
     handleFilter,
     isFiltered,
@@ -57,7 +51,7 @@ export default function MainContent({
     filteredWalks,
     setFilteredWalks,
   };
-
+  // Get favourite walks hook
   useGetFavouriteData(isLoggedIn, owner, setFavouriteWalks);
   return (
     <div className="app">
