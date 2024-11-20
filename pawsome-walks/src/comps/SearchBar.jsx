@@ -1,5 +1,10 @@
 export default function SearchBar({ filterFunctions }) {
   const { handleFilter } = filterFunctions;
+
+  const handleSearchBarChange = (e) => {
+
+    
+  }
   return (
     <div className="searchBar">
       <input
