@@ -16,7 +16,6 @@ import SignIn from "./SignIn.jsx";
 import filterWalks from "../hooks/filterWalks.js";
 import useDistanceFromUser from "../hooks/useDistanceFromUser.js";
 import useGetFavouriteData from "../hooks/useGetFavouriteData.js";
-import useFilterBoxes from "../hooks/useFilterBoxes.js";
 
 // MainContent component
 export default function MainContent({ allWalks, navBarProps, sortProps }) {
@@ -31,7 +30,11 @@ export default function MainContent({ allWalks, navBarProps, sortProps }) {
 
   const { isSorted, setIsSorted, sortedWalks, setSortedWalks } = sortProps;
   // Calculate distance from user
-  useDistanceFromUser(isFiltered ? filteredWalks : allWalks, setSortedWalks, isSorted);
+  useDistanceFromUser(
+    isFiltered ? filteredWalks : allWalks,
+    setSortedWalks,
+    isSorted
+  );
   // handle filters
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();

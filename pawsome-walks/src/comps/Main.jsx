@@ -25,7 +25,7 @@ export default function Main({
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
   // console.log("Main.jsx sortedWalks", sortedWalks);
-  if (!allWalks) {
+  if (!allWalks || allWalks.length === 0) {
     return (
       <div className="loadingContainer">
         <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
@@ -38,11 +38,6 @@ export default function Main({
     : isFiltered
     ? filteredWalks
     : allWalks;
-
-  useEffect(() => {
-    console.log("Main.jsx isSorted", isSorted);
-    console.log("Main.jsx isFiltered", isFiltered);
-  }, [isSorted, isFiltered]);
 
   // If the filters mean that there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
   if (isFiltered && filteredWalks.length === 0) {
