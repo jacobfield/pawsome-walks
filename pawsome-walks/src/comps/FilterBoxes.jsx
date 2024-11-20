@@ -24,9 +24,6 @@ export default function FilterBoxes({
   });
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
-  // Used to track initial render
-  const initialRender = useRef(true);
-
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
     let filterValue =
@@ -35,16 +32,9 @@ export default function FilterBoxes({
       ...prevFilters,
       [filterType]: filterValue,
     }));
-    if (!initialRender.current) {
-      setIsFiltered(true);
-    }
+
+    setIsFiltered(true);
   };
-  // Skip setting 'isFiltered' to true on initial render
-  useEffect(() => {
-    if (initialRender.current) {
-      initialRender.current = false;
-    }
-  }, []);
 
   useFilterBoxes(filters, setFilteredWalks, allWalks);
 
