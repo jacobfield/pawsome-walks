@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
 import SortByDistanceBox from "./SortByDistanceBox";
@@ -24,6 +24,9 @@ export default function FilterBoxes({
   });
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
+  // Used to track initial render
+  const initialRender = useRef(true);
+
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
     let filterValue =
@@ -32,8 +35,16 @@ export default function FilterBoxes({
       ...prevFilters,
       [filterType]: filterValue,
     }));
-    setIsFiltered(true);
+    if (!initialRender.current) {
+      setIsFiltered(true);
+    }
   };
+  // Skip setting 'isFiltered' to true on initial render
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+    }
+  }, []);
 
   useFilterBoxes(filters, setFilteredWalks, allWalks);
 

@@ -24,7 +24,7 @@ export default function Main({
   const isAdmin = { isLoggedIn, ownerid: owner?.ownerId };
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
-  console.log("Main.jsx sortedWalks", sortedWalks);
+  // console.log("Main.jsx sortedWalks", sortedWalks);
   if (!allWalks) {
     return (
       <div className="loadingContainer">
@@ -38,8 +38,14 @@ export default function Main({
     : isFiltered
     ? filteredWalks
     : allWalks;
-  // If there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
-  if (walksToDisplay && filteredWalks.length === 0) {
+
+  useEffect(() => {
+    console.log("Main.jsx isSorted", isSorted);
+    console.log("Main.jsx isFiltered", isFiltered);
+  }, [isSorted, isFiltered]);
+
+  // If the filters mean that there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
+  if (isFiltered && filteredWalks.length === 0) {
     return (
       <div>
         <div className="filterOverlayWrapper">
