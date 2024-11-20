@@ -15,8 +15,8 @@ import {
 import SignIn from "./SignIn.jsx";
 import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
 import filterWalks from "../hooks/filterWalks.js";
-import calculateDistance from "../hooks/calculateDistance.js";
 import useDistanceFromUser from "../hooks/useDistanceFromUser.js";
+import useGetFavouriteData from "../hooks/useGetFavouriteData.js";
 
 //
 export default function MainContent({
@@ -58,23 +58,7 @@ export default function MainContent({
     setFilteredWalks,
   };
 
-  useEffect(() => {
-    async function fetchFavouritesData() {
-      if (isLoggedIn && owner && owner.ownerId) {
-        try {
-          const favouriteWalks = await getAllFavouriteWalksByOwnerId(
-            owner.ownerId
-          );
-          setFavouriteWalks(favouriteWalks);
-        } catch (error) {
-          error;
-
-          console.error("Error fetching favourites data", error);
-        }
-      }
-    }
-    fetchFavouritesData();
-  }, [isLoggedIn, owner]);
+  useGetFavouriteData(isLoggedIn, owner, setFavouriteWalks);
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && (
