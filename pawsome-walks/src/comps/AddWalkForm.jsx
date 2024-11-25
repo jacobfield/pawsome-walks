@@ -92,7 +92,7 @@ export default function AddWalkForm({
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!selectedFile) {
-      alert("An image is required to add a new walk!");
+      alert("Please upload a picture of the walk! 🖼️");
       return; // Stop the form submission
     }
     try {
@@ -312,8 +312,8 @@ export default function AddWalkForm({
             className="uploadInput"
             type="file"
             accept="image/*"
-            // 
-            
+            //
+
             onChange={handleFileChange}
             style={{ display: "none" }} // Hides the native input
           />
