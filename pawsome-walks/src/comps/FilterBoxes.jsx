@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect, useRef } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
-import SortByDistanceBox from "./SortByDistanceBox";
+import SortBoxes from "./SortBoxes";
 export default function FilterBoxes({
   allWalks,
   setFilteredWalks,
@@ -51,14 +51,6 @@ export default function FilterBoxes({
     <>
       <div className={`filterSlide ${filterIsOpen ? "open" : ""}`}>
         <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
-          <select onChange={handleFilterChange} id="walktype">
-            <option value="All">Walk Type?</option>
-            {walkTypeArr.map((walktype) => (
-              <option key={walktype} value={walktype}>
-                {walktype}
-              </option>
-            ))}
-          </select>
           <select onChange={handleFilterChange} id="location">
             <option value="All">Location?</option>
             {locationArr.map((location) => (
@@ -67,6 +59,15 @@ export default function FilterBoxes({
               </option>
             ))}
           </select>
+          <select onChange={handleFilterChange} id="walktype">
+            <option value="All">Walk Type?</option>
+            {walkTypeArr.map((walktype) => (
+              <option key={walktype} value={walktype}>
+                {walktype}
+              </option>
+            ))}
+          </select>
+
           <select onChange={handleFilterChange} id="parking">
             <option value="All">Parking available?</option>
             <option value="free">Free parking</option>
@@ -144,7 +145,7 @@ export default function FilterBoxes({
             Scenic Views
           </label>
 
-          <SortByDistanceBox sortProps={sortProps}></SortByDistanceBox>
+          <SortBoxes sortProps={sortProps}></SortBoxes>
         </div>
       </div>
     </>

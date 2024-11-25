@@ -1,4 +1,4 @@
-export default function SortByDistanceBox({ sortProps }) {
+export default function SortBoxes({ sortProps }) {
   const { isSorted, setIsSorted } = sortProps;
 
   const handleChange = () => {
@@ -13,7 +13,7 @@ export default function SortByDistanceBox({ sortProps }) {
           id="sortByDistance"
           value="true"
           onChange={handleChange}
-          checked={isSorted} 
+          checked={isSorted}
         />
         Sort By Distance
       </label>
