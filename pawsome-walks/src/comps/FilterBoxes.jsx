@@ -59,7 +59,6 @@ export default function FilterBoxes({
               </option>
             ))}
           </select>
-
           <select onChange={handleFilterChange} id="location">
             <option value="All">Location?</option>
             {locationArr.map((location) => (
@@ -68,7 +67,17 @@ export default function FilterBoxes({
               </option>
             ))}
           </select>
-
+          <select onChange={handleFilterChange} id="parking">
+            <option value="All">Parking available?</option>
+            <option value="free">Free parking</option>
+            <option value="paid">Paid parking</option>
+          </select>
+        </div>
+        <div
+          className={`filterBoxesContainer filterBoxesContainer2 ${
+            darkTheme ? "dark" : "light"
+          } `}
+        >
           <label>
             <input
               type="checkbox"
@@ -134,12 +143,6 @@ export default function FilterBoxes({
             />
             Scenic Views
           </label>
-
-          <select onChange={handleFilterChange} id="parking">
-            <option value="All">Parking available?</option>
-            <option value="free">Free parking</option>
-            <option value="paid">Paid parking</option>
-          </select>
 
           <SortByDistanceBox sortProps={sortProps}></SortByDistanceBox>
         </div>
