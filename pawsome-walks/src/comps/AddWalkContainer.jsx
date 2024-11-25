@@ -17,6 +17,9 @@ export default function AddWalkContainer({ allWalks }) {
     if (file) {
       setSelectedFile(file);
     }
+    if (!file) {
+      alert("A picture of the walk is required to add a new one!");
+    }
   };
 
   const handleAddWalkSubmit = async (walkData) => {

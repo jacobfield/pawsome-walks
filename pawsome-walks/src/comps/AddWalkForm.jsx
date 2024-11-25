@@ -91,6 +91,10 @@ export default function AddWalkForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!selectedFile) {
+      alert("An image is required to add a new walk!");
+      return; // Stop the form submission
+    }
     try {
       const walkNameAndLocation = {
         walkname: walkName,
@@ -137,6 +141,7 @@ export default function AddWalkForm({
       // setWaterOnRoute(false);
       // setScenic(false);
       // setParking("none");
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading new walk:", error);
     }
@@ -178,22 +183,7 @@ export default function AddWalkForm({
           placeholder="Enter location..."
           required
         />
-        {/* <select
-          name="walktype"
-          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-          id="walktype"
-          onChange={handleChange}
-          value={walkType[0] || ""}
-        >
-          <option value="" disabled>
-            Select walk type
-          </option>
-          {walkTypeArr.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select> */}
+
         <div>
           <label htmlFor="walktype">{/* Add New Walk Type: */}</label>
           <input
@@ -322,6 +312,8 @@ export default function AddWalkForm({
             className="uploadInput"
             type="file"
             accept="image/*"
+            // 
+            
             onChange={handleFileChange}
             style={{ display: "none" }} // Hides the native input
           />
