@@ -1,6 +1,13 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
-export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
+export default function useFilterBoxes(
+  filters,
+  setFilteredWalks,
+  allWalks,
+  setSortedWalks
+) {
+  const initialRender = useRef(true);
+
   useEffect(() => {
     let filtered = allWalks;
 
@@ -37,7 +44,8 @@ export default function useFilterBoxes(filters, setFilteredWalks, allWalks) {
         });
       }
     });
-    // console.log("filtered", filtered);
+
     setFilteredWalks(filtered);
-  }, [filters, allWalks, setFilteredWalks]);
+    setSortedWalks(filtered); // Update sorted walks as well
+  }, [filters, allWalks, setFilteredWalks, setSortedWalks]);
 }

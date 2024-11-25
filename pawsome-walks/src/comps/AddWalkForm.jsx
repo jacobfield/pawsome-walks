@@ -25,6 +25,7 @@ export default function AddWalkForm({
   const [waterOnRoute, setWaterOnRoute] = useState("");
   const [scenic, setScenic] = useState("");
   const [parking, setParking] = useState("none");
+
   const [walkNameAndLocation, setWalkNameAndLocation] = useState({});
   const [fileLabelText, setFileLabelText] = useState("Upload walk picture");
   const { darkTheme } = useContext(ThemeContext);
@@ -90,6 +91,10 @@ export default function AddWalkForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!selectedFile) {
+      alert("Please upload a picture of the walk! 🖼️");
+      return; // Stop the form submission
+    }
     try {
       const walkNameAndLocation = {
         walkname: walkName,
@@ -136,6 +141,7 @@ export default function AddWalkForm({
       // setWaterOnRoute(false);
       // setScenic(false);
       // setParking("none");
+      window.location.reload();
     } catch (error) {
       console.error("Error uploading new walk:", error);
     }
@@ -177,22 +183,7 @@ export default function AddWalkForm({
           placeholder="Enter location..."
           required
         />
-        {/* <select
-          name="walktype"
-          className={`walkFormInput ${darkTheme ? "dark" : "light"}`}
-          id="walktype"
-          onChange={handleChange}
-          value={walkType[0] || ""}
-        >
-          <option value="" disabled>
-            Select walk type
-          </option>
-          {walkTypeArr.map((type) => (
-            <option key={type} value={type}>
-              {type}
-            </option>
-          ))}
-        </select> */}
+
         <div>
           <label htmlFor="walktype">{/* Add New Walk Type: */}</label>
           <input
@@ -321,6 +312,8 @@ export default function AddWalkForm({
             className="uploadInput"
             type="file"
             accept="image/*"
+            //
+
             onChange={handleFileChange}
             style={{ display: "none" }} // Hides the native input
           />
@@ -334,8 +327,6 @@ export default function AddWalkForm({
           </label>
         </div>
 
-        {/* {selectedFile && <button onClick={handleUploadClick}>Upload</button>} */}
-
         <button
           className={`walkFormButton ${darkTheme ? "dark" : "light"}`}
           type="submit"
@@ -346,5 +337,3 @@ export default function AddWalkForm({
     </div>
   );
 }
-
-// FORMS which need handle functionality: walkname, location, walktype, offleadareas, paths, animalsonroute, toilets, wateronroute, scenic, parking

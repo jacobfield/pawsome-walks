@@ -358,13 +358,14 @@ footer.light {
 }
 
 .filterBoxesContainer {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
   display: block;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  justify-self: center;
 }
 
 .filterBoxesContainer select {

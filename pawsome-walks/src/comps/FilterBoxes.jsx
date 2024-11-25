@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import useFilterBoxes from "../hooks/useFilterBoxes";
 import { ThemeContext } from "./ThemeProvider";
 import SortByDistanceBox from "./SortByDistanceBox";
@@ -25,7 +25,6 @@ export default function FilterBoxes({
   const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
 
   const handleFilterChange = (e) => {
-    setIsFiltered(true);
     let filterType = e.target.id;
     let filterValue =
       e.target.type === "checkbox" ? e.target.checked : e.target.value;
@@ -33,9 +32,11 @@ export default function FilterBoxes({
       ...prevFilters,
       [filterType]: filterValue,
     }));
+
+    setIsFiltered(true);
   };
 
-  useFilterBoxes(filters, setFilteredWalks, allWalks);
+  useFilterBoxes(filters, setFilteredWalks, allWalks, sortProps.setSortedWalks);
 
   return (
     <>
