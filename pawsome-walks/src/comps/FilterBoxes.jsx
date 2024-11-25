@@ -10,20 +10,29 @@ export default function FilterBoxes({
   sortProps,
   isFiltered,
 }) {
-  // console.log("FilterBoxes.jsx allWalks", allWalks);
+  console.log("FilterBoxes.jsx allWalks", allWalks);
   const { darkTheme } = useContext(ThemeContext);
   const [filters, setFilters] = useState({
     walktype: "All",
+    location: "All",
     offleadareas: false,
     paths: false,
     animalsonroute: false,
     toilets: false,
     wateronroute: false,
     scenic: false,
-    parking: "All",
   });
-  const walkTypeArr = [...new Set(allWalks.flatMap((walk) => walk.walktype))];
-
+  const walkTypeArr = [
+    ...new Set(
+      allWalks.filter((walk) => walk.approved).flatMap((walk) => walk.walktype)
+    ),
+  ];
+  const locationArr = [
+    ...new Set(
+      allWalks.filter((walk) => walk.approved).flatMap((walk) => walk.location)
+    ),
+  ].sort((a, b) => a.localeCompare(b));
+  console.log("Loc arr", locationArr);
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
     let filterValue =
@@ -47,6 +56,15 @@ export default function FilterBoxes({
             {walkTypeArr.map((walktype) => (
               <option key={walktype} value={walktype}>
                 {walktype}
+              </option>
+            ))}
+          </select>
+
+          <select onChange={handleFilterChange} id="location">
+            <option value="All">Location?</option>
+            {locationArr.map((location) => (
+              <option key={location} value={location}>
+                {location}
               </option>
             ))}
           </select>
