@@ -383,4 +383,8 @@
   .filterSlide.open {
     max-height: 310px; /* Adjust based on content size */
   }
+
+  .filterBoxesContainer {
+    width: 100%;
+  }
 }

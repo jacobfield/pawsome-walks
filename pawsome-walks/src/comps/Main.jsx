@@ -24,8 +24,8 @@ export default function Main({
   const isAdmin = { isLoggedIn, ownerid: owner?.ownerId };
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
-  console.log("Main.jsx sortedWalks", sortedWalks);
-  if (!allWalks) {
+  // console.log("Main.jsx sortedWalks", sortedWalks);
+  if (!allWalks || allWalks.length === 0) {
     return (
       <div className="loadingContainer">
         <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
@@ -39,25 +39,8 @@ export default function Main({
     ? filteredWalks
     : allWalks;
 
-  // useEffect(() => {
-  //   console.log("Main.jsx: Walks to display", walksToDisplay);
-  //   console.log("Main.jsx: isFiltered", isFiltered);
-  //   console.log("Main.jsx: isSorted", isSorted);
-  // }, [walksToDisplay, isFiltered, isSorted]);
-
-  useEffect(() => {
-    console.log("Main.jsx: sortedWalks", sortedWalks);
-    console.log("Main.jsx: isSorted", isSorted);
-  }, [sortedWalks, isSorted]);
-
-  // useEffect(() => {
-  //   console.log("Main.jsx: filteredWalks", filteredWalks);
-  //   console.log("Main.jsx: isFiltered", isFiltered);
-  //   console.log("Main.jsx: isSorted", isSorted);
-  // }, [filteredWalks, isFiltered, isSorted]);
-
-  // console.log("Main.jsx: Walks to display", walksToDisplay);
-  if (walksToDisplay && filteredWalks.length === 0) {
+  // If the filters mean that there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
+  if (isFiltered && filteredWalks.length === 0) {
     return (
       <div>
         <div className="filterOverlayWrapper">
@@ -65,6 +48,7 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
@@ -87,7 +71,6 @@ export default function Main({
       </div>
     );
   }
-
   if (isFiltered && filteredWalks.length !== 0) {
     return (
       <section className="walksContainer">
@@ -97,6 +80,7 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
@@ -105,6 +89,7 @@ export default function Main({
             sortProps={sortProps}
           />
         </div>
+        {/* Conditionally showing filtered list. If no filtered list, show all walks */}
         {!showFavourites
           ? filteredWalks &&
             walksToDisplay.map((walk) => {
@@ -142,7 +127,8 @@ export default function Main({
                 </Link>
               ) : null;
             })
-          : walksToDisplay &&
+          : /* If there are filtered walks, walksToDisplay will equal filtered walks, and will display them */
+            walksToDisplay &&
             walksToDisplay
               .filter((walk) =>
                 favouriteWalks.some((fave) => fave.walkid === walk.walkid)
@@ -280,6 +266,7 @@ export default function Main({
                 </Link>
               ) : null;
             })}
+      {/* If admin is logged in (me) then show not yet approved walks, else show nothing */}
       {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4 && !showFavourites
         ? walksToDisplay &&
           walksToDisplay

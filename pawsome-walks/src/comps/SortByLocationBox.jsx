@@ -86,12 +86,3 @@ export default function SortByLocationBox({ sortProps }) {
     </div>
   );
 }
-
-// declare some state in a high level that stores and sets sorted walks. Will need to be default state allWalks, with the ability to also add the distance from the user
-// pass the state down to both SortByLocationBox.jsx and Main.jsx
-// pass down a function that toggles the state in SortByLocationBox.jsx
-// when the checkbox is checked, sort the walks by distance from the user via this function
-// when the checkbox is unchecked, reset the sorted walks to the original order
-
-// might be worth calculating the distance and altering the state in a highter level component, then passing it down that way. Then, if the box is checked, alter the management state, which renders it in Main.jsx
-// this way, the state is only altered when the box is checked, and the distance is only calculated at a higher component; it might make it a lot easier to manage the state, if the only state being mutated is the toggle feature

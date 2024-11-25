@@ -54,9 +54,3 @@ export default function WalkDetail({ favouriteWalks, setFavouriteWalks }) {
     );
   }
 }
-
-// I think that the coordinates data is taking too long to be passed to Map
-//  potentially causing the delay in the map loading, but then on refresh it has quicker
-//     access to the coordinates and so the map loads quicker.
-// TODO: Find a way to speed up the passing of the coordinates to the Map component
-// OR render a loading spinner whilst the map is loading
