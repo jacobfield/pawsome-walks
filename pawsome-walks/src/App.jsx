@@ -21,6 +21,8 @@ function App() {
   const [profilePicture, setProfilePicture] = useState(null);
   const [isSorted, setIsSorted] = useState(false);
   const [sortedWalks, setSortedWalks] = useState([]);
+  const [distanceSort, setDistanceSort] = useState(false);
+  const [nameSort, setNameSort] = useState(false);
 
   useEffect(() => {
     async function fetchWalksData() {
@@ -37,8 +39,17 @@ function App() {
     setIsSorted,
     sortedWalks,
     setSortedWalks,
+    distanceSort,
+    setDistanceSort,
+    nameSort,
+    setNameSort,
   };
-  const navBarProps = { isOpen, setIsOpen, profilePicture, setProfilePicture };
+  const navBarProps = {
+    isOpen,
+    setIsOpen,
+    profilePicture,
+    setProfilePicture,
+  };
   return (
     <Router>
       <ThemeProvider>

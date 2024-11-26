@@ -21,6 +21,11 @@ export default function useFilterBoxes(
                 walk.walktype === filterValue ||
                 walk.walktype.includes(filterValue)
               );
+            case "location":
+              return (
+                walk.location === filterValue ||
+                walk.walktype.includes(filterValue)
+              );
             case "offleadareas":
               return walk.offleadareas === filterValue;
             case "paths":
