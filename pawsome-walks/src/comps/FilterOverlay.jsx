@@ -36,21 +36,21 @@ export default function FilterOverlay({
   };
 
   return (
+    // index only, no impact on height
     <div className="filterOverlayContainer">
+      {/* // index only, no impact on height */}
       <div className="overlayButtonContainer">
         <button
-          className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
-            filterIsOpen ? "open" : ""
-          }`}
+          // index only, no impact on height
+          className={`filterOverlayButton ${darkTheme ? "dark" : "light"}  `}
           onClick={handleOverlayChange}
         >
           {filterIsOpen ? "Hide" : "Show"} Filters
         </button>
         {isLoggedIn ? (
           <button
-            className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
-              addWalkIsOpen ? "open" : ""
-            }`}
+            // index only, no impact on height
+            className={`filterOverlayButton ${darkTheme ? "dark" : "light"} `}
             onClick={handleAddWalkChange}
           >
             Add a walk?
@@ -60,7 +60,7 @@ export default function FilterOverlay({
         )}
       </div>
       {/* Starts */}
-      <div className={`filterOverlayContentContainer`}>
+      <div>
         <div
           className={`filterSlide ${filterIsOpen ? "open" : ""} ${
             darkTheme ? "dark" : "light"

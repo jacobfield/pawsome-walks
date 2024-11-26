@@ -364,11 +364,6 @@
     margin-bottom: 10px;
   }
 
-  .filterSlide.open,
-  .slideToggle.open {
-    min-height: 440px;
-  }
-
   .filterBoxesContainer {
     width: 90%;
     height: auto;
@@ -378,10 +373,5 @@
     justify-content: center;
     gap: 10px;
     justify-self: center;
-  }
-}
-@media (max-width: 361px) {
-  .filterSlide.open {
-    max-height: 500px;
   }
 }

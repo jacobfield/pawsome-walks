@@ -73,11 +73,7 @@ export default function FilterBoxes({
           <option value="paid">Paid parking</option>
         </select>
       </div>
-      <div
-        className={`filterBoxesContainer filterBoxesContainer2 ${
-          darkTheme ? "dark" : "light"
-        } `}
-      >
+      <div className={`filterBoxesContainer  ${darkTheme ? "dark" : "light"} `}>
         <label>
           <input
             type="checkbox"
