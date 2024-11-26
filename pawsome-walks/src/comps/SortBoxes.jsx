@@ -14,59 +14,15 @@ export default function SortBoxes({ sortProps }) {
   };
 
   const handleDistanceCheckboxChange = () => {
-    if (isSorted) {
-      setIsSorted(false);
-
-      if (distanceSort) {
-        setDistanceSort(false);
-      }
-      if (!distanceSort) {
-        setDistanceSort(true);
-      }
-    }
-    if (!isSorted) {
-      setIsSorted(true);
-      if (distanceSort) {
-        setDistanceSort(false);
-      }
-      if (!distanceSort) {
-        setDistanceSort(true);
-      }
-    }
+    setDistanceSort(!distanceSort);
+    setNameSort(false);
+    setIsSorted(!distanceSort);
   };
 
   const handleNameCheckboxChange = () => {
-    console.log("handleNameCheckboxChange called");
-    if (isSorted) {
-      console.log("isSorted is true");
-      setIsSorted(false);
-      console.log("setIsSorted called with false");
-      if (nameSort) {
-        console.log("nameSort is true");
-        setNameSort(false);
-        console.log("setNameSort called with false");
-      }
-      if (!nameSort) {
-        console.log("nameSort is false");
-        setNameSort(true);
-        console.log("setNameSort called with true");
-      }
-    }
-    if (!isSorted) {
-      console.log("isSorted is false");
-      setIsSorted(true);
-      console.log("setIsSorted called with true");
-      if (nameSort) {
-        console.log("nameSort is true");
-        setNameSort(false);
-        console.log("setNameSort called with false");
-      }
-      if (!nameSort) {
-        console.log("nameSort is false");
-        setNameSort(true);
-        console.log("setNameSort called with true");
-      }
-    }
+    setNameSort(!nameSort);
+    setDistanceSort(false);
+    setIsSorted(!nameSort);
   };
 
   return (
