@@ -49,104 +49,102 @@ export default function FilterBoxes({
 
   return (
     <>
-      <div className={`slideToggle ${filterIsOpen ? "open" : ""}`}>
-        <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
-          <select onChange={handleFilterChange} id="location">
-            <option value="All">Location?</option>
-            {locationArr.map((location) => (
-              <option key={location} value={location}>
-                {location}
-              </option>
-            ))}
-          </select>
-          <select onChange={handleFilterChange} id="walktype">
-            <option value="All">Walk Type?</option>
-            {walkTypeArr.map((walktype) => (
-              <option key={walktype} value={walktype}>
-                {walktype}
-              </option>
-            ))}
-          </select>
+      <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
+        <select onChange={handleFilterChange} id="location">
+          <option value="All">Location?</option>
+          {locationArr.map((location) => (
+            <option key={location} value={location}>
+              {location}
+            </option>
+          ))}
+        </select>
+        <select onChange={handleFilterChange} id="walktype">
+          <option value="All">Walk Type?</option>
+          {walkTypeArr.map((walktype) => (
+            <option key={walktype} value={walktype}>
+              {walktype}
+            </option>
+          ))}
+        </select>
 
-          <select onChange={handleFilterChange} id="parking">
-            <option value="All">Parking available?</option>
-            <option value="free">Free parking</option>
-            <option value="paid">Paid parking</option>
-          </select>
-        </div>
-        <div
-          className={`filterBoxesContainer filterBoxesContainer2 ${
-            darkTheme ? "dark" : "light"
-          } `}
-        >
-          <label>
-            <input
-              type="checkbox"
-              id="offleadareas"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.offleadareas}
-            />
-            Off Lead Areas
-          </label>
+        <select onChange={handleFilterChange} id="parking">
+          <option value="All">Parking available?</option>
+          <option value="free">Free parking</option>
+          <option value="paid">Paid parking</option>
+        </select>
+      </div>
+      <div
+        className={`filterBoxesContainer filterBoxesContainer2 ${
+          darkTheme ? "dark" : "light"
+        } `}
+      >
+        <label>
+          <input
+            type="checkbox"
+            id="offleadareas"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.offleadareas}
+          />
+          Off Lead Areas
+        </label>
 
-          <label>
-            <input
-              type="checkbox"
-              id="paths"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.paths}
-            />
-            Paved Routes
-          </label>
+        <label>
+          <input
+            type="checkbox"
+            id="paths"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.paths}
+          />
+          Paved Routes
+        </label>
 
-          <label>
-            <input
-              type="checkbox"
-              id="animalsonroute"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.animalsonroute}
-            />
-            Animals On Route
-          </label>
+        <label>
+          <input
+            type="checkbox"
+            id="animalsonroute"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.animalsonroute}
+          />
+          Animals On Route
+        </label>
 
-          <label>
-            <input
-              type="checkbox"
-              id="toilets"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.toilets}
-            />
-            Toilets Available
-          </label>
+        <label>
+          <input
+            type="checkbox"
+            id="toilets"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.toilets}
+          />
+          Toilets Available
+        </label>
 
-          <label>
-            <input
-              type="checkbox"
-              id="wateronroute"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.wateronroute}
-            />
-            Water On Route
-          </label>
+        <label>
+          <input
+            type="checkbox"
+            id="wateronroute"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.wateronroute}
+          />
+          Water On Route
+        </label>
 
-          <label>
-            <input
-              type="checkbox"
-              id="scenic"
-              value="true"
-              onChange={handleFilterChange}
-              checked={filters.scenic}
-            />
-            Scenic Views
-          </label>
+        <label>
+          <input
+            type="checkbox"
+            id="scenic"
+            value="true"
+            onChange={handleFilterChange}
+            checked={filters.scenic}
+          />
+          Scenic Views
+        </label>
 
-          <SortBoxes sortProps={sortProps}></SortBoxes>
-        </div>
+        <SortBoxes sortProps={sortProps}></SortBoxes>
       </div>
     </>
   );

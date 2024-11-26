@@ -62,7 +62,7 @@ export default function FilterOverlay({
       {/* Starts */}
       <div className={`filterOverlayContentContainer`}>
         <div
-          className={`slideToggle ${filterIsOpen ? "open" : ""} ${
+          className={`filterSlide ${filterIsOpen ? "open" : ""} ${
             darkTheme ? "dark" : "light"
           }`}
         >

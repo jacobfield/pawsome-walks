@@ -370,14 +370,12 @@
   }
 }
 @media (max-width: 1024px) and (min-width: 649px) {
-  .filterSlide.open,
-  .slideToggle.open {
+  .filterSlide.open {
     max-height: 355px; /* Adjust based on content size */
   }
 }
 @media (max-width: 650px) and (min-width: 436px) {
-  .filterSlide.open,
-  .slideToggle.open {
+  .filterSlide.open {
     max-height: 440px; /* Adjust based on content size */
   }
 }

@@ -366,7 +366,7 @@
 
   .filterSlide.open,
   .slideToggle.open {
-    max-height: 440px;
+    min-height: 440px;
   }
 
   .filterBoxesContainer {
@@ -381,8 +381,7 @@
   }
 }
 @media (max-width: 361px) {
-  .filterSlide.open,
-  .slideToggle.open {
+  .filterSlide.open {
     max-height: 500px;
   }
 }

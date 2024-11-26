@@ -380,8 +380,7 @@
     margin-bottom: 10px;
   }
 
-  .filterSlide.open,
-  .slideToggle.open {
+  .filterSlide.open {
     max-height: 310px;
   }
 
