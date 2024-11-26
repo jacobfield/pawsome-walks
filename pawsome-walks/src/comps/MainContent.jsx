@@ -5,7 +5,7 @@ import Main from "./Main.jsx";
 import Footer from "./Footer.jsx";
 import WalkDetail from "./WalkDetail.jsx";
 import { useAuth } from "./AuthContext.jsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -16,6 +16,7 @@ import SignIn from "./SignIn.jsx";
 import filterWalks from "../hooks/filterWalks.js";
 import useDistanceFromUser from "../hooks/useDistanceFromUser.js";
 import useGetFavouriteData from "../hooks/useGetFavouriteData.js";
+import useAlphabeticalSort from "../hooks/useAlphabeticalSort.js";
 
 // MainContent component
 export default function MainContent({ allWalks, navBarProps, sortProps }) {
@@ -28,13 +29,33 @@ export default function MainContent({ allWalks, navBarProps, sortProps }) {
   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [isFiltered, setIsFiltered] = useState(false);
 
-  const { isSorted, setIsSorted, sortedWalks, setSortedWalks } = sortProps;
+  const {
+    isSorted,
+    setIsSorted,
+    sortedWalks,
+    setSortedWalks,
+    distanceSort,
+    setDistanceSort,
+    nameSort,
+    setNameSort,
+  } = sortProps;
   // Calculate distance from user
   useDistanceFromUser(
     isFiltered ? filteredWalks : allWalks,
     setSortedWalks,
-    isSorted
+    isSorted,
+    distanceSort,
+    nameSort
   );
+
+  useAlphabeticalSort(
+    isFiltered ? filteredWalks : allWalks,
+    setSortedWalks,
+    isSorted,
+    distanceSort,
+    nameSort
+  );
+
   // handle filters
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();

@@ -10,7 +10,7 @@ export default function FilterBoxes({
   sortProps,
   isFiltered,
 }) {
-  console.log("FilterBoxes.jsx allWalks", allWalks);
+  // console.log("FilterBoxes.jsx allWalks", allWalks);
   const { darkTheme } = useContext(ThemeContext);
   const [filters, setFilters] = useState({
     walktype: "All",
@@ -32,7 +32,7 @@ export default function FilterBoxes({
       allWalks.filter((walk) => walk.approved).flatMap((walk) => walk.location)
     ),
   ].sort((a, b) => a.localeCompare(b));
-  console.log("Loc arr", locationArr);
+  // console.log("Loc arr", locationArr);
   const handleFilterChange = (e) => {
     let filterType = e.target.id;
     let filterValue =
