@@ -464,6 +464,7 @@ footer.light {
   width: 100%;
   clear: both;
 }
+
 .filterSlide {
   display: block;
   overflow: hidden;
@@ -474,6 +475,20 @@ footer.light {
 }
 
 .filterSlide.open {
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.slideToggle {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
+.slideToggle.open {
   margin-top: 20px;
   opacity: 1;
 }

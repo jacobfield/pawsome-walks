@@ -49,7 +49,7 @@ export default function FilterBoxes({
 
   return (
     <>
-      <div className={`filterSlide ${filterIsOpen ? "open" : ""}`}>
+      <div className={`slideToggle ${filterIsOpen ? "open" : ""}`}>
         <div className={`filterBoxesContainer ${darkTheme ? "dark" : "light"}`}>
           <select onChange={handleFilterChange} id="location">
             <option value="All">Location?</option>

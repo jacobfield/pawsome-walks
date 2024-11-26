@@ -364,7 +364,8 @@
     margin-bottom: 10px;
   }
 
-  .filterSlide.open {
+  .filterSlide.open,
+  .slideToggle.open {
     max-height: 440px;
   }
 
@@ -380,7 +381,8 @@
   }
 }
 @media (max-width: 361px) {
-  .filterSlide.open {
+  .filterSlide.open,
+  .slideToggle.open {
     max-height: 500px;
   }
 }

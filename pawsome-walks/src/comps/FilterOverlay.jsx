@@ -38,7 +38,6 @@ export default function FilterOverlay({
   return (
     <div className="filterOverlayContainer">
       <div className="overlayButtonContainer">
-        {/* Filters Overlay Button */}
         <button
           className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
             filterIsOpen ? "open" : ""
@@ -47,7 +46,6 @@ export default function FilterOverlay({
         >
           {filterIsOpen ? "Hide" : "Show"} Filters
         </button>
-        {/* Add Walk Overlay Button */}
         {isLoggedIn ? (
           <button
             className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
@@ -61,9 +59,10 @@ export default function FilterOverlay({
           <></>
         )}
       </div>
-      <div className="filterOverlayContentContainer">
+      {/* Starts */}
+      <div className={`filterOverlayContentContainer`}>
         <div
-          className={`filterSlide ${filterIsOpen ? "open" : ""} ${
+          className={`slideToggle ${filterIsOpen ? "open" : ""} ${
             darkTheme ? "dark" : "light"
           }`}
         >
@@ -76,6 +75,7 @@ export default function FilterOverlay({
             sortProps={sortProps}
           />
         </div>
+        {/* Ends */}
         <div
           className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
             darkTheme ? "dark" : "light"
