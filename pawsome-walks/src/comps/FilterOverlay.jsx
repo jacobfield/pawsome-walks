@@ -20,7 +20,7 @@ export default function FilterOverlay({
   const { darkTheme } = useContext(ThemeContext);
   const { isLoggedIn } = useAuth();
 
-  const handleOverlayChange = () => {
+  const handleFilterIsOpenChange = () => {
     setFilterIsOpen(!filterIsOpen);
     // with the setISFiltered, it breaks the slide transition, but without, it requires two clicks to trigger a render :/
     setIsFiltered(!isFiltered);
@@ -30,12 +30,22 @@ export default function FilterOverlay({
     setAddWalkIsOpen(!addWalkIsOpen);
   };
 
-  // const handleFilterOpen = (e) => {};
+  const handleOverlayChange = (e) => {
+    const name = e.target.id;
+
+    if (name === "filterButton") {
+      handleFilterIsOpenChange();
+    }
+    if (name === "addWalkButton") {
+      handleAddWalkChange();
+    }
+  };
 
   return (
     <div className="filterOverlayContainer">
       <div className="overlayButtonContainer">
         <button
+          id="filterButton"
           className={`filterOverlayButton ${darkTheme ? "dark" : "light"}  ${
             filterIsOpen ? "open" : ""
           }  `}
@@ -45,11 +55,12 @@ export default function FilterOverlay({
         </button>
         {isLoggedIn ? (
           <button
+            id="addWalkButton"
             // index only, no impact on height
             className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
               filterIsOpen ? "open" : ""
             } `}
-            onClick={handleAddWalkChange}
+            onClick={handleOverlayChange}
           >
             Add a walk?
           </button>
