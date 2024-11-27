@@ -40,8 +40,11 @@ export default function FilterOverlay({
   };
 
   useEffect(() => {
-    if (!filterIsOpen) {
+    if (filterIsOpen) {
       setIsFiltered(true);
+    }
+    if (!filterIsOpen) {
+      setIsFiltered(false);
     }
   }, [filterIsOpen]);
 
