@@ -43,9 +43,9 @@ export default function FilterOverlay({
     if (filterIsOpen) {
       setIsFiltered(true);
     }
-    if (!filterIsOpen) {
-      setIsFiltered(false);
-    }
+    // if (!filterIsOpen) {
+    //   setIsFiltered(false);
+    // }
   }, [filterIsOpen]);
 
   return (
