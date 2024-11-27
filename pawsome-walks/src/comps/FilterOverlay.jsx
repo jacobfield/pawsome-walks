@@ -22,8 +22,6 @@ export default function FilterOverlay({
 
   const handleFilterIsOpenChange = () => {
     setFilterIsOpen(!filterIsOpen);
-    // with the setISFiltered, it breaks the slide transition, but without, it requires two clicks to trigger a render :/
-    setIsFiltered(!isFiltered);
   };
 
   const handleAddWalkChange = () => {
@@ -40,6 +38,12 @@ export default function FilterOverlay({
       handleAddWalkChange();
     }
   };
+
+  useEffect(() => {
+    if (!filterIsOpen) {
+      setIsFiltered(true);
+    }
+  }, [filterIsOpen]);
 
   return (
     <div className="filterOverlayContainer">
