@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import FilterBoxes from "./FilterBoxes";
 import AddWalkContainer from "./AddWalkContainer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { useAuth } from "./AuthContext";
 
@@ -22,27 +22,23 @@ export default function FilterOverlay({
 
   const handleOverlayChange = () => {
     setFilterIsOpen(!filterIsOpen);
-    if (!isFiltered) {
-      setIsFiltered(true);
-    }
-    if (isFiltered) {
-      setIsFiltered(false);
-    }
-    console.log("Filter Overlay Is Filtered", isFiltered);
+    // with the setISFiltered, it breaks the slide transition, but without, it requires two clicks to trigger a render :/
+    setIsFiltered(!isFiltered);
   };
 
   const handleAddWalkChange = () => {
     setAddWalkIsOpen(!addWalkIsOpen);
   };
 
+  // const handleFilterOpen = (e) => {};
+
   return (
-    // index only, no impact on height
     <div className="filterOverlayContainer">
-      {/* // index only, no impact on height */}
       <div className="overlayButtonContainer">
         <button
-          // index only, no impact on height
-          className={`filterOverlayButton ${darkTheme ? "dark" : "light"}  `}
+          className={`filterOverlayButton ${darkTheme ? "dark" : "light"}  ${
+            filterIsOpen ? "open" : ""
+          }  `}
           onClick={handleOverlayChange}
         >
           {filterIsOpen ? "Hide" : "Show"} Filters
@@ -50,7 +46,9 @@ export default function FilterOverlay({
         {isLoggedIn ? (
           <button
             // index only, no impact on height
-            className={`filterOverlayButton ${darkTheme ? "dark" : "light"} `}
+            className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
+              filterIsOpen ? "open" : ""
+            } `}
             onClick={handleAddWalkChange}
           >
             Add a walk?
@@ -60,29 +58,28 @@ export default function FilterOverlay({
         )}
       </div>
       {/* Starts */}
-      <div>
-        <div
-          className={`filterSlide ${filterIsOpen ? "open" : ""} ${
-            darkTheme ? "dark" : "light"
-          }`}
-        >
-          <FilterBoxes
-            setIsFiltered={setIsFiltered}
-            allWalks={allWalks}
-            setFilteredWalks={setFilteredWalks}
-            filteredWalks={filteredWalks}
-            filterIsOpen={filterIsOpen}
-            sortProps={sortProps}
-          />
-        </div>
-        {/* Ends */}
-        <div
-          className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
-            darkTheme ? "dark" : "light"
-          }`}
-        >
-          <AddWalkContainer allWalks={allWalks}></AddWalkContainer>
-        </div>
+      <div
+        className={`filterSlide ${filterIsOpen ? "open" : ""} ${
+          darkTheme ? "dark" : "light"
+        }`}
+      >
+        <FilterBoxes
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+          filterIsOpen={filterIsOpen}
+          sortProps={sortProps}
+        />
+      </div>
+
+      {/* Ends */}
+      <div
+        className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
+          darkTheme ? "dark" : "light"
+        }`}
+      >
+        <AddWalkContainer allWalks={allWalks}></AddWalkContainer>
       </div>
     </div>
   );

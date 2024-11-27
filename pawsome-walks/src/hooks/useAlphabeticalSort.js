@@ -22,8 +22,8 @@ export default function useAlphabeticalSort(
     }
   }, [walks, isSorted, nameSort, distanceSort, setSortedWalks]);
 
-    useEffect(() => {
-    console.log("final isSorted", isSorted);
-    console.log("final nameSort", nameSort);
+  useEffect(() => {
+    // console.log("final isSorted", isSorted);
+    // console.log("final nameSort", nameSort);
   }, [isSorted, nameSort]);
 }

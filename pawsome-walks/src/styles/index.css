@@ -360,7 +360,6 @@ footer.light {
 .filterBoxesContainer {
   /* width: 100%; */
   height: auto;
-  display: block;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -943,13 +942,17 @@ footer.light {
   width: 100%;
   max-height: 0;
   opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
+  transition: max-height 0.5s ease, opacity 0.5s ease !important;
+}
+.filterSlide > * {
+  overflow: hidden;
 }
 
 .filterSlide.open {
   pointer-events: auto;
   margin-top: 20px;
   opacity: 1;
+  transition: max-height 0.5s ease, opacity 0.5s ease !important;
 }
 
 @media (max-width: 361px) {
