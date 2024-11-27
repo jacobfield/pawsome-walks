@@ -129,18 +129,6 @@ export default function AddWalkForm({
       console.log("AddWalkForm.jsx: walkFormData", walkFormData);
       await handleAddWalkSubmit(walkFormData);
 
-      // setWalkName("");
-      // setLocation("");
-      // setLat(null);
-      // setLng(null);
-      // setWalkType([]);
-      // setOffLeadAreas(false);
-      // setPaths(false);
-      // setAnimalsOnRoute(false);
-      // setToilets(false);
-      // setWaterOnRoute(false);
-      // setScenic(false);
-      // setParking("none");
       window.location.reload();
     } catch (error) {
       console.error("Error uploading new walk:", error);
