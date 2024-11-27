@@ -59,9 +59,15 @@ export default function Main({
           />
         </div>
         <h1 className="noSearchFound">
-          {isSorted
-            ? "No sorted walks found."
-            : "No matching walks found. Try adjusting your search!"}
+          {isSorted ? (
+            "No sorted walks found."
+          ) : isFiltered ? (
+            "No matching walks found. Try adjusting your search!"
+          ) : (
+            <div className="loadingContainer">
+              <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
+            </div>
+          )}
         </h1>
       </div>
     );
