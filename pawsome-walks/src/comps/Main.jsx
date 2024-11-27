@@ -15,6 +15,7 @@ export default function Main({
   sortedWalks,
   isSorted,
   sortProps,
+  showFallback,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
@@ -40,7 +41,7 @@ export default function Main({
     : allWalks;
 
   // If the filters mean that there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
-  if (isFiltered && filteredWalks.length === 0) {
+  if (showFallback) {
     return (
       <div>
         <div className="filterOverlayWrapper">
@@ -58,15 +59,9 @@ export default function Main({
           />
         </div>
         <h1 className="noSearchFound">
-          {isSorted ? (
-            "No sorted walks found."
-          ) : isFiltered ? (
-            "No matching walks found. Try adjusting your search!"
-          ) : (
-            <div className="loadingContainer">
-              <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
-            </div>
-          )}
+          {isSorted
+            ? "No sorted walks found."
+            : "No matching walks found. Try adjusting your search!"}
         </h1>
       </div>
     );

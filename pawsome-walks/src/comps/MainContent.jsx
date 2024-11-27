@@ -28,6 +28,7 @@ export default function MainContent({ allWalks, navBarProps, sortProps }) {
   const [showFavourites, setShowFavourites] = useState(false);
   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
 
   const {
     isSorted,
@@ -61,11 +62,18 @@ export default function MainContent({ allWalks, navBarProps, sortProps }) {
     const searchValue = e.target.value.toLowerCase();
 
     if (searchValue.length > 0) {
+      const filteredResults = filterWalks(allWalks, searchValue);
       setIsFiltered(true);
-      setFilteredWalks(filterWalks(allWalks, searchValue));
+      setShowFallback(false);
+      setFilteredWalks(filteredResults);
+      if (filteredResults.length === 0) {
+        console.log("No matching walks found");
+        setShowFallback(true);
+      }
     } else {
       setIsFiltered(false);
       setFilteredWalks(allWalks);
+      setShowFallback(false);
     }
   };
   // constructing filter functions for passing props down easier
@@ -102,6 +110,7 @@ export default function MainContent({ allWalks, navBarProps, sortProps }) {
                 sortedWalks={sortedWalks}
                 isSorted={isSorted}
                 sortProps={sortProps}
+                showFallback={showFallback}
               />
             }
           />
