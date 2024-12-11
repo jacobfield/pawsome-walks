@@ -7,7 +7,8 @@ import Overlay from "./Overlay";
 export default function Header({
   navBarProps,
   showFavourites,
-  setShowFavourites, filterFunctions
+  setShowFavourites,
+  filterFunctions,
 }) {
   function toggleFavourites() {
     setShowFavourites(!showFavourites);
@@ -36,4 +37,3 @@ export default function Header({
     </header>
   );
 }
-

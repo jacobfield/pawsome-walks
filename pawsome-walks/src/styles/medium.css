@@ -364,14 +364,9 @@
   .signupForm button {
     margin-bottom: 10px;
   }
-}
-@media (max-width: 1024px) and (min-width: 649px) {
-  .filterSlide.open {
-    max-height: 355px; /* Adjust based on content size */
+
+  .filterBoxesContainer {
+    width: 100%;
   }
 }
-@media (max-width: 650px) and (min-width: 436px) {
-  .filterSlide.open {
-    max-height: 440px; /* Adjust based on content size */
-  }
-}
+

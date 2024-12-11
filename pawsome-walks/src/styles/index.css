@@ -358,13 +358,13 @@ footer.light {
 }
 
 .filterBoxesContainer {
-  width: 100%;
+  /* width: 100%; */
   height: auto;
-  display: block;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+  justify-self: center;
 }
 
 .filterBoxesContainer select {
@@ -376,6 +376,8 @@ footer.light {
   color: inherit;
   transition: border-color 0.2s ease;
   text-align: center;
+  min-width: 225px;
+  max-width: 225px;
 }
 
 .filterBoxesContainer select:hover {
@@ -458,25 +460,12 @@ footer.light {
 .filterOverlayContainer {
   display: grid;
   justify-content: center;
+  pointer-events: auto;
   width: 100%;
-  clear: both;
-}
-.filterSlide {
-  display: block;
-  overflow: hidden;
-  width: 100%;
-  max-height: 0;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.5s ease;
-}
-
-.filterSlide.open {
-  margin-top: 20px;
-  opacity: 1;
 }
 
 .filterBoxesContainer.light {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 6px 5px -8px rgba(0, 0, 0, 0.2);
   padding: 20px;
   background-color: inherit;
   /* border-radius: 8px; */
@@ -484,13 +473,14 @@ footer.light {
   font-size: 1em;
 }
 .filterBoxesContainer.dark {
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 6px 5px -8px rgba(255, 255, 255, 0.2);
   padding: 20px;
   background-color: inherit;
   /* border-radius: 8px; */
   margin-top: 10px;
   font-size: 1em;
 }
+
 .filterBoxesContainer {
   display: flex;
   align-items: center;
@@ -569,15 +559,7 @@ footer.light {
   background-color: #e0e0e0;
   box-shadow: none;
 }
-.filterSlide {
-  pointer-events: none;
-}
-.filterSlide.open {
-  pointer-events: auto;
-}
-.filterSlide.open {
-  pointer-events: auto;
-}
+
 .overlayButtonContainer {
   display: flex;
   justify-content: center;
@@ -949,4 +931,54 @@ footer.light {
   box-shadow: none;
   box-shadow: 0 0 6px rgba(0, 123, 255, 0.2);
   background-color: #007bffb6;
+}
+
+/* FILTER SLIDE */
+
+.filterSlide {
+  pointer-events: none;
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease, opacity 0.5s ease !important;
+}
+.filterSlide > * {
+  overflow: hidden;
+}
+
+.filterSlide.open {
+  pointer-events: auto;
+  margin-top: 20px;
+  opacity: 1;
+  transition: max-height 0.5s ease, opacity 0.5s ease !important;
+}
+
+@media (max-width: 361px) {
+  .filterSlide.open {
+    max-height: 500px;
+  }
+}
+
+@media (max-width: 436px) {
+  .filterSlide.open {
+    max-height: 440px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 649px) {
+  .filterSlide.open {
+    max-height: 355px;
+  }
+}
+@media (max-width: 650px) and (min-width: 436px) {
+  .filterSlide.open {
+    max-height: 440px;
+  }
+}
+@media (min-width: 1024px) {
+  .filterSlide.open {
+    max-height: 310px;
+  }
 }

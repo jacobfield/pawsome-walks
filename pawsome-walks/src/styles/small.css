@@ -364,12 +364,14 @@
     margin-bottom: 10px;
   }
 
-  .filterSlide.open {
-    max-height: 440px;
-  }
-}
-@media (max-width: 361px) {
-  .filterSlide.open {
-    max-height: 500px;
+  .filterBoxesContainer {
+    width: 90%;
+    height: auto;
+    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    justify-self: center;
   }
 }

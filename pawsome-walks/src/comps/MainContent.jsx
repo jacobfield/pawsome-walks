@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import SignUp from "./SignUp.jsx";
 import Header from "./Header.jsx";
 import Main from "./Main.jsx";
@@ -12,11 +13,13 @@ import {
   useLocation,
 } from "react-router-dom";
 import SignIn from "./SignIn.jsx";
-import getAllFavouriteWalksByOwnerId from "../hooks/apiCalls/getAllFavouriteWalksByOwnerId.js";
 import filterWalks from "../hooks/filterWalks.js";
+import useDistanceFromUser from "../hooks/useDistanceFromUser.js";
+import useGetFavouriteData from "../hooks/useGetFavouriteData.js";
+import useAlphabeticalSort from "../hooks/useAlphabeticalSort.js";
 
-//
-export default function MainContent({ allWalks, darkTheme, navBarProps }) {
+// MainContent component
+export default function MainContent({ allWalks, navBarProps, sortProps }) {
   const [favouriteWalks, setFavouriteWalks] = useState([]);
   const location = useLocation();
   const isSignupPage = location.pathname.endsWith("SignUp");
@@ -25,19 +28,55 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
   const [showFavourites, setShowFavourites] = useState(false);
   const [filteredWalks, setFilteredWalks] = useState(allWalks);
   const [isFiltered, setIsFiltered] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
 
+  const {
+    isSorted,
+    setIsSorted,
+    sortedWalks,
+    setSortedWalks,
+    distanceSort,
+    setDistanceSort,
+    nameSort,
+    setNameSort,
+  } = sortProps;
+  // Calculate distance from user
+  useDistanceFromUser(
+    isFiltered ? filteredWalks : allWalks,
+    setSortedWalks,
+    isSorted,
+    distanceSort,
+    nameSort
+  );
+
+  useAlphabeticalSort(
+    isFiltered ? filteredWalks : allWalks,
+    setSortedWalks,
+    isSorted,
+    distanceSort,
+    nameSort
+  );
+
+  // handle filters
   const handleFilter = (e) => {
     const searchValue = e.target.value.toLowerCase();
 
     if (searchValue.length > 0) {
+      const filteredResults = filterWalks(allWalks, searchValue);
       setIsFiltered(true);
-      setFilteredWalks(filterWalks(allWalks, searchValue));
+      setShowFallback(false);
+      setFilteredWalks(filteredResults);
+      if (filteredResults.length === 0) {
+        console.log("No matching walks found");
+        setShowFallback(true);
+      }
     } else {
       setIsFiltered(false);
       setFilteredWalks(allWalks);
+      setShowFallback(false);
     }
   };
-
+  // constructing filter functions for passing props down easier
   const filterFunctions = {
     handleFilter,
     isFiltered,
@@ -45,24 +84,8 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
     filteredWalks,
     setFilteredWalks,
   };
-
-  useEffect(() => {
-    async function fetchFavouritesData() {
-      if (isLoggedIn && owner && owner.ownerId) {
-        try {
-          const favouriteWalks = await getAllFavouriteWalksByOwnerId(
-            owner.ownerId
-          );
-          setFavouriteWalks(favouriteWalks);
-        } catch (error) {
-          error;
-
-          console.error("Error fetching favourites data", error);
-        }
-      }
-    }
-    fetchFavouritesData();
-  }, [isLoggedIn, owner]);
+  // Get favourite walks hook
+  useGetFavouriteData(isLoggedIn, owner, setFavouriteWalks);
   return (
     <div className="app">
       {!isSignupPage && !isLoginPage && (
@@ -84,6 +107,10 @@ export default function MainContent({ allWalks, darkTheme, navBarProps }) {
                 setFavouriteWalks={setFavouriteWalks}
                 showFavourites={showFavourites}
                 filterFunctions={filterFunctions}
+                sortedWalks={sortedWalks}
+                isSorted={isSorted}
+                sortProps={sortProps}
+                showFallback={showFallback}
               />
             }
           />

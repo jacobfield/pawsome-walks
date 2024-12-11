@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { bouncy } from "ldrs";
 import { ThemeContext } from "./ThemeProvider";
 import Quote from "./Quote";
@@ -12,25 +12,36 @@ export default function Main({
   favouriteWalks,
   showFavourites,
   filterFunctions,
+  sortedWalks,
+  isSorted,
+  sortProps,
+  showFallback,
 }) {
   bouncy.register();
   const [filterIsOpen, setFilterIsOpen] = useState(false);
   const [addWalkIsOpen, setAddWalkIsOpen] = useState(false);
   const { darkTheme } = useContext(ThemeContext);
   const { logout, owner, isLoggedIn } = useAuth();
+  const isAdmin = { isLoggedIn, ownerid: owner?.ownerId };
   const { isFiltered, filteredWalks, setFilteredWalks, setIsFiltered } =
     filterFunctions;
-
-  if (!allWalks) {
+  // console.log("Main.jsx sortedWalks", sortedWalks);
+  if (!allWalks || allWalks.length === 0) {
     return (
       <div className="loadingContainer">
         <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
       </div>
     );
   }
-  const isAdmin = { isLoggedIn, ownerid: owner?.ownerid };
-  const walksToDisplay = isFiltered ? filteredWalks : allWalks;
-  if (isFiltered && walksToDisplay.length === 0) {
+  // Determining which walks to display
+  let walksToDisplay = isSorted
+    ? sortedWalks
+    : isFiltered
+    ? filteredWalks
+    : allWalks;
+
+  // If the filters mean that there are no walks to display, show a message (CURRENTLY NOT WORKING - INSTEAD IT RESETS THE STATE??)
+  if (showFallback) {
     return (
       <div>
         <div className="filterOverlayWrapper">
@@ -38,20 +49,29 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
         <h1 className="noSearchFound">
-          No matching walks found. Try adjusting your search!
+          {isSorted ? (
+            "No sorted walks found."
+          ) : isFiltered ? (
+            "No matching walks found. Try adjusting your search!"
+          ) : (
+            <div className="loadingContainer">
+              <l-bouncy size="45" speed="1.75" color="#64abc1"></l-bouncy>
+            </div>
+          )}
         </h1>
       </div>
     );
   }
-
   if (isFiltered && filteredWalks.length !== 0) {
     return (
       <section className="walksContainer">
@@ -61,16 +81,19 @@ export default function Main({
             filterIsOpen={filterIsOpen}
             setFilterIsOpen={setFilterIsOpen}
             setIsFiltered={setIsFiltered}
+            isFiltered={isFiltered}
             allWalks={allWalks}
             setFilteredWalks={setFilteredWalks}
             filteredWalks={filteredWalks}
             setAddWalkIsOpen={setAddWalkIsOpen}
             addWalkIsOpen={addWalkIsOpen}
+            sortProps={sortProps}
           />
         </div>
+        {/* Conditionally showing filtered list. If no filtered list, show all walks */}
         {!showFavourites
           ? filteredWalks &&
-            filteredWalks.map((walk) => {
+            walksToDisplay.map((walk) => {
               const primarySrc = `walk-photos/${walk.photopath}.jpg`;
               return walk.approved ? (
                 <Link
@@ -105,8 +128,9 @@ export default function Main({
                 </Link>
               ) : null;
             })
-          : filteredWalks &&
-            filteredWalks
+          : /* If there are filtered walks, walksToDisplay will equal filtered walks, and will display them */
+            walksToDisplay &&
+            walksToDisplay
               .filter((walk) =>
                 favouriteWalks.some((fave) => fave.walkid === walk.walkid)
               )
@@ -163,11 +187,12 @@ export default function Main({
           filteredWalks={filteredWalks}
           setAddWalkIsOpen={setAddWalkIsOpen}
           addWalkIsOpen={addWalkIsOpen}
+          sortProps={sortProps}
         />
       </div>
       {!showFavourites
-        ? allWalks &&
-          allWalks.map((walk) => {
+        ? walksToDisplay &&
+          walksToDisplay.map((walk) => {
             const primarySrc = `walk-photos/${walk.photopath}.jpg`;
             return walk.approved ? (
               <Link
@@ -202,8 +227,8 @@ export default function Main({
               </Link>
             ) : null;
           })
-        : allWalks &&
-          allWalks
+        : walksToDisplay &&
+          walksToDisplay
             .filter((walk) =>
               favouriteWalks.some((fave) => fave.walkid === walk.walkid)
             )
@@ -242,9 +267,10 @@ export default function Main({
                 </Link>
               ) : null;
             })}
-      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4
-        ? allWalks &&
-          allWalks
+      {/* If admin is logged in (me) then show not yet approved walks, else show nothing */}
+      {isAdmin.isLoggedIn === true && isAdmin.ownerid === 4 && !showFavourites
+        ? walksToDisplay &&
+          walksToDisplay
             .filter((walk) => walk.approved === false)
             .map((walk) => {
               const primarySrc = `walk-photos/${walk.photopath}.jpg`;
