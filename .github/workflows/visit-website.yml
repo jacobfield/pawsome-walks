@@ -1,0 +1,13 @@
+name: Visit Website Every 48 Hours
+
+on:
+  schedule:
+    - cron: "0 */48 * * *" # Runs every 48 hours
+
+jobs:
+  visit-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send request to the website
+        run: curl -I https://pawsome-walks.vercel.app/
