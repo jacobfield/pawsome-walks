@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import FilterBoxes from "./FilterBoxes";
 import AddWalkContainer from "./AddWalkContainer";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "./ThemeProvider";
 import { useAuth } from "./AuthContext";
 
@@ -20,40 +20,54 @@ export default function FilterOverlay({
   const { darkTheme } = useContext(ThemeContext);
   const { isLoggedIn } = useAuth();
 
-  const handleOverlayChange = () => {
+  const handleFilterIsOpenChange = () => {
     setFilterIsOpen(!filterIsOpen);
-    if (!isFiltered) {
-      setIsFiltered(true);
-    }
-    if (isFiltered) {
-      setIsFiltered(false);
-    }
-    console.log("Filter Overlay Is Filtered", isFiltered);
   };
 
   const handleAddWalkChange = () => {
     setAddWalkIsOpen(!addWalkIsOpen);
   };
 
+  const handleOverlayChange = (e) => {
+    const name = e.target.id;
+
+    if (name === "filterButton") {
+      handleFilterIsOpenChange();
+    }
+    if (name === "addWalkButton") {
+      handleAddWalkChange();
+    }
+  };
+
+  useEffect(() => {
+    if (filterIsOpen) {
+      setIsFiltered(true);
+    }
+    // if (!filterIsOpen) {
+    //   setIsFiltered(false);
+    // }
+  }, [filterIsOpen]);
+
   return (
     <div className="filterOverlayContainer">
       <div className="overlayButtonContainer">
-        {/* Filters Overlay Button */}
         <button
-          className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
+          id="filterButton"
+          className={`filterOverlayButton ${darkTheme ? "dark" : "light"}  ${
             filterIsOpen ? "open" : ""
-          }`}
+          }  `}
           onClick={handleOverlayChange}
         >
           {filterIsOpen ? "Hide" : "Show"} Filters
         </button>
-        {/* Add Walk Overlay Button */}
         {isLoggedIn ? (
           <button
+            id="addWalkButton"
+            // index only, no impact on height
             className={`filterOverlayButton ${darkTheme ? "dark" : "light"} ${
-              addWalkIsOpen ? "open" : ""
-            }`}
-            onClick={handleAddWalkChange}
+              filterIsOpen ? "open" : ""
+            } `}
+            onClick={handleOverlayChange}
           >
             Add a walk?
           </button>
@@ -61,28 +75,29 @@ export default function FilterOverlay({
           <></>
         )}
       </div>
-      <div className="filterOverlayContentContainer">
-        <div
-          className={`filterSlide ${filterIsOpen ? "open" : ""} ${
-            darkTheme ? "dark" : "light"
-          }`}
-        >
-          <FilterBoxes
-            setIsFiltered={setIsFiltered}
-            allWalks={allWalks}
-            setFilteredWalks={setFilteredWalks}
-            filteredWalks={filteredWalks}
-            filterIsOpen={filterIsOpen}
-            sortProps={sortProps}
-          />
-        </div>
-        <div
-          className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
-            darkTheme ? "dark" : "light"
-          }`}
-        >
-          <AddWalkContainer allWalks={allWalks}></AddWalkContainer>
-        </div>
+      {/* Starts */}
+      <div
+        className={`filterSlide ${filterIsOpen ? "open" : ""} ${
+          darkTheme ? "dark" : "light"
+        }`}
+      >
+        <FilterBoxes
+          setIsFiltered={setIsFiltered}
+          allWalks={allWalks}
+          setFilteredWalks={setFilteredWalks}
+          filteredWalks={filteredWalks}
+          filterIsOpen={filterIsOpen}
+          sortProps={sortProps}
+        />
+      </div>
+
+      {/* Ends */}
+      <div
+        className={`filterSlide ${addWalkIsOpen ? "open" : ""} ${
+          darkTheme ? "dark" : "light"
+        }`}
+      >
+        <AddWalkContainer allWalks={allWalks}></AddWalkContainer>
       </div>
     </div>
   );
