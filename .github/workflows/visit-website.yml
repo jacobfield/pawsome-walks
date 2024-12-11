@@ -1,0 +1,17 @@
+name: Visit Website Every 48 Hours
+
+on:
+  schedule:
+    - cron: "0 */48 * * *" # Runs every 48 hours
+  workflow_dispatch: # Allows manual triggering
+  push: # Trigger the workflow on push to the repository
+    branches:
+      - main # Replace with the branch you want to trigger the workflow on
+
+jobs:
+  visit-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send request to the website
+        run: curl -I https://pawsome-walks.vercel.app/
