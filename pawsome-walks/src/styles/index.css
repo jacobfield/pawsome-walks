@@ -10,16 +10,12 @@
   /* color: black; */
 }
 
-.header.dark {
-  background-color: #3e57e65e;
+.header.dark,
+.footer.dark,
+.signupInputContainer.dark {
+  background-color: #38457d;
 }
 
-.footer.dark {
-  background-color: #32217e;
-}
-.signupInputContainer.dark {
-  background-color: #3e57e65e;
-}
 .signupInputContainer.light {
   background-color: #ffffef;
 }
