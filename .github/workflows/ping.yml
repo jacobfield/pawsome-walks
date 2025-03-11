@@ -2,7 +2,7 @@ name: Ping Website
 on:
   workflow_dispatch:    # <-- This allows you to manually trigger the workflow
   schedule:
-    - cron: '0 0 */3 * *'
+    - cron: '0 0 * * *'
 jobs:
   ping:
     runs-on: ubuntu-latest
