@@ -1,11 +1,43 @@
-name: Ping Website
+name: Simulate Daily Visit
+
 on:
-  workflow_dispatch:    # <-- This allows you to manually trigger the workflow
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # Runs every day at midnight (UTC)
+  workflow_dispatch:      # Allows manual triggering
+
 jobs:
-  ping:
+  simulate-visit:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Send request to website
-        run: curl -I https://pawsome-walks.vercel.app/
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'  # You can adjust the Node version as needed
+
+      - name: Initialize npm and install Playwright
+        run: |
+          npm init -y
+          npm install -D playwright
+
+      - name: Install Playwright Browsers
+        run: npx playwright install
+
+      - name: Run Playwright Test
+        run: |
+          node -e "const { chromium } = require('playwright');
+          (async () => {
+            const browser = await chromium.launch();
+            const page = await browser.newPage();
+            await page.goto('https://pawsome-walks.vercel.app/');
+            // Wait for 10 seconds
+            await page.waitForTimeout(10000);
+            const title = await page.title();
+            if (!title.includes('Pawsome Walks 🐾')) {
+              console.error('Page title does not include expected text: Pawsome Walks 🐾');
+              process.exit(1);
+            }
+            // Refresh the page
+            await page.reload();
+            await browser.close();
+          })();"      
